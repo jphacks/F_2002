@@ -15,6 +15,12 @@
 		0E062B6B2552EF6900CEAB3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E062B692552EF6900CEAB3E /* LaunchScreen.storyboard */; };
 		0E062B762552EF6900CEAB3E /* bejiAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062B752552EF6900CEAB3E /* bejiAppTests.swift */; };
 		0E062B812552EF6900CEAB3E /* bejiAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062B802552EF6900CEAB3E /* bejiAppUITests.swift */; };
+		0E062B982552FA3000CEAB3E /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062B972552FA3000CEAB3E /* StartViewController.swift */; };
+		0E062B9E2552FB1500CEAB3E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062B9D2552FB1500CEAB3E /* SignUpViewController.swift */; };
+		0E062BA52552FBA500CEAB3E /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BA42552FBA500CEAB3E /* Extension.swift */; };
+		0E062BAA2552FC3900CEAB3E /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BA92552FC3900CEAB3E /* SelectViewController.swift */; };
+		0E062BAF2552FF7D00CEAB3E /* PurchaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BAE2552FF7D00CEAB3E /* PurchaceViewController.swift */; };
+		0E062BB52553004C00CEAB3E /* PlantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BB42553004C00CEAB3E /* PlantViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +55,12 @@
 		0E062B7C2552EF6900CEAB3E /* bejiAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bejiAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E062B802552EF6900CEAB3E /* bejiAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bejiAppUITests.swift; sourceTree = "<group>"; };
 		0E062B822552EF6900CEAB3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0E062B972552FA3000CEAB3E /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		0E062B9D2552FB1500CEAB3E /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		0E062BA42552FBA500CEAB3E /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		0E062BA92552FC3900CEAB3E /* SelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
+		0E062BAE2552FF7D00CEAB3E /* PurchaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaceViewController.swift; sourceTree = "<group>"; };
+		0E062BB42553004C00CEAB3E /* PlantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +111,13 @@
 		0E062B5D2552EF6800CEAB3E /* bejiApp */ = {
 			isa = PBXGroup;
 			children = (
+				0E062BA32552FB9100CEAB3E /* Util */,
+				0E062B962552F9E000CEAB3E /* Infra */,
+				0E062B952552F9C600CEAB3E /* Model */,
+				0E062B942552F9B500CEAB3E /* View */,
 				0E062B5E2552EF6800CEAB3E /* AppDelegate.swift */,
 				0E062B602552EF6800CEAB3E /* SceneDelegate.swift */,
 				0E062B622552EF6800CEAB3E /* ViewController.swift */,
-				0E062B642552EF6800CEAB3E /* Main.storyboard */,
 				0E062B672552EF6900CEAB3E /* Assets.xcassets */,
 				0E062B692552EF6900CEAB3E /* LaunchScreen.storyboard */,
 				0E062B6C2552EF6900CEAB3E /* Info.plist */,
@@ -126,6 +141,57 @@
 				0E062B822552EF6900CEAB3E /* Info.plist */,
 			);
 			path = bejiAppUITests;
+			sourceTree = "<group>";
+		};
+		0E062B942552F9B500CEAB3E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0E062BB32552FF9400CEAB3E /* View */,
+				0E062B9C2552FAE500CEAB3E /* VC */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0E062B952552F9C600CEAB3E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0E062B962552F9E000CEAB3E /* Infra */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Infra;
+			sourceTree = "<group>";
+		};
+		0E062B9C2552FAE500CEAB3E /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				0E062B972552FA3000CEAB3E /* StartViewController.swift */,
+				0E062B9D2552FB1500CEAB3E /* SignUpViewController.swift */,
+				0E062BA92552FC3900CEAB3E /* SelectViewController.swift */,
+				0E062BAE2552FF7D00CEAB3E /* PurchaceViewController.swift */,
+				0E062BB42553004C00CEAB3E /* PlantViewController.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		0E062BA32552FB9100CEAB3E /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				0E062BA42552FBA500CEAB3E /* Extension.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		0E062BB32552FF9400CEAB3E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0E062B642552EF6800CEAB3E /* Main.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +325,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E062B632552EF6800CEAB3E /* ViewController.swift in Sources */,
+				0E062BAF2552FF7D00CEAB3E /* PurchaceViewController.swift in Sources */,
+				0E062B982552FA3000CEAB3E /* StartViewController.swift in Sources */,
 				0E062B5F2552EF6800CEAB3E /* AppDelegate.swift in Sources */,
+				0E062BAA2552FC3900CEAB3E /* SelectViewController.swift in Sources */,
+				0E062BA52552FBA500CEAB3E /* Extension.swift in Sources */,
 				0E062B612552EF6800CEAB3E /* SceneDelegate.swift in Sources */,
+				0E062B9E2552FB1500CEAB3E /* SignUpViewController.swift in Sources */,
+				0E062BB52553004C00CEAB3E /* PlantViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
