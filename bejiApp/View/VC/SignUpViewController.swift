@@ -30,29 +30,25 @@ class SignUpViewController: UIViewController {
     }
     
     @objc func tapButton(_ sender: UIButton){
-        let email = mailTextField.text
-        let pass = passTextField.text
-//        if mailTextField.text == nil && passTextField.text != nil{
-//           print("メールなし")
-//        }
-//        if passTextField.text == nil  && mailTextField.text != nil{
-//            print("パスなし")
-//        }
-//        if passTextField.text == nil && mailTextField.text != nil {
-//            print("二つなし")
-//        }
-     
+        
+        if mailTextField.text?.count == 0 && passTextField.text?.count != 0{
+            print("メールなし")
+        }
+        if passTextField.text?.count == 0  && mailTextField.text?.count != 0{
+            print("パスなし")
+        }
+        if passTextField.text?.count == 0 && mailTextField.text?.count == 0 {
+            print("二つなし")
+        }
+        if mailTextField.text?.count != 0 && passTextField.text?.count != 0 {
             self.performSegue(withIdentifier: "toSelect", sender: nil)
-        
-           
-       
-        
-    
+        }
     }
 }
 
 extension SignUpViewController {
     func setUp(){
+        self.navigationItem.titleView = UIImageView(image: UIImage(named: "ログインしよう"))
         self.view.addSubview(baseView)
         baseView.addSubview(mailTextField)
         baseView.addSubview(passTextField)

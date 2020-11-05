@@ -7,15 +7,19 @@
 
 import UIKit
 
+//loading時にユーザー情報に応じた植物情報取得
+
 class PlantViewController: UIViewController {
     let commentView: CustomView = .init()
     let commentLabel: UILabel = .init()
-    let chatButton: CustomCircleView = .init()
+    let chatButton: UIButton = .init()
     let dayLabel: UILabel = .init()
     let iotButton: UIButton = .init()
     let baseView: UIView = .init()
     
-     override func viewDidLoad() {
+    var type: BejiType = .ichigo
+    
+    override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
         
@@ -61,13 +65,13 @@ extension PlantViewController {
             commentLabel.leadingAnchor.constraint(equalTo: commentView.leadingAnchor,constant: 52),
             commentLabel.trailingAnchor.constraint(equalTo: commentView.trailingAnchor,constant: -40),
             commentLabel.topAnchor.constraint(equalTo: commentView.topAnchor,constant: 50),
-//            commentLabel.bottomAnchor.constraint(equalTo: commentView.bottomAnchor)
+            //            commentLabel.bottomAnchor.constraint(equalTo: commentView.bottomAnchor)
         ])
         commentLabel.text = "これからの成長が楽しみだっもん！"
         commentLabel.font = .boldSystemFont(ofSize: 20)
         commentLabel.textColor = .black
         commentLabel.clipsToBounds = true
-
+        
         commentLabel.numberOfLines = 0
         commentLabel.backgroundColor = .white
         commentLabel.textAlignment = .center
@@ -76,13 +80,13 @@ extension PlantViewController {
         
         NSLayoutConstraint.activate([
             dayLabel.leadingAnchor.constraint(equalTo: baseView.leadingAnchor, constant: 44),
-            dayLabel.topAnchor.constraint(equalTo: baseView.topAnchor, constant: 99),
-            dayLabel.widthAnchor.constraint(equalToConstant: 101),
+            dayLabel.topAnchor.constraint(equalTo: baseView.topAnchor, constant: 122),
+            dayLabel.widthAnchor.constraint(equalToConstant: 120),
             dayLabel.heightAnchor.constraint(equalToConstant: 30)
         ])
         dayLabel.backgroundColor = .clear
         dayLabel.text = "栽培1日目"
-        dayLabel.font = .boldSystemFont(ofSize: 13)
+        dayLabel.font = .boldSystemFont(ofSize: 20)
         
         NSLayoutConstraint.activate([
             chatButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 301),
@@ -90,10 +94,17 @@ extension PlantViewController {
             chatButton.widthAnchor.constraint(equalToConstant: 82),
             chatButton.heightAnchor.constraint(equalToConstant: 82)
         ])
-        chatButton.layer.cornerRadius = 41
-        chatButton.backgroundColor = .red
+        chatButton.setImage(UIImage(imageLiteralResourceName: "チャットボタン"), for: .normal)
         
-       
+        NSLayoutConstraint.activate([
+            iotButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 98),
+            iotButton.bottomAnchor.constraint(equalTo: baseView.bottomAnchor),
+            iotButton.widthAnchor.constraint(equalToConstant: 215),
+            iotButton.heightAnchor.constraint(equalToConstant: 215)
+        ])
+        iotButton.setImage(UIImage(imageLiteralResourceName:"Plant1"), for: .normal)
+        
+        
         baseView.backgroundColor = UIColor(patternImage: UIImage(imageLiteralResourceName: "背景２"))
         chatButton.addTarget(self,action: #selector(self.tapButton(_ :)),for: .touchUpInside)
     }

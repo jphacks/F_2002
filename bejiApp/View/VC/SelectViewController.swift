@@ -41,24 +41,39 @@ class SelectViewController: UIViewController {
     }
     
     @objc func tapButton1(_ sender: UIButton){
-        self.performSegue(withIdentifier: "toPurchace", sender: nil)
+        let type: BejiType = .jyagaimo
+        self.performSegue(withIdentifier: "toPurchace", sender: type)
+        print("tap")
     }
     @objc func tapButton2(_ sender: UIButton){
-        self.performSegue(withIdentifier: "toPurchace", sender: nil)
+        let type: BejiType = .tamanegi
+        self.performSegue(withIdentifier: "toPurchace", sender: type)
         
     }
     @objc func tapButton3(_ sender: UIButton){
-        self.performSegue(withIdentifier: "toPurchace", sender: nil)
+        let type: BejiType = .ninjin
+        self.performSegue(withIdentifier: "toPurchace", sender: type)
     }
     @objc func tapButton4(_ sender: UIButton){
-        self.performSegue(withIdentifier: "toPurchace", sender: nil)
+        let type: BejiType = .ichigo
+        self.performSegue(withIdentifier: "toPurchace", sender: type)
         
     }
     @objc func tapButton5(_ sender: UIButton){
-        self.performSegue(withIdentifier: "toPurchace", sender: nil)
+        let type: BejiType = .nasu
+        self.performSegue(withIdentifier: "toPurchace", sender: type)
     }
     @objc func tapButton6(_ sender: UIButton){
-        self.performSegue(withIdentifier: "toPurchace", sender: nil)
+        let type: BejiType = .kyuuri
+        self.performSegue(withIdentifier: "toPurchace", sender: type)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let type = sender as! BejiType
+        if segue.identifier == "toPurchace" {
+            let nextVC = segue.destination as! PurchaceViewController
+            nextVC.type = type
+            
+        }
     }
     
 }
