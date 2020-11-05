@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -22,6 +22,9 @@
 		0E062BAF2552FF7D00CEAB3E /* PurchaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BAE2552FF7D00CEAB3E /* PurchaceViewController.swift */; };
 		0E062BB52553004C00CEAB3E /* PlantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BB42553004C00CEAB3E /* PlantViewController.swift */; };
 		0E062BBA25535F5600CEAB3E /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BB925535F5600CEAB3E /* ChatViewController.swift */; };
+		0E062BC02553A6A600CEAB3E /* MessageKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0E062BBF2553A6A600CEAB3E /* MessageKit */; };
+		0E062BC62553A6EB00CEAB3E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0E062BC52553A6EB00CEAB3E /* Alamofire */; };
+		0E062BCC2553A70200CEAB3E /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 0E062BCB2553A70200CEAB3E /* SwiftyJSON */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +73,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E062BCC2553A70200CEAB3E /* SwiftyJSON in Frameworks */,
+				0E062BC02553A6A600CEAB3E /* MessageKit in Frameworks */,
+				0E062BC62553A6EB00CEAB3E /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,6 +219,11 @@
 			dependencies = (
 			);
 			name = bejiApp;
+			packageProductDependencies = (
+				0E062BBF2553A6A600CEAB3E /* MessageKit */,
+				0E062BC52553A6EB00CEAB3E /* Alamofire */,
+				0E062BCB2553A70200CEAB3E /* SwiftyJSON */,
+			);
 			productName = bejiApp;
 			productReference = 0E062B5B2552EF6800CEAB3E /* bejiApp.app */;
 			productType = "com.apple.product-type.application";
@@ -284,6 +295,11 @@
 				Base,
 			);
 			mainGroup = 0E062B522552EF6800CEAB3E;
+			packageReferences = (
+				0E062BBE2553A6A600CEAB3E /* XCRemoteSwiftPackageReference "MessageKit" */,
+				0E062BC42553A6EB00CEAB3E /* XCRemoteSwiftPackageReference "Alamofire" */,
+				0E062BCA2553A70200CEAB3E /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+			);
 			productRefGroup = 0E062B5C2552EF6800CEAB3E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -663,6 +679,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0E062BBE2553A6A600CEAB3E /* XCRemoteSwiftPackageReference "MessageKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MessageKit/MessageKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.4.2;
+			};
+		};
+		0E062BC42553A6EB00CEAB3E /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.0;
+			};
+		};
+		0E062BCA2553A70200CEAB3E /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0E062BBF2553A6A600CEAB3E /* MessageKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0E062BBE2553A6A600CEAB3E /* XCRemoteSwiftPackageReference "MessageKit" */;
+			productName = MessageKit;
+		};
+		0E062BC52553A6EB00CEAB3E /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0E062BC42553A6EB00CEAB3E /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		0E062BCB2553A70200CEAB3E /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0E062BCA2553A70200CEAB3E /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0E062B532552EF6800CEAB3E /* Project object */;
 }
