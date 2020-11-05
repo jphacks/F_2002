@@ -39,7 +39,7 @@ extension StartViewController {
             baseView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             baseView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
-//        baseView.backgroundColor = UIColor(patternImage: UIImage(imageLiteralResourceName: "背景2"))
+        baseView.backgroundColor = UIColor(patternImage: UIImage(imageLiteralResourceName: "背景1"))
 //
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: baseView.topAnchor, constant: 225),

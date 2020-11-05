@@ -15,6 +15,7 @@ class SelectViewController: UIViewController {
     let button4: UIButton = .init()
     let button5: UIButton = .init()
     let button6: UIButton = .init()
+    let baseView: UIView = .init()
     
     let stackView: UIStackView = {
         let view: UIStackView = .init()
@@ -63,7 +64,16 @@ class SelectViewController: UIViewController {
 }
 extension SelectViewController {
     func setUp(){
-        self.view.addSubview(stackView)
+        self.view.addSubview(baseView)
+        baseView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            baseView.topAnchor.constraint(equalTo: self.view.topAnchor,constant: 88),
+            baseView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            baseView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            baseView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+        ])
+        
+        baseView.addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.addArrangedSubview(button1)
         stackView.addArrangedSubview(button2)
@@ -72,7 +82,7 @@ extension SelectViewController {
         button2.translatesAutoresizingMaskIntoConstraints = false
         button3.translatesAutoresizingMaskIntoConstraints = false
         
-        self.view.addSubview(stackView2)
+        baseView.addSubview(stackView2)
         stackView2.translatesAutoresizingMaskIntoConstraints = false
         stackView2.addArrangedSubview(button4)
         stackView2.addArrangedSubview(button5)
@@ -83,7 +93,7 @@ extension SelectViewController {
         
         NSLayoutConstraint.activate([
             stackView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 48),
-            stackView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 180),
+            stackView.topAnchor.constraint(equalTo: baseView.topAnchor, constant: 180),
             stackView.widthAnchor.constraint(equalToConstant: 147 ),
             stackView.heightAnchor.constraint(equalToConstant: 512)
         ])
@@ -103,7 +113,7 @@ extension SelectViewController {
         
         NSLayoutConstraint.activate([
             stackView2.leadingAnchor.constraint(equalTo: self.stackView.trailingAnchor, constant: 33),
-            stackView2.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 180),
+            stackView2.topAnchor.constraint(equalTo: baseView.topAnchor, constant: 180),
             stackView2.widthAnchor.constraint(equalToConstant: 147 ),
             stackView2.heightAnchor.constraint(equalToConstant: 512)
         ])
@@ -133,5 +143,7 @@ extension SelectViewController {
         button4.setImage(UIImage(imageLiteralResourceName: "いちご"), for: .normal)
         button5.setImage(UIImage(imageLiteralResourceName: "なす"), for: .normal)
         button6.setImage(UIImage(imageLiteralResourceName: "きゅうり"), for: .normal)
+        
+        baseView.backgroundColor = UIColor(patternImage: UIImage(imageLiteralResourceName: "背景1"))
     }
 }
