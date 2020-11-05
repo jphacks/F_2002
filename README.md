@@ -4,7 +4,6 @@
 [![IMAGE ALT TEXT HERE](https://jphacks.com/wp-content/uploads/2020/09/JPHACKS2020_ogp.jpg)](https://www.youtube.com/watch?v=G5rULR53uMk)
 
 ## 製品概要
-- F_2002　をご参照ください。
 野菜と雑談を通じて、身近に感じながら家庭菜園の達成を補助するアプリです。
 栽培キットの購入から一貫したUXで育成アシストをアプリが行い、雑談機能では水や温度のアラートも行ってくれます。
 可愛いキャラクターとUIデザインにより、子供と一緒に育てる保護者や若い女性にとって家庭菜園の障壁を低くしました。
