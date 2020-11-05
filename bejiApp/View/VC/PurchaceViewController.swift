@@ -8,6 +8,8 @@
 import UIKit
 
 class PurchaceViewController: UIViewController {
+    let baseView: UIView = .init()
+    let plantImageView: UIImageView = .init()
 
     let button: UIButton = .init()
     override func viewDidLoad() {
@@ -16,18 +18,17 @@ class PurchaceViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             button.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            button.widthAnchor.constraint(equalToConstant: 218),
-            button.heightAnchor.constraint(equalToConstant: 74),
-            button.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
+            button.widthAnchor.constraint(equalToConstant: 352),
+            button.heightAnchor.constraint(equalToConstant: 48),
+            button.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -45)
         ])
 
-        button.setTitle("購入", for: .normal)
+        button.setImage(UIImage(imageLiteralResourceName: "育てる"), for: .normal)
         button.addTarget(self,action: #selector(self.tapButton1(_ :)),for: .touchUpInside)
-        button.backgroundColor = .red
        
     }
     @objc func tapButton1(_ sender: UIButton){
-        self.performSegue(withIdentifier: "toJag", sender: nil)
+        self.performSegue(withIdentifier: "toPlants", sender: nil)
     }
     
 

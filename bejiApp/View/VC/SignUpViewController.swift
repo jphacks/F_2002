@@ -30,7 +30,24 @@ class SignUpViewController: UIViewController {
     }
     
     @objc func tapButton(_ sender: UIButton){
-        self.performSegue(withIdentifier: "toSelect", sender: nil)
+        let email = mailTextField.text
+        let pass = passTextField.text
+//        if mailTextField.text == nil && passTextField.text != nil{
+//           print("メールなし")
+//        }
+//        if passTextField.text == nil  && mailTextField.text != nil{
+//            print("パスなし")
+//        }
+//        if passTextField.text == nil && mailTextField.text != nil {
+//            print("二つなし")
+//        }
+        if pass == nil && email == nil {
+            self.performSegue(withIdentifier: "toSelect", sender: nil)
+        }
+        
+           
+       
+        
     
     }
 }
@@ -52,12 +69,12 @@ extension SignUpViewController {
             baseView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
         
-        baseView.backgroundColor = UIColor(patternImage: UIImage(imageLiteralResourceName: "背景2"))
+//        baseView.backgroundColor = UIColor(patternImage: UIImage(imageLiteralResourceName: "背景2"))
         
         
         NSLayoutConstraint.activate([
             mailTextField.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            mailTextField.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+            mailTextField.topAnchor.constraint(equalTo: baseView.topAnchor, constant: 272),
             mailTextField.widthAnchor.constraint(equalToConstant: 303),
             mailTextField.heightAnchor.constraint(equalToConstant: 53)
         ])
@@ -74,7 +91,7 @@ extension SignUpViewController {
         NSLayoutConstraint.activate([
             passTextField.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             passTextField.topAnchor.constraint(equalTo: mailTextField.bottomAnchor
-                                               , constant: 38),
+                                               , constant: 20),
             passTextField.widthAnchor.constraint(equalToConstant: 303),
             passTextField.heightAnchor.constraint(equalToConstant: 53)
         ])
@@ -90,12 +107,12 @@ extension SignUpViewController {
         
         NSLayoutConstraint.activate([
             button.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            button.topAnchor.constraint(equalTo: passTextField.bottomAnchor, constant: 30),
+            button.topAnchor.constraint(equalTo: passTextField.bottomAnchor, constant: 88),
             button.widthAnchor.constraint(equalToConstant: 303),
             button.heightAnchor.constraint(equalToConstant: 49)
         
         ])
-        button.setImage(UIImage(imageLiteralResourceName: "roguinn"), for: .normal)
+        button.setImage(UIImage(imageLiteralResourceName: "ログイン"), for: .normal)
         button.addTarget(self,action: #selector(self.tapButton(_ :)),for: .touchUpInside)
     }
 }

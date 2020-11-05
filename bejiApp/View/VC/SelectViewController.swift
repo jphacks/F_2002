@@ -127,11 +127,11 @@ extension SelectViewController {
         button5.addTarget(self,action: #selector(self.tapButton5(_ :)),for: .touchUpInside)
         button6.addTarget(self,action: #selector(self.tapButton6(_ :)),for: .touchUpInside)
         
-        button1.setImage(UIImage(imageLiteralResourceName: "コロネ"), for: .normal)
-        button2.setImage(UIImage(imageLiteralResourceName: "いけもと"), for: .normal)
-        button3.setImage(UIImage(imageLiteralResourceName: "ギャル"), for: .normal)
-        button4.setImage(UIImage(imageLiteralResourceName: "よちよち"), for: .normal)
-        button5.setImage(UIImage(imageLiteralResourceName: "コロネ"), for: .normal)
-        button6.setImage(UIImage(imageLiteralResourceName: "コロネ"), for: .normal)
+        button1.setImage(UIImage(imageLiteralResourceName: "じゃがいも"), for: .normal)
+        button2.setImage(UIImage(imageLiteralResourceName: "タマネギ"), for: .normal)
+        button3.setImage(UIImage(imageLiteralResourceName: "にんじん"), for: .normal)
+        button4.setImage(UIImage(imageLiteralResourceName: "いちご"), for: .normal)
+        button5.setImage(UIImage(imageLiteralResourceName: "なす"), for: .normal)
+        button6.setImage(UIImage(imageLiteralResourceName: "きゅうり"), for: .normal)
     }
 }

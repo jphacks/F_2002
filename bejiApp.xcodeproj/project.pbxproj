@@ -21,6 +21,7 @@
 		0E062BAA2552FC3900CEAB3E /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BA92552FC3900CEAB3E /* SelectViewController.swift */; };
 		0E062BAF2552FF7D00CEAB3E /* PurchaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BAE2552FF7D00CEAB3E /* PurchaceViewController.swift */; };
 		0E062BB52553004C00CEAB3E /* PlantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BB42553004C00CEAB3E /* PlantViewController.swift */; };
+		0E062BBA25535F5600CEAB3E /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BB925535F5600CEAB3E /* ChatViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		0E062BA92552FC3900CEAB3E /* SelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
 		0E062BAE2552FF7D00CEAB3E /* PurchaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaceViewController.swift; sourceTree = "<group>"; };
 		0E062BB42553004C00CEAB3E /* PlantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantViewController.swift; sourceTree = "<group>"; };
+		0E062BB925535F5600CEAB3E /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 				0E062BA92552FC3900CEAB3E /* SelectViewController.swift */,
 				0E062BAE2552FF7D00CEAB3E /* PurchaceViewController.swift */,
 				0E062BB42553004C00CEAB3E /* PlantViewController.swift */,
+				0E062BB925535F5600CEAB3E /* ChatViewController.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				0E062BA52552FBA500CEAB3E /* Extension.swift in Sources */,
 				0E062B612552EF6800CEAB3E /* SceneDelegate.swift in Sources */,
 				0E062B9E2552FB1500CEAB3E /* SignUpViewController.swift in Sources */,
+				0E062BBA25535F5600CEAB3E /* ChatViewController.swift in Sources */,
 				0E062BB52553004C00CEAB3E /* PlantViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

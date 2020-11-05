@@ -87,8 +87,6 @@ extension PlantViewController {
        
         baseView.backgroundColor = UIColor(patternImage: UIImage(imageLiteralResourceName: "背景"))
         chatButton.addTarget(self,action: #selector(self.tapButton(_ :)),for: .touchUpInside)
-      
-        
     }
     @objc func tapButton(_ sender: UIButton){
         self.performSegue(withIdentifier: "toChat", sender: nil)
