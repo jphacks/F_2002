@@ -17,7 +17,15 @@ class PlantViewController: UIViewController {
     
      override func viewDidLoad() {
         super.viewDidLoad()
-       setUp()
+        setUp()
+        
+    }
+    
+    func getPlantCount(day: Int){
+        dayLabel.text = "栽培\(day)日目"
+    }
+    func getPalntComment(comment: String){
+        commentLabel.text = comment
     }
     
 }
@@ -43,19 +51,20 @@ extension PlantViewController {
             baseView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
         NSLayoutConstraint.activate([
-            commentView.topAnchor.constraint(equalTo: baseView.topAnchor, constant: 144),
+            commentView.topAnchor.constraint(equalTo: baseView.topAnchor, constant: 167),
             commentView.leadingAnchor.constraint(equalTo: baseView.leadingAnchor, constant: 46),
             commentView.widthAnchor.constraint(equalToConstant: 326),
             commentView.heightAnchor.constraint(equalToConstant: 140)
         ])
+        
         NSLayoutConstraint.activate([
-            commentLabel.leadingAnchor.constraint(equalTo: commentView.leadingAnchor),
-            commentLabel.trailingAnchor.constraint(equalTo: commentView.trailingAnchor),
-            commentLabel.topAnchor.constraint(equalTo: commentView.topAnchor),
-            commentLabel.bottomAnchor.constraint(equalTo: commentView.bottomAnchor)
+            commentLabel.leadingAnchor.constraint(equalTo: commentView.leadingAnchor,constant: 52),
+            commentLabel.trailingAnchor.constraint(equalTo: commentView.trailingAnchor,constant: -40),
+            commentLabel.topAnchor.constraint(equalTo: commentView.topAnchor,constant: 50),
+//            commentLabel.bottomAnchor.constraint(equalTo: commentView.bottomAnchor)
         ])
         commentLabel.text = "これからの成長が楽しみだっもん！"
-        commentLabel.font = .boldSystemFont(ofSize: 25)
+        commentLabel.font = .boldSystemFont(ofSize: 20)
         commentLabel.textColor = .black
         commentLabel.clipsToBounds = true
 
@@ -76,8 +85,8 @@ extension PlantViewController {
         dayLabel.font = .boldSystemFont(ofSize: 13)
         
         NSLayoutConstraint.activate([
-            chatButton.centerXAnchor.constraint(equalTo: commentView.trailingAnchor),
-            chatButton.centerYAnchor.constraint(equalTo: commentView.topAnchor),
+            chatButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 301),
+            chatButton.topAnchor.constraint(equalTo: baseView.topAnchor, constant: 118),
             chatButton.widthAnchor.constraint(equalToConstant: 82),
             chatButton.heightAnchor.constraint(equalToConstant: 82)
         ])
@@ -85,7 +94,7 @@ extension PlantViewController {
         chatButton.backgroundColor = .red
         
        
-        baseView.backgroundColor = UIColor(patternImage: UIImage(imageLiteralResourceName: "背景"))
+        baseView.backgroundColor = UIColor(patternImage: UIImage(imageLiteralResourceName: "背景２"))
         chatButton.addTarget(self,action: #selector(self.tapButton(_ :)),for: .touchUpInside)
     }
     @objc func tapButton(_ sender: UIButton){

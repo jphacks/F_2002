@@ -41,9 +41,8 @@ class SignUpViewController: UIViewController {
 //        if passTextField.text == nil && mailTextField.text != nil {
 //            print("二つなし")
 //        }
-        if pass == nil && email == nil {
+     
             self.performSegue(withIdentifier: "toSelect", sender: nil)
-        }
         
            
        
@@ -69,7 +68,7 @@ extension SignUpViewController {
             baseView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
         
-//        baseView.backgroundColor = UIColor(patternImage: UIImage(imageLiteralResourceName: "背景2"))
+        baseView.backgroundColor = UIColor(patternImage: UIImage(imageLiteralResourceName: "背景1"))
         
         
         NSLayoutConstraint.activate([
