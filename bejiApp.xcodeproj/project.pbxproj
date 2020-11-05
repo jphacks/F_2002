@@ -25,6 +25,9 @@
 		0E062BC02553A6A600CEAB3E /* MessageKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0E062BBF2553A6A600CEAB3E /* MessageKit */; };
 		0E062BC62553A6EB00CEAB3E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0E062BC52553A6EB00CEAB3E /* Alamofire */; };
 		0E062BCC2553A70200CEAB3E /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 0E062BCB2553A70200CEAB3E /* SwiftyJSON */; };
+		0E062BD12553A90F00CEAB3E /* MessageMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BD02553A90F00CEAB3E /* MessageMock.swift */; };
+		0E062BD92553AD0B00CEAB3E /* ChatResponseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BD82553AD0B00CEAB3E /* ChatResponseViewController.swift */; };
+		0E062BDE2553E34D00CEAB3E /* BejiType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BDD2553E34D00CEAB3E /* BejiType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +69,9 @@
 		0E062BAE2552FF7D00CEAB3E /* PurchaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaceViewController.swift; sourceTree = "<group>"; };
 		0E062BB42553004C00CEAB3E /* PlantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantViewController.swift; sourceTree = "<group>"; };
 		0E062BB925535F5600CEAB3E /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		0E062BD02553A90F00CEAB3E /* MessageMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageMock.swift; sourceTree = "<group>"; };
+		0E062BD82553AD0B00CEAB3E /* ChatResponseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatResponseViewController.swift; sourceTree = "<group>"; };
+		0E062BDD2553E34D00CEAB3E /* BejiType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BejiType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +189,7 @@
 				0E062BAE2552FF7D00CEAB3E /* PurchaceViewController.swift */,
 				0E062BB42553004C00CEAB3E /* PlantViewController.swift */,
 				0E062BB925535F5600CEAB3E /* ChatViewController.swift */,
+				0E062BD82553AD0B00CEAB3E /* ChatResponseViewController.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -191,6 +198,8 @@
 			isa = PBXGroup;
 			children = (
 				0E062BA42552FBA500CEAB3E /* Extension.swift */,
+				0E062BD02553A90F00CEAB3E /* MessageMock.swift */,
+				0E062BDD2553E34D00CEAB3E /* BejiType.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -345,9 +354,12 @@
 			files = (
 				0E062B632552EF6800CEAB3E /* ViewController.swift in Sources */,
 				0E062BAF2552FF7D00CEAB3E /* PurchaceViewController.swift in Sources */,
+				0E062BD92553AD0B00CEAB3E /* ChatResponseViewController.swift in Sources */,
 				0E062B982552FA3000CEAB3E /* StartViewController.swift in Sources */,
 				0E062B5F2552EF6800CEAB3E /* AppDelegate.swift in Sources */,
+				0E062BD12553A90F00CEAB3E /* MessageMock.swift in Sources */,
 				0E062BAA2552FC3900CEAB3E /* SelectViewController.swift in Sources */,
+				0E062BDE2553E34D00CEAB3E /* BejiType.swift in Sources */,
 				0E062BA52552FBA500CEAB3E /* Extension.swift in Sources */,
 				0E062B612552EF6800CEAB3E /* SceneDelegate.swift in Sources */,
 				0E062B9E2552FB1500CEAB3E /* SignUpViewController.swift in Sources */,

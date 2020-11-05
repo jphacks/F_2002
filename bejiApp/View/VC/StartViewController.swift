@@ -16,6 +16,7 @@ final class StartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
+       
     }
     
     @objc func tapButton(_ sender: UIButton){
