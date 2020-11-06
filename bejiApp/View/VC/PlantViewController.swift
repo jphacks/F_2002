@@ -17,6 +17,8 @@ class PlantViewController: UIViewController {
     let iotButton: UIButton = .init()
     let baseView: UIView = .init()
     
+    var alertMessage: String = "あ"
+    
     var type: BejiType = .ichigo
     
     override func viewDidLoad() {
@@ -35,6 +37,7 @@ class PlantViewController: UIViewController {
 }
 extension PlantViewController {
     func setUp(){
+        self.navigationItem.titleView = UIImageView(image: type.nameImage())
         self.view.addSubview(baseView)
         baseView.addSubview(commentView)
         baseView.addSubview(chatButton)
@@ -107,8 +110,41 @@ extension PlantViewController {
         
         baseView.backgroundColor = UIColor(patternImage: UIImage(imageLiteralResourceName: "背景２"))
         chatButton.addTarget(self,action: #selector(self.tapButton(_ :)),for: .touchUpInside)
+        iotButton.addTarget(self,action: #selector(self.tapiotButton(_ :)),for: .touchUpInside)
+        
     }
     @objc func tapButton(_ sender: UIButton){
-        self.performSegue(withIdentifier: "toChat", sender: nil)
+        self.performSegue(withIdentifier: "toChat", sender: type)}
+    @objc func tapiotButton(_ sender: UIButton){
+        testAlert(topic: "お知らせ", type: type)
     }
+    //アラートメッセージ追加
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        let prepare:(type:BejiType,text:String) = sender as! (BejiType,String)
+//        let type = sender as! BejiType
+        if segue.identifier == "toChat" {
+            let nextVC = segue.destination as! ChatViewController
+            nextVC.type = self.type
+//            nextVC.alertmessage = alertMessage
+            
+        }
+    }
+    
+    func testAlert(topic:String, type: BejiType) {
+               
+        let content = UNMutableNotificationContent()
+        content.title = "\(type.name())からのお知らせだよ！！"
+                     content.body = topic
+                     content.sound = UNNotificationSound.default
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+        let request = UNNotificationRequest(identifier: "hoge", content: content, trigger: trigger)
+        let center = UNUserNotificationCenter.current()
+                     center.add(request)
+                     print("通知完了")
+        self.alertMessage = topic
+    }
+}
+struct toChatdata {
+    let alertmessage: String
+    let beji: BejiType
 }

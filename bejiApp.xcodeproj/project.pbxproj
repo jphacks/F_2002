@@ -22,12 +22,23 @@
 		0E062BAF2552FF7D00CEAB3E /* PurchaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BAE2552FF7D00CEAB3E /* PurchaceViewController.swift */; };
 		0E062BB52553004C00CEAB3E /* PlantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BB42553004C00CEAB3E /* PlantViewController.swift */; };
 		0E062BBA25535F5600CEAB3E /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BB925535F5600CEAB3E /* ChatViewController.swift */; };
-		0E062BC02553A6A600CEAB3E /* MessageKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0E062BBF2553A6A600CEAB3E /* MessageKit */; };
-		0E062BC62553A6EB00CEAB3E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0E062BC52553A6EB00CEAB3E /* Alamofire */; };
-		0E062BCC2553A70200CEAB3E /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 0E062BCB2553A70200CEAB3E /* SwiftyJSON */; };
+		0E062BC02553A6A600CEAB3E /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 0E062BBF2553A6A600CEAB3E /* SwiftPackageProductDependency */; };
+		0E062BC62553A6EB00CEAB3E /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 0E062BC52553A6EB00CEAB3E /* SwiftPackageProductDependency */; };
+		0E062BCC2553A70200CEAB3E /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 0E062BCB2553A70200CEAB3E /* SwiftPackageProductDependency */; };
 		0E062BD12553A90F00CEAB3E /* MessageMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BD02553A90F00CEAB3E /* MessageMock.swift */; };
 		0E062BD92553AD0B00CEAB3E /* ChatResponseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BD82553AD0B00CEAB3E /* ChatResponseViewController.swift */; };
 		0E062BDE2553E34D00CEAB3E /* BejiType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BDD2553E34D00CEAB3E /* BejiType.swift */; };
+		0E062BE42554147600CEAB3E /* NetWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BE32554147600CEAB3E /* NetWork.swift */; };
+		0E062BE9255414CE00CEAB3E /* Parther.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BE8255414CE00CEAB3E /* Parther.swift */; };
+		0E062BEE2554150A00CEAB3E /* APIType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BED2554150A00CEAB3E /* APIType.swift */; };
+		0E062BF32554151D00CEAB3E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BF22554151D00CEAB3E /* Model.swift */; };
+		0E062BF82554163400CEAB3E /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BF72554163400CEAB3E /* Firebase.swift */; };
+		0E062BFE25541A2F00CEAB3E /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 0E062BFD25541A2F00CEAB3E /* SwiftPackageProductDependency */; };
+		0E062C0025541A2F00CEAB3E /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 0E062BFF25541A2F00CEAB3E /* SwiftPackageProductDependency */; };
+		0E062C0225541A2F00CEAB3E /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 0E062C0125541A2F00CEAB3E /* SwiftPackageProductDependency */; };
+		A939A9762694533366656215 /* Pods_bejiApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6F8B16243AB1ABAE072403C /* Pods_bejiApp.framework */; };
+		D31B8F4338DF5B50022DE539 /* Pods_bejiAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34740079FD73BFA30ED0ADCC /* Pods_bejiAppTests.framework */; };
+		E6630C09E2CB4ED425680877 /* Pods_bejiApp_bejiAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83F8D617A80468DD6226C350 /* Pods_bejiApp_bejiAppUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +59,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C411CF71FBB9A4B27F8446A /* Pods-bejiApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bejiApp.release.xcconfig"; path = "Target Support Files/Pods-bejiApp/Pods-bejiApp.release.xcconfig"; sourceTree = "<group>"; };
 		0E062B5B2552EF6800CEAB3E /* bejiApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bejiApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E062B5E2552EF6800CEAB3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0E062B602552EF6800CEAB3E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +84,19 @@
 		0E062BD02553A90F00CEAB3E /* MessageMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageMock.swift; sourceTree = "<group>"; };
 		0E062BD82553AD0B00CEAB3E /* ChatResponseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatResponseViewController.swift; sourceTree = "<group>"; };
 		0E062BDD2553E34D00CEAB3E /* BejiType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BejiType.swift; sourceTree = "<group>"; };
+		0E062BE32554147600CEAB3E /* NetWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWork.swift; sourceTree = "<group>"; };
+		0E062BE8255414CE00CEAB3E /* Parther.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parther.swift; sourceTree = "<group>"; };
+		0E062BED2554150A00CEAB3E /* APIType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIType.swift; sourceTree = "<group>"; };
+		0E062BF22554151D00CEAB3E /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		0E062BF72554163400CEAB3E /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
+		2B895CC088FE5F7B07BCF724 /* Pods-bejiApp-bejiAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bejiApp-bejiAppUITests.release.xcconfig"; path = "Target Support Files/Pods-bejiApp-bejiAppUITests/Pods-bejiApp-bejiAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		2F495B7FEABFBC20A044BF5C /* Pods-bejiApp-bejiAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bejiApp-bejiAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-bejiApp-bejiAppUITests/Pods-bejiApp-bejiAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		34740079FD73BFA30ED0ADCC /* Pods_bejiAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bejiAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4418F6334E8AD43C056CF59B /* Pods-bejiAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bejiAppTests.release.xcconfig"; path = "Target Support Files/Pods-bejiAppTests/Pods-bejiAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		83F8D617A80468DD6226C350 /* Pods_bejiApp_bejiAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bejiApp_bejiAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6F8B16243AB1ABAE072403C /* Pods_bejiApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bejiApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED0782FBD129EA75D7E0EA44 /* Pods-bejiApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bejiApp.debug.xcconfig"; path = "Target Support Files/Pods-bejiApp/Pods-bejiApp.debug.xcconfig"; sourceTree = "<group>"; };
+		F3E8C503D543A45C90B5E4F8 /* Pods-bejiAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bejiAppTests.debug.xcconfig"; path = "Target Support Files/Pods-bejiAppTests/Pods-bejiAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,9 +104,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E062BCC2553A70200CEAB3E /* SwiftyJSON in Frameworks */,
-				0E062BC02553A6A600CEAB3E /* MessageKit in Frameworks */,
-				0E062BC62553A6EB00CEAB3E /* Alamofire in Frameworks */,
+				0E062BCC2553A70200CEAB3E /* BuildFile in Frameworks */,
+				0E062BC02553A6A600CEAB3E /* BuildFile in Frameworks */,
+				0E062BC62553A6EB00CEAB3E /* BuildFile in Frameworks */,
+				0E062C0225541A2F00CEAB3E /* BuildFile in Frameworks */,
+				0E062C0025541A2F00CEAB3E /* BuildFile in Frameworks */,
+				0E062BFE25541A2F00CEAB3E /* BuildFile in Frameworks */,
+				A939A9762694533366656215 /* Pods_bejiApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D31B8F4338DF5B50022DE539 /* Pods_bejiAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6630C09E2CB4ED425680877 /* Pods_bejiApp_bejiAppUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +140,8 @@
 				0E062B742552EF6900CEAB3E /* bejiAppTests */,
 				0E062B7F2552EF6900CEAB3E /* bejiAppUITests */,
 				0E062B5C2552EF6800CEAB3E /* Products */,
+				3495EE6B414689D513FF12C4 /* Pods */,
+				A508549DE1E576D3F899C699 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -169,6 +202,7 @@
 		0E062B952552F9C600CEAB3E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0E062BF22554151D00CEAB3E /* Model.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -176,6 +210,10 @@
 		0E062B962552F9E000CEAB3E /* Infra */ = {
 			isa = PBXGroup;
 			children = (
+				0E062BE32554147600CEAB3E /* NetWork.swift */,
+				0E062BE8255414CE00CEAB3E /* Parther.swift */,
+				0E062BED2554150A00CEAB3E /* APIType.swift */,
+				0E062BF72554163400CEAB3E /* Firebase.swift */,
 			);
 			path = Infra;
 			sourceTree = "<group>";
@@ -212,6 +250,30 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		3495EE6B414689D513FF12C4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				ED0782FBD129EA75D7E0EA44 /* Pods-bejiApp.debug.xcconfig */,
+				0C411CF71FBB9A4B27F8446A /* Pods-bejiApp.release.xcconfig */,
+				2F495B7FEABFBC20A044BF5C /* Pods-bejiApp-bejiAppUITests.debug.xcconfig */,
+				2B895CC088FE5F7B07BCF724 /* Pods-bejiApp-bejiAppUITests.release.xcconfig */,
+				F3E8C503D543A45C90B5E4F8 /* Pods-bejiAppTests.debug.xcconfig */,
+				4418F6334E8AD43C056CF59B /* Pods-bejiAppTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		A508549DE1E576D3F899C699 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A6F8B16243AB1ABAE072403C /* Pods_bejiApp.framework */,
+				83F8D617A80468DD6226C350 /* Pods_bejiApp_bejiAppUITests.framework */,
+				34740079FD73BFA30ED0ADCC /* Pods_bejiAppTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -219,9 +281,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0E062B852552EF6900CEAB3E /* Build configuration list for PBXNativeTarget "bejiApp" */;
 			buildPhases = (
+				E596FD7C0A3633B1B1344C65 /* [CP] Check Pods Manifest.lock */,
 				0E062B572552EF6800CEAB3E /* Sources */,
 				0E062B582552EF6800CEAB3E /* Frameworks */,
 				0E062B592552EF6800CEAB3E /* Resources */,
+				350827191D4D328DE1D864AE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -229,9 +293,12 @@
 			);
 			name = bejiApp;
 			packageProductDependencies = (
-				0E062BBF2553A6A600CEAB3E /* MessageKit */,
-				0E062BC52553A6EB00CEAB3E /* Alamofire */,
-				0E062BCB2553A70200CEAB3E /* SwiftyJSON */,
+				0E062BBF2553A6A600CEAB3E /* SwiftPackageProductDependency */,
+				0E062BC52553A6EB00CEAB3E /* SwiftPackageProductDependency */,
+				0E062BCB2553A70200CEAB3E /* SwiftPackageProductDependency */,
+				0E062BFD25541A2F00CEAB3E /* SwiftPackageProductDependency */,
+				0E062BFF25541A2F00CEAB3E /* SwiftPackageProductDependency */,
+				0E062C0125541A2F00CEAB3E /* SwiftPackageProductDependency */,
 			);
 			productName = bejiApp;
 			productReference = 0E062B5B2552EF6800CEAB3E /* bejiApp.app */;
@@ -241,6 +308,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0E062B882552EF6900CEAB3E /* Build configuration list for PBXNativeTarget "bejiAppTests" */;
 			buildPhases = (
+				24A48C751841B5BCB8531EFF /* [CP] Check Pods Manifest.lock */,
 				0E062B6D2552EF6900CEAB3E /* Sources */,
 				0E062B6E2552EF6900CEAB3E /* Frameworks */,
 				0E062B6F2552EF6900CEAB3E /* Resources */,
@@ -259,9 +327,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0E062B8B2552EF6900CEAB3E /* Build configuration list for PBXNativeTarget "bejiAppUITests" */;
 			buildPhases = (
+				6B369B91E4433F40CEFF4D3C /* [CP] Check Pods Manifest.lock */,
 				0E062B782552EF6900CEAB3E /* Sources */,
 				0E062B792552EF6900CEAB3E /* Frameworks */,
 				0E062B7A2552EF6900CEAB3E /* Resources */,
+				EF880DC81A6FB3393EBE2E1F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -305,9 +375,10 @@
 			);
 			mainGroup = 0E062B522552EF6800CEAB3E;
 			packageReferences = (
-				0E062BBE2553A6A600CEAB3E /* XCRemoteSwiftPackageReference "MessageKit" */,
-				0E062BC42553A6EB00CEAB3E /* XCRemoteSwiftPackageReference "Alamofire" */,
-				0E062BCA2553A70200CEAB3E /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				0E062BBE2553A6A600CEAB3E /* RemoteSwiftPackageReference */,
+				0E062BC42553A6EB00CEAB3E /* RemoteSwiftPackageReference */,
+				0E062BCA2553A70200CEAB3E /* RemoteSwiftPackageReference */,
+				0E062BFC25541A2F00CEAB3E /* RemoteSwiftPackageReference */,
 			);
 			productRefGroup = 0E062B5C2552EF6800CEAB3E /* Products */;
 			projectDirPath = "";
@@ -347,6 +418,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		24A48C751841B5BCB8531EFF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-bejiAppTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		350827191D4D328DE1D864AE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-bejiApp/Pods-bejiApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-bejiApp/Pods-bejiApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-bejiApp/Pods-bejiApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6B369B91E4433F40CEFF4D3C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-bejiApp-bejiAppUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E596FD7C0A3633B1B1344C65 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-bejiApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EF880DC81A6FB3393EBE2E1F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-bejiApp-bejiAppUITests/Pods-bejiApp-bejiAppUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-bejiApp-bejiAppUITests/Pods-bejiApp-bejiAppUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-bejiApp-bejiAppUITests/Pods-bejiApp-bejiAppUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0E062B572552EF6800CEAB3E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -356,9 +530,14 @@
 				0E062BAF2552FF7D00CEAB3E /* PurchaceViewController.swift in Sources */,
 				0E062BD92553AD0B00CEAB3E /* ChatResponseViewController.swift in Sources */,
 				0E062B982552FA3000CEAB3E /* StartViewController.swift in Sources */,
+				0E062BEE2554150A00CEAB3E /* APIType.swift in Sources */,
 				0E062B5F2552EF6800CEAB3E /* AppDelegate.swift in Sources */,
+				0E062BF82554163400CEAB3E /* Firebase.swift in Sources */,
 				0E062BD12553A90F00CEAB3E /* MessageMock.swift in Sources */,
+				0E062BE42554147600CEAB3E /* NetWork.swift in Sources */,
+				0E062BE9255414CE00CEAB3E /* Parther.swift in Sources */,
 				0E062BAA2552FC3900CEAB3E /* SelectViewController.swift in Sources */,
+				0E062BF32554151D00CEAB3E /* Model.swift in Sources */,
 				0E062BDE2553E34D00CEAB3E /* BejiType.swift in Sources */,
 				0E062BA52552FBA500CEAB3E /* Extension.swift in Sources */,
 				0E062B612552EF6800CEAB3E /* SceneDelegate.swift in Sources */,
@@ -537,6 +716,7 @@
 		};
 		0E062B862552EF6900CEAB3E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED0782FBD129EA75D7E0EA44 /* Pods-bejiApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -555,6 +735,7 @@
 		};
 		0E062B872552EF6900CEAB3E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C411CF71FBB9A4B27F8446A /* Pods-bejiApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -573,6 +754,7 @@
 		};
 		0E062B892552EF6900CEAB3E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F3E8C503D543A45C90B5E4F8 /* Pods-bejiAppTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -594,6 +776,7 @@
 		};
 		0E062B8A2552EF6900CEAB3E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4418F6334E8AD43C056CF59B /* Pods-bejiAppTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -615,6 +798,7 @@
 		};
 		0E062B8C2552EF6900CEAB3E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F495B7FEABFBC20A044BF5C /* Pods-bejiApp-bejiAppUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -634,6 +818,7 @@
 		};
 		0E062B8D2552EF6900CEAB3E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B895CC088FE5F7B07BCF724 /* Pods-bejiApp-bejiAppUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -693,7 +878,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		0E062BBE2553A6A600CEAB3E /* XCRemoteSwiftPackageReference "MessageKit" */ = {
+		0E062BBE2553A6A600CEAB3E /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/MessageKit/MessageKit";
 			requirement = {
@@ -701,7 +886,7 @@
 				minimumVersion = 3.4.2;
 			};
 		};
-		0E062BC42553A6EB00CEAB3E /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		0E062BC42553A6EB00CEAB3E /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
 			requirement = {
@@ -709,7 +894,7 @@
 				minimumVersion = 5.4.0;
 			};
 		};
-		0E062BCA2553A70200CEAB3E /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+		0E062BCA2553A70200CEAB3E /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
 			requirement = {
@@ -717,23 +902,46 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		0E062BFC25541A2F00CEAB3E /* RemoteSwiftPackageReference */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		0E062BBF2553A6A600CEAB3E /* MessageKit */ = {
+		0E062BBF2553A6A600CEAB3E /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0E062BBE2553A6A600CEAB3E /* XCRemoteSwiftPackageReference "MessageKit" */;
+			package = 0E062BBE2553A6A600CEAB3E /* RemoteSwiftPackageReference */;
 			productName = MessageKit;
 		};
-		0E062BC52553A6EB00CEAB3E /* Alamofire */ = {
+		0E062BC52553A6EB00CEAB3E /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0E062BC42553A6EB00CEAB3E /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = 0E062BC42553A6EB00CEAB3E /* RemoteSwiftPackageReference */;
 			productName = Alamofire;
 		};
-		0E062BCB2553A70200CEAB3E /* SwiftyJSON */ = {
+		0E062BCB2553A70200CEAB3E /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0E062BCA2553A70200CEAB3E /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			package = 0E062BCA2553A70200CEAB3E /* RemoteSwiftPackageReference */;
 			productName = SwiftyJSON;
+		};
+		0E062BFD25541A2F00CEAB3E /* SwiftPackageProductDependency */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0E062BFC25541A2F00CEAB3E /* RemoteSwiftPackageReference */;
+			productName = FirebaseAuth;
+		};
+		0E062BFF25541A2F00CEAB3E /* SwiftPackageProductDependency */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0E062BFC25541A2F00CEAB3E /* RemoteSwiftPackageReference */;
+			productName = FirebaseFirestore;
+		};
+		0E062C0125541A2F00CEAB3E /* SwiftPackageProductDependency */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0E062BFC25541A2F00CEAB3E /* RemoteSwiftPackageReference */;
+			productName = FirebaseFunctions;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

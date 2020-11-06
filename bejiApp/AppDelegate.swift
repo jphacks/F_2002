@@ -8,17 +8,37 @@
 import UIKit
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
 
+//    UINavigationBar.appearance().shadowImage = UIImage()
+//    UINavigationBar.appearance().barTintColor = UIColor(hex: "92AD78")
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        UINavigationBar.appearance().shadowImage = UIImage()
-        UINavigationBar.appearance().barTintColor = UIColor(hex: "92AD78")
-       
+            UINavigationBar.appearance().shadowImage = UIImage()
+            UINavigationBar.appearance().barTintColor = UIColor(hex: "92AD78")
+       let center = UNUserNotificationCenter.current()
+              center.removeAllPendingNotificationRequests()
+              center.requestAuthorization(options:[.badge,.alert,.sound]){ (granted,error) in
+                  if granted {
+                     print("通知許可")
+                  }
+             }
+              center.delegate = self
+              
+              window = UIWindow(frame: UIScreen.main.bounds)
+              window?.makeKeyAndVisible()
+      
         return true
     }
-
+    @available(iOS 10, *)
+       func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                   willPresent notification: UNNotification,
+                                   withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+           let userInfo = notification.request.content.userInfo
+           completionHandler(UNNotificationPresentationOptions.alert)
+       }
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {

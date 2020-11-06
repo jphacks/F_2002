@@ -20,30 +20,60 @@ public enum BejiType {
         switch self {
             case .ichigo: return UIImage(imageLiteralResourceName: "いちご名前")
             case.jyagaimo: return UIImage(imageLiteralResourceName: "じゃがいも名前")
-
+                
             case.kyuuri: return UIImage(imageLiteralResourceName: "きゅうり名前")
-
+                
             case .nasu: return UIImage(imageLiteralResourceName: "なす名前")
-
+                
             case .ninjin: return UIImage(imageLiteralResourceName: "にんじん名前")
-
+                
             case .tamanegi: return UIImage(imageLiteralResourceName: "たまねぎ名前")
-
+                
         }
     }
     func purchaceImage() -> UIImage{
         switch self {
             case .ichigo: return UIImage(imageLiteralResourceName: "いちご購入")
             case.jyagaimo: return UIImage(imageLiteralResourceName: "じゃがいも購入")
-
+                
             case.kyuuri: return UIImage(imageLiteralResourceName: "きゅうり購入")
-
+                
             case .nasu: return UIImage(imageLiteralResourceName: "なす購入")
-
+                
             case .ninjin: return UIImage(imageLiteralResourceName: "にんじん購入")
-
+                
             case .tamanegi: return UIImage(imageLiteralResourceName: "タマネギ購入")
-
+                
+        }
+    }
+    func name() -> String {
+        switch self {
+            case .ichigo: return "いちごくん"
+            case.jyagaimo: return "じゃがいもくん"
+                
+            case.kyuuri: return "きゅうりくん"
+                
+            case .nasu: return "なすくん"
+                
+            case .ninjin: return "にんじんくん"
+                
+            case .tamanegi: return "タマネギくん"
+                
+        }
+    }
+    func icon() -> UIImage {
+        switch self {
+            case .ichigo: return UIImage(imageLiteralResourceName: "いちご")
+            case.jyagaimo: return UIImage(imageLiteralResourceName: "じゃがいも")
+                
+            case.kyuuri: return UIImage(imageLiteralResourceName: "きゅうり")
+                
+            case .nasu: return UIImage(imageLiteralResourceName: "なす")
+                
+            case .ninjin: return UIImage(imageLiteralResourceName: "にんじん")
+                
+            case .tamanegi: return UIImage(imageLiteralResourceName: "タマネギ")
+                
         }
     }
     
