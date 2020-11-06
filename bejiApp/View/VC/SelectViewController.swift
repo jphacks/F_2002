@@ -38,6 +38,8 @@ class SelectViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
+        self.navigationItem.titleView = UIImageView(image: UIImage(named: "タネを選ぼう"))
+
     }
     
     @objc func tapButton1(_ sender: UIButton){

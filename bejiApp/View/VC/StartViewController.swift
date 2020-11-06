@@ -12,6 +12,7 @@ final class StartViewController: UIViewController {
     let baseView: UIView = .init()
     let titleLabel: UIImageView = .init()
     let button: UIButton = .init()
+    let layer: NetworkLayer = .init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,7 @@ final class StartViewController: UIViewController {
     
     @objc func tapButton(_ sender: UIButton){
         self.performSegue(withIdentifier: "toSignUp", sender: nil)
+
         
     }
 }
