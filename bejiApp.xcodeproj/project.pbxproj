@@ -22,9 +22,9 @@
 		0E062BAF2552FF7D00CEAB3E /* PurchaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BAE2552FF7D00CEAB3E /* PurchaceViewController.swift */; };
 		0E062BB52553004C00CEAB3E /* PlantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BB42553004C00CEAB3E /* PlantViewController.swift */; };
 		0E062BBA25535F5600CEAB3E /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BB925535F5600CEAB3E /* ChatViewController.swift */; };
-		0E062BC02553A6A600CEAB3E /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 0E062BBF2553A6A600CEAB3E /* SwiftPackageProductDependency */; };
-		0E062BC62553A6EB00CEAB3E /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 0E062BC52553A6EB00CEAB3E /* SwiftPackageProductDependency */; };
-		0E062BCC2553A70200CEAB3E /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 0E062BCB2553A70200CEAB3E /* SwiftPackageProductDependency */; };
+		0E062BC02553A6A600CEAB3E /* MessageKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0E062BBF2553A6A600CEAB3E /* MessageKit */; };
+		0E062BC62553A6EB00CEAB3E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0E062BC52553A6EB00CEAB3E /* Alamofire */; };
+		0E062BCC2553A70200CEAB3E /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 0E062BCB2553A70200CEAB3E /* SwiftyJSON */; };
 		0E062BD12553A90F00CEAB3E /* MessageMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BD02553A90F00CEAB3E /* MessageMock.swift */; };
 		0E062BD92553AD0B00CEAB3E /* ChatResponseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BD82553AD0B00CEAB3E /* ChatResponseViewController.swift */; };
 		0E062BDE2553E34D00CEAB3E /* BejiType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BDD2553E34D00CEAB3E /* BejiType.swift */; };
@@ -33,9 +33,10 @@
 		0E062BEE2554150A00CEAB3E /* APIType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BED2554150A00CEAB3E /* APIType.swift */; };
 		0E062BF32554151D00CEAB3E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BF22554151D00CEAB3E /* Model.swift */; };
 		0E062BF82554163400CEAB3E /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BF72554163400CEAB3E /* Firebase.swift */; };
-		0E062BFE25541A2F00CEAB3E /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 0E062BFD25541A2F00CEAB3E /* SwiftPackageProductDependency */; };
-		0E062C0025541A2F00CEAB3E /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 0E062BFF25541A2F00CEAB3E /* SwiftPackageProductDependency */; };
-		0E062C0225541A2F00CEAB3E /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 0E062C0125541A2F00CEAB3E /* SwiftPackageProductDependency */; };
+		0E062BFE25541A2F00CEAB3E /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 0E062BFD25541A2F00CEAB3E /* FirebaseAuth */; };
+		0E062C0025541A2F00CEAB3E /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 0E062BFF25541A2F00CEAB3E /* FirebaseFirestore */; };
+		0E062C0225541A2F00CEAB3E /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = 0E062C0125541A2F00CEAB3E /* FirebaseFunctions */; };
+		0EFA9C4325551448004267E9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0EFA9C4225551448004267E9 /* GoogleService-Info.plist */; };
 		A939A9762694533366656215 /* Pods_bejiApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6F8B16243AB1ABAE072403C /* Pods_bejiApp.framework */; };
 		D31B8F4338DF5B50022DE539 /* Pods_bejiAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34740079FD73BFA30ED0ADCC /* Pods_bejiAppTests.framework */; };
 		E6630C09E2CB4ED425680877 /* Pods_bejiApp_bejiAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83F8D617A80468DD6226C350 /* Pods_bejiApp_bejiAppUITests.framework */; };
@@ -89,6 +90,7 @@
 		0E062BED2554150A00CEAB3E /* APIType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIType.swift; sourceTree = "<group>"; };
 		0E062BF22554151D00CEAB3E /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		0E062BF72554163400CEAB3E /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
+		0EFA9C4225551448004267E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2B895CC088FE5F7B07BCF724 /* Pods-bejiApp-bejiAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bejiApp-bejiAppUITests.release.xcconfig"; path = "Target Support Files/Pods-bejiApp-bejiAppUITests/Pods-bejiApp-bejiAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		2F495B7FEABFBC20A044BF5C /* Pods-bejiApp-bejiAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bejiApp-bejiAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-bejiApp-bejiAppUITests/Pods-bejiApp-bejiAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		34740079FD73BFA30ED0ADCC /* Pods_bejiAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bejiAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,12 +106,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E062BCC2553A70200CEAB3E /* BuildFile in Frameworks */,
-				0E062BC02553A6A600CEAB3E /* BuildFile in Frameworks */,
-				0E062BC62553A6EB00CEAB3E /* BuildFile in Frameworks */,
-				0E062C0225541A2F00CEAB3E /* BuildFile in Frameworks */,
-				0E062C0025541A2F00CEAB3E /* BuildFile in Frameworks */,
-				0E062BFE25541A2F00CEAB3E /* BuildFile in Frameworks */,
+				0E062BCC2553A70200CEAB3E /* SwiftyJSON in Frameworks */,
+				0E062BC02553A6A600CEAB3E /* MessageKit in Frameworks */,
+				0E062BC62553A6EB00CEAB3E /* Alamofire in Frameworks */,
+				0E062C0225541A2F00CEAB3E /* FirebaseFunctions in Frameworks */,
+				0E062C0025541A2F00CEAB3E /* FirebaseFirestore in Frameworks */,
+				0E062BFE25541A2F00CEAB3E /* FirebaseAuth in Frameworks */,
 				A939A9762694533366656215 /* Pods_bejiApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -166,6 +168,7 @@
 				0E062B602552EF6800CEAB3E /* SceneDelegate.swift */,
 				0E062B622552EF6800CEAB3E /* ViewController.swift */,
 				0E062B672552EF6900CEAB3E /* Assets.xcassets */,
+				0EFA9C4225551448004267E9 /* GoogleService-Info.plist */,
 				0E062B692552EF6900CEAB3E /* LaunchScreen.storyboard */,
 				0E062B6C2552EF6900CEAB3E /* Info.plist */,
 			);
@@ -260,7 +263,6 @@
 				F3E8C503D543A45C90B5E4F8 /* Pods-bejiAppTests.debug.xcconfig */,
 				4418F6334E8AD43C056CF59B /* Pods-bejiAppTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -293,12 +295,12 @@
 			);
 			name = bejiApp;
 			packageProductDependencies = (
-				0E062BBF2553A6A600CEAB3E /* SwiftPackageProductDependency */,
-				0E062BC52553A6EB00CEAB3E /* SwiftPackageProductDependency */,
-				0E062BCB2553A70200CEAB3E /* SwiftPackageProductDependency */,
-				0E062BFD25541A2F00CEAB3E /* SwiftPackageProductDependency */,
-				0E062BFF25541A2F00CEAB3E /* SwiftPackageProductDependency */,
-				0E062C0125541A2F00CEAB3E /* SwiftPackageProductDependency */,
+				0E062BBF2553A6A600CEAB3E /* MessageKit */,
+				0E062BC52553A6EB00CEAB3E /* Alamofire */,
+				0E062BCB2553A70200CEAB3E /* SwiftyJSON */,
+				0E062BFD25541A2F00CEAB3E /* FirebaseAuth */,
+				0E062BFF25541A2F00CEAB3E /* FirebaseFirestore */,
+				0E062C0125541A2F00CEAB3E /* FirebaseFunctions */,
 			);
 			productName = bejiApp;
 			productReference = 0E062B5B2552EF6800CEAB3E /* bejiApp.app */;
@@ -375,10 +377,10 @@
 			);
 			mainGroup = 0E062B522552EF6800CEAB3E;
 			packageReferences = (
-				0E062BBE2553A6A600CEAB3E /* RemoteSwiftPackageReference */,
-				0E062BC42553A6EB00CEAB3E /* RemoteSwiftPackageReference */,
-				0E062BCA2553A70200CEAB3E /* RemoteSwiftPackageReference */,
-				0E062BFC25541A2F00CEAB3E /* RemoteSwiftPackageReference */,
+				0E062BBE2553A6A600CEAB3E /* XCRemoteSwiftPackageReference "MessageKit" */,
+				0E062BC42553A6EB00CEAB3E /* XCRemoteSwiftPackageReference "Alamofire" */,
+				0E062BCA2553A70200CEAB3E /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				0E062BFC25541A2F00CEAB3E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 0E062B5C2552EF6800CEAB3E /* Products */;
 			projectDirPath = "";
@@ -397,6 +399,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E062B6B2552EF6900CEAB3E /* LaunchScreen.storyboard in Resources */,
+				0EFA9C4325551448004267E9 /* GoogleService-Info.plist in Resources */,
 				0E062B682552EF6900CEAB3E /* Assets.xcassets in Resources */,
 				0E062B662552EF6800CEAB3E /* Main.storyboard in Resources */,
 			);
@@ -649,7 +652,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -704,7 +707,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -721,7 +724,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4PXVDQMGAW;
 				INFOPLIST_FILE = bejiApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -740,7 +745,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4PXVDQMGAW;
 				INFOPLIST_FILE = bejiApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -878,7 +885,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		0E062BBE2553A6A600CEAB3E /* RemoteSwiftPackageReference */ = {
+		0E062BBE2553A6A600CEAB3E /* XCRemoteSwiftPackageReference "MessageKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/MessageKit/MessageKit";
 			requirement = {
@@ -886,7 +893,7 @@
 				minimumVersion = 3.4.2;
 			};
 		};
-		0E062BC42553A6EB00CEAB3E /* RemoteSwiftPackageReference */ = {
+		0E062BC42553A6EB00CEAB3E /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
 			requirement = {
@@ -894,7 +901,7 @@
 				minimumVersion = 5.4.0;
 			};
 		};
-		0E062BCA2553A70200CEAB3E /* RemoteSwiftPackageReference */ = {
+		0E062BCA2553A70200CEAB3E /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
 			requirement = {
@@ -902,7 +909,7 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		0E062BFC25541A2F00CEAB3E /* RemoteSwiftPackageReference */ = {
+		0E062BFC25541A2F00CEAB3E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
@@ -913,34 +920,34 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		0E062BBF2553A6A600CEAB3E /* SwiftPackageProductDependency */ = {
+		0E062BBF2553A6A600CEAB3E /* MessageKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0E062BBE2553A6A600CEAB3E /* RemoteSwiftPackageReference */;
+			package = 0E062BBE2553A6A600CEAB3E /* XCRemoteSwiftPackageReference "MessageKit" */;
 			productName = MessageKit;
 		};
-		0E062BC52553A6EB00CEAB3E /* SwiftPackageProductDependency */ = {
+		0E062BC52553A6EB00CEAB3E /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0E062BC42553A6EB00CEAB3E /* RemoteSwiftPackageReference */;
+			package = 0E062BC42553A6EB00CEAB3E /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
-		0E062BCB2553A70200CEAB3E /* SwiftPackageProductDependency */ = {
+		0E062BCB2553A70200CEAB3E /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0E062BCA2553A70200CEAB3E /* RemoteSwiftPackageReference */;
+			package = 0E062BCA2553A70200CEAB3E /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
 			productName = SwiftyJSON;
 		};
-		0E062BFD25541A2F00CEAB3E /* SwiftPackageProductDependency */ = {
+		0E062BFD25541A2F00CEAB3E /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0E062BFC25541A2F00CEAB3E /* RemoteSwiftPackageReference */;
+			package = 0E062BFC25541A2F00CEAB3E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
 		};
-		0E062BFF25541A2F00CEAB3E /* SwiftPackageProductDependency */ = {
+		0E062BFF25541A2F00CEAB3E /* FirebaseFirestore */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0E062BFC25541A2F00CEAB3E /* RemoteSwiftPackageReference */;
+			package = 0E062BFC25541A2F00CEAB3E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
 		};
-		0E062C0125541A2F00CEAB3E /* SwiftPackageProductDependency */ = {
+		0E062C0125541A2F00CEAB3E /* FirebaseFunctions */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0E062BFC25541A2F00CEAB3E /* RemoteSwiftPackageReference */;
+			package = 0E062BFC25541A2F00CEAB3E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFunctions;
 		};
 /* End XCSwiftPackageProductDependency section */

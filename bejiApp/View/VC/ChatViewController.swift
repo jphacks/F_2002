@@ -304,12 +304,15 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
 
 extension ChatViewController:  UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            let image = info[.originalImage] as! UIImage
-            // "写真を使用"を押下した際、写真アプリに保存する
-            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
-            // UIImagePickerController カメラが閉じる
-            self.dismiss(animated: true, completion: nil)
-        }
+        let image = info[.originalImage] as! UIImage
+        // "写真を使用"を押下した際、写真アプリに保存する
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        // UIImagePickerController カメラが閉じる
+        self.dismiss(animated: true, completion: nil)
+        messageList.append(createImageMessage(image: image))
+        reloadMessage()
+        
+    }
 }
 
 
