@@ -17,7 +17,8 @@ final class StartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
-       
+        layer.requestApi(api: .user(1), parameters: nil, headers: nil)
+     
     }
     
     @objc func tapButton(_ sender: UIButton){

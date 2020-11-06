@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Firebase
 
 class UserModel: NSObject {
     var id: Int?
@@ -38,4 +39,9 @@ class Water: NSObject {
     var id: Int?
     var name: String?
     var value: Int?
+}
+
+struct Viewdata{
+    let auth = Auth.self
+    let type: BejiType
 }

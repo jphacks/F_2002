@@ -32,6 +32,14 @@ class SignUpViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        let type = sender as! BejiType
+        if segue.identifier == "toSelect" {
+            let nextVC = segue.destination as! SelectViewController
+            nextVC.path = self.auth
+            
+        }
+    }
     
     @objc func tapButton(_ sender: UIButton){
         
@@ -45,7 +53,7 @@ class SignUpViewController: UIViewController {
             print("二つなし")
         }
         if mailTextField.text?.count != 0 && passTextField.text?.count != 0 {
-            self.performSegue(withIdentifier: "toSelect", sender: nil)
+//            self.performSegue(withIdentifier: "toSelect", sender: auth)
         }
         guard let mail = mailTextField.text else {fatalError()}
         guard let pass = passTextField.text else {fatalError()}
@@ -60,6 +68,7 @@ class SignUpViewController: UIViewController {
                           return;
                         }
                         print("token\(idToken)")
+                        self.performSegue(withIdentifier: "toSelect", sender: self.auth)
 
                        
                       }

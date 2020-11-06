@@ -6,9 +6,13 @@
 //
 
 import UIKit
+import Firebase
 //stackviewの調整面倒なので脳死作成、後で書き直す
 
 class SelectViewController: UIViewController {
+    
+    var path: Auth!
+    var idtoken:String = .init()
     let button1: UIButton = .init()
     let button2: UIButton = .init()
     let button3: UIButton = .init()
@@ -38,6 +42,20 @@ class SelectViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
+        print(path)
+        self.path.currentUser?.getIDTokenForcingRefresh(true){ idToken, error in
+            if let error = error {
+              print("tokenerror")
+              return;
+            }
+            print("token\(idToken)")
+            guard let token = idToken else {fatalError()}
+            self.idtoken = token
+            print("OK?token\(idToken)")
+
+           
+          }
+        
         self.navigationItem.titleView = UIImageView(image: UIImage(named: "タネを選ぼう"))
 
     }
