@@ -13,7 +13,7 @@ class PurchaceViewController: UIViewController {
     let baseView: UIView = .init()
     let plantImageView: UIImageView = .init()
     var type: BejiType = .ichigo
-
+    
     let button: UIButton = .init()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,11 +34,11 @@ class PurchaceViewController: UIViewController {
             baseView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             baseView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
-
-
+        
+        
         button.setImage(UIImage(imageLiteralResourceName: "育てる"), for: .normal)
         button.addTarget(self,action: #selector(self.tapButton1(_ :)),for: .touchUpInside)
-//        baseView.backgroundColor = UIColor(patternImage: type.purchaceImage())
+        //        baseView.backgroundColor = UIColor(patternImage: type.purchaceImage())
     }
     @objc func tapButton1(_ sender: UIButton){
         self.performSegue(withIdentifier: "toPlants", sender: type)
@@ -52,5 +52,5 @@ class PurchaceViewController: UIViewController {
         }
     }
     
-
+    
 }

@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import Firebase
 
 class SignUpViewController: UIViewController {
+    
+    var auth:Auth!
 
     let baseView: UIView = .init()
     let mailTextField: UITextField = .init()
@@ -17,6 +20,7 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
+        auth = Auth.auth()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -42,6 +46,27 @@ class SignUpViewController: UIViewController {
         }
         if mailTextField.text?.count != 0 && passTextField.text?.count != 0 {
             self.performSegue(withIdentifier: "toSelect", sender: nil)
+        }
+        guard let mail = mailTextField.text else {fatalError()}
+        guard let pass = passTextField.text else {fatalError()}
+        auth.createUser(withEmail: mail, password: pass) { (result, error) in
+            if error == nil, let result = result {result.user.sendEmailVerification(completion: { (error) in
+                if error == nil {let alert = UIAlertController(title: "仮登録を行いました。", message: "入力したメールアドレス宛に確認メールを送信しました。", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                    self.auth.currentUser?.getIDTokenForcingRefresh(true){ idToken, error in
+                        if let error = error {
+                          // Handle error
+                          return;
+                        }
+                        print("token\(idToken)")
+
+                       
+                      }
+                    
+                }
+            })
+            }
         }
     }
 }

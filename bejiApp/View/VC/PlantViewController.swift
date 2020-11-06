@@ -120,27 +120,27 @@ extension PlantViewController {
     }
     //アラートメッセージ追加
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let prepare:(type:BejiType,text:String) = sender as! (BejiType,String)
-//        let type = sender as! BejiType
+        //        let prepare:(type:BejiType,text:String) = sender as! (BejiType,String)
+        //        let type = sender as! BejiType
         if segue.identifier == "toChat" {
             let nextVC = segue.destination as! ChatViewController
             nextVC.type = self.type
-//            nextVC.alertmessage = alertMessage
+            //            nextVC.alertmessage = alertMessage
             
         }
     }
     
     func testAlert(topic:String, type: BejiType) {
-               
+        
         let content = UNMutableNotificationContent()
         content.title = "\(type.name())からのお知らせだよ！！"
-                     content.body = topic
-                     content.sound = UNNotificationSound.default
+        content.body = topic
+        content.sound = UNNotificationSound.default
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
         let request = UNNotificationRequest(identifier: "hoge", content: content, trigger: trigger)
         let center = UNUserNotificationCenter.current()
-                     center.add(request)
-                     print("通知完了")
+        center.add(request)
+        print("通知完了")
         self.alertMessage = topic
     }
 }
