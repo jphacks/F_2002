@@ -8,7 +8,7 @@
 栽培キットの購入から一貫したUXで育成アシストをアプリが行い、雑談機能では水や温度のアラートも行ってくれます。
 可愛いキャラクターとUIデザインにより、子供と一緒に育てる保護者や若い女性にとって家庭菜園の障壁を低くしました。
 
-詳しい資料は下記の通りです。  
+詳しい資料は下記の通りです。
 https://docs.google.com/presentation/d/13iaOR-fD3DBfOAS06PP9HBRrHrt1RHAH9nM_f6ilguU/edit?usp=sharing
 
 サーバーはこちら
