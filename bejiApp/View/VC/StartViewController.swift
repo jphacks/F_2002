@@ -7,34 +7,31 @@
 
 import Foundation
 import UIKit
+import Alamofire
 
 final class StartViewController: UIViewController {
     let baseView: UIView = .init()
-    let titleLabel: UIImageView = .init()
+    let logo: UIImageView = .init()
     let button: UIButton = .init()
-    let layer: NetworkLayer = .init()
-    
+     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
-       
     }
     
     @objc func tapButton(_ sender: UIButton){
         self.performSegue(withIdentifier: "toSignUp", sender: nil)
-
-        
     }
 }
 
 extension StartViewController {
     func setUp(){
         self.view.addSubview(baseView)
-        self.view.addSubview(titleLabel)
+        self.view.addSubview(logo)
         self.view.addSubview(button)
         
         baseView.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        logo.translatesAutoresizingMaskIntoConstraints = false
         button.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             baseView.topAnchor.constraint(equalTo: self.view.topAnchor,constant: 88),
@@ -42,22 +39,25 @@ extension StartViewController {
             baseView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             baseView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
-        baseView.backgroundColor = UIColor(patternImage: UIImage(imageLiteralResourceName: "背景1"))
-//
+        baseView.backgroundColor = UIColor(patternImage: UIImage(imageLiteralResourceName: "background"))
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: baseView.topAnchor, constant: 225),
-            titleLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
+            logo.topAnchor.constraint(equalTo: baseView.topAnchor, constant: 183),
+            logo.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
         ])
-        titleLabel.image = UIImage(imageLiteralResourceName: "おしゃべじたぶる")
+        logo.image = UIImage(imageLiteralResourceName: "logo")
         
         NSLayoutConstraint.activate([
             button.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            button.widthAnchor.constraint(equalToConstant: 218),
-            button.heightAnchor.constraint(equalToConstant: 74),
-            button.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 129)
+            button.widthAnchor.constraint(equalToConstant: 183),
+            button.heightAnchor.constraint(equalToConstant: 62),
+            button.topAnchor.constraint(equalTo: logo.bottomAnchor, constant: 157)
         ])
-        button.setImage(UIImage(imageLiteralResourceName: "はじめる"), for: .normal)
+        button.setImage(UIImage(imageLiteralResourceName: "startButton"), for: .normal)
         button.addTarget(self,action: #selector(self.tapButton(_ :)),for: .touchUpInside)
     }
-    
+}
+
+
+extension StartViewController {
+    //全植物を取得
 }

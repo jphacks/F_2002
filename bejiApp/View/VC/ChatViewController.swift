@@ -14,20 +14,24 @@ import UIKit
 import MessageKit
 import CoreLocation
 import ActionSheetPicker_3_0
+import FirebaseDatabase
+import Firebase
 
-//API実装loading時に植物の会話データ取得
 
 class ChatViewController: MessagesViewController, MessageCellDelegate, MessagesLayoutDelegate, UINavigationControllerDelegate {
     var messageList: [MockMessage] = []
+    let firebaseManager: FirebaseAction = .init()
+    var viewdata: Viewdata!
     let testView: UIButton = .init()
     var tested: String = "" {
         didSet {
             let attributedText = NSAttributedString(string: tested, attributes: [.font: UIFont.systemFont(ofSize: 15),
                                                                                  .foregroundColor: UIColor.white])
             let message = MockMessage(attributedText: attributedText, sender: currentSender() as! Sender, messageId:UUID().uuidString , date: Date())
+            firebaseManager.uploadChatData(from: "me", to: "plant", message: tested, imageUrl: nil)
             messageList.append(message)
             self.reloadMessage()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.makeMockReplyMessage()
             }
             
@@ -43,7 +47,6 @@ class ChatViewController: MessagesViewController, MessageCellDelegate, MessagesL
     }
     let clearButton: UIButton = .init()
     
-    var type: BejiType = .ichigo
     
     lazy var formatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -53,7 +56,9 @@ class ChatViewController: MessagesViewController, MessageCellDelegate, MessagesL
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.titleView = UIImageView(image: type.nameImage())
+        self.navigationItem.titleView = UIImageView(image: viewdata.type.nameImage())
+        self.view.backgroundColor = UIColor(patternImage: viewdata.type.chatbackground())
+        firebaseManager.databaseRef = Database.database().reference()
         setUp()
     }
     
@@ -65,38 +70,46 @@ class ChatViewController: MessagesViewController, MessageCellDelegate, MessagesL
     
     func makeMockReplyMessage(){
         if self.tested == "水の様子はどうかな" {
-            self.messageList.append(self.createMessage(text: "水の様子はどうかな返信"))
+            let text = viewdata.type.messageWater()
+            self.messageList.append(self.createMessage(text: text))
+            firebaseManager.uploadChatData(from: "plant", to: "me", message:text , imageUrl: nil)
             self.reloadMessage()
         }
         if self.tested == "病気か知りたいな" {
-            self.messageList.append(self.createMessage(text: "病気か知りたいな"))
+            self.messageList.append(self.createMessage(text: viewdata.type.messageStatus()))
+            firebaseManager.uploadChatData(from: "plant", to: "me", message:viewdata.type.messageStatus() , imageUrl: nil)
             self.reloadMessage()
         }
         if self.tested == "栄養は足りてる？" {
-            self.messageList.append(self.createMessage(text: "栄養は足りてる？返信"))
+            self.messageList.append(self.createMessage(text: viewdata.type.messageNutri()))
+            firebaseManager.uploadChatData(from: "plant", to: "me", message:viewdata.type.messageNutri() , imageUrl: nil)
             self.reloadMessage()
         }
         if self.tested == "追肥の時期かな" {
-            self.messageList.append(self.createMessage(text: "追肥の時期はかな返信"))
+            self.messageList.append(self.createMessage(text: viewdata.type.messageTuihi()))
+            firebaseManager.uploadChatData(from: "plant", to: "me", message:viewdata.type.messageTuihi() , imageUrl: nil)
             self.reloadMessage()
         }
         if self.tested == "温度はどうかな" {
-            self.messageList.append(self.createMessage(text: "温度はどうかな返信"))
+            self.messageList.append(self.createMessage(text: viewdata.type.messageTem()))
+            firebaseManager.uploadChatData(from: "plant", to: "me", message:viewdata.type.messageTem() , imageUrl: nil)
             self.reloadMessage()
         }
         if self.tested == "日当たりはどう？" {
-            self.messageList.append(self.createMessage(text: "日当たりはどう？返信"))
+            self.messageList.append(self.createMessage(text:viewdata.type.messageSun()))
+            firebaseManager.uploadChatData(from: "plant", to: "me", message:viewdata.type.messageSun() , imageUrl: nil)
             self.reloadMessage()
         }
-        if self.tested == "おしゃべりしよう" {
-            self.messageList.append(self.createMessage(text: "おしゃべりしよう返信"))
+        if self.tested == "おしゃべりしよう！" {
+            self.messageList.append(self.createMessage(text: viewdata.type.messageFree()))
+            firebaseManager.uploadChatData(from: "plant", to: "me", message:viewdata.type.messageWater() , imageUrl: nil)
             self.reloadMessage()
         }
-        
-        
-        
-        
-        
+    }
+    //画像用返信メタデータ送る
+    func makeMockImageReply(){
+        self.messageList.append(self.createMessage(text: viewdata.type.imageMessage()))
+        self.reloadMessage()
     }
     
     func setUp(){
@@ -137,6 +150,7 @@ class ChatViewController: MessagesViewController, MessageCellDelegate, MessagesL
         
         setupCollectionView()
         maintainPositionOnKeyboardFrameChanged = true
+        messageInputBar.backgroundView.backgroundColor = .clear
         messageInputBar.backgroundView.backgroundColor = UIColor(hex: "98B982")
         messageInputBar.inputTextView.backgroundColor = UIColor(hex: "E4EFDD")
         messageInputBar.inputTextView.clipsToBounds = true
@@ -205,7 +219,8 @@ class ChatViewController: MessagesViewController, MessageCellDelegate, MessagesL
             return
         }
         if #available(iOS 13.0, *) {
-            flowLayout.collectionView?.backgroundColor = UIColor(hex: "FFFEF1")
+            flowLayout.collectionView?.backgroundColor = .clear
+
         }
     }
     
@@ -225,6 +240,9 @@ class ChatViewController: MessagesViewController, MessageCellDelegate, MessagesL
     func createImageMessage(image: UIImage) -> MockMessage {
         return MockMessage(image: image, sender: otherSender(), messageId: UUID().uuidString, date: Date())
     }
+    func createImageMessageToOther(image: UIImage) -> MockMessage {
+        return MockMessage(image: image, sender:currentSender() as! Sender , messageId: UUID().uuidString, date: Date())
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -237,7 +255,7 @@ extension ChatViewController: MessagesDataSource {
     }
     
     func otherSender() -> Sender {
-        return Sender(id: "456", displayName: type.name())
+        return Sender(id: "456", displayName: viewdata.type.name())
     }
     
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
@@ -274,8 +292,8 @@ extension ChatViewController: MessagesDisplayDelegate {
     }
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
         if message.sender.displayName == "自分" {}
-        if message.sender.displayName == type.name() {
-            let avatar = Avatar(image: type.icon(), initials: "な")
+        if message.sender.displayName == viewdata.type.name() {
+            let avatar = Avatar(image: viewdata.type.getIcon(), initials: "な")
             
             avatarView.set(avatar: avatar)
         }
@@ -302,17 +320,24 @@ extension ViewController: MessagesLayoutDelegate {
 extension ChatViewController: InputBarAccessoryViewDelegate {
 }
 
-extension ChatViewController:  UIImagePickerControllerDelegate {
+extension ChatViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[.originalImage] as! UIImage
         // "写真を使用"を押下した際、写真アプリに保存する
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
         // UIImagePickerController カメラが閉じる
         self.dismiss(animated: true, completion: nil)
-        messageList.append(createImageMessage(image: image))
+        messageList.append(createImageMessageToOther(image: image))
         reloadMessage()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.makeMockImageReply()
+        }
         
     }
+}
+
+extension ChatViewController {
+    
 }
 
 
