@@ -17,9 +17,7 @@ class PlantViewController: UIViewController {
     let iotButton: UIButton = .init()
     let baseView: UIView = .init()
     
-    var alertMessage: String = "あ"
-    
-    var type: BejiType = .ichigo
+    var viewdata: Viewdata!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +35,7 @@ class PlantViewController: UIViewController {
 }
 extension PlantViewController {
     func setUp(){
-        self.navigationItem.titleView = UIImageView(image: type.nameImage())
+        self.navigationItem.titleView = UIImageView(image: viewdata.type.nameImage())
         self.view.addSubview(baseView)
         baseView.addSubview(commentView)
         baseView.addSubview(chatButton)
@@ -58,9 +56,9 @@ extension PlantViewController {
             baseView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
         NSLayoutConstraint.activate([
-            commentView.topAnchor.constraint(equalTo: baseView.topAnchor, constant: 167),
-            commentView.leadingAnchor.constraint(equalTo: baseView.leadingAnchor, constant: 46),
-            commentView.widthAnchor.constraint(equalToConstant: 326),
+            commentView.topAnchor.constraint(equalTo: baseView.topAnchor, constant: 156),
+            commentView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            commentView.widthAnchor.constraint(equalToConstant: 298),
             commentView.heightAnchor.constraint(equalToConstant: 140)
         ])
         
@@ -70,7 +68,7 @@ extension PlantViewController {
             commentLabel.topAnchor.constraint(equalTo: commentView.topAnchor,constant: 50),
             //            commentLabel.bottomAnchor.constraint(equalTo: commentView.bottomAnchor)
         ])
-        commentLabel.text = "これからの成長が楽しみだっもん！"
+        commentLabel.text = "これからの成長が楽しみ！！！"
         commentLabel.font = .boldSystemFont(ofSize: 20)
         commentLabel.textColor = .black
         commentLabel.clipsToBounds = true
@@ -83,7 +81,7 @@ extension PlantViewController {
         
         NSLayoutConstraint.activate([
             dayLabel.leadingAnchor.constraint(equalTo: baseView.leadingAnchor, constant: 44),
-            dayLabel.topAnchor.constraint(equalTo: baseView.topAnchor, constant: 122),
+            dayLabel.topAnchor.constraint(equalTo: baseView.topAnchor, constant: 111),
             dayLabel.widthAnchor.constraint(equalToConstant: 120),
             dayLabel.heightAnchor.constraint(equalToConstant: 30)
         ])
@@ -92,31 +90,33 @@ extension PlantViewController {
         dayLabel.font = .boldSystemFont(ofSize: 20)
         
         NSLayoutConstraint.activate([
-            chatButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 301),
-            chatButton.topAnchor.constraint(equalTo: baseView.topAnchor, constant: 118),
+            chatButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 265),
+            chatButton.topAnchor.constraint(equalTo: baseView.topAnchor, constant: 107),
             chatButton.widthAnchor.constraint(equalToConstant: 82),
             chatButton.heightAnchor.constraint(equalToConstant: 82)
         ])
         chatButton.setImage(UIImage(imageLiteralResourceName: "チャットボタン"), for: .normal)
         
         NSLayoutConstraint.activate([
-            iotButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 98),
-            iotButton.bottomAnchor.constraint(equalTo: baseView.bottomAnchor),
-            iotButton.widthAnchor.constraint(equalToConstant: 215),
-            iotButton.heightAnchor.constraint(equalToConstant: 215)
+            iotButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 106),
+            iotButton.bottomAnchor.constraint(equalTo: baseView.bottomAnchor,constant: -25),
+            iotButton.widthAnchor.constraint(equalToConstant: 144),
+            iotButton.heightAnchor.constraint(equalToConstant: 191)
         ])
-        iotButton.setImage(UIImage(imageLiteralResourceName:"Plant1"), for: .normal)
+        iotButton.setImage(viewdata.type.plant(), for: .normal)
         
         
-        baseView.backgroundColor = UIColor(patternImage: UIImage(imageLiteralResourceName: "背景２"))
+        baseView.backgroundColor = UIColor(patternImage: UIImage(imageLiteralResourceName: "background2"))
         chatButton.addTarget(self,action: #selector(self.tapButton(_ :)),for: .touchUpInside)
         iotButton.addTarget(self,action: #selector(self.tapiotButton(_ :)),for: .touchUpInside)
         
     }
     @objc func tapButton(_ sender: UIButton){
-        self.performSegue(withIdentifier: "toChat", sender: type)}
+        self.performSegue(withIdentifier: "toChat", sender: viewdata)}
     @objc func tapiotButton(_ sender: UIButton){
-        testAlert(topic: "お知らせ", type: type)
+       
+        iotButton.setImage(viewdata.type.glowth(), for: .normal)
+//        testAlert(topic: "お知らせ", type: viewdata.type)
     }
     //アラートメッセージ追加
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -124,7 +124,7 @@ extension PlantViewController {
         //        let type = sender as! BejiType
         if segue.identifier == "toChat" {
             let nextVC = segue.destination as! ChatViewController
-            nextVC.type = self.type
+            nextVC.viewdata = viewdata
             //            nextVC.alertmessage = alertMessage
             
         }
@@ -141,10 +141,6 @@ extension PlantViewController {
         let center = UNUserNotificationCenter.current()
         center.add(request)
         print("通知完了")
-        self.alertMessage = topic
+//        self.alertMessage = topic
     }
-}
-struct toChatdata {
-    let alertmessage: String
-    let beji: BejiType
 }

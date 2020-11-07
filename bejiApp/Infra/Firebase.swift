@@ -8,14 +8,14 @@
 import Foundation
 
 import UIKit
-
 import Firebase
-
-
+import FirebaseDatabase
+import FirebaseCore
+import FirebaseStorage
 
 class FirebaseAction: NSObject {
 
-    let storage = Storage.storage();
+    let storage = Storage.storage()
     var databaseRef: DatabaseReference!
     var userID: String!
 

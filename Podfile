@@ -5,6 +5,10 @@ target 'bejiApp' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 pod 'ActionSheetPicker-3.0'
+  pod 'Firebase/Core'
+  pod 'Firebase/Database'
+pod 'Firebase/Auth'
+pod "Firebase/Storage"
 
   # Pods for bejiApp
 

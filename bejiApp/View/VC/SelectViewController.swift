@@ -7,12 +7,11 @@
 
 import UIKit
 import Firebase
+import Alamofire
 //stackviewの調整面倒なので脳死作成、後で書き直す
 
 class SelectViewController: UIViewController {
-    
-    var path: Auth!
-    var idtoken:String = .init()
+    var idtoken: String = .init()
     let button1: UIButton = .init()
     let button2: UIButton = .init()
     let button3: UIButton = .init()
@@ -20,13 +19,13 @@ class SelectViewController: UIViewController {
     let button5: UIButton = .init()
     let button6: UIButton = .init()
     let baseView: UIView = .init()
-    
+    var viewdata = Viewdata()
     let stackView: UIStackView = {
         let view: UIStackView = .init()
         view.alignment = .leading
         view.axis = .vertical
         view.distribution = .fillProportionally
-        view.spacing = 26
+        view.spacing = 22
         return view
     }()
     
@@ -35,65 +34,65 @@ class SelectViewController: UIViewController {
         view.alignment = .center
         view.axis = .vertical
         view.distribution = .fillEqually
-        view.spacing = 26
+        view.spacing = 22
         return view
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
-        print(path)
-        self.path.currentUser?.getIDTokenForcingRefresh(true){ idToken, error in
-            if let error = error {
-              print("tokenerror")
-              return;
-            }
-            print("token\(idToken)")
-            guard let token = idToken else {fatalError()}
-            self.idtoken = token
-            print("OK?token\(idToken)")
-
-           
-          }
-        
+        viewdata.token = idtoken
         self.navigationItem.titleView = UIImageView(image: UIImage(named: "タネを選ぼう"))
-
     }
     
     @objc func tapButton1(_ sender: UIButton){
-        let type: BejiType = .jyagaimo
-        self.performSegue(withIdentifier: "toPurchace", sender: type)
-        print("tap")
+        self.viewdata.type = .jyagaimo
+        guard let token = viewdata.token else {fatalError()
+        }
+        getUser(idtoken: token)
+        self.performSegue(withIdentifier: "toPurchace", sender: viewdata)
     }
     @objc func tapButton2(_ sender: UIButton){
-        let type: BejiType = .tamanegi
-        self.performSegue(withIdentifier: "toPurchace", sender: type)
+        self.viewdata.type = .tamanegi
+        self.performSegue(withIdentifier: "toPurchace", sender: viewdata)
         
     }
     @objc func tapButton3(_ sender: UIButton){
-        let type: BejiType = .ninjin
-        self.performSegue(withIdentifier: "toPurchace", sender: type)
+        self.viewdata.type = .ninjin
+        self.performSegue(withIdentifier: "toPurchace", sender: viewdata)
     }
     @objc func tapButton4(_ sender: UIButton){
-        let type: BejiType = .ichigo
-        self.performSegue(withIdentifier: "toPurchace", sender: type)
+        self.viewdata.type = .ichigo
+        self.performSegue(withIdentifier: "toPurchace", sender: viewdata)
         
     }
     @objc func tapButton5(_ sender: UIButton){
-        let type: BejiType = .nasu
-        self.performSegue(withIdentifier: "toPurchace", sender: type)
+        self.viewdata.type = .nasu
+        self.performSegue(withIdentifier: "toPurchace", sender: viewdata)
     }
     @objc func tapButton6(_ sender: UIButton){
-        let type: BejiType = .kyuuri
-        self.performSegue(withIdentifier: "toPurchace", sender: type)
+        self.viewdata.type = .kyuuri
+        self.performSegue(withIdentifier: "toPurchace", sender: viewdata)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let type = sender as! BejiType
         if segue.identifier == "toPurchace" {
             let nextVC = segue.destination as! PurchaceViewController
-            nextVC.type = type
-            
+            nextVC.viewdata = self.viewdata
         }
+    }
+    //確認用
+    func getUser(idtoken: String){
+        print("確認用\(idtoken)")
+        let header: HTTPHeaders? = ["Authorization": idtoken]
+        let url = "https://d3or1724225rbx.cloudfront.net/user"
+        AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers:
+                    header ).responseJSON {  response  in
+                        print("res\(response)")
+                        guard let data = response.data else { return }
+                        print("data\(data)")
+                        let user = try! JSONDecoder().decode(UserModel.self, from: data)
+                        print("user\(user)")
+                    }
     }
     
 }
@@ -127,42 +126,42 @@ extension SelectViewController {
         button6.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            stackView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 48),
-            stackView.topAnchor.constraint(equalTo: baseView.topAnchor, constant: 180),
-            stackView.widthAnchor.constraint(equalToConstant: 147 ),
-            stackView.heightAnchor.constraint(equalToConstant: 512)
+            stackView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 46),
+            stackView.topAnchor.constraint(equalTo: baseView.topAnchor, constant: 174),
+            stackView.widthAnchor.constraint(equalToConstant: 127 ),
+            stackView.heightAnchor.constraint(equalToConstant: 444)
         ])
         
         NSLayoutConstraint.activate([
-            button1.widthAnchor.constraint(equalToConstant: 147),
-            button1.heightAnchor.constraint(equalToConstant: 153)
+            button1.widthAnchor.constraint(equalToConstant: 127),
+            button1.heightAnchor.constraint(equalToConstant: 132)
         ])
         NSLayoutConstraint.activate([
-            button2.widthAnchor.constraint(equalToConstant: 147),
-            button2.heightAnchor.constraint(equalToConstant: 153)
+            button2.widthAnchor.constraint(equalToConstant: 127),
+            button2.heightAnchor.constraint(equalToConstant: 132)
         ])
         NSLayoutConstraint.activate([
-            button3.widthAnchor.constraint(equalToConstant: 147),
-            button3.heightAnchor.constraint(equalToConstant: 153)
+            button3.widthAnchor.constraint(equalToConstant: 127),
+            button3.heightAnchor.constraint(equalToConstant: 132)
         ])
         
         NSLayoutConstraint.activate([
-            stackView2.leadingAnchor.constraint(equalTo: self.stackView.trailingAnchor, constant: 33),
-            stackView2.topAnchor.constraint(equalTo: baseView.topAnchor, constant: 180),
-            stackView2.widthAnchor.constraint(equalToConstant: 147 ),
-            stackView2.heightAnchor.constraint(equalToConstant: 512)
+            stackView2.leadingAnchor.constraint(equalTo: self.stackView.trailingAnchor, constant: 27),
+            stackView2.topAnchor.constraint(equalTo: baseView.topAnchor, constant: 174),
+            stackView2.widthAnchor.constraint(equalToConstant: 127 ),
+            stackView2.heightAnchor.constraint(equalToConstant: 444)
         ])
         NSLayoutConstraint.activate([
-            button4.widthAnchor.constraint(equalToConstant: 147),
-            button4.heightAnchor.constraint(equalToConstant: 153)
+            button4.widthAnchor.constraint(equalToConstant: 127),
+            button4.heightAnchor.constraint(equalToConstant: 132)
         ])
         NSLayoutConstraint.activate([
-            button5.widthAnchor.constraint(equalToConstant: 147),
-            button5.heightAnchor.constraint(equalToConstant: 153)
+            button5.widthAnchor.constraint(equalToConstant: 127),
+            button5.heightAnchor.constraint(equalToConstant: 132)
         ])
         NSLayoutConstraint.activate([
-            button6.widthAnchor.constraint(equalToConstant: 147),
-            button6.heightAnchor.constraint(equalToConstant: 153)
+            button6.widthAnchor.constraint(equalToConstant: 127),
+            button6.heightAnchor.constraint(equalToConstant: 132)
         ])
         
         button1.addTarget(self,action: #selector(self.tapButton1(_ :)),for: .touchUpInside)
@@ -172,13 +171,13 @@ extension SelectViewController {
         button5.addTarget(self,action: #selector(self.tapButton5(_ :)),for: .touchUpInside)
         button6.addTarget(self,action: #selector(self.tapButton6(_ :)),for: .touchUpInside)
         
-        button1.setImage(UIImage(imageLiteralResourceName: "じゃがいも"), for: .normal)
-        button2.setImage(UIImage(imageLiteralResourceName: "タマネギ"), for: .normal)
-        button3.setImage(UIImage(imageLiteralResourceName: "にんじん"), for: .normal)
-        button4.setImage(UIImage(imageLiteralResourceName: "いちご"), for: .normal)
-        button5.setImage(UIImage(imageLiteralResourceName: "なす"), for: .normal)
-        button6.setImage(UIImage(imageLiteralResourceName: "きゅうり"), for: .normal)
+        button1.setImage(UIImage(imageLiteralResourceName: "potato"), for: .normal)
+        button2.setImage(UIImage(imageLiteralResourceName: "onion"), for: .normal)
+        button3.setImage(UIImage(imageLiteralResourceName: "carot"), for: .normal)
+        button4.setImage(UIImage(imageLiteralResourceName: "strawberry"), for: .normal)
+        button5.setImage(UIImage(imageLiteralResourceName: "egplant"), for: .normal)
+        button6.setImage(UIImage(imageLiteralResourceName: "cucumber"), for: .normal)
         
-        baseView.backgroundColor = UIColor(patternImage: UIImage(imageLiteralResourceName: "背景1"))
+        baseView.backgroundColor = UIColor(patternImage: UIImage(imageLiteralResourceName: "background"))
     }
 }
