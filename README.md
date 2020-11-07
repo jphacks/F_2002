@@ -1,6 +1,6 @@
 
 # おしゃべじたぶる（iOS）
-アプリのソースコードはこちらのリポジトリ[jphacks/F_2002](https://github.com/jphacks/F_2002)をご参照ください。  
+サーバーサイドのソースコードはこちらのリポジトリ[jphacks/F_2002_1](https://github.com/jphacks/F_2002_1)をご参照ください。  
 
 <img src="https://user-images.githubusercontent.com/29503528/98431211-a2c81f80-20f6-11eb-9308-4246c8d84f80.png" width=100%>
 
