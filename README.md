@@ -1,6 +1,6 @@
 
-# おしゃべじたぶる（iOS）
-サーバサイドのソースコードはこちらのリポジトリ[jphacks/F_2002_1](https://github.com/jphacks/F_2002_1)をご参照ください。  
+# おしゃべじたぶる（）
+アプリのソースコードはこちらのリポジトリ[jphacks/F_2002](https://github.com/jphacks/F_2002)をご参照ください。  
 
 <img src="https://user-images.githubusercontent.com/29503528/98431211-a2c81f80-20f6-11eb-9308-4246c8d84f80.png" width=100%>
 
@@ -72,6 +72,8 @@
 さらに詳しい情報は[発表資料](https://docs.google.com/presentation/d/13iaOR-fD3DBfOAS06PP9HBRrHrt1RHAH9nM_f6ilguU/edit?usp=sharing)をご覧ください。  
 
 ## 開発技術
+### 全体構成図
+<img src="https://user-images.githubusercontent.com/29503528/98432201-300f7200-20ff-11eb-8319-862f30b81bd4.png" width=100%>
 
 ### 活用した技術
 #### デザイン・動画制作
@@ -105,18 +107,15 @@
 - CI/CD： [GitHub Actions](https://github.com/features/actions)
 
 #### デバイス
-
+- iPhone 11 Pro
 - [Raspberry Pi](https://www.raspberrypi.org/)
 - [インフィニオン テクノロジーズ](https://www.infineon.com/cms/jp/)様からの提供デバイス
   - [気圧センサーDPS310](https://github.com/Infineon/DPS310-Pressure-Sensor)
   - [MEMSマイクIM69D130](https://github.com/Infineon/IM69D130-Microphone-Shield2Go)
   - [PSoC 6 BLE Prototyping Kit (CY8CPROTO-063-BLE)](https://www.cypress.com/documentation/development-kitsboards/psoc-6-ble-prototyping-kit-cy8cproto-063-ble)
-  
-
-### 独自技術
 
 #### ハッカソンで開発した独自機能・技術
-
+- チャット部分の実装においてライブラリでカバーできないカメラを利用した投稿機能,投稿ボタンと外部のpickerライブラリの連携を独自に実装した
 - GitHub Actions を利用して自動でテスト、デプロイできるようにした
 - OpenAPI を利用してAPI の仕様の共有を行った
 - Clean Architecture をもとに、テストしやすいディレクトリ構成で実装した
