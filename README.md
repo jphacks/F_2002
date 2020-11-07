@@ -93,19 +93,18 @@ UIUX、デザインスタイルはヒアリングを元に、刺さるものを�
 - 環境: Docker Compose v3
 
 #### フレームワーク・ライブラリ・モジュール
-- go v1.15.2
-  - [echo/v4](https://github.com/labstack/echo)
-  - [gorm](https://github.com/go-gorm/gorm)
-  - [realize](https://github.com/oxequa/realize)
+- xcode 12.1/swift
+  - [Alamofire](https://github.com/Alamofire/Alamofire)
+  - [messagekit](https://github.com/MessageKit/MessageKit)
+  - [ActionSheetPicker-3.0](https://github.com/skywinder/ActionSheetPicker-3.0)
 
 #### デバイス
-
--
+- iphone 11 Pro
 -
 
 ### 独自技術
-
+- チャット部分の実装においてライブラリでカバーできないカメラを利用した投稿機能,投稿ボタンと外部のpickerライブラリの連携を独自に実装した
 #### ハッカソンで開発した独自機能・技術
 
-- 独自で開発したものの内容をこちらに記載してください
-- 特に力を入れた部分をファイルリンク、または commit_id を記載してください。
+
+- チャット部分の実装に
