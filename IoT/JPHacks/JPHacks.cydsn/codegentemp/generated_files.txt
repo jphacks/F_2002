@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<fileSet version="1" anchorPath="C:\Users\hkmnt\Documents\PSoC Creator\JPHacks\JPHacks.cydsn\codegentemp" xsi:schemaLocation="http://cypress.com/xsd/cypathdictionary cypathdictionary.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://cypress.com/xsd/cypathdictionary">
+  <file name="C:\Users\hkmnt\Documents\PSoC Creator\JPHacks\JPHacks.cydsn\codegentemp\cyfitter_cfg.h" value="HEADER;;;;;" />
+  <file name="C:\Users\hkmnt\Documents\PSoC Creator\JPHacks\JPHacks.cydsn\codegentemp\cyfitter_sysint_cfg.h" value="HEADER;;;;;Pins and Interrupts" />
+  <file name="C:\Users\hkmnt\Documents\PSoC Creator\JPHacks\JPHacks.cydsn\codegentemp\cyfitter_sysint_cfg.c" value="SOURCE_C;CortexM0p,CortexM4;;;;Pins and Interrupts" />
+  <file name="C:\Users\hkmnt\Documents\PSoC Creator\JPHacks\JPHacks.cydsn\codegentemp\cyfitter_cfg.c" value="SOURCE_C;CortexM0p;;;;" />
+  <file name="C:\Users\hkmnt\Documents\PSoC Creator\JPHacks\JPHacks.cydsn\codegentemp\cymetadata.c" value="SOURCE_C;CortexM0p,CortexM4;;;;" />
+  <file name="C:\Users\hkmnt\Documents\PSoC Creator\JPHacks\JPHacks.cydsn\codegentemp\cydevice_trm.h" value="HEADER;;;;;" />
+  <file name="C:\Users\hkmnt\Documents\PSoC Creator\JPHacks\JPHacks.cydsn\codegentemp\cydevicegnu_trm.inc" value="HEADER;;;;;" />
+  <file name="C:\Users\hkmnt\Documents\PSoC Creator\JPHacks\JPHacks.cydsn\codegentemp\cydevicerv_trm.inc" value="HEADER;;;;;" />
+  <file name="C:\Users\hkmnt\Documents\PSoC Creator\JPHacks\JPHacks.cydsn\codegentemp\cydeviceiar_trm.inc" value="HEADER;;;;;" />
+  <file name="C:\Users\hkmnt\Documents\PSoC Creator\JPHacks\JPHacks.cydsn\codegentemp\cyfitter.h" value="HEADER;;;;;" />
+  <file name="C:\Users\hkmnt\Documents\PSoC Creator\JPHacks\JPHacks.cydsn\codegentemp\cyfitter_gpio.h" value="HEADER;;;;;Pins and Interrupts" />
+  <file name="C:\Users\hkmnt\Documents\PSoC Creator\JPHacks\JPHacks.cydsn\codegentemp\cyfitter_sysint.h" value="HEADER;;;;;Pins and Interrupts" />
+  <file name="C:\Users\hkmnt\Documents\PSoC Creator\JPHacks\JPHacks.cydsn\codegentemp\cydisabledsheets.h" value="HEADER;;;;;" />
+  <file name="C:\Users\hkmnt\Documents\PSoC Creator\JPHacks\JPHacks.cydsn\codegentemp\MCWDT_PDL.c" value="SOURCE_C;CortexM0p,CortexM4;;;;MCWDT" />
+  <file name="C:\Users\hkmnt\Documents\PSoC Creator\JPHacks\JPHacks.cydsn\codegentemp\MCWDT_PDL.h" value="HEADER;;;;;MCWDT" />
+  <file name="C:\Users\hkmnt\Documents\PSoC Creator\JPHacks\JPHacks.cydsn\codegentemp\BLE.h" value="HEADER;;;;;BLE" />
+  <file name="C:\Users\hkmnt\Documents\PSoC Creator\JPHacks\JPHacks.cydsn\codegentemp\BLE.c" value="SOURCE_C;CortexM0p,CortexM4;;;;BLE" />
+  <file name="C:\Users\hkmnt\Documents\PSoC Creator\JPHacks\JPHacks.cydsn\codegentemp\BLE_config.c" value="SOURCE_C;CortexM0p,CortexM4;;;;BLE" />
+  <file name="C:\Users\hkmnt\Documents\PSoC Creator\JPHacks\JPHacks.cydsn\codegentemp\BLE_config.h" value="HEADER;;;;;BLE" />
+  <file name="C:\Users\hkmnt\Documents\PSoC Creator\JPHacks\JPHacks.cydsn\codegentemp\BLE_dis_config.c" value="SOURCE_C;CortexM0p,CortexM4;;;;BLE" />
+  <file name="C:\Users\hkmnt\Documents\PSoC Creator\JPHacks\JPHacks.cydsn\codegentemp\BLE_ias_config.c" value="SOURCE_C;CortexM0p,CortexM4;;;;BLE" />
+  <file name="C:\Users\hkmnt\Documents\PSoC Creator\JPHacks\JPHacks.cydsn\codegentemp\UART_DEBUG.c" value="SOURCE_C;CortexM0p,CortexM4;;;;UART_DEBUG" />
+  <file name="C:\Users\hkmnt\Documents\PSoC Creator\JPHacks\JPHacks.cydsn\codegentemp\UART_DEBUG.h" value="HEADER;;;;;UART_DEBUG" />
+  <file name="C:\Users\hkmnt\Documents\PSoC Creator\JPHacks\JPHacks.cydsn\codegentemp\I2C_Pressure.c" value="SOURCE_C;CortexM0p,CortexM4;;;;I2C_Pressure" />
+  <file name="C:\Users\hkmnt\Documents\PSoC Creator\JPHacks\JPHacks.cydsn\codegentemp\I2C_Pressure.h" value="HEADER;;;;;I2C_Pressure" />
+  <file name="C:\Users\hkmnt\Documents\PSoC Creator\JPHacks\JPHacks.cydsn\codegentemp\ADC_Photoresistor.c" value="SOURCE_C;CortexM0p,CortexM4;;;;ADC_Photoresistor" />
+  <file name="C:\Users\hkmnt\Documents\PSoC Creator\JPHacks\JPHacks.cydsn\codegentemp\ADC_Photoresistor.h" value="HEADER;;;;;ADC_Photoresistor" />
+  <file name="C:\Users\hkmnt\Documents\PSoC Creator\JPHacks\JPHacks.cydsn\codegentemp\ADC_Photoresistor_INT.c" value="SOURCE_C;CortexM0p,CortexM4;;;;ADC_Photoresistor" />
+  <file name="C:\Users\hkmnt\Documents\PSoC Creator\JPHacks\JPHacks.cydsn\codegentemp\ADC_Photoresistor_INIT.c" value="SOURCE_C;CortexM0p,CortexM4;;;;ADC_Photoresistor" />
+  <file name="C:\Users\hkmnt\Documents\PSoC Creator\JPHacks\JPHacks.cydsn\codegentemp\ADC_Photoresistor_PM.c" value="SOURCE_C;CortexM0p,CortexM4;;;;ADC_Photoresistor" />
+  <file name="C:\Users\hkmnt\Documents\PSoC Creator\JPHacks\JPHacks.cydsn\codegentemp\UART_DEBUG_SCBCLK.h" value="HEADER;;;;;UART_DEBUG_SCBCLK" />
+  <file name="C:\Users\hkmnt\Documents\PSoC Creator\JPHacks\JPHacks.cydsn\codegentemp\I2C_Pressure_SCBCLK.h" value="HEADER;;;;;I2C_Pressure_SCBCLK" />
+  <file name="C:\Users\hkmnt\Documents\PSoC Creator\JPHacks\JPHacks.cydsn\codegentemp\ADC_Photoresistor_intSarClock.h" value="HEADER;;;;;ADC_Photoresistor_intSarClock" />
+  <file name="C:\Users\hkmnt\Documents\PSoC Creator\JPHacks\JPHacks.cydsn\codegentemp\project.h" value="OTHER;;;;;" />
+  <file name="C:\Users\hkmnt\Documents\PSoC Creator\JPHacks\JPHacks.cydsn\codegentemp\cycodeshareimport.ld" value="OTHER;;;;;" />
+  <file name="C:\Users\hkmnt\Documents\PSoC Creator\JPHacks\JPHacks.cydsn\codegentemp\cycodeshareexport.ld" value="OTHER;;;;;" />
+  <file name="C:\Users\hkmnt\Documents\PSoC Creator\JPHacks\JPHacks.cydsn\codegentemp\cycodeshareimport.scat" value="OTHER;;;;;" />
+</fileSet>

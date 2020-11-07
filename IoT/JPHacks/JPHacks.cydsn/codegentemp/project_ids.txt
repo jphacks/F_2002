@@ -1,0 +1,8 @@
+C:\Users\hkmnt\Documents\PSoC Creator\JPHacks\JPHacks.cydsn\JPHacks.cyprj|3cb2722a-269f-416e-8d94-a9524f568f5b
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|31c4a340-efee-4e9c-aa2d-8de7edee9c7c
+C:\Users\hkmnt\Documents\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|08cb8742-0a12-4bef-a446-113eace39a7e
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|23c17c38-9528-45e9-b68a-daabff2bbac5
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|d8311342-6855-4c4b-9695-d0783726d33b
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|2bb7149f-6018-432f-a82f-567e4952d301
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\dev\psoc6\PSoC6AnalogDevice\PSoC6AnalogDevice.cydsn\PSoC6AnalogDevice.cyprj|a08c77e5-70cc-4523-a0eb-d7a8039db350
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyReferenceLibrary\CyReferenceLibrary.cylib\CyReferenceLibrary.cyprj|694c5490-8a38-46f5-85a0-4ca90e2fb354

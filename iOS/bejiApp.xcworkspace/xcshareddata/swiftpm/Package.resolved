@@ -1,0 +1,43 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Alamofire",
+        "repositoryURL": "https://github.com/Alamofire/Alamofire",
+        "state": {
+          "branch": null,
+          "revision": "9e0328127dfb801cefe8ac53a13c0c90a7770448",
+          "version": "5.4.0"
+        }
+      },
+      {
+        "package": "InputBarAccessoryView",
+        "repositoryURL": "https://github.com/nathantannar4/InputBarAccessoryView",
+        "state": {
+          "branch": null,
+          "revision": "d48dc9e0d22072a1bf7cc99f568fb4402c168006",
+          "version": "5.2.1"
+        }
+      },
+      {
+        "package": "MessageKit",
+        "repositoryURL": "https://github.com/MessageKit/MessageKit",
+        "state": {
+          "branch": null,
+          "revision": "1e4b93c27c179bf755a22c964a46262ca0961560",
+          "version": "3.4.2"
+        }
+      },
+      {
+        "package": "SwiftyJSON",
+        "repositoryURL": "https://github.com/SwiftyJSON/SwiftyJSON",
+        "state": {
+          "branch": null,
+          "revision": "2b6054efa051565954e1d2b9da831680026cd768",
+          "version": "5.0.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

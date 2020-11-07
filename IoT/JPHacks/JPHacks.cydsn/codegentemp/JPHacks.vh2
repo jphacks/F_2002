@@ -1,0 +1,2050 @@
+--
+--	Conversion of JPHacks.v to vh2:
+--
+--	Cypress Semiconductor - WARP Version 6.3 IR 41
+--	Sat Nov 07 13:00:38 2020
+--
+
+USE cypress.cypress.all;
+USE cypress.rtlpkg.all;
+ENTITY top_RTL IS
+ATTRIBUTE part_name of top_RTL:TYPE IS "cpsoc3";
+END top_RTL;
+--------------------------------------------------------
+ARCHITECTURE R_T_L OF top_RTL IS
+TERMINAL Net_79 : bit;
+SIGNAL Net_89 : bit;
+TERMINAL Net_78 : bit;
+TERMINAL Net_74 : bit;
+TERMINAL Net_75 : bit;
+SIGNAL one : bit;
+SIGNAL zero : bit;
+SIGNAL tmpFB_0__Hibernate_Wakeup_SW_net_0 : bit;
+SIGNAL tmpIO_0__Hibernate_Wakeup_SW_net_0 : bit;
+TERMINAL tmpSIOVREF__Hibernate_Wakeup_SW_net_0 : bit;
+SIGNAL Net_72 : bit;
+SIGNAL Net_71 : bit;
+SIGNAL Net_73 : bit;
+SIGNAL \BLE:Net_1\ : bit;
+SIGNAL \UART_DEBUG:Net_847\ : bit;
+SIGNAL \UART_DEBUG:clock_wire\ : bit;
+SIGNAL \UART_DEBUG:Net_22\ : bit;
+SIGNAL \UART_DEBUG:Net_23\ : bit;
+SIGNAL \UART_DEBUG:tx_wire\ : bit;
+SIGNAL \UART_DEBUG:tmpFB_0__tx_net_0\ : bit;
+SIGNAL \UART_DEBUG:tmpIO_0__tx_net_0\ : bit;
+TERMINAL \UART_DEBUG:tmpSIOVREF__tx_net_0\ : bit;
+SIGNAL \UART_DEBUG:Net_1172\ : bit;
+SIGNAL \UART_DEBUG:tmpIO_0__rx_net_0\ : bit;
+TERMINAL \UART_DEBUG:tmpSIOVREF__rx_net_0\ : bit;
+SIGNAL \UART_DEBUG:rx_wire\ : bit;
+SIGNAL \UART_DEBUG:cts_wire\ : bit;
+SIGNAL \UART_DEBUG:intr_wire\ : bit;
+SIGNAL \UART_DEBUG:rts_wire\ : bit;
+SIGNAL \UART_DEBUG:tx_en_wire\ : bit;
+SIGNAL \UART_DEBUG:Net_145\ : bit;
+SIGNAL \UART_DEBUG:Net_146\ : bit;
+SIGNAL \UART_DEBUG:Net_154\ : bit;
+SIGNAL \UART_DEBUG:Net_155_3\ : bit;
+SIGNAL \UART_DEBUG:Net_155_2\ : bit;
+SIGNAL \UART_DEBUG:Net_155_1\ : bit;
+SIGNAL \UART_DEBUG:Net_155_0\ : bit;
+SIGNAL \UART_DEBUG:Net_156\ : bit;
+SIGNAL \UART_DEBUG:Net_157\ : bit;
+SIGNAL Net_85 : bit;
+SIGNAL Net_82 : bit;
+SIGNAL \UART_DEBUG:Net_161\ : bit;
+SIGNAL Net_80 : bit;
+SIGNAL Net_81 : bit;
+SIGNAL Net_84 : bit;
+SIGNAL Net_86 : bit;
+SIGNAL Net_87 : bit;
+TERMINAL Net_345 : bit;
+TERMINAL Net_206 : bit;
+TERMINAL Net_200 : bit;
+SIGNAL tmpFB_0__Alert_LED_net_0 : bit;
+SIGNAL tmpIO_0__Alert_LED_net_0 : bit;
+TERMINAL tmpSIOVREF__Alert_LED_net_0 : bit;
+TERMINAL Net_342 : bit;
+TERMINAL Net_344 : bit;
+TERMINAL Net_346 : bit;
+TERMINAL Net_453 : bit;
+TERMINAL Net_204 : bit;
+SIGNAL tmpFB_0__Disconnect_LED_net_0 : bit;
+SIGNAL tmpIO_0__Disconnect_LED_net_0 : bit;
+TERMINAL tmpSIOVREF__Disconnect_LED_net_0 : bit;
+SIGNAL tmpFB_0__Advertising_LED_net_0 : bit;
+SIGNAL tmpIO_0__Advertising_LED_net_0 : bit;
+TERMINAL tmpSIOVREF__Advertising_LED_net_0 : bit;
+SIGNAL \I2C_Pressure:clock_wire\ : bit;
+SIGNAL \I2C_Pressure:Net_283\ : bit;
+SIGNAL \I2C_Pressure:Net_1062\ : bit;
+SIGNAL \I2C_Pressure:Net_1053\ : bit;
+SIGNAL \I2C_Pressure:Net_282\ : bit;
+SIGNAL \I2C_Pressure:Net_277\ : bit;
+SIGNAL Net_43 : bit;
+SIGNAL Net_45 : bit;
+SIGNAL \I2C_Pressure:Net_1059\ : bit;
+SIGNAL \I2C_Pressure:Net_281\ : bit;
+SIGNAL \I2C_Pressure:Net_87_3\ : bit;
+SIGNAL \I2C_Pressure:Net_87_2\ : bit;
+SIGNAL \I2C_Pressure:Net_87_1\ : bit;
+SIGNAL \I2C_Pressure:Net_87_0\ : bit;
+SIGNAL \I2C_Pressure:Net_280\ : bit;
+SIGNAL \I2C_Pressure:Net_1061\ : bit;
+SIGNAL \I2C_Pressure:Net_279\ : bit;
+SIGNAL \I2C_Pressure:Net_278\ : bit;
+SIGNAL \I2C_Pressure:Net_1055\ : bit;
+SIGNAL \I2C_Pressure:intr_wire\ : bit;
+SIGNAL \I2C_Pressure:Net_162\ : bit;
+SIGNAL \I2C_Pressure:Net_163\ : bit;
+SIGNAL Net_44 : bit;
+SIGNAL \I2C_Pressure:Net_224\ : bit;
+SIGNAL \I2C_Pressure:Net_223\ : bit;
+SIGNAL \I2C_Pressure:Net_847\ : bit;
+SIGNAL \I2C_Pressure:tmpFB_0__scl_net_0\ : bit;
+TERMINAL \I2C_Pressure:tmpSIOVREF__scl_net_0\ : bit;
+SIGNAL \I2C_Pressure:tmpFB_0__sda_net_0\ : bit;
+TERMINAL \I2C_Pressure:tmpSIOVREF__sda_net_0\ : bit;
+SIGNAL tmpFB_0__Data_Tempreature_Humidity_net_0 : bit;
+SIGNAL Net_90 : bit;
+TERMINAL tmpSIOVREF__Data_Tempreature_Humidity_net_0 : bit;
+SIGNAL tmpFB_0__DATA_Photoresistor_net_0 : bit;
+TERMINAL Net_118 : bit;
+SIGNAL tmpIO_0__DATA_Photoresistor_net_0 : bit;
+TERMINAL tmpSIOVREF__DATA_Photoresistor_net_0 : bit;
+TERMINAL \ADC_Photoresistor:Net_339_1\ : bit;
+TERMINAL \ADC_Photoresistor:Net_339_0\ : bit;
+TERMINAL \ADC_Photoresistor:Net_340_1\ : bit;
+TERMINAL \ADC_Photoresistor:Net_340_0\ : bit;
+TERMINAL \ADC_Photoresistor:Net_21_0\ : bit;
+TERMINAL \ADC_Photoresistor:sarmuxOutPlus\ : bit;
+TERMINAL \ADC_Photoresistor:sarmuxOutMinus\ : bit;
+SIGNAL \ADC_Photoresistor:Net_428\ : bit;
+TERMINAL \ADC_Photoresistor:muxoutPlus\ : bit;
+TERMINAL \ADC_Photoresistor:muxoutMinus\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_1\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_0\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_1\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_0\ : bit;
+TERMINAL \ADC_Photoresistor:vinNeg_0\ : bit;
+SIGNAL \ADC_Photoresistor:Net_40\ : bit;
+SIGNAL \ADC_Photoresistor:Net_41\ : bit;
+SIGNAL \ADC_Photoresistor:Net_42\ : bit;
+SIGNAL \ADC_Photoresistor:Net_43\ : bit;
+SIGNAL \ADC_Photoresistor:st_sel_1\ : bit;
+SIGNAL \ADC_Photoresistor:st_sel_0\ : bit;
+SIGNAL \ADC_Photoresistor:sarClock\ : bit;
+SIGNAL \ADC_Photoresistor:Net_415\ : bit;
+SIGNAL \ADC_Photoresistor:Net_29\ : bit;
+TERMINAL \ADC_Photoresistor:Net_408\ : bit;
+TERMINAL \ADC_Photoresistor:Net_105\ : bit;
+SIGNAL \ADC_Photoresistor:Net_423\ : bit;
+SIGNAL \ADC_Photoresistor:Net_34\ : bit;
+SIGNAL \ADC_Photoresistor:Net_33\ : bit;
+TERMINAL \ADC_Photoresistor:vref\ : bit;
+SIGNAL Net_107 : bit;
+SIGNAL Net_109 : bit;
+SIGNAL Net_111 : bit;
+SIGNAL Net_106 : bit;
+SIGNAL Net_110_11 : bit;
+SIGNAL Net_110_10 : bit;
+SIGNAL Net_110_9 : bit;
+SIGNAL Net_110_8 : bit;
+SIGNAL Net_110_7 : bit;
+SIGNAL Net_110_6 : bit;
+SIGNAL Net_110_5 : bit;
+SIGNAL Net_110_4 : bit;
+SIGNAL Net_110_3 : bit;
+SIGNAL Net_110_2 : bit;
+SIGNAL Net_110_1 : bit;
+SIGNAL Net_110_0 : bit;
+SIGNAL Net_108_3 : bit;
+SIGNAL Net_108_2 : bit;
+SIGNAL Net_108_1 : bit;
+SIGNAL Net_108_0 : bit;
+TERMINAL \ADC_Photoresistor:Net_107\ : bit;
+TERMINAL Net_126 : bit;
+TERMINAL \ADC_Photoresistor:Net_110\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_2\ : bit;
+TERMINAL \ADC_Photoresistor:Net_113\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_3\ : bit;
+TERMINAL \ADC_Photoresistor:Net_115\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_4\ : bit;
+TERMINAL \ADC_Photoresistor:Net_117\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_5\ : bit;
+TERMINAL \ADC_Photoresistor:Net_119\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_6\ : bit;
+TERMINAL \ADC_Photoresistor:Net_121\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_7\ : bit;
+TERMINAL \ADC_Photoresistor:Net_123\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_8\ : bit;
+TERMINAL \ADC_Photoresistor:Net_125\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_9\ : bit;
+TERMINAL \ADC_Photoresistor:Net_127\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_10\ : bit;
+TERMINAL \ADC_Photoresistor:Net_129\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_11\ : bit;
+TERMINAL \ADC_Photoresistor:Net_131\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_12\ : bit;
+TERMINAL \ADC_Photoresistor:Net_133\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_13\ : bit;
+TERMINAL \ADC_Photoresistor:Net_135\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_14\ : bit;
+TERMINAL \ADC_Photoresistor:Net_137\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_15\ : bit;
+TERMINAL \ADC_Photoresistor:Net_139\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_16\ : bit;
+TERMINAL \ADC_Photoresistor:Net_142\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_17\ : bit;
+TERMINAL \ADC_Photoresistor:Net_144\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_18\ : bit;
+TERMINAL \ADC_Photoresistor:Net_146\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_19\ : bit;
+TERMINAL \ADC_Photoresistor:Net_148\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_20\ : bit;
+TERMINAL \ADC_Photoresistor:Net_150\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_21\ : bit;
+TERMINAL \ADC_Photoresistor:Net_152\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_22\ : bit;
+TERMINAL \ADC_Photoresistor:Net_154\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_23\ : bit;
+TERMINAL \ADC_Photoresistor:Net_156\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_24\ : bit;
+TERMINAL \ADC_Photoresistor:Net_158\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_25\ : bit;
+TERMINAL \ADC_Photoresistor:Net_160\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_26\ : bit;
+TERMINAL \ADC_Photoresistor:Net_162\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_27\ : bit;
+TERMINAL \ADC_Photoresistor:Net_164\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_28\ : bit;
+TERMINAL \ADC_Photoresistor:Net_166\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_29\ : bit;
+TERMINAL \ADC_Photoresistor:Net_168\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_30\ : bit;
+TERMINAL \ADC_Photoresistor:Net_170\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_31\ : bit;
+TERMINAL \ADC_Photoresistor:Net_172\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_32\ : bit;
+TERMINAL \ADC_Photoresistor:Net_180\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_33\ : bit;
+TERMINAL \ADC_Photoresistor:Net_181\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_34\ : bit;
+TERMINAL \ADC_Photoresistor:Net_182\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_35\ : bit;
+TERMINAL \ADC_Photoresistor:Net_183\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_36\ : bit;
+TERMINAL \ADC_Photoresistor:Net_184\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_37\ : bit;
+TERMINAL \ADC_Photoresistor:Net_185\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_38\ : bit;
+TERMINAL \ADC_Photoresistor:Net_186\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_39\ : bit;
+TERMINAL \ADC_Photoresistor:Net_187\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_40\ : bit;
+TERMINAL \ADC_Photoresistor:Net_188\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_41\ : bit;
+TERMINAL \ADC_Photoresistor:Net_189\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_42\ : bit;
+TERMINAL \ADC_Photoresistor:Net_190\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_43\ : bit;
+TERMINAL \ADC_Photoresistor:Net_191\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_44\ : bit;
+TERMINAL \ADC_Photoresistor:Net_192\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_45\ : bit;
+TERMINAL \ADC_Photoresistor:Net_193\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_46\ : bit;
+TERMINAL \ADC_Photoresistor:Net_194\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_47\ : bit;
+TERMINAL \ADC_Photoresistor:Net_195\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_48\ : bit;
+TERMINAL \ADC_Photoresistor:Net_196\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_49\ : bit;
+TERMINAL \ADC_Photoresistor:Net_197\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_50\ : bit;
+TERMINAL \ADC_Photoresistor:Net_198\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_51\ : bit;
+TERMINAL \ADC_Photoresistor:Net_199\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_52\ : bit;
+TERMINAL \ADC_Photoresistor:Net_200\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_53\ : bit;
+TERMINAL \ADC_Photoresistor:Net_201\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_54\ : bit;
+TERMINAL \ADC_Photoresistor:Net_202\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_55\ : bit;
+TERMINAL \ADC_Photoresistor:Net_203\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_56\ : bit;
+TERMINAL \ADC_Photoresistor:Net_204\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_57\ : bit;
+TERMINAL \ADC_Photoresistor:Net_205\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_58\ : bit;
+TERMINAL \ADC_Photoresistor:Net_206\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_59\ : bit;
+TERMINAL \ADC_Photoresistor:Net_207\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_60\ : bit;
+TERMINAL \ADC_Photoresistor:Net_208\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_61\ : bit;
+TERMINAL \ADC_Photoresistor:Net_209\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_62\ : bit;
+TERMINAL \ADC_Photoresistor:Net_210\ : bit;
+TERMINAL \ADC_Photoresistor:vinPlus_63\ : bit;
+TERMINAL \ADC_Photoresistor:Net_211\ : bit;
+TERMINAL \ADC_Photoresistor:Net_213\ : bit;
+TERMINAL \ADC_Photoresistor:Net_218\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_2\ : bit;
+TERMINAL \ADC_Photoresistor:Net_220\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_3\ : bit;
+TERMINAL \ADC_Photoresistor:Net_222\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_4\ : bit;
+TERMINAL \ADC_Photoresistor:Net_224\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_5\ : bit;
+TERMINAL \ADC_Photoresistor:Net_226\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_6\ : bit;
+TERMINAL \ADC_Photoresistor:Net_228\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_7\ : bit;
+TERMINAL \ADC_Photoresistor:Net_230\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_8\ : bit;
+TERMINAL \ADC_Photoresistor:Net_232\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_9\ : bit;
+TERMINAL \ADC_Photoresistor:Net_234\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_10\ : bit;
+TERMINAL \ADC_Photoresistor:Net_236\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_11\ : bit;
+TERMINAL \ADC_Photoresistor:Net_238\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_12\ : bit;
+TERMINAL \ADC_Photoresistor:Net_240\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_13\ : bit;
+TERMINAL \ADC_Photoresistor:Net_242\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_14\ : bit;
+TERMINAL \ADC_Photoresistor:Net_244\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_15\ : bit;
+TERMINAL \ADC_Photoresistor:Net_246\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_16\ : bit;
+TERMINAL \ADC_Photoresistor:Net_248\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_17\ : bit;
+TERMINAL \ADC_Photoresistor:Net_250\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_18\ : bit;
+TERMINAL \ADC_Photoresistor:Net_252\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_19\ : bit;
+TERMINAL \ADC_Photoresistor:Net_254\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_20\ : bit;
+TERMINAL \ADC_Photoresistor:Net_256\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_21\ : bit;
+TERMINAL \ADC_Photoresistor:Net_258\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_22\ : bit;
+TERMINAL \ADC_Photoresistor:Net_260\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_23\ : bit;
+TERMINAL \ADC_Photoresistor:Net_262\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_24\ : bit;
+TERMINAL \ADC_Photoresistor:Net_264\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_25\ : bit;
+TERMINAL \ADC_Photoresistor:Net_266\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_26\ : bit;
+TERMINAL \ADC_Photoresistor:Net_268\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_27\ : bit;
+TERMINAL \ADC_Photoresistor:Net_270\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_28\ : bit;
+TERMINAL \ADC_Photoresistor:Net_272\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_29\ : bit;
+TERMINAL \ADC_Photoresistor:Net_274\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_30\ : bit;
+TERMINAL \ADC_Photoresistor:Net_276\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_31\ : bit;
+TERMINAL \ADC_Photoresistor:Net_278\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_32\ : bit;
+TERMINAL \ADC_Photoresistor:Net_285\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_33\ : bit;
+TERMINAL \ADC_Photoresistor:Net_286\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_34\ : bit;
+TERMINAL \ADC_Photoresistor:Net_287\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_35\ : bit;
+TERMINAL \ADC_Photoresistor:Net_288\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_36\ : bit;
+TERMINAL \ADC_Photoresistor:Net_289\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_37\ : bit;
+TERMINAL \ADC_Photoresistor:Net_290\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_38\ : bit;
+TERMINAL \ADC_Photoresistor:Net_291\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_39\ : bit;
+TERMINAL \ADC_Photoresistor:Net_292\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_40\ : bit;
+TERMINAL \ADC_Photoresistor:Net_293\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_41\ : bit;
+TERMINAL \ADC_Photoresistor:Net_294\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_42\ : bit;
+TERMINAL \ADC_Photoresistor:Net_295\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_43\ : bit;
+TERMINAL \ADC_Photoresistor:Net_296\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_44\ : bit;
+TERMINAL \ADC_Photoresistor:Net_297\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_45\ : bit;
+TERMINAL \ADC_Photoresistor:Net_298\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_46\ : bit;
+TERMINAL \ADC_Photoresistor:Net_299\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_47\ : bit;
+TERMINAL \ADC_Photoresistor:Net_300\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_48\ : bit;
+TERMINAL \ADC_Photoresistor:Net_301\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_49\ : bit;
+TERMINAL \ADC_Photoresistor:Net_302\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_50\ : bit;
+TERMINAL \ADC_Photoresistor:Net_303\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_51\ : bit;
+TERMINAL \ADC_Photoresistor:Net_304\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_52\ : bit;
+TERMINAL \ADC_Photoresistor:Net_305\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_53\ : bit;
+TERMINAL \ADC_Photoresistor:Net_306\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_54\ : bit;
+TERMINAL \ADC_Photoresistor:Net_307\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_55\ : bit;
+TERMINAL \ADC_Photoresistor:Net_308\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_56\ : bit;
+TERMINAL \ADC_Photoresistor:Net_309\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_57\ : bit;
+TERMINAL \ADC_Photoresistor:Net_310\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_58\ : bit;
+TERMINAL \ADC_Photoresistor:Net_311\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_59\ : bit;
+TERMINAL \ADC_Photoresistor:Net_312\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_60\ : bit;
+TERMINAL \ADC_Photoresistor:Net_313\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_61\ : bit;
+TERMINAL \ADC_Photoresistor:Net_314\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_62\ : bit;
+TERMINAL \ADC_Photoresistor:Net_315\ : bit;
+TERMINAL \ADC_Photoresistor:vinMinus_63\ : bit;
+TERMINAL \ADC_Photoresistor:Net_316\ : bit;
+TERMINAL \ADC_Photoresistor:Net_331\ : bit;
+TERMINAL \ADC_Photoresistor:vinNeg_1\ : bit;
+TERMINAL \ADC_Photoresistor:Net_345\ : bit;
+TERMINAL \ADC_Photoresistor:vinNeg_2\ : bit;
+TERMINAL \ADC_Photoresistor:Net_347\ : bit;
+TERMINAL \ADC_Photoresistor:vinNeg_3\ : bit;
+TERMINAL \ADC_Photoresistor:Net_349\ : bit;
+TERMINAL \ADC_Photoresistor:vrefBus_0\ : bit;
+TERMINAL \ADC_Photoresistor:Net_456\ : bit;
+TERMINAL \ADC_Photoresistor:vrefBus_1\ : bit;
+TERMINAL \ADC_Photoresistor:Net_457\ : bit;
+TERMINAL \ADC_Photoresistor:vrefBus_2\ : bit;
+TERMINAL \ADC_Photoresistor:Net_458\ : bit;
+TERMINAL \ADC_Photoresistor:vrefBus_3\ : bit;
+TERMINAL \ADC_Photoresistor:Net_459\ : bit;
+TERMINAL \ADC_Photoresistor:Net_1448\ : bit;
+SIGNAL Net_112 : bit;
+TERMINAL Net_113_0 : bit;
+TERMINAL Net_113_1 : bit;
+TERMINAL \ADC_Photoresistor:Net_1379\ : bit;
+TERMINAL \ADC_Photoresistor:Net_1385\ : bit;
+TERMINAL \ADC_Photoresistor:Net_1388\ : bit;
+TERMINAL \ADC_Photoresistor:Net_1382\ : bit;
+TERMINAL \ADC_Photoresistor:Net_102\ : bit;
+TERMINAL Net_115 : bit;
+TERMINAL Net_114 : bit;
+SIGNAL tmpFB_0__DATA_SoilMoisture_net_0 : bit;
+SIGNAL tmpIO_0__DATA_SoilMoisture_net_0 : bit;
+TERMINAL tmpSIOVREF__DATA_SoilMoisture_net_0 : bit;
+BEGIN
+
+one <=  ('1') ;
+
+zero <=  ('0') ;
+
+GND_1:cy_annotation_universal_v1_0
+	GENERIC MAP(comp_name=>"Gnd_v1_0",
+		port_names=>"T1",
+		width=>1)
+	PORT MAP(connect=>Net_79);
+MCWDT_isr:cy_mxs40_isr_v1_0
+	GENERIC MAP(cy_registers=>"",
+		deepsleep_required=>'1',
+		int_type=>"10")
+	PORT MAP(int_signal=>Net_89);
+R_5:cy_annotation_universal_v1_0
+	GENERIC MAP(comp_name=>"Resistor_v1_0",
+		port_names=>"T1, T2",
+		width=>2)
+	PORT MAP(connect=>(Net_78, Net_79));
+SW_2:cy_annotation_universal_v1_0
+	GENERIC MAP(comp_name=>"SwitchSPST_v1_0",
+		port_names=>"T1, T2",
+		width=>2)
+	PORT MAP(connect=>(Net_74, Net_78));
+P6_VDD_3:cy_annotation_universal_v1_0
+	GENERIC MAP(comp_name=>"Power_v1_0",
+		port_names=>"T1",
+		width=>1)
+	PORT MAP(connect=>Net_75);
+R_4:cy_annotation_universal_v1_0
+	GENERIC MAP(comp_name=>"Resistor_v1_0",
+		port_names=>"T1, T2",
+		width=>2)
+	PORT MAP(connect=>(Net_74, Net_75));
+Hibernate_Wakeup_SW:cy_mxs40_gpio_v1_0
+	GENERIC MAP(cy_registers=>"",
+		width=>1,
+		sio_grp_cnt=>0,
+		id=>"4cca878b-77b5-471d-8aeb-ad6925202455",
+		drive_mode=>"2",
+		ibuf_enabled=>"1",
+		init_dr_st=>"1",
+		input_sync=>"0",
+		intr_mode=>"0",
+		io_voltage=>"",
+		output_conn=>"0",
+		oe_conn=>"0",
+		output_sync=>"0",
+		oe_sync=>"0",
+		drive_strength=>"0",
+		max_frequency=>"100",
+		output_current_cap=>"8",
+		i2c_mode=>"0",
+		pin_aliases=>"",
+		pin_mode=>"I",
+		slew_rate=>"0",
+		vtrip=>"0",
+		use_annotation=>"1",
+		hotswap_needed=>"0")
+	PORT MAP(oe=>(one),
+		y=>(zero),
+		fb=>(tmpFB_0__Hibernate_Wakeup_SW_net_0),
+		analog=>(open),
+		io=>(tmpIO_0__Hibernate_Wakeup_SW_net_0),
+		annotation=>Net_74,
+		siovref=>(tmpSIOVREF__Hibernate_Wakeup_SW_net_0));
+\MCWDT:MCWDT\:cy_mxs40_mcwdt_v1_0
+	GENERIC MAP(cy_registers=>"")
+	PORT MAP(interrupt=>Net_89);
+\BLE:cy_mxs40_ble\:cy_mxs40_ble_v1_0
+	GENERIC MAP(cy_registers=>"",
+		low_power=>'1')
+	PORT MAP(ext_pa_lna_chip_en_out=>Net_72,
+		ext_lna_rx_ctl_out=>Net_71,
+		ext_pa_tx_ctl_out=>Net_73,
+		interrupt=>\BLE:Net_1\);
+\BLE:bless_isr\:cy_mxs40_isr_v1_0
+	GENERIC MAP(cy_registers=>"",
+		deepsleep_required=>'1',
+		int_type=>"10")
+	PORT MAP(int_signal=>\BLE:Net_1\);
+\UART_DEBUG:SCBCLK\:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"457aa532-fb8a-43be-a91c-7c89e876418d/b68e5b9d-7828-482d-a282-930f990e3b3e",
+		source_clock_id=>"",
+		divisor=>0,
+		period=>"8680555555.55556",
+		is_direct=>'0',
+		is_digital=>'0')
+	PORT MAP(clock_out=>\UART_DEBUG:Net_847\,
+		dig_domain_out=>open);
+\UART_DEBUG:tx\:cy_mxs40_gpio_v1_0
+	GENERIC MAP(cy_registers=>"",
+		width=>1,
+		sio_grp_cnt=>0,
+		id=>"457aa532-fb8a-43be-a91c-7c89e876418d/65f3af6c-759b-4ccb-8c66-5c95ba1f5f4f",
+		drive_mode=>"6",
+		ibuf_enabled=>"0",
+		init_dr_st=>"1",
+		input_sync=>"0",
+		intr_mode=>"0",
+		io_voltage=>"",
+		output_conn=>"1",
+		oe_conn=>"0",
+		output_sync=>"0",
+		oe_sync=>"0",
+		drive_strength=>"0",
+		max_frequency=>"100",
+		output_current_cap=>"8",
+		i2c_mode=>"0",
+		pin_aliases=>"",
+		pin_mode=>"O",
+		slew_rate=>"0",
+		vtrip=>"0",
+		use_annotation=>"0",
+		hotswap_needed=>"0")
+	PORT MAP(oe=>(one),
+		y=>\UART_DEBUG:tx_wire\,
+		fb=>(\UART_DEBUG:tmpFB_0__tx_net_0\),
+		analog=>(open),
+		io=>(\UART_DEBUG:tmpIO_0__tx_net_0\),
+		annotation=>(open),
+		siovref=>(\UART_DEBUG:tmpSIOVREF__tx_net_0\));
+\UART_DEBUG:rx\:cy_mxs40_gpio_v1_0
+	GENERIC MAP(cy_registers=>"",
+		width=>1,
+		sio_grp_cnt=>0,
+		id=>"457aa532-fb8a-43be-a91c-7c89e876418d/b7e8018e-1ef7-49c0-b5a5-61641a03e31c",
+		drive_mode=>"0",
+		ibuf_enabled=>"1",
+		init_dr_st=>"1",
+		input_sync=>"0",
+		intr_mode=>"0",
+		io_voltage=>"",
+		output_conn=>"0",
+		oe_conn=>"0",
+		output_sync=>"0",
+		oe_sync=>"0",
+		drive_strength=>"0",
+		max_frequency=>"100",
+		output_current_cap=>"8",
+		i2c_mode=>"0",
+		pin_aliases=>"",
+		pin_mode=>"I",
+		slew_rate=>"0",
+		vtrip=>"0",
+		use_annotation=>"0",
+		hotswap_needed=>"0")
+	PORT MAP(oe=>(one),
+		y=>(zero),
+		fb=>\UART_DEBUG:Net_1172\,
+		analog=>(open),
+		io=>(\UART_DEBUG:tmpIO_0__rx_net_0\),
+		annotation=>(open),
+		siovref=>(\UART_DEBUG:tmpSIOVREF__rx_net_0\));
+\UART_DEBUG:SCB_IRQ\:cy_mxs40_isr_v1_0
+	GENERIC MAP(cy_registers=>"",
+		deepsleep_required=>'0',
+		int_type=>"10")
+	PORT MAP(int_signal=>\UART_DEBUG:intr_wire\);
+\UART_DEBUG:SCB\:cy_mxs40_scb_v1_10
+	GENERIC MAP(cy_registers=>"",
+		requires_io_preconfigure=>'0',
+		mode=>2,
+		master=>'0')
+	PORT MAP(clock=>\UART_DEBUG:Net_847\,
+		uart_rx=>\UART_DEBUG:Net_1172\,
+		uart_tx=>\UART_DEBUG:tx_wire\,
+		uart_rts=>\UART_DEBUG:rts_wire\,
+		uart_cts=>zero,
+		uart_tx_en=>\UART_DEBUG:tx_en_wire\,
+		i2c_scl=>\UART_DEBUG:Net_145\,
+		i2c_sda=>\UART_DEBUG:Net_146\,
+		spi_clk_m=>\UART_DEBUG:Net_154\,
+		spi_clk_s=>zero,
+		spi_select_m=>(\UART_DEBUG:Net_155_3\, \UART_DEBUG:Net_155_2\, \UART_DEBUG:Net_155_1\, \UART_DEBUG:Net_155_0\),
+		spi_select_s=>zero,
+		spi_mosi_m=>\UART_DEBUG:Net_156\,
+		spi_miso_m=>zero,
+		spi_mosi_s=>zero,
+		spi_miso_s=>\UART_DEBUG:Net_157\,
+		interrupt=>\UART_DEBUG:intr_wire\,
+		tr_tx_req=>Net_85,
+		tr_rx_req=>Net_82,
+		tr_i2c_scl_filtered=>\UART_DEBUG:Net_161\);
+R_1:cy_annotation_universal_v1_0
+	GENERIC MAP(comp_name=>"Resistor_v1_0",
+		port_names=>"T1, T2",
+		width=>2)
+	PORT MAP(connect=>(Net_345, Net_206));
+P6_VDD_2:cy_annotation_universal_v1_0
+	GENERIC MAP(comp_name=>"Power_v1_0",
+		port_names=>"T1",
+		width=>1)
+	PORT MAP(connect=>Net_206);
+Blue:cy_annotation_universal_v1_0
+	GENERIC MAP(comp_name=>"LED_v1_0",
+		port_names=>"A, K",
+		width=>2)
+	PORT MAP(connect=>(Net_345, Net_200));
+Alert_LED:cy_mxs40_gpio_v1_0
+	GENERIC MAP(cy_registers=>"",
+		width=>1,
+		sio_grp_cnt=>0,
+		id=>"a61270bc-07ec-447d-ac9e-34cfe85c30e9",
+		drive_mode=>"6",
+		ibuf_enabled=>"0",
+		init_dr_st=>"1",
+		input_sync=>"0",
+		intr_mode=>"0",
+		io_voltage=>"",
+		output_conn=>"0",
+		oe_conn=>"0",
+		output_sync=>"0",
+		oe_sync=>"0",
+		drive_strength=>"0",
+		max_frequency=>"100",
+		output_current_cap=>"8",
+		i2c_mode=>"0",
+		pin_aliases=>"",
+		pin_mode=>"O",
+		slew_rate=>"0",
+		vtrip=>"0",
+		use_annotation=>"1",
+		hotswap_needed=>"0")
+	PORT MAP(oe=>(one),
+		y=>(zero),
+		fb=>(tmpFB_0__Alert_LED_net_0),
+		analog=>(open),
+		io=>(tmpIO_0__Alert_LED_net_0),
+		annotation=>Net_200,
+		siovref=>(tmpSIOVREF__Alert_LED_net_0));
+R_3:cy_annotation_universal_v1_0
+	GENERIC MAP(comp_name=>"Resistor_v1_0",
+		port_names=>"T1, T2",
+		width=>2)
+	PORT MAP(connect=>(Net_342, Net_344));
+R_2:cy_annotation_universal_v1_0
+	GENERIC MAP(comp_name=>"Resistor_v1_0",
+		port_names=>"T1, T2",
+		width=>2)
+	PORT MAP(connect=>(Net_346, Net_344));
+Red:cy_annotation_universal_v1_0
+	GENERIC MAP(comp_name=>"LED_v1_0",
+		port_names=>"A, K",
+		width=>2)
+	PORT MAP(connect=>(Net_342, Net_453));
+P6_VDD_1:cy_annotation_universal_v1_0
+	GENERIC MAP(comp_name=>"Power_v1_0",
+		port_names=>"T1",
+		width=>1)
+	PORT MAP(connect=>Net_344);
+Green:cy_annotation_universal_v1_0
+	GENERIC MAP(comp_name=>"LED_v1_0",
+		port_names=>"A, K",
+		width=>2)
+	PORT MAP(connect=>(Net_346, Net_204));
+Disconnect_LED:cy_mxs40_gpio_v1_0
+	GENERIC MAP(cy_registers=>"",
+		width=>1,
+		sio_grp_cnt=>0,
+		id=>"b65ac42c-3caa-4998-96ea-37a7fac58be5",
+		drive_mode=>"6",
+		ibuf_enabled=>"0",
+		init_dr_st=>"1",
+		input_sync=>"0",
+		intr_mode=>"0",
+		io_voltage=>"",
+		output_conn=>"0",
+		oe_conn=>"0",
+		output_sync=>"0",
+		oe_sync=>"0",
+		drive_strength=>"0",
+		max_frequency=>"100",
+		output_current_cap=>"8",
+		i2c_mode=>"0",
+		pin_aliases=>"",
+		pin_mode=>"O",
+		slew_rate=>"0",
+		vtrip=>"0",
+		use_annotation=>"1",
+		hotswap_needed=>"0")
+	PORT MAP(oe=>(one),
+		y=>(zero),
+		fb=>(tmpFB_0__Disconnect_LED_net_0),
+		analog=>(open),
+		io=>(tmpIO_0__Disconnect_LED_net_0),
+		annotation=>Net_453,
+		siovref=>(tmpSIOVREF__Disconnect_LED_net_0));
+Advertising_LED:cy_mxs40_gpio_v1_0
+	GENERIC MAP(cy_registers=>"",
+		width=>1,
+		sio_grp_cnt=>0,
+		id=>"90c57f27-e4cf-4a29-a42e-62ac1d934943",
+		drive_mode=>"6",
+		ibuf_enabled=>"0",
+		init_dr_st=>"1",
+		input_sync=>"0",
+		intr_mode=>"0",
+		io_voltage=>"",
+		output_conn=>"0",
+		oe_conn=>"0",
+		output_sync=>"0",
+		oe_sync=>"0",
+		drive_strength=>"0",
+		max_frequency=>"100",
+		output_current_cap=>"8",
+		i2c_mode=>"0",
+		pin_aliases=>"",
+		pin_mode=>"O",
+		slew_rate=>"0",
+		vtrip=>"0",
+		use_annotation=>"1",
+		hotswap_needed=>"0")
+	PORT MAP(oe=>(one),
+		y=>(zero),
+		fb=>(tmpFB_0__Advertising_LED_net_0),
+		analog=>(open),
+		io=>(tmpIO_0__Advertising_LED_net_0),
+		annotation=>Net_204,
+		siovref=>(tmpSIOVREF__Advertising_LED_net_0));
+\I2C_Pressure:SCB\:cy_mxs40_scb_v1_10
+	GENERIC MAP(cy_registers=>"",
+		requires_io_preconfigure=>'1',
+		mode=>0,
+		master=>'0')
+	PORT MAP(clock=>\I2C_Pressure:clock_wire\,
+		uart_rx=>zero,
+		uart_tx=>\I2C_Pressure:Net_1062\,
+		uart_rts=>\I2C_Pressure:Net_1053\,
+		uart_cts=>zero,
+		uart_tx_en=>\I2C_Pressure:Net_277\,
+		i2c_scl=>Net_43,
+		i2c_sda=>Net_45,
+		spi_clk_m=>\I2C_Pressure:Net_1059\,
+		spi_clk_s=>zero,
+		spi_select_m=>(\I2C_Pressure:Net_87_3\, \I2C_Pressure:Net_87_2\, \I2C_Pressure:Net_87_1\, \I2C_Pressure:Net_87_0\),
+		spi_select_s=>zero,
+		spi_mosi_m=>\I2C_Pressure:Net_1061\,
+		spi_miso_m=>zero,
+		spi_mosi_s=>zero,
+		spi_miso_s=>\I2C_Pressure:Net_1055\,
+		interrupt=>\I2C_Pressure:intr_wire\,
+		tr_tx_req=>\I2C_Pressure:Net_162\,
+		tr_rx_req=>\I2C_Pressure:Net_163\,
+		tr_i2c_scl_filtered=>Net_44);
+\I2C_Pressure:SCB_IRQ\:cy_mxs40_isr_v1_0
+	GENERIC MAP(cy_registers=>"",
+		deepsleep_required=>'0',
+		int_type=>"10")
+	PORT MAP(int_signal=>\I2C_Pressure:intr_wire\);
+\I2C_Pressure:SCBCLK\:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"dc6c700e-55cb-4659-bae4-17b81cd82de0/b68e5b9d-7828-482d-a282-930f990e3b3e",
+		source_clock_id=>"",
+		divisor=>0,
+		period=>"78125000",
+		is_direct=>'0',
+		is_digital=>'0')
+	PORT MAP(clock_out=>\I2C_Pressure:clock_wire\,
+		dig_domain_out=>open);
+\I2C_Pressure:scl\:cy_mxs40_gpio_v1_0
+	GENERIC MAP(cy_registers=>"",
+		width=>1,
+		sio_grp_cnt=>0,
+		id=>"dc6c700e-55cb-4659-bae4-17b81cd82de0/69c3b5e8-b094-4d65-b96b-9f4f3a9a8641",
+		drive_mode=>"4",
+		ibuf_enabled=>"1",
+		init_dr_st=>"1",
+		input_sync=>"0",
+		intr_mode=>"0",
+		io_voltage=>"",
+		output_conn=>"0",
+		oe_conn=>"0",
+		output_sync=>"0",
+		oe_sync=>"0",
+		drive_strength=>"0",
+		max_frequency=>"100",
+		output_current_cap=>"8",
+		i2c_mode=>"0",
+		pin_aliases=>"",
+		pin_mode=>"B",
+		slew_rate=>"0",
+		vtrip=>"0",
+		use_annotation=>"0",
+		hotswap_needed=>"0")
+	PORT MAP(oe=>(one),
+		y=>(zero),
+		fb=>(\I2C_Pressure:tmpFB_0__scl_net_0\),
+		analog=>(open),
+		io=>Net_43,
+		annotation=>(open),
+		siovref=>(\I2C_Pressure:tmpSIOVREF__scl_net_0\));
+\I2C_Pressure:sda\:cy_mxs40_gpio_v1_0
+	GENERIC MAP(cy_registers=>"",
+		width=>1,
+		sio_grp_cnt=>0,
+		id=>"dc6c700e-55cb-4659-bae4-17b81cd82de0/2aab8a93-e7dd-4bd4-8210-42652cd079c5",
+		drive_mode=>"4",
+		ibuf_enabled=>"1",
+		init_dr_st=>"1",
+		input_sync=>"0",
+		intr_mode=>"0",
+		io_voltage=>"",
+		output_conn=>"0",
+		oe_conn=>"0",
+		output_sync=>"0",
+		oe_sync=>"0",
+		drive_strength=>"0",
+		max_frequency=>"100",
+		output_current_cap=>"8",
+		i2c_mode=>"0",
+		pin_aliases=>"",
+		pin_mode=>"B",
+		slew_rate=>"0",
+		vtrip=>"0",
+		use_annotation=>"0",
+		hotswap_needed=>"0")
+	PORT MAP(oe=>(one),
+		y=>(zero),
+		fb=>(\I2C_Pressure:tmpFB_0__sda_net_0\),
+		analog=>(open),
+		io=>Net_45,
+		annotation=>(open),
+		siovref=>(\I2C_Pressure:tmpSIOVREF__sda_net_0\));
+Data_Tempreature_Humidity:cy_mxs40_gpio_v1_0
+	GENERIC MAP(cy_registers=>"",
+		width=>1,
+		sio_grp_cnt=>0,
+		id=>"3bebfee8-790b-4297-b73a-27818bdce71c",
+		drive_mode=>"4",
+		ibuf_enabled=>"1",
+		init_dr_st=>"1",
+		input_sync=>"0",
+		intr_mode=>"0",
+		io_voltage=>"",
+		output_conn=>"0",
+		oe_conn=>"0",
+		output_sync=>"0",
+		oe_sync=>"0",
+		drive_strength=>"0",
+		max_frequency=>"100",
+		output_current_cap=>"8",
+		i2c_mode=>"0",
+		pin_aliases=>"",
+		pin_mode=>"B",
+		slew_rate=>"0",
+		vtrip=>"0",
+		use_annotation=>"0",
+		hotswap_needed=>"0")
+	PORT MAP(oe=>(one),
+		y=>(zero),
+		fb=>(tmpFB_0__Data_Tempreature_Humidity_net_0),
+		analog=>(open),
+		io=>Net_90,
+		annotation=>(open),
+		siovref=>(tmpSIOVREF__Data_Tempreature_Humidity_net_0));
+DATA_Photoresistor:cy_mxs40_gpio_v1_0
+	GENERIC MAP(cy_registers=>"",
+		width=>1,
+		sio_grp_cnt=>0,
+		id=>"0113321b-4a37-46f6-8407-2f8646c68756",
+		drive_mode=>"0",
+		ibuf_enabled=>"0",
+		init_dr_st=>"1",
+		input_sync=>"0",
+		intr_mode=>"0",
+		io_voltage=>"",
+		output_conn=>"0",
+		oe_conn=>"0",
+		output_sync=>"0",
+		oe_sync=>"0",
+		drive_strength=>"0",
+		max_frequency=>"100",
+		output_current_cap=>"8",
+		i2c_mode=>"0",
+		pin_aliases=>"",
+		pin_mode=>"A",
+		slew_rate=>"0",
+		vtrip=>"0",
+		use_annotation=>"0",
+		hotswap_needed=>"0")
+	PORT MAP(oe=>(one),
+		y=>(zero),
+		fb=>(tmpFB_0__DATA_Photoresistor_net_0),
+		analog=>Net_118,
+		io=>(tmpIO_0__DATA_Photoresistor_net_0),
+		annotation=>(open),
+		siovref=>(tmpSIOVREF__DATA_Photoresistor_net_0));
+\ADC_Photoresistor:SARMUX\:cy_mxs40_sarmux_v1_0
+	GENERIC MAP(cy_registers=>"",
+		muxin_width=>2,
+		cmn_neg_width=>1,
+		input_mode=>"00")
+	PORT MAP(muxin_plus=>(\ADC_Photoresistor:Net_339_1\, \ADC_Photoresistor:Net_339_0\),
+		muxin_minus=>(\ADC_Photoresistor:Net_340_1\, \ADC_Photoresistor:Net_340_0\),
+		cmn_neg=>(\ADC_Photoresistor:Net_21_0\),
+		muxout_plus=>\ADC_Photoresistor:sarmuxOutPlus\,
+		muxout_minus=>\ADC_Photoresistor:sarmuxOutMinus\);
+\ADC_Photoresistor:intSarClock\:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"d72bb371-9df3-4523-bf60-e61c60ae6a9a/f7143d07-534d-4542-813a-8bb23ceb1ae9",
+		source_clock_id=>"2FB4EC85-8328-4C5A-9ED9-8B63060178EB",
+		divisor=>0,
+		period=>"1000000000",
+		is_direct=>'0',
+		is_digital=>'0')
+	PORT MAP(clock_out=>\ADC_Photoresistor:Net_428\,
+		dig_domain_out=>open);
+\ADC_Photoresistor:vplusMux_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:muxoutPlus\,
+		signal2=>\ADC_Photoresistor:sarmuxOutPlus\);
+\ADC_Photoresistor:vminusMux_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:muxoutMinus\,
+		signal2=>\ADC_Photoresistor:sarmuxOutMinus\);
+\ADC_Photoresistor:vinPlusConnect:bus_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>2,
+		is_net_join=>'0')
+	PORT MAP(signal1=>(\ADC_Photoresistor:vinPlus_1\, \ADC_Photoresistor:vinPlus_0\),
+		signal2=>(\ADC_Photoresistor:Net_339_1\, \ADC_Photoresistor:Net_339_0\));
+\ADC_Photoresistor:vinMinusConnect:bus_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>2,
+		is_net_join=>'0')
+	PORT MAP(signal1=>(\ADC_Photoresistor:vinMinus_1\, \ADC_Photoresistor:vinMinus_0\),
+		signal2=>(\ADC_Photoresistor:Net_340_1\, \ADC_Photoresistor:Net_340_0\));
+\ADC_Photoresistor:vinNegConnect:bus_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>(\ADC_Photoresistor:vinNeg_0\),
+		signal2=>(\ADC_Photoresistor:Net_21_0\));
+\ADC_Photoresistor:extVrefMux_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:Net_408\,
+		signal2=>\ADC_Photoresistor:Net_105\);
+\ADC_Photoresistor:IRQ\:cy_mxs40_isr_v1_0
+	GENERIC MAP(cy_registers=>"",
+		deepsleep_required=>'0',
+		int_type=>"10")
+	PORT MAP(int_signal=>\ADC_Photoresistor:Net_423\);
+\ADC_Photoresistor:vinPlusMux_0_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_0\,
+		signal2=>Net_118);
+\ADC_Photoresistor:SAR\:cy_mxs40_sar_v1_0
+	GENERIC MAP(cy_registers=>"",
+		edge_trigger=>'0')
+	PORT MAP(vplus=>\ADC_Photoresistor:muxoutPlus\,
+		vminus=>\ADC_Photoresistor:muxoutMinus\,
+		vref=>\ADC_Photoresistor:vref\,
+		ext_vref=>\ADC_Photoresistor:Net_408\,
+		dsi_sar_sample_done=>Net_107,
+		dsi_sar_chan_id_valid=>Net_109,
+		dsi_sar_data_valid=>Net_111,
+		tr_sar_out=>Net_106,
+		dsi_sar_data=>(Net_110_11, Net_110_10, Net_110_9, Net_110_8,
+			Net_110_7, Net_110_6, Net_110_5, Net_110_4,
+			Net_110_3, Net_110_2, Net_110_1, Net_110_0),
+		dsi_sar_chan_id=>(Net_108_3, Net_108_2, Net_108_1, Net_108_0),
+		dsi_sar_cfg_st_sel=>(zero, zero),
+		dsi_sar_cfg_average=>zero,
+		dsi_sar_cfg_differential=>zero,
+		dsi_sar_sw_negvref=>zero,
+		dsi_sar_data_hilo_sel=>zero,
+		tr_sar_in=>zero,
+		clock=>\ADC_Photoresistor:Net_428\,
+		interrupt=>\ADC_Photoresistor:Net_423\);
+\ADC_Photoresistor:cy_analog_noconnect_133\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_107\);
+\ADC_Photoresistor:vinPlusMux_1_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_1\,
+		signal2=>Net_126);
+\ADC_Photoresistor:cy_analog_noconnect_134\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_110\);
+\ADC_Photoresistor:vinPlusMux_2_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_2\,
+		signal2=>\ADC_Photoresistor:Net_113\);
+\ADC_Photoresistor:cy_analog_noconnect_135\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_113\);
+\ADC_Photoresistor:vinPlusMux_3_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_3\,
+		signal2=>\ADC_Photoresistor:Net_115\);
+\ADC_Photoresistor:cy_analog_noconnect_136\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_115\);
+\ADC_Photoresistor:vinPlusMux_4_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_4\,
+		signal2=>\ADC_Photoresistor:Net_117\);
+\ADC_Photoresistor:cy_analog_noconnect_137\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_117\);
+\ADC_Photoresistor:vinPlusMux_5_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_5\,
+		signal2=>\ADC_Photoresistor:Net_119\);
+\ADC_Photoresistor:cy_analog_noconnect_138\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_119\);
+\ADC_Photoresistor:vinPlusMux_6_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_6\,
+		signal2=>\ADC_Photoresistor:Net_121\);
+\ADC_Photoresistor:cy_analog_noconnect_139\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_121\);
+\ADC_Photoresistor:vinPlusMux_7_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_7\,
+		signal2=>\ADC_Photoresistor:Net_123\);
+\ADC_Photoresistor:cy_analog_noconnect_140\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_123\);
+\ADC_Photoresistor:vinPlusMux_8_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_8\,
+		signal2=>\ADC_Photoresistor:Net_125\);
+\ADC_Photoresistor:cy_analog_noconnect_141\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_125\);
+\ADC_Photoresistor:vinPlusMux_9_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_9\,
+		signal2=>\ADC_Photoresistor:Net_127\);
+\ADC_Photoresistor:cy_analog_noconnect_142\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_127\);
+\ADC_Photoresistor:vinPlusMux_10_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_10\,
+		signal2=>\ADC_Photoresistor:Net_129\);
+\ADC_Photoresistor:cy_analog_noconnect_143\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_129\);
+\ADC_Photoresistor:vinPlusMux_11_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_11\,
+		signal2=>\ADC_Photoresistor:Net_131\);
+\ADC_Photoresistor:cy_analog_noconnect_144\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_131\);
+\ADC_Photoresistor:vinPlusMux_12_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_12\,
+		signal2=>\ADC_Photoresistor:Net_133\);
+\ADC_Photoresistor:cy_analog_noconnect_145\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_133\);
+\ADC_Photoresistor:vinPlusMux_13_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_13\,
+		signal2=>\ADC_Photoresistor:Net_135\);
+\ADC_Photoresistor:cy_analog_noconnect_146\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_135\);
+\ADC_Photoresistor:vinPlusMux_14_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_14\,
+		signal2=>\ADC_Photoresistor:Net_137\);
+\ADC_Photoresistor:cy_analog_noconnect_147\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_137\);
+\ADC_Photoresistor:vinPlusMux_15_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_15\,
+		signal2=>\ADC_Photoresistor:Net_139\);
+\ADC_Photoresistor:cy_analog_noconnect_148\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_139\);
+\ADC_Photoresistor:vinPlusMux_16_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_16\,
+		signal2=>\ADC_Photoresistor:Net_142\);
+\ADC_Photoresistor:cy_analog_noconnect_149\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_142\);
+\ADC_Photoresistor:vinPlusMux_17_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_17\,
+		signal2=>\ADC_Photoresistor:Net_144\);
+\ADC_Photoresistor:cy_analog_noconnect_150\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_144\);
+\ADC_Photoresistor:vinPlusMux_18_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_18\,
+		signal2=>\ADC_Photoresistor:Net_146\);
+\ADC_Photoresistor:cy_analog_noconnect_151\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_146\);
+\ADC_Photoresistor:vinPlusMux_19_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_19\,
+		signal2=>\ADC_Photoresistor:Net_148\);
+\ADC_Photoresistor:cy_analog_noconnect_152\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_148\);
+\ADC_Photoresistor:vinPlusMux_20_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_20\,
+		signal2=>\ADC_Photoresistor:Net_150\);
+\ADC_Photoresistor:cy_analog_noconnect_153\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_150\);
+\ADC_Photoresistor:vinPlusMux_21_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_21\,
+		signal2=>\ADC_Photoresistor:Net_152\);
+\ADC_Photoresistor:cy_analog_noconnect_154\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_152\);
+\ADC_Photoresistor:vinPlusMux_22_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_22\,
+		signal2=>\ADC_Photoresistor:Net_154\);
+\ADC_Photoresistor:cy_analog_noconnect_155\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_154\);
+\ADC_Photoresistor:vinPlusMux_23_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_23\,
+		signal2=>\ADC_Photoresistor:Net_156\);
+\ADC_Photoresistor:cy_analog_noconnect_156\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_156\);
+\ADC_Photoresistor:vinPlusMux_24_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_24\,
+		signal2=>\ADC_Photoresistor:Net_158\);
+\ADC_Photoresistor:cy_analog_noconnect_157\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_158\);
+\ADC_Photoresistor:vinPlusMux_25_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_25\,
+		signal2=>\ADC_Photoresistor:Net_160\);
+\ADC_Photoresistor:cy_analog_noconnect_158\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_160\);
+\ADC_Photoresistor:vinPlusMux_26_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_26\,
+		signal2=>\ADC_Photoresistor:Net_162\);
+\ADC_Photoresistor:cy_analog_noconnect_159\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_162\);
+\ADC_Photoresistor:vinPlusMux_27_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_27\,
+		signal2=>\ADC_Photoresistor:Net_164\);
+\ADC_Photoresistor:cy_analog_noconnect_160\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_164\);
+\ADC_Photoresistor:vinPlusMux_28_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_28\,
+		signal2=>\ADC_Photoresistor:Net_166\);
+\ADC_Photoresistor:cy_analog_noconnect_161\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_166\);
+\ADC_Photoresistor:vinPlusMux_29_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_29\,
+		signal2=>\ADC_Photoresistor:Net_168\);
+\ADC_Photoresistor:cy_analog_noconnect_162\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_168\);
+\ADC_Photoresistor:vinPlusMux_30_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_30\,
+		signal2=>\ADC_Photoresistor:Net_170\);
+\ADC_Photoresistor:cy_analog_noconnect_163\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_170\);
+\ADC_Photoresistor:vinPlusMux_31_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_31\,
+		signal2=>\ADC_Photoresistor:Net_172\);
+\ADC_Photoresistor:cy_analog_noconnect_164\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_172\);
+\ADC_Photoresistor:vinPlusMux_32_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_32\,
+		signal2=>\ADC_Photoresistor:Net_180\);
+\ADC_Photoresistor:cy_analog_noconnect_165\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_180\);
+\ADC_Photoresistor:vinPlusMux_33_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_33\,
+		signal2=>\ADC_Photoresistor:Net_181\);
+\ADC_Photoresistor:cy_analog_noconnect_166\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_181\);
+\ADC_Photoresistor:vinPlusMux_34_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_34\,
+		signal2=>\ADC_Photoresistor:Net_182\);
+\ADC_Photoresistor:cy_analog_noconnect_167\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_182\);
+\ADC_Photoresistor:vinPlusMux_35_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_35\,
+		signal2=>\ADC_Photoresistor:Net_183\);
+\ADC_Photoresistor:cy_analog_noconnect_168\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_183\);
+\ADC_Photoresistor:vinPlusMux_36_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_36\,
+		signal2=>\ADC_Photoresistor:Net_184\);
+\ADC_Photoresistor:cy_analog_noconnect_169\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_184\);
+\ADC_Photoresistor:vinPlusMux_37_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_37\,
+		signal2=>\ADC_Photoresistor:Net_185\);
+\ADC_Photoresistor:cy_analog_noconnect_170\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_185\);
+\ADC_Photoresistor:vinPlusMux_38_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_38\,
+		signal2=>\ADC_Photoresistor:Net_186\);
+\ADC_Photoresistor:cy_analog_noconnect_171\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_186\);
+\ADC_Photoresistor:vinPlusMux_39_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_39\,
+		signal2=>\ADC_Photoresistor:Net_187\);
+\ADC_Photoresistor:cy_analog_noconnect_172\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_187\);
+\ADC_Photoresistor:vinPlusMux_40_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_40\,
+		signal2=>\ADC_Photoresistor:Net_188\);
+\ADC_Photoresistor:cy_analog_noconnect_173\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_188\);
+\ADC_Photoresistor:vinPlusMux_41_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_41\,
+		signal2=>\ADC_Photoresistor:Net_189\);
+\ADC_Photoresistor:cy_analog_noconnect_174\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_189\);
+\ADC_Photoresistor:vinPlusMux_42_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_42\,
+		signal2=>\ADC_Photoresistor:Net_190\);
+\ADC_Photoresistor:cy_analog_noconnect_175\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_190\);
+\ADC_Photoresistor:vinPlusMux_43_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_43\,
+		signal2=>\ADC_Photoresistor:Net_191\);
+\ADC_Photoresistor:cy_analog_noconnect_176\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_191\);
+\ADC_Photoresistor:vinPlusMux_44_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_44\,
+		signal2=>\ADC_Photoresistor:Net_192\);
+\ADC_Photoresistor:cy_analog_noconnect_177\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_192\);
+\ADC_Photoresistor:vinPlusMux_45_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_45\,
+		signal2=>\ADC_Photoresistor:Net_193\);
+\ADC_Photoresistor:cy_analog_noconnect_178\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_193\);
+\ADC_Photoresistor:vinPlusMux_46_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_46\,
+		signal2=>\ADC_Photoresistor:Net_194\);
+\ADC_Photoresistor:cy_analog_noconnect_179\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_194\);
+\ADC_Photoresistor:vinPlusMux_47_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_47\,
+		signal2=>\ADC_Photoresistor:Net_195\);
+\ADC_Photoresistor:cy_analog_noconnect_180\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_195\);
+\ADC_Photoresistor:vinPlusMux_48_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_48\,
+		signal2=>\ADC_Photoresistor:Net_196\);
+\ADC_Photoresistor:cy_analog_noconnect_181\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_196\);
+\ADC_Photoresistor:vinPlusMux_49_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_49\,
+		signal2=>\ADC_Photoresistor:Net_197\);
+\ADC_Photoresistor:cy_analog_noconnect_182\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_197\);
+\ADC_Photoresistor:vinPlusMux_50_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_50\,
+		signal2=>\ADC_Photoresistor:Net_198\);
+\ADC_Photoresistor:cy_analog_noconnect_183\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_198\);
+\ADC_Photoresistor:vinPlusMux_51_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_51\,
+		signal2=>\ADC_Photoresistor:Net_199\);
+\ADC_Photoresistor:cy_analog_noconnect_184\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_199\);
+\ADC_Photoresistor:vinPlusMux_52_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_52\,
+		signal2=>\ADC_Photoresistor:Net_200\);
+\ADC_Photoresistor:cy_analog_noconnect_185\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_200\);
+\ADC_Photoresistor:vinPlusMux_53_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_53\,
+		signal2=>\ADC_Photoresistor:Net_201\);
+\ADC_Photoresistor:cy_analog_noconnect_186\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_201\);
+\ADC_Photoresistor:vinPlusMux_54_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_54\,
+		signal2=>\ADC_Photoresistor:Net_202\);
+\ADC_Photoresistor:cy_analog_noconnect_187\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_202\);
+\ADC_Photoresistor:vinPlusMux_55_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_55\,
+		signal2=>\ADC_Photoresistor:Net_203\);
+\ADC_Photoresistor:cy_analog_noconnect_188\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_203\);
+\ADC_Photoresistor:vinPlusMux_56_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_56\,
+		signal2=>\ADC_Photoresistor:Net_204\);
+\ADC_Photoresistor:cy_analog_noconnect_189\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_204\);
+\ADC_Photoresistor:vinPlusMux_57_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_57\,
+		signal2=>\ADC_Photoresistor:Net_205\);
+\ADC_Photoresistor:cy_analog_noconnect_190\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_205\);
+\ADC_Photoresistor:vinPlusMux_58_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_58\,
+		signal2=>\ADC_Photoresistor:Net_206\);
+\ADC_Photoresistor:cy_analog_noconnect_191\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_206\);
+\ADC_Photoresistor:vinPlusMux_59_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_59\,
+		signal2=>\ADC_Photoresistor:Net_207\);
+\ADC_Photoresistor:cy_analog_noconnect_192\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_207\);
+\ADC_Photoresistor:vinPlusMux_60_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_60\,
+		signal2=>\ADC_Photoresistor:Net_208\);
+\ADC_Photoresistor:cy_analog_noconnect_193\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_208\);
+\ADC_Photoresistor:vinPlusMux_61_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_61\,
+		signal2=>\ADC_Photoresistor:Net_209\);
+\ADC_Photoresistor:cy_analog_noconnect_194\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_209\);
+\ADC_Photoresistor:vinPlusMux_62_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_62\,
+		signal2=>\ADC_Photoresistor:Net_210\);
+\ADC_Photoresistor:cy_analog_noconnect_195\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_210\);
+\ADC_Photoresistor:vinPlusMux_63_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinPlus_63\,
+		signal2=>\ADC_Photoresistor:Net_211\);
+\ADC_Photoresistor:cy_analog_noconnect_196\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_211\);
+\ADC_Photoresistor:vinMinusMux_0_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_0\,
+		signal2=>\ADC_Photoresistor:Net_213\);
+\ADC_Photoresistor:cy_analog_noconnect_1\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_213\);
+\ADC_Photoresistor:vinMinusMux_1_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_1\,
+		signal2=>\ADC_Photoresistor:Net_218\);
+\ADC_Photoresistor:cy_analog_noconnect_2\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_218\);
+\ADC_Photoresistor:vinMinusMux_2_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_2\,
+		signal2=>\ADC_Photoresistor:Net_220\);
+\ADC_Photoresistor:cy_analog_noconnect_3\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_220\);
+\ADC_Photoresistor:vinMinusMux_3_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_3\,
+		signal2=>\ADC_Photoresistor:Net_222\);
+\ADC_Photoresistor:cy_analog_noconnect_4\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_222\);
+\ADC_Photoresistor:vinMinusMux_4_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_4\,
+		signal2=>\ADC_Photoresistor:Net_224\);
+\ADC_Photoresistor:cy_analog_noconnect_5\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_224\);
+\ADC_Photoresistor:vinMinusMux_5_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_5\,
+		signal2=>\ADC_Photoresistor:Net_226\);
+\ADC_Photoresistor:cy_analog_noconnect_6\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_226\);
+\ADC_Photoresistor:vinMinusMux_6_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_6\,
+		signal2=>\ADC_Photoresistor:Net_228\);
+\ADC_Photoresistor:cy_analog_noconnect_7\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_228\);
+\ADC_Photoresistor:vinMinusMux_7_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_7\,
+		signal2=>\ADC_Photoresistor:Net_230\);
+\ADC_Photoresistor:cy_analog_noconnect_8\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_230\);
+\ADC_Photoresistor:vinMinusMux_8_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_8\,
+		signal2=>\ADC_Photoresistor:Net_232\);
+\ADC_Photoresistor:cy_analog_noconnect_9\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_232\);
+\ADC_Photoresistor:vinMinusMux_9_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_9\,
+		signal2=>\ADC_Photoresistor:Net_234\);
+\ADC_Photoresistor:cy_analog_noconnect_10\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_234\);
+\ADC_Photoresistor:vinMinusMux_10_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_10\,
+		signal2=>\ADC_Photoresistor:Net_236\);
+\ADC_Photoresistor:cy_analog_noconnect_11\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_236\);
+\ADC_Photoresistor:vinMinusMux_11_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_11\,
+		signal2=>\ADC_Photoresistor:Net_238\);
+\ADC_Photoresistor:cy_analog_noconnect_12\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_238\);
+\ADC_Photoresistor:vinMinusMux_12_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_12\,
+		signal2=>\ADC_Photoresistor:Net_240\);
+\ADC_Photoresistor:cy_analog_noconnect_13\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_240\);
+\ADC_Photoresistor:vinMinusMux_13_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_13\,
+		signal2=>\ADC_Photoresistor:Net_242\);
+\ADC_Photoresistor:cy_analog_noconnect_14\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_242\);
+\ADC_Photoresistor:vinMinusMux_14_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_14\,
+		signal2=>\ADC_Photoresistor:Net_244\);
+\ADC_Photoresistor:cy_analog_noconnect_15\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_244\);
+\ADC_Photoresistor:vinMinusMux_15_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_15\,
+		signal2=>\ADC_Photoresistor:Net_246\);
+\ADC_Photoresistor:cy_analog_noconnect_16\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_246\);
+\ADC_Photoresistor:vinMinusMux_16_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_16\,
+		signal2=>\ADC_Photoresistor:Net_248\);
+\ADC_Photoresistor:cy_analog_noconnect_17\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_248\);
+\ADC_Photoresistor:vinMinusMux_17_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_17\,
+		signal2=>\ADC_Photoresistor:Net_250\);
+\ADC_Photoresistor:cy_analog_noconnect_18\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_250\);
+\ADC_Photoresistor:vinMinusMux_18_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_18\,
+		signal2=>\ADC_Photoresistor:Net_252\);
+\ADC_Photoresistor:cy_analog_noconnect_19\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_252\);
+\ADC_Photoresistor:vinMinusMux_19_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_19\,
+		signal2=>\ADC_Photoresistor:Net_254\);
+\ADC_Photoresistor:cy_analog_noconnect_20\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_254\);
+\ADC_Photoresistor:vinMinusMux_20_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_20\,
+		signal2=>\ADC_Photoresistor:Net_256\);
+\ADC_Photoresistor:cy_analog_noconnect_21\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_256\);
+\ADC_Photoresistor:vinMinusMux_21_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_21\,
+		signal2=>\ADC_Photoresistor:Net_258\);
+\ADC_Photoresistor:cy_analog_noconnect_22\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_258\);
+\ADC_Photoresistor:vinMinusMux_22_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_22\,
+		signal2=>\ADC_Photoresistor:Net_260\);
+\ADC_Photoresistor:cy_analog_noconnect_23\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_260\);
+\ADC_Photoresistor:vinMinusMux_23_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_23\,
+		signal2=>\ADC_Photoresistor:Net_262\);
+\ADC_Photoresistor:cy_analog_noconnect_24\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_262\);
+\ADC_Photoresistor:vinMinusMux_24_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_24\,
+		signal2=>\ADC_Photoresistor:Net_264\);
+\ADC_Photoresistor:cy_analog_noconnect_25\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_264\);
+\ADC_Photoresistor:vinMinusMux_25_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_25\,
+		signal2=>\ADC_Photoresistor:Net_266\);
+\ADC_Photoresistor:cy_analog_noconnect_26\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_266\);
+\ADC_Photoresistor:vinMinusMux_26_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_26\,
+		signal2=>\ADC_Photoresistor:Net_268\);
+\ADC_Photoresistor:cy_analog_noconnect_27\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_268\);
+\ADC_Photoresistor:vinMinusMux_27_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_27\,
+		signal2=>\ADC_Photoresistor:Net_270\);
+\ADC_Photoresistor:cy_analog_noconnect_28\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_270\);
+\ADC_Photoresistor:vinMinusMux_28_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_28\,
+		signal2=>\ADC_Photoresistor:Net_272\);
+\ADC_Photoresistor:cy_analog_noconnect_29\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_272\);
+\ADC_Photoresistor:vinMinusMux_29_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_29\,
+		signal2=>\ADC_Photoresistor:Net_274\);
+\ADC_Photoresistor:cy_analog_noconnect_30\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_274\);
+\ADC_Photoresistor:vinMinusMux_30_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_30\,
+		signal2=>\ADC_Photoresistor:Net_276\);
+\ADC_Photoresistor:cy_analog_noconnect_31\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_276\);
+\ADC_Photoresistor:vinMinusMux_31_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_31\,
+		signal2=>\ADC_Photoresistor:Net_278\);
+\ADC_Photoresistor:cy_analog_noconnect_32\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_278\);
+\ADC_Photoresistor:vinMinusMux_32_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_32\,
+		signal2=>\ADC_Photoresistor:Net_285\);
+\ADC_Photoresistor:cy_analog_noconnect_33\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_285\);
+\ADC_Photoresistor:vinMinusMux_33_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_33\,
+		signal2=>\ADC_Photoresistor:Net_286\);
+\ADC_Photoresistor:cy_analog_noconnect_34\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_286\);
+\ADC_Photoresistor:vinMinusMux_34_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_34\,
+		signal2=>\ADC_Photoresistor:Net_287\);
+\ADC_Photoresistor:cy_analog_noconnect_35\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_287\);
+\ADC_Photoresistor:vinMinusMux_35_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_35\,
+		signal2=>\ADC_Photoresistor:Net_288\);
+\ADC_Photoresistor:cy_analog_noconnect_36\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_288\);
+\ADC_Photoresistor:vinMinusMux_36_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_36\,
+		signal2=>\ADC_Photoresistor:Net_289\);
+\ADC_Photoresistor:cy_analog_noconnect_37\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_289\);
+\ADC_Photoresistor:vinMinusMux_37_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_37\,
+		signal2=>\ADC_Photoresistor:Net_290\);
+\ADC_Photoresistor:cy_analog_noconnect_38\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_290\);
+\ADC_Photoresistor:vinMinusMux_38_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_38\,
+		signal2=>\ADC_Photoresistor:Net_291\);
+\ADC_Photoresistor:cy_analog_noconnect_39\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_291\);
+\ADC_Photoresistor:vinMinusMux_39_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_39\,
+		signal2=>\ADC_Photoresistor:Net_292\);
+\ADC_Photoresistor:cy_analog_noconnect_40\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_292\);
+\ADC_Photoresistor:vinMinusMux_40_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_40\,
+		signal2=>\ADC_Photoresistor:Net_293\);
+\ADC_Photoresistor:cy_analog_noconnect_41\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_293\);
+\ADC_Photoresistor:vinMinusMux_41_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_41\,
+		signal2=>\ADC_Photoresistor:Net_294\);
+\ADC_Photoresistor:cy_analog_noconnect_42\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_294\);
+\ADC_Photoresistor:vinMinusMux_42_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_42\,
+		signal2=>\ADC_Photoresistor:Net_295\);
+\ADC_Photoresistor:cy_analog_noconnect_43\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_295\);
+\ADC_Photoresistor:vinMinusMux_43_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_43\,
+		signal2=>\ADC_Photoresistor:Net_296\);
+\ADC_Photoresistor:cy_analog_noconnect_44\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_296\);
+\ADC_Photoresistor:vinMinusMux_44_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_44\,
+		signal2=>\ADC_Photoresistor:Net_297\);
+\ADC_Photoresistor:cy_analog_noconnect_45\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_297\);
+\ADC_Photoresistor:vinMinusMux_45_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_45\,
+		signal2=>\ADC_Photoresistor:Net_298\);
+\ADC_Photoresistor:cy_analog_noconnect_46\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_298\);
+\ADC_Photoresistor:vinMinusMux_46_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_46\,
+		signal2=>\ADC_Photoresistor:Net_299\);
+\ADC_Photoresistor:cy_analog_noconnect_47\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_299\);
+\ADC_Photoresistor:vinMinusMux_47_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_47\,
+		signal2=>\ADC_Photoresistor:Net_300\);
+\ADC_Photoresistor:cy_analog_noconnect_48\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_300\);
+\ADC_Photoresistor:vinMinusMux_48_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_48\,
+		signal2=>\ADC_Photoresistor:Net_301\);
+\ADC_Photoresistor:cy_analog_noconnect_49\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_301\);
+\ADC_Photoresistor:vinMinusMux_49_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_49\,
+		signal2=>\ADC_Photoresistor:Net_302\);
+\ADC_Photoresistor:cy_analog_noconnect_50\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_302\);
+\ADC_Photoresistor:vinMinusMux_50_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_50\,
+		signal2=>\ADC_Photoresistor:Net_303\);
+\ADC_Photoresistor:cy_analog_noconnect_51\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_303\);
+\ADC_Photoresistor:vinMinusMux_51_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_51\,
+		signal2=>\ADC_Photoresistor:Net_304\);
+\ADC_Photoresistor:cy_analog_noconnect_52\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_304\);
+\ADC_Photoresistor:vinMinusMux_52_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_52\,
+		signal2=>\ADC_Photoresistor:Net_305\);
+\ADC_Photoresistor:cy_analog_noconnect_53\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_305\);
+\ADC_Photoresistor:vinMinusMux_53_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_53\,
+		signal2=>\ADC_Photoresistor:Net_306\);
+\ADC_Photoresistor:cy_analog_noconnect_54\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_306\);
+\ADC_Photoresistor:vinMinusMux_54_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_54\,
+		signal2=>\ADC_Photoresistor:Net_307\);
+\ADC_Photoresistor:cy_analog_noconnect_55\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_307\);
+\ADC_Photoresistor:vinMinusMux_55_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_55\,
+		signal2=>\ADC_Photoresistor:Net_308\);
+\ADC_Photoresistor:cy_analog_noconnect_56\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_308\);
+\ADC_Photoresistor:vinMinusMux_56_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_56\,
+		signal2=>\ADC_Photoresistor:Net_309\);
+\ADC_Photoresistor:cy_analog_noconnect_57\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_309\);
+\ADC_Photoresistor:vinMinusMux_57_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_57\,
+		signal2=>\ADC_Photoresistor:Net_310\);
+\ADC_Photoresistor:cy_analog_noconnect_58\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_310\);
+\ADC_Photoresistor:vinMinusMux_58_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_58\,
+		signal2=>\ADC_Photoresistor:Net_311\);
+\ADC_Photoresistor:cy_analog_noconnect_59\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_311\);
+\ADC_Photoresistor:vinMinusMux_59_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_59\,
+		signal2=>\ADC_Photoresistor:Net_312\);
+\ADC_Photoresistor:cy_analog_noconnect_60\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_312\);
+\ADC_Photoresistor:vinMinusMux_60_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_60\,
+		signal2=>\ADC_Photoresistor:Net_313\);
+\ADC_Photoresistor:cy_analog_noconnect_61\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_313\);
+\ADC_Photoresistor:vinMinusMux_61_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_61\,
+		signal2=>\ADC_Photoresistor:Net_314\);
+\ADC_Photoresistor:cy_analog_noconnect_62\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_314\);
+\ADC_Photoresistor:vinMinusMux_62_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_62\,
+		signal2=>\ADC_Photoresistor:Net_315\);
+\ADC_Photoresistor:cy_analog_noconnect_63\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_315\);
+\ADC_Photoresistor:vinMinusMux_63_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinMinus_63\,
+		signal2=>\ADC_Photoresistor:Net_316\);
+\ADC_Photoresistor:cy_analog_noconnect_64\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_316\);
+\ADC_Photoresistor:vinNegMux_0_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinNeg_0\,
+		signal2=>\ADC_Photoresistor:Net_331\);
+\ADC_Photoresistor:cy_analog_noconnect_65\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_331\);
+\ADC_Photoresistor:vinNegMux_1_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinNeg_1\,
+		signal2=>\ADC_Photoresistor:Net_345\);
+\ADC_Photoresistor:cy_analog_noconnect_66\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_345\);
+\ADC_Photoresistor:vinNegMux_2_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinNeg_2\,
+		signal2=>\ADC_Photoresistor:Net_347\);
+\ADC_Photoresistor:cy_analog_noconnect_67\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_347\);
+\ADC_Photoresistor:vinNegMux_3_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vinNeg_3\,
+		signal2=>\ADC_Photoresistor:Net_349\);
+\ADC_Photoresistor:cy_analog_noconnect_68\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_349\);
+\ADC_Photoresistor:vrefMux_0_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vrefBus_0\,
+		signal2=>\ADC_Photoresistor:Net_456\);
+\ADC_Photoresistor:cy_analog_noconnect_71\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_456\);
+\ADC_Photoresistor:vrefMux_1_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vrefBus_1\,
+		signal2=>\ADC_Photoresistor:Net_457\);
+\ADC_Photoresistor:cy_analog_noconnect_72\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_457\);
+\ADC_Photoresistor:vrefMux_2_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vrefBus_2\,
+		signal2=>\ADC_Photoresistor:Net_458\);
+\ADC_Photoresistor:cy_analog_noconnect_73\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_458\);
+\ADC_Photoresistor:vrefMux_3_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vrefBus_3\,
+		signal2=>\ADC_Photoresistor:Net_459\);
+\ADC_Photoresistor:cy_analog_noconnect_74\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_459\);
+\ADC_Photoresistor:vrefMuxRemoved_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\ADC_Photoresistor:vref\,
+		signal2=>\ADC_Photoresistor:Net_1448\);
+\ADC_Photoresistor:cy_analog_noconnect_87\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_1448\);
+\ADC_Photoresistor:cy_analog_noconnect_fvint\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>Net_113_0);
+\ADC_Photoresistor:cy_analog_noconnect_fvint_1\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>Net_113_1);
+\ADC_Photoresistor:vRef_4\:cy_vref_v1_0
+	GENERIC MAP(guid=>"6E0C5DC9-D531-4D01-9B49-536487FE4A82",
+		name=>"Bandgap Reference",
+		autoenable=>'1',
+		ignoresleep=>'0')
+	PORT MAP(vout=>\ADC_Photoresistor:Net_1379\);
+\ADC_Photoresistor:vRef_6\:cy_vref_v1_0
+	GENERIC MAP(guid=>"6E0C5DC9-D531-4D01-9B49-536487FE4A82",
+		name=>"Bandgap Reference",
+		autoenable=>'1',
+		ignoresleep=>'0')
+	PORT MAP(vout=>\ADC_Photoresistor:Net_1385\);
+\ADC_Photoresistor:vRef_7\:cy_vref_v1_0
+	GENERIC MAP(guid=>"6E0C5DC9-D531-4D01-9B49-536487FE4A82",
+		name=>"Bandgap Reference",
+		autoenable=>'1',
+		ignoresleep=>'0')
+	PORT MAP(vout=>\ADC_Photoresistor:Net_1388\);
+\ADC_Photoresistor:vRef_5\:cy_vref_v1_0
+	GENERIC MAP(guid=>"6E0C5DC9-D531-4D01-9B49-536487FE4A82",
+		name=>"Bandgap Reference",
+		autoenable=>'1',
+		ignoresleep=>'0')
+	PORT MAP(vout=>\ADC_Photoresistor:Net_1382\);
+\ADC_Photoresistor:vRef_8\:cy_vref_v1_0
+	GENERIC MAP(guid=>"A74A229D-E18B-4A00-BEEC-CCDCB446AC07 ",
+		name=>"",
+		autoenable=>'1',
+		ignoresleep=>'0')
+	PORT MAP(vout=>\ADC_Photoresistor:Net_102\);
+\ADC_Photoresistor:cy_analog_noconnect_69\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\ADC_Photoresistor:Net_105\);
+\ADC_Photoresistor:vagnd__cy_connect_v1_0\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>Net_115,
+		signal2=>Net_114);
+DATA_SoilMoisture:cy_mxs40_gpio_v1_0
+	GENERIC MAP(cy_registers=>"",
+		width=>1,
+		sio_grp_cnt=>0,
+		id=>"f62507c8-e80c-43ca-a4d8-655f534e5a63",
+		drive_mode=>"0",
+		ibuf_enabled=>"0",
+		init_dr_st=>"1",
+		input_sync=>"0",
+		intr_mode=>"0",
+		io_voltage=>"",
+		output_conn=>"0",
+		oe_conn=>"0",
+		output_sync=>"0",
+		oe_sync=>"0",
+		drive_strength=>"0",
+		max_frequency=>"100",
+		output_current_cap=>"8",
+		i2c_mode=>"0",
+		pin_aliases=>"",
+		pin_mode=>"A",
+		slew_rate=>"0",
+		vtrip=>"0",
+		use_annotation=>"0",
+		hotswap_needed=>"0")
+	PORT MAP(oe=>(one),
+		y=>(zero),
+		fb=>(tmpFB_0__DATA_SoilMoisture_net_0),
+		analog=>Net_126,
+		io=>(tmpIO_0__DATA_SoilMoisture_net_0),
+		annotation=>(open),
+		siovref=>(tmpSIOVREF__DATA_SoilMoisture_net_0));
+
+END R_T_L;
