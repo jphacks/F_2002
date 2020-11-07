@@ -14,6 +14,12 @@ https://docs.google.com/presentation/d/13iaOR-fD3DBfOAS06PP9HBRrHrt1RHAH9nM_f6il
 サーバーはこちら
 https://github.com/jphacks/F_2002_1
 
+説明動画(モーショングラフィックス)
+https://youtu.be/eXhnjGchSgs
+
+説明動画(プロモーションビデオ)
+
+
 ### 背景(製品開発のきっかけ、課題等）
 まず私たちは、learning-sprintの期間中、miroを用いてアイデアだしを行いました。  
 https://miro.com/app/board/o9J_khlVPbg=/
