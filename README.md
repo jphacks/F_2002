@@ -18,7 +18,7 @@ https://github.com/jphacks/F_2002_1
 https://youtu.be/eXhnjGchSgs
 
 説明動画(プロモーションビデオ)
-
+https://youtu.be/H4oIfGaRlRs
 
 ### 背景(製品開発のきっかけ、課題等）
 まず私たちは、learning-sprintの期間中、miroを用いてアイデアだしを行いました。  
