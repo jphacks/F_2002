@@ -11,12 +11,12 @@ import Alamofire
 //API実装：植物選択購入
 
 class PurchaceViewController: UIViewController {
-    let baseView: UIView = .init()
-    let plantImageView: UIImageView = .init()
+    private let baseView: UIView = .init()
+    private let plantImageView: UIImageView = .init()
     var type: BejiMock = .ichigo
     var viewdata: Viewdata!
     
-    let button: UIButton = .init()
+    private let button: UIButton = .init()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.titleView = UIImageView(image: viewdata.type.nameImage())
@@ -54,19 +54,16 @@ class PurchaceViewController: UIViewController {
             nextVC.viewdata = viewdata
         }
     }
-    func purchacePlant(data: Viewdata){
+    //サーバーに購入データ登録後植物データ取得
+    private func purchacePlant(data: Viewdata){
         guard let token = data.token else {
             fatalError()
         }
-//        let parameters: [String : Any]? = [
-//            "plant_id": data.type.id(),
-//        ]
         let parameters: [String : Any]? = [
                     "plant_id": 1,
                     "nick_name": "じゃがーくん2世"
                 ]
         let header: HTTPHeaders? = ["Authentication": token]
-        print()
         let url = "https://e3c902a3-9f7d-4f1c-9b9a-daa5e4633165.mock.pstmn.io/user/cultivations"
         AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers:
                     header ).responseJSON {  response  in

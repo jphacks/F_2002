@@ -9,14 +9,13 @@ import UIKit
 import Firebase
 import Alamofire
 
-class SignUpViewController: UIViewController {
-    
-    var auth:Auth!
-    let baseView: UIView = .init()
-    let mailTextField: UITextField = .init()
-    let passTextField:UITextField = .init()
-    let button: UIButton = .init()
+final class SignUpViewController: UIViewController {
+    private let baseView: UIView = .init()
+    private let mailTextField: UITextField = .init()
+    private let passTextField:UITextField = .init()
+    private let button: UIButton = .init()
     var idToken: String = .init()
+    var auth:Auth!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +31,7 @@ class SignUpViewController: UIViewController {
             nextVC.idtoken = self.idToken
         }
     }
-    
+    //タップ時に入力欄問題なければidToken取得後サーバーに登録して画面遷移
     @objc func tapButton(_ sender: UIButton){
         if mailTextField.text?.count != 0 && passTextField.text?.count != 0 {
             guard let mail = mailTextField.text else {fatalError()}
@@ -41,7 +40,7 @@ class SignUpViewController: UIViewController {
         }
     }
     //idtoken取得
-    func getIdToken(mail: String, pass: String) {
+    private func getIdToken(mail: String, pass: String) {
         auth.createUser(withEmail: mail, password: pass) { (result, error) in
             if error == nil, let result = result {
                 result.user.sendEmailVerification(completion: { (error) in
@@ -58,7 +57,7 @@ class SignUpViewController: UIViewController {
         }
     }
     //idtokenをサーバーに登録
-    func registerUser(idtoken: String) {
+    private func registerUser(idtoken: String) {
         let header: HTTPHeaders? = ["Authorization": idtoken]
         let url = "https://d3or1724225rbx.cloudfront.net/users"
         let parameters: [String : Any]? = [
@@ -77,7 +76,7 @@ class SignUpViewController: UIViewController {
 }
 
 extension SignUpViewController {
-    func setUp(){
+    private func setUp(){
         self.navigationItem.titleView = UIImageView(image: UIImage(named: "ログインしよう"))
         self.view.addSubview(baseView)
         baseView.addSubview(mailTextField)

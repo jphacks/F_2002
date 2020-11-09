@@ -9,13 +9,13 @@ import UIKit
 
 //loading時にユーザー情報に応じた植物情報取得
 
-class PlantViewController: UIViewController {
-    let commentView: CustomView = .init()
-    let commentLabel: UILabel = .init()
-    let chatButton: UIButton = .init()
-    let dayLabel: UILabel = .init()
-    let iotButton: UIButton = .init()
-    let baseView: UIView = .init()
+final class PlantViewController: UIViewController {
+    private let commentView: CustomView = .init()
+    private let commentLabel: UILabel = .init()
+    private let chatButton: UIButton = .init()
+    private let dayLabel: UILabel = .init()
+    private let iotButton: UIButton = .init()
+    private let baseView: UIView = .init()
     
     var viewdata: Viewdata!
     
@@ -33,7 +33,7 @@ class PlantViewController: UIViewController {
     
 }
 extension PlantViewController {
-    func setUp(){
+    private func setUp(){
         self.navigationItem.titleView = UIImageView(image: viewdata.type.nameImage())
         self.view.addSubview(baseView)
         baseView.addSubview(commentView)
@@ -123,8 +123,8 @@ extension PlantViewController {
             nextVC.viewdata = viewdata
         }
     }
-    
-    func testAlert(topic:String, type: BejiMock) {
+    //push通知ようメゾット
+    private func testAlert(topic:String, type: BejiMock) {
         let content = UNMutableNotificationContent()
         content.title = "\(type.name())からのお知らせだよ！！"
         content.body = topic
