@@ -26,13 +26,14 @@
 		0E062BC62553A6EB00CEAB3E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0E062BC52553A6EB00CEAB3E /* Alamofire */; };
 		0E062BCC2553A70200CEAB3E /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 0E062BCB2553A70200CEAB3E /* SwiftyJSON */; };
 		0E062BD12553A90F00CEAB3E /* MessageMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BD02553A90F00CEAB3E /* MessageMock.swift */; };
-		0E062BDE2553E34D00CEAB3E /* BejiType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BDD2553E34D00CEAB3E /* BejiType.swift */; };
+		0E062BDE2553E34D00CEAB3E /* BejiMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BDD2553E34D00CEAB3E /* BejiMock.swift */; };
 		0E062BE42554147600CEAB3E /* NetWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BE32554147600CEAB3E /* NetWork.swift */; };
 		0E062BE9255414CE00CEAB3E /* Parther.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BE8255414CE00CEAB3E /* Parther.swift */; };
 		0E062BEE2554150A00CEAB3E /* APIType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BED2554150A00CEAB3E /* APIType.swift */; };
 		0E062BF32554151D00CEAB3E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BF22554151D00CEAB3E /* Model.swift */; };
 		0E062BF82554163400CEAB3E /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BF72554163400CEAB3E /* Firebase.swift */; };
 		0EFA9C4325551448004267E9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0EFA9C4225551448004267E9 /* GoogleService-Info.plist */; };
+		0EFA9D2225583CF3004267E9 /* ChatVC + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFA9D2125583CF3004267E9 /* ChatVC + Extension.swift */; };
 		A939A9762694533366656215 /* Pods_bejiApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6F8B16243AB1ABAE072403C /* Pods_bejiApp.framework */; };
 		D31B8F4338DF5B50022DE539 /* Pods_bejiAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34740079FD73BFA30ED0ADCC /* Pods_bejiAppTests.framework */; };
 		E6630C09E2CB4ED425680877 /* Pods_bejiApp_bejiAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83F8D617A80468DD6226C350 /* Pods_bejiApp_bejiAppUITests.framework */; };
@@ -79,13 +80,15 @@
 		0E062BB42553004C00CEAB3E /* PlantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantViewController.swift; sourceTree = "<group>"; };
 		0E062BB925535F5600CEAB3E /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		0E062BD02553A90F00CEAB3E /* MessageMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageMock.swift; sourceTree = "<group>"; };
-		0E062BDD2553E34D00CEAB3E /* BejiType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BejiType.swift; sourceTree = "<group>"; };
+		0E062BDD2553E34D00CEAB3E /* BejiMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BejiMock.swift; sourceTree = "<group>"; };
 		0E062BE32554147600CEAB3E /* NetWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWork.swift; sourceTree = "<group>"; };
 		0E062BE8255414CE00CEAB3E /* Parther.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parther.swift; sourceTree = "<group>"; };
 		0E062BED2554150A00CEAB3E /* APIType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIType.swift; sourceTree = "<group>"; };
 		0E062BF22554151D00CEAB3E /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		0E062BF72554163400CEAB3E /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
 		0EFA9C4225551448004267E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0EFA9D052557FC6A004267E9 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		0EFA9D2125583CF3004267E9 /* ChatVC + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatVC + Extension.swift"; sourceTree = "<group>"; };
 		2B895CC088FE5F7B07BCF724 /* Pods-bejiApp-bejiAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bejiApp-bejiAppUITests.release.xcconfig"; path = "Target Support Files/Pods-bejiApp-bejiAppUITests/Pods-bejiApp-bejiAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		2F495B7FEABFBC20A044BF5C /* Pods-bejiApp-bejiAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bejiApp-bejiAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-bejiApp-bejiAppUITests/Pods-bejiApp-bejiAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		34740079FD73BFA30ED0ADCC /* Pods_bejiAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bejiAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,6 +155,7 @@
 		0E062B5D2552EF6800CEAB3E /* bejiApp */ = {
 			isa = PBXGroup;
 			children = (
+				0EFA9D052557FC6A004267E9 /* README.md */,
 				0E062BA32552FB9100CEAB3E /* Util */,
 				0E062B962552F9E000CEAB3E /* Infra */,
 				0E062B952552F9C600CEAB3E /* Model */,
@@ -222,6 +226,7 @@
 				0E062BAE2552FF7D00CEAB3E /* PurchaceViewController.swift */,
 				0E062BB42553004C00CEAB3E /* PlantViewController.swift */,
 				0E062BB925535F5600CEAB3E /* ChatViewController.swift */,
+				0EFA9D2125583CF3004267E9 /* ChatVC + Extension.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -231,7 +236,7 @@
 			children = (
 				0E062BA42552FBA500CEAB3E /* Extension.swift */,
 				0E062BD02553A90F00CEAB3E /* MessageMock.swift */,
-				0E062BDD2553E34D00CEAB3E /* BejiType.swift */,
+				0E062BDD2553E34D00CEAB3E /* BejiMock.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -527,11 +532,12 @@
 				0E062BE9255414CE00CEAB3E /* Parther.swift in Sources */,
 				0E062BAA2552FC3900CEAB3E /* SelectViewController.swift in Sources */,
 				0E062BF32554151D00CEAB3E /* Model.swift in Sources */,
-				0E062BDE2553E34D00CEAB3E /* BejiType.swift in Sources */,
+				0E062BDE2553E34D00CEAB3E /* BejiMock.swift in Sources */,
 				0E062BA52552FBA500CEAB3E /* Extension.swift in Sources */,
 				0E062B612552EF6800CEAB3E /* SceneDelegate.swift in Sources */,
 				0E062B9E2552FB1500CEAB3E /* SignUpViewController.swift in Sources */,
 				0E062BBA25535F5600CEAB3E /* ChatViewController.swift in Sources */,
+				0EFA9D2225583CF3004267E9 /* ChatVC + Extension.swift in Sources */,
 				0E062BB52553004C00CEAB3E /* PlantViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

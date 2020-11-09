@@ -49,7 +49,6 @@ class SelectViewController: UIViewController {
         self.viewdata.type = .jyagaimo
         guard let token = viewdata.token else {fatalError()
         }
-        getUser(idtoken: token)
         self.performSegue(withIdentifier: "toPurchace", sender: viewdata)
     }
     @objc func tapButton2(_ sender: UIButton){
@@ -80,21 +79,6 @@ class SelectViewController: UIViewController {
             nextVC.viewdata = self.viewdata
         }
     }
-    //確認用
-    func getUser(idtoken: String){
-        print("確認用\(idtoken)")
-        let header: HTTPHeaders? = ["Authorization": idtoken]
-        let url = "https://d3or1724225rbx.cloudfront.net/user"
-        AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers:
-                    header ).responseJSON {  response  in
-                        print("res\(response)")
-                        guard let data = response.data else { return }
-                        print("data\(data)")
-                        let user = try! JSONDecoder().decode(UserModel.self, from: data)
-                        print("user\(user)")
-                    }
-    }
-    
 }
 extension SelectViewController {
     func setUp(){
@@ -174,7 +158,7 @@ extension SelectViewController {
         button1.setImage(UIImage(imageLiteralResourceName: "potato"), for: .normal)
         button2.setImage(UIImage(imageLiteralResourceName: "onion"), for: .normal)
         button3.setImage(UIImage(imageLiteralResourceName: "carot"), for: .normal)
-        button4.setImage(UIImage(imageLiteralResourceName: "strawberry"), for: .normal)
+        button4.setImage(UIImage(imageLiteralResourceName: "Strawberry"), for: .normal)
         button5.setImage(UIImage(imageLiteralResourceName: "egplant"), for: .normal)
         button6.setImage(UIImage(imageLiteralResourceName: "cucumber"), for: .normal)
         

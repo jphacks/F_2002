@@ -43,7 +43,7 @@ class Water: Codable {
 
 struct Viewdata{
     var token: String?
-    var type: BejiType = .ichigo
+    var type: BejiMock = .ichigo
 }
 
 public struct NewModel: Codable {

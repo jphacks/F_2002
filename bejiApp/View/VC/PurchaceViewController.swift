@@ -13,7 +13,7 @@ import Alamofire
 class PurchaceViewController: UIViewController {
     let baseView: UIView = .init()
     let plantImageView: UIImageView = .init()
-    var type: BejiType = .ichigo
+    var type: BejiMock = .ichigo
     var viewdata: Viewdata!
     
     let button: UIButton = .init()
@@ -48,7 +48,7 @@ class PurchaceViewController: UIViewController {
         self.performSegue(withIdentifier: "toPlants", sender: type)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let type = sender as! BejiType
+        let type = sender as! BejiMock
         if segue.identifier == "toPlants" {
             let nextVC = segue.destination as! PlantViewController
             nextVC.viewdata = viewdata
@@ -75,6 +75,7 @@ class PurchaceViewController: UIViewController {
                         print(data)
                         let user = try! JSONDecoder().decode(NewModel.self, from: data)
                         print("植物購入\(user)")
+                        
         }
     }
 }

@@ -22,7 +22,6 @@ class PlantViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
-        
     }
     
     func getPlantCount(day: Int){
@@ -112,26 +111,20 @@ extension PlantViewController {
         
     }
     @objc func tapButton(_ sender: UIButton){
-        self.performSegue(withIdentifier: "toChat", sender: viewdata)}
+        self.performSegue(withIdentifier: "toChat", sender: viewdata)
+    }
     @objc func tapiotButton(_ sender: UIButton){
-       
         iotButton.setImage(viewdata.type.glowth(), for: .normal)
-//        testAlert(topic: "お知らせ", type: viewdata.type)
     }
     //アラートメッセージ追加
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //        let prepare:(type:BejiType,text:String) = sender as! (BejiType,String)
-        //        let type = sender as! BejiType
         if segue.identifier == "toChat" {
             let nextVC = segue.destination as! ChatViewController
             nextVC.viewdata = viewdata
-            //            nextVC.alertmessage = alertMessage
-            
         }
     }
     
-    func testAlert(topic:String, type: BejiType) {
-        
+    func testAlert(topic:String, type: BejiMock) {
         let content = UNMutableNotificationContent()
         content.title = "\(type.name())からのお知らせだよ！！"
         content.body = topic
@@ -141,6 +134,5 @@ extension PlantViewController {
         let center = UNUserNotificationCenter.current()
         center.add(request)
         print("通知完了")
-//        self.alertMessage = topic
     }
 }

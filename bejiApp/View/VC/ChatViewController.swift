@@ -23,12 +23,12 @@ class ChatViewController: MessagesViewController, MessageCellDelegate, MessagesL
     let firebaseManager: FirebaseAction = .init()
     var viewdata: Viewdata!
     let testView: UIButton = .init()
-    var tested: String = "" {
+    var chatText: String = "" {
         didSet {
-            let attributedText = NSAttributedString(string: tested, attributes: [.font: UIFont.systemFont(ofSize: 15),
+            let attributedText = NSAttributedString(string: chatText, attributes: [.font: UIFont.systemFont(ofSize: 15),
                                                                                  .foregroundColor: UIColor.white])
             let message = MockMessage(attributedText: attributedText, sender: currentSender() as! Sender, messageId:UUID().uuidString , date: Date())
-            firebaseManager.uploadChatData(from: "me", to: "plant", message: tested, imageUrl: nil)
+            firebaseManager.uploadChatData(from: "me", to: "plant", message: chatText, imageUrl: nil)
             messageList.append(message)
             self.reloadMessage()
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -46,7 +46,6 @@ class ChatViewController: MessagesViewController, MessageCellDelegate, MessagesL
         }
     }
     let clearButton: UIButton = .init()
-    
     
     lazy var formatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -67,40 +66,40 @@ class ChatViewController: MessagesViewController, MessageCellDelegate, MessagesL
         self.messagesCollectionView.reloadData()
         self.messagesCollectionView.scrollToBottom()
     }
-    
+    //モックよう返信メッセージ
     func makeMockReplyMessage(){
-        if self.tested == "水の様子はどうかな" {
+        if self.chatText == "水の様子はどうかな" {
             let text = viewdata.type.messageWater()
             self.messageList.append(self.createMessage(text: text))
             firebaseManager.uploadChatData(from: "plant", to: "me", message:text , imageUrl: nil)
             self.reloadMessage()
         }
-        if self.tested == "病気か知りたいな" {
+        if self.chatText == "病気か知りたいな" {
             self.messageList.append(self.createMessage(text: viewdata.type.messageStatus()))
             firebaseManager.uploadChatData(from: "plant", to: "me", message:viewdata.type.messageStatus() , imageUrl: nil)
             self.reloadMessage()
         }
-        if self.tested == "栄養は足りてる？" {
+        if self.chatText == "栄養は足りてる？" {
             self.messageList.append(self.createMessage(text: viewdata.type.messageNutri()))
             firebaseManager.uploadChatData(from: "plant", to: "me", message:viewdata.type.messageNutri() , imageUrl: nil)
             self.reloadMessage()
         }
-        if self.tested == "追肥の時期かな" {
+        if self.chatText == "追肥の時期かな" {
             self.messageList.append(self.createMessage(text: viewdata.type.messageTuihi()))
             firebaseManager.uploadChatData(from: "plant", to: "me", message:viewdata.type.messageTuihi() , imageUrl: nil)
             self.reloadMessage()
         }
-        if self.tested == "温度はどうかな" {
+        if self.chatText == "温度はどうかな" {
             self.messageList.append(self.createMessage(text: viewdata.type.messageTem()))
             firebaseManager.uploadChatData(from: "plant", to: "me", message:viewdata.type.messageTem() , imageUrl: nil)
             self.reloadMessage()
         }
-        if self.tested == "日当たりはどう？" {
+        if self.chatText == "日当たりはどう？" {
             self.messageList.append(self.createMessage(text:viewdata.type.messageSun()))
             firebaseManager.uploadChatData(from: "plant", to: "me", message:viewdata.type.messageSun() , imageUrl: nil)
             self.reloadMessage()
         }
-        if self.tested == "おしゃべりしよう！" {
+        if self.chatText == "おしゃべりしよう！" {
             self.messageList.append(self.createMessage(text: viewdata.type.messageFree()))
             firebaseManager.uploadChatData(from: "plant", to: "me", message:viewdata.type.messageWater() , imageUrl: nil)
             self.reloadMessage()
@@ -112,79 +111,13 @@ class ChatViewController: MessagesViewController, MessageCellDelegate, MessagesL
         self.reloadMessage()
     }
     
-    func setUp(){
-        DispatchQueue.main.async {
-            // messageListにメッセージの配列をいれて
-            self.messageList = self.getMessages()
-            // messagesCollectionViewをリロードして
-            self.messagesCollectionView.reloadData()
-            // 一番下までスクロールする
-            self.messagesCollectionView.scrollToBottom()
-        }
-        
-        messagesCollectionView.messagesDataSource = self
-        messagesCollectionView.messagesLayoutDelegate = self
-        messagesCollectionView.messagesDisplayDelegate = self
-        messagesCollectionView.messageCellDelegate = self
-        
-        messageInputBar.delegate = self
-        messageInputBar.sendButton.tintColor = UIColor.lightGray
-        self.view.addSubview(testView)
-        testView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            testView.widthAnchor.constraint(equalToConstant: 140),
-            testView.heightAnchor.constraint(equalToConstant: 80),
-            testView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
-            testView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
-        ])
-        messageInputBar.addSubview(clearButton)
-        clearButton.translatesAutoresizingMaskIntoConstraints = false
-        clearButton.backgroundColor = .clear
-        NSLayoutConstraint.activate([
-            clearButton.heightAnchor.constraint(equalTo: messageInputBar.inputTextView.heightAnchor),
-            clearButton.widthAnchor.constraint(equalTo: messageInputBar.inputTextView.widthAnchor),
-            clearButton.leadingAnchor.constraint(equalTo: self.messageInputBar.inputTextView.leadingAnchor),
-            clearButton.topAnchor.constraint(equalTo: self.messageInputBar.inputTextView.topAnchor)
-        ])
-        
-        
-        setupCollectionView()
-        maintainPositionOnKeyboardFrameChanged = true
-        messageInputBar.backgroundView.backgroundColor = .clear
-        messageInputBar.backgroundView.backgroundColor = UIColor(hex: "98B982")
-        messageInputBar.inputTextView.backgroundColor = UIColor(hex: "E4EFDD")
-        messageInputBar.inputTextView.clipsToBounds = true
-        messageInputBar.inputTextView.layer.cornerRadius = 8
-        messageInputBar.inputTextView.placeholder = "メッセージを選択してください"
-        messageInputBar.inputTextView.placeholderLabelInsets.left = 10
-        messageInputBar.inputTextView.leadingAnchor.constraint(equalTo: messageInputBar.leftStackView.trailingAnchor, constant: 10).isActive = true
-        messageInputBar.inputTextView.trailingAnchor.constraint(equalTo: messageInputBar.rightStackView.trailingAnchor, constant: -10).isActive = true
-        messageInputBar.rightStackView.isHidden = true
-        
-        scrollsToBottomOnKeyboardBeginsEditing = true
-        scrollsToLastItemOnKeyboardBeginsEditing = true
-        maintainPositionOnKeyboardFrameChanged = true
-        messageInputBar.inputTextView.attributedText = NSAttributedString(string: tested, attributes: [.font: UIFont.systemFont(ofSize: 15),
-                                                                                                       .foregroundColor: UIColor.black])
-        let items = [
-            makeButton(named: "カメラ").onTextViewDidChange { button, textView in
-                button.tintColor = UIColor(hex: "749B59")
-                button.isEnabled = textView.text.isEmpty
-            }
-        ]
-        items.forEach { $0.tintColor = UIColor(hex: "749B59") }
-        messageInputBar.setStackViewItems(items, forStack: .left, animated: false)
-        messageInputBar.setLeftStackViewWidthConstant(to: 45, animated: false)
-        messageInputBar.leftStackView.translatesAutoresizingMaskIntoConstraints = false
-        messageInputBar.leftStackView.leadingAnchor.constraint(equalTo: self.messageInputBar.leadingAnchor, constant: 10).isActive = true
-        clearButton.addTarget(self,action: #selector(self.tapButton(_ :)),for: .touchUpInside)
-    }
+    
     @objc func tapButton(_ sender: UIButton){
         ActionSheetStringPicker.show(withTitle: "会話を選ぼう!!",
                                      rows:  ["水の様子はどうかな", "病気か知りたいな", "栄養は足りてる？","追肥の時期かな","温度はどうかな","日当たりはどう？" , "おしゃべりしよう！"],
                                      initialSelection: 1,
                                      doneBlock: { picker, value, index in
-                                        self.tested = index as! String
+                                        self.chatText = index as! String
                                         return
                                      },
                                      cancel: { picker in
@@ -213,18 +146,7 @@ class ChatViewController: MessagesViewController, MessageCellDelegate, MessagesL
                 
             }
     }
-    private func setupCollectionView() {
-        guard let flowLayout = messagesCollectionView.collectionViewLayout as? MessagesCollectionViewFlowLayout else {
-            print("Can't get flowLayout")
-            return
-        }
-        if #available(iOS 13.0, *) {
-            flowLayout.collectionView?.backgroundColor = .clear
-
-        }
-    }
-    
-    // サンプル用に適当なメッセージ
+    //初期メッセージ
     func getMessages() -> [MockMessage] {
         return [
             createMessage(text: "チャットルームだよ！会話したい時は下の選択ボタンから話したい内容を選択してね！")
@@ -299,26 +221,9 @@ extension ChatViewController: MessagesDisplayDelegate {
         }
     }
 }
-extension ViewController: MessagesLayoutDelegate {
-    
-    func cellTopLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
-        if indexPath.section % 3 == 0 { return 10 }
-        return 0
-    }
-    
-    func messageTopLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
-        return 0
-    }
-    
-    func messageBottomLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
-        return 0
-    }
-    
-}
+extension ViewController: MessagesLayoutDelegate {}
 
-
-extension ChatViewController: InputBarAccessoryViewDelegate {
-}
+extension ChatViewController: InputBarAccessoryViewDelegate {}
 
 extension ChatViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -335,12 +240,6 @@ extension ChatViewController: UIImagePickerControllerDelegate {
         
     }
 }
-
-extension ChatViewController {
-    
-}
-
-
 
 
 

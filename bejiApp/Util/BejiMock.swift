@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-public enum BejiType {
+public enum BejiMock {
     case tamanegi
     case ninjin
     case nasu
@@ -30,7 +30,6 @@ public enum BejiType {
             case .tamanegi: return 5
         }
     }
-    
     
     func nameImage() -> UIImage {
         switch self {

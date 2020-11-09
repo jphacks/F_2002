@@ -56,8 +56,3 @@ extension StartViewController {
         button.addTarget(self,action: #selector(self.tapButton(_ :)),for: .touchUpInside)
     }
 }
-
-
-extension StartViewController {
-    //全植物を取得
-}

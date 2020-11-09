@@ -13,6 +13,8 @@ import FirebaseDatabase
 import FirebaseCore
 import FirebaseStorage
 
+//将来的にFirebaseで画像保存->判別する際に利用するファイル
+
 class FirebaseAction: NSObject {
 
     let storage = Storage.storage()

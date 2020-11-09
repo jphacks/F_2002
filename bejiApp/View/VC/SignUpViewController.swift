@@ -23,91 +23,55 @@ class SignUpViewController: UIViewController {
         setUp()
         auth = Auth.auth()
     }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //        let type = sender as! BejiType
         if segue.identifier == "toSelect" {
             let nextVC = segue.destination as! SelectViewController
             nextVC.idtoken = self.idToken
-            
         }
     }
     
     @objc func tapButton(_ sender: UIButton){
-        
-        if mailTextField.text?.count == 0 && passTextField.text?.count != 0{
-            print("メールなし")
-        }
-        if passTextField.text?.count == 0  && mailTextField.text?.count != 0{
-            print("パスなし")
-        }
-        if passTextField.text?.count == 0 && mailTextField.text?.count == 0 {
-            print("二つなし")
-        }
         if mailTextField.text?.count != 0 && passTextField.text?.count != 0 {
-            //            self.performSegue(withIdentifier: "toSelect", sender: auth)
+            guard let mail = mailTextField.text else {fatalError()}
+            guard let pass = passTextField.text else {fatalError()}
+            getIdToken(mail: mail, pass: pass)
         }
-        guard let mail = mailTextField.text else {fatalError()}
-        guard let pass = passTextField.text else {fatalError()}
-//        auth.createUser(withEmail: mail, password: pass) { (result, error) in
-//            if error == nil, let result = result {result.user.sendEmailVerification(completion: { (error) in
-//                if error == nil {
-//                    self.auth.currentUser?.getIDTokenForcingRefresh(true){ idToken, error in
-//                        if let error = error {
-//                            // Handle error
-//                            return;
-//                        }
-//                        guard let token = idToken else {fatalError()}
-//                        print("token\(token)")
-//                        self.idToken = token
-        self.idToken = "a"
-                    self.performSegue(withIdentifier: "toSelect", sender: self.idToken)
-//                        self.registerUser(idtoken: token)
+    }
+    //idtoken取得
+    func getIdToken(mail: String, pass: String) {
+        auth.createUser(withEmail: mail, password: pass) { (result, error) in
+            if error == nil, let result = result {
+                result.user.sendEmailVerification(completion: { (error) in
+                    if error == nil {
+                        self.auth.currentUser?.getIDTokenForcingRefresh(true){ idToken, error in
+                            if error != nil { return }
+                            guard let token = idToken else {fatalError()}
+                            self.performSegue(withIdentifier: "toSelect", sender: self.idToken)
+                            self.registerUser(idtoken: token)
+                        }
                     }
-                
-//            })
-//        )
-//            }
-//        }
-//    }
+                })
+            }
+        }
+    }
+    //idtokenをサーバーに登録
     func registerUser(idtoken: String) {
         let header: HTTPHeaders? = ["Authorization": idtoken]
         let url = "https://d3or1724225rbx.cloudfront.net/users"
         let parameters: [String : Any]? = [
             "name": "こんにゃく"
-                ]
-        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers:
-                    header ).responseJSON {  response  in
-                        print("res\(response)")
-                        guard let data = response.data else { return }
-                        print("data\(data)")
-                        let user = try! JSONDecoder().decode(UserModel.self, from: data)
-                        print("user\(user)")
-                    }
-    }
-    func getUser(idtoken: String){
-        let header: HTTPHeaders? = ["Authorization": idtoken]
-        let url = "https://d3or1724225rbx.cloudfront.net/user"
-        let parameters: [String : Any]? = [
-            "name": "あああ"
         ]
-        AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers:
-                    header ).responseJSON {  response  in
+        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers:
+                    header ).responseJSON { response  in
                         print("res\(response)")
                         guard let data = response.data else { return }
                         print("data\(data)")
                         let user = try! JSONDecoder().decode(UserModel.self, from: data)
                         print("user\(user)")
-                    }
+        }
     }
     
 }
@@ -175,4 +139,10 @@ extension SignUpViewController {
         button.setImage(UIImage(imageLiteralResourceName: "loginButton"), for: .normal)
         button.addTarget(self,action: #selector(self.tapButton(_ :)),for: .touchUpInside)
     }
+    private func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    
 }
