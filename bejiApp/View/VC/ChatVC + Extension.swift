@@ -20,6 +20,29 @@ import Firebase
 
 //主にUI部分記述
 
+extension ChatViewController: MessagesDisplayDelegate {
+    func textColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
+        return isFromCurrentSender(message: message) ? .black : .darkText
+    }
+    
+    func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
+        return isFromCurrentSender(message: message) ?
+            UIColor(hex: "98B982") :
+            .white
+    }
+    func messageStyle(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageStyle {
+        let corner: MessageStyle.TailCorner = isFromCurrentSender(message: message) ? .bottomRight : .bottomLeft
+        return .bubbleTail(corner, .curved)
+    }
+    func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
+        if message.sender.displayName == "自分" {}
+        if message.sender.displayName == viewdata.type.name() {
+            let avatar = Avatar(image: viewdata.type.getIcon(), initials: "な")
+            
+            avatarView.set(avatar: avatar)
+        }
+    }
+}
 extension ChatViewController {
     func setUp(){
         DispatchQueue.main.async {
@@ -38,14 +61,7 @@ extension ChatViewController {
         
         messageInputBar.delegate = self
         messageInputBar.sendButton.tintColor = UIColor.lightGray
-        self.view.addSubview(testView)
-        testView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            testView.widthAnchor.constraint(equalToConstant: 140),
-            testView.heightAnchor.constraint(equalToConstant: 80),
-            testView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
-            testView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
-        ])
+
         messageInputBar.addSubview(clearButton)
         clearButton.translatesAutoresizingMaskIntoConstraints = false
         clearButton.backgroundColor = .clear
@@ -73,7 +89,7 @@ extension ChatViewController {
         scrollsToBottomOnKeyboardBeginsEditing = true
         scrollsToLastItemOnKeyboardBeginsEditing = true
         maintainPositionOnKeyboardFrameChanged = true
-        messageInputBar.inputTextView.attributedText = NSAttributedString(string: tested, attributes: [.font: UIFont.systemFont(ofSize: 15),
+        messageInputBar.inputTextView.attributedText = NSAttributedString(string: chatText, attributes: [.font: UIFont.systemFont(ofSize: 15),
                                                                                                        .foregroundColor: UIColor.black])
         let items = [
             makeButton(named: "カメラ").onTextViewDidChange { button, textView in

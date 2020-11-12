@@ -82,6 +82,7 @@ final class SelectViewController: UIViewController {
 }
 extension SelectViewController {
     private func setUp(){
+        self.navigationItem.hidesBackButton = true
         self.view.addSubview(baseView)
         baseView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

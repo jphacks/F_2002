@@ -32,6 +32,8 @@
 		0E062BEE2554150A00CEAB3E /* APIType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BED2554150A00CEAB3E /* APIType.swift */; };
 		0E062BF32554151D00CEAB3E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BF22554151D00CEAB3E /* Model.swift */; };
 		0E062BF82554163400CEAB3E /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BF72554163400CEAB3E /* Firebase.swift */; };
+		0E26CF52255BF3A100716E27 /* ViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E26CF51255BF3A100716E27 /* ViewData.swift */; };
+		0E26CF57255BF3BF00716E27 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E26CF56255BF3BF00716E27 /* ChatModel.swift */; };
 		0EFA9C4325551448004267E9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0EFA9C4225551448004267E9 /* GoogleService-Info.plist */; };
 		0EFA9D2225583CF3004267E9 /* ChatVC + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFA9D2125583CF3004267E9 /* ChatVC + Extension.swift */; };
 		A939A9762694533366656215 /* Pods_bejiApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6F8B16243AB1ABAE072403C /* Pods_bejiApp.framework */; };
@@ -86,6 +88,8 @@
 		0E062BED2554150A00CEAB3E /* APIType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIType.swift; sourceTree = "<group>"; };
 		0E062BF22554151D00CEAB3E /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		0E062BF72554163400CEAB3E /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
+		0E26CF51255BF3A100716E27 /* ViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewData.swift; sourceTree = "<group>"; };
+		0E26CF56255BF3BF00716E27 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		0EFA9C4225551448004267E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0EFA9D052557FC6A004267E9 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0EFA9D2125583CF3004267E9 /* ChatVC + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatVC + Extension.swift"; sourceTree = "<group>"; };
@@ -202,6 +206,8 @@
 			isa = PBXGroup;
 			children = (
 				0E062BF22554151D00CEAB3E /* Model.swift */,
+				0E26CF51255BF3A100716E27 /* ViewData.swift */,
+				0E26CF56255BF3BF00716E27 /* ChatModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -521,6 +527,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E26CF52255BF3A100716E27 /* ViewData.swift in Sources */,
 				0E062B632552EF6800CEAB3E /* ViewController.swift in Sources */,
 				0E062BAF2552FF7D00CEAB3E /* PurchaceViewController.swift in Sources */,
 				0E062B982552FA3000CEAB3E /* StartViewController.swift in Sources */,
@@ -535,6 +542,7 @@
 				0E062BDE2553E34D00CEAB3E /* BejiMock.swift in Sources */,
 				0E062BA52552FBA500CEAB3E /* Extension.swift in Sources */,
 				0E062B612552EF6800CEAB3E /* SceneDelegate.swift in Sources */,
+				0E26CF57255BF3BF00716E27 /* ChatModel.swift in Sources */,
 				0E062B9E2552FB1500CEAB3E /* SignUpViewController.swift in Sources */,
 				0E062BBA25535F5600CEAB3E /* ChatViewController.swift in Sources */,
 				0EFA9D2225583CF3004267E9 /* ChatVC + Extension.swift in Sources */,
