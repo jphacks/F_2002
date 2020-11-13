@@ -17,10 +17,26 @@ final class StartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
+       
     }
     
     @objc func tapButton(_ sender: UIButton){
         self.performSegue(withIdentifier: "toSignUp", sender: nil)
+    }
+    func testData(){
+//        let header: HTTPHeaders? = ["Authorization": idtoken]
+        let url = "https://d3or1724225rbx.cloudfront.net/plants/"
+        let parameters: [String : Any]? = [
+            "plant_id": 1
+        ]
+        AF.request(url, method: .get, parameters: parameters, encoding: JSONEncoding.default, headers:
+                    nil ).responseJSON { response  in
+                        print("res\(response)")
+                        guard let data = response.data else { return }
+                        print("data\(data)")
+                        let user = try! JSONDecoder().decode(NewModel.self, from: data)
+                        print("user\(user)")
+        }
     }
 }
 

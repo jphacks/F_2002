@@ -9,18 +9,17 @@ import UIKit
 import Firebase
 import Alamofire
 //stackviewの調整面倒なので脳死作成、後で書き直す
-
-class SelectViewController: UIViewController {
+final class SelectViewController: UIViewController {
     var idtoken: String = .init()
-    let button1: UIButton = .init()
-    let button2: UIButton = .init()
-    let button3: UIButton = .init()
-    let button4: UIButton = .init()
-    let button5: UIButton = .init()
-    let button6: UIButton = .init()
-    let baseView: UIView = .init()
+    private let button1: UIButton = .init()
+    private let button2: UIButton = .init()
+    private let button3: UIButton = .init()
+    private let button4: UIButton = .init()
+    private let button5: UIButton = .init()
+    private let button6: UIButton = .init()
+    private let baseView: UIView = .init()
     var viewdata = Viewdata()
-    let stackView: UIStackView = {
+    private let stackView: UIStackView = {
         let view: UIStackView = .init()
         view.alignment = .leading
         view.axis = .vertical
@@ -29,7 +28,7 @@ class SelectViewController: UIViewController {
         return view
     }()
     
-    let stackView2: UIStackView =  {
+    private let stackView2: UIStackView =  {
         let view: UIStackView = .init()
         view.alignment = .center
         view.axis = .vertical
@@ -81,7 +80,8 @@ class SelectViewController: UIViewController {
     }
 }
 extension SelectViewController {
-    func setUp(){
+    private func setUp(){
+        self.navigationItem.hidesBackButton = true
         self.view.addSubview(baseView)
         baseView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

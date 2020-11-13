@@ -15,36 +15,31 @@ struct UserModel: Codable {
     var user_plants: String?
 }
 
-class PlantModel: Codable {
-    var id: Int?
-    var name: String?
-    var kit_name: String?
-    var plant_description: String?
-    var price: Int?
-    var period: Int?
-    var difficurty: Int?
-    var season_from: Int?
-    var season_to: Int?
-    var temperatures: Array<Temperature>?
-    var waters: Array<Water>?
-}
-
-class Temperature: Codable {
-    var id: Int?
-    var name: String?
-    var value: Int?
-}
-
-class Water: Codable {
-    var id: Int?
-    var name: String?
-    var value: Int?
-}
-
-struct Viewdata{
-    var token: String?
-    var type: BejiMock = .ichigo
-}
+//class PlantModel: Codable {
+//    var id: Int?
+//    var name: String?
+//    var kit_name: String?
+//    var plant_description: String?
+//    var price: Int?
+//    var period: Int?
+//    var difficurty: Int?
+//    var season_from: Int?
+//    var season_to: Int?
+//    var temperatures: Array<Temperature>?
+//    var waters: Array<Water>?
+//}
+//
+//class Temperature: Codable {
+//    var id: Int?
+//    var name: String?
+//    var value: Int?
+//}
+//
+//class Water: Codable {
+//    var id: Int?
+//    var name: String?
+//    var value: Int?
+//}
 
 public struct NewModel: Codable {
     public let id: Int
