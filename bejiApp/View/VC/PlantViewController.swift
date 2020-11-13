@@ -94,7 +94,7 @@ extension PlantViewController {
             chatButton.widthAnchor.constraint(equalToConstant: 82),
             chatButton.heightAnchor.constraint(equalToConstant: 82)
         ])
-        chatButton.setImage(UIImage(imageLiteralResourceName: "チャットボタン"), for: .normal)
+        chatButton.setImage(R.image.button.chatButton(), for: .normal)
         
         NSLayoutConstraint.activate([
             iotButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 106),
@@ -105,7 +105,7 @@ extension PlantViewController {
         iotButton.setImage(viewdata.type.plant(), for: .normal)
         
         
-        baseView.backgroundColor = UIColor(patternImage: UIImage(imageLiteralResourceName: "background2"))
+        baseView.backgroundColor = UIColor(patternImage: R.image.backGround.decorationBackground()!)
         chatButton.addTarget(self,action: #selector(self.tapButton(_ :)),for: .touchUpInside)
         iotButton.addTarget(self,action: #selector(self.tapiotButton(_ :)),for: .touchUpInside)
         

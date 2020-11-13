@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import Alamofire
+import Rswift
 
 final class StartViewController: UIViewController {
     let baseView: UIView = .init()
@@ -55,7 +56,7 @@ extension StartViewController {
             baseView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             baseView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
-        baseView.backgroundColor = UIColor(patternImage: UIImage(imageLiteralResourceName: "background"))
+        baseView.backgroundColor = UIColor(patternImage: R.image.backGround.nomalBackground()! )
         NSLayoutConstraint.activate([
             logo.topAnchor.constraint(equalTo: baseView.topAnchor, constant: 183),
             logo.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
@@ -68,7 +69,7 @@ extension StartViewController {
             button.heightAnchor.constraint(equalToConstant: 62),
             button.topAnchor.constraint(equalTo: logo.bottomAnchor, constant: 157)
         ])
-        button.setImage(UIImage(imageLiteralResourceName: "startButton"), for: .normal)
+        button.setImage(R.image.button.startButton(), for: .normal)
         button.addTarget(self,action: #selector(self.tapButton(_ :)),for: .touchUpInside)
     }
 }

@@ -75,7 +75,7 @@ final class ChatViewController: MessagesViewController, MessageCellDelegate, Mes
         return InputBarButtonItem()
               .configure {
                 $0.spacing = .fixed(10)
-                $0.image = UIImage(named: named)?.withRenderingMode(.alwaysTemplate)
+                $0.image = R.image.button.cameraButton()?.withRenderingMode(.alwaysTemplate)
                 $0.setSize(CGSize(width: 30, height: 30), animated: true)
                 
             }.onSelected {

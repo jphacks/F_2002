@@ -93,7 +93,7 @@ extension SignUpViewController {
             baseView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
         
-        baseView.backgroundColor = UIColor(patternImage: UIImage(imageLiteralResourceName: "background"))
+        baseView.backgroundColor = UIColor(patternImage: R.image.backGround.nomalBackground()!)
         
         
         NSLayoutConstraint.activate([
@@ -135,13 +135,14 @@ extension SignUpViewController {
             button.widthAnchor.constraint(equalToConstant: 285),
             button.heightAnchor.constraint(equalToConstant: 49)
         ])
-        button.setImage(UIImage(imageLiteralResourceName: "loginButton"), for: .normal)
+        button.setImage(R.image.button.loginButton(), for: .normal)
         button.addTarget(self,action: #selector(self.tapButton(_ :)),for: .touchUpInside)
     }
     private func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
+    
     
     
 }
