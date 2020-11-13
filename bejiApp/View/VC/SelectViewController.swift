@@ -9,7 +9,6 @@ import UIKit
 import Firebase
 import Alamofire
 //stackviewの調整面倒なので脳死作成、後で書き直す
-
 final class SelectViewController: UIViewController {
     var idtoken: String = .init()
     private let button1: UIButton = .init()

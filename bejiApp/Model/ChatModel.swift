@@ -36,6 +36,7 @@ class ChatModel {
             case .conversation: return messageFree()
         }
     }
+    
     func messageWater () -> String {
         switch type {
             case .ichigo: return "ベリー、お水欲しいな…"

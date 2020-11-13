@@ -45,15 +45,6 @@ extension ChatViewController: MessagesDisplayDelegate {
 }
 extension ChatViewController {
     func setUp(){
-        DispatchQueue.main.async {
-            // messageListにメッセージの配列をいれて
-            self.messageList = self.getMessages()
-            // messagesCollectionViewをリロードして
-            self.messagesCollectionView.reloadData()
-            // 一番下までスクロールする
-            self.messagesCollectionView.scrollToBottom()
-        }
-        
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
@@ -92,7 +83,7 @@ extension ChatViewController {
         messageInputBar.inputTextView.attributedText = NSAttributedString(string: chatText, attributes: [.font: UIFont.systemFont(ofSize: 15),
                                                                                                        .foregroundColor: UIColor.black])
         let items = [
-            makeButton(named: "カメラ").onTextViewDidChange { button, textView in
+            makeCameraButton(named: "カメラ").onTextViewDidChange { button, textView in
                 button.tintColor = UIColor(hex: "749B59")
                 button.isEnabled = textView.text.isEmpty
             }

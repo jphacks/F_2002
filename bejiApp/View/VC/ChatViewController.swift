@@ -18,7 +18,7 @@ import FirebaseDatabase
 import Firebase
 
 
-class ChatViewController: MessagesViewController, MessageCellDelegate, MessagesLayoutDelegate, UINavigationControllerDelegate {
+final class ChatViewController: MessagesViewController, MessageCellDelegate, MessagesLayoutDelegate, UINavigationControllerDelegate {
     var messageList: [MockMessage] = []
     let firebaseManager: FirebaseAction = .init()
     var viewdata: Viewdata!
@@ -32,6 +32,7 @@ class ChatViewController: MessagesViewController, MessageCellDelegate, MessagesL
             
         }
     }
+    //TextinputView無効化,PickerView用ボタン
     let clearButton: UIButton = .init()
     
     lazy var formatter: DateFormatter = {
@@ -45,8 +46,17 @@ class ChatViewController: MessagesViewController, MessageCellDelegate, MessagesL
         self.navigationItem.titleView = UIImageView(image: viewdata.type.nameImage())
         self.view.backgroundColor = UIColor(patternImage: viewdata.type.chatbackground())
         firebaseManager.databaseRef = Database.database().reference()
+        loadMessage()
         setUp()
     }
+    func loadMessage(){
+        DispatchQueue.main.async {
+            self.messageList = self.getMessages()
+            self.messagesCollectionView.reloadData()
+            self.messagesCollectionView.scrollToBottom()
+        }
+    }
+    //clearButtonタップ時の挙動
     @objc func tapButton(_ sender: UIButton){
         ActionSheetStringPicker.show(withTitle: "会話を選ぼう!!",
                                      rows: chatModel.userMessageString,
@@ -61,9 +71,9 @@ class ChatViewController: MessagesViewController, MessageCellDelegate, MessagesL
                                      origin: sender)
     }
     
-    func makeButton(named: String) -> InputBarButtonItem {
+ func makeCameraButton(named: String) -> InputBarButtonItem {
         return InputBarButtonItem()
-            .configure {
+              .configure {
                 $0.spacing = .fixed(10)
                 $0.image = UIImage(named: named)?.withRenderingMode(.alwaysTemplate)
                 $0.setSize(CGSize(width: 30, height: 30), animated: true)
@@ -80,14 +90,11 @@ class ChatViewController: MessagesViewController, MessageCellDelegate, MessagesL
             }
     }
     //初期メッセージ
-    func getMessages() -> [MockMessage] {
+    private func getMessages() -> [MockMessage] {
         return [
             createPlantsMessage(text: "チャットルームだよ！会話したい時は下の選択ボタンから話したい内容を選択してね！")
-            
         ]
     }
-    
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -97,9 +104,10 @@ extension ChatViewController {
     private func createUserMessage(text: String) -> MockMessage {
         let attributedText = NSAttributedString(string: text, attributes: [.font: UIFont.systemFont(ofSize: 15),
                                                                            .foregroundColor: UIColor.black])
-        return MockMessage(attributedText: attributedText, sender: currentSender() as! Sender, messageId: UUID().uuidString, date: Date())
+        return MockMessage(attributedText: attributedText, sender: currentSender() , messageId: UUID().uuidString, date: Date())
     }
     private func createPlantsMessage(text: String) -> MockMessage {
+        print("植物\(text)")
         let attributedText = NSAttributedString(string: text, attributes: [.font: UIFont.systemFont(ofSize: 15),
                                                                            .foregroundColor: UIColor.black])
         return MockMessage(attributedText: attributedText, sender: otherSender(), messageId: UUID().uuidString, date: Date())
@@ -108,7 +116,7 @@ extension ChatViewController {
         return MockMessage(image: image, sender: otherSender(), messageId: UUID().uuidString, date: Date())
     }
     private func createPlantsImageMessage(image: UIImage) -> MockMessage {
-        return MockMessage(image: image, sender:currentSender() as! Sender , messageId: UUID().uuidString, date: Date())
+        return MockMessage(image: image, sender:currentSender()  , messageId: UUID().uuidString, date: Date())
     }
     private func reloadMessage() {
         self.messagesCollectionView.insertSections([self.messageList.count - 1])
@@ -138,12 +146,13 @@ extension ChatViewController {
 }
 
 extension ChatViewController: MessagesDataSource {
+    //ユーザー
     func currentSender() -> SenderType {
-        return Sender(id: "123", displayName: "自分")
+        return ChatUser(senderId: "123", displayName: "自分")
     }
-    
-    func otherSender() -> Sender {
-        return Sender(id: "456", displayName: viewdata.type.name())
+    //植物
+    func otherSender() -> SenderType {
+        return ChatUser(senderId: "456", displayName: viewdata.type.name())
     }
     
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
