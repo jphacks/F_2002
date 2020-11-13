@@ -34,6 +34,8 @@
 		0E062BF82554163400CEAB3E /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BF72554163400CEAB3E /* Firebase.swift */; };
 		0E26CF52255BF3A100716E27 /* ViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E26CF51255BF3A100716E27 /* ViewData.swift */; };
 		0E26CF57255BF3BF00716E27 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E26CF56255BF3BF00716E27 /* ChatModel.swift */; };
+		0E26CFA8255D2EAA00716E27 /* ChatUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E26CFA7255D2EAA00716E27 /* ChatUser.swift */; };
+		0E26D00C255E9FD900716E27 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E26D00B255E9FD900716E27 /* R.generated.swift */; };
 		0EFA9C4325551448004267E9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0EFA9C4225551448004267E9 /* GoogleService-Info.plist */; };
 		0EFA9D2225583CF3004267E9 /* ChatVC + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFA9D2125583CF3004267E9 /* ChatVC + Extension.swift */; };
 		A939A9762694533366656215 /* Pods_bejiApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6F8B16243AB1ABAE072403C /* Pods_bejiApp.framework */; };
@@ -90,6 +92,8 @@
 		0E062BF72554163400CEAB3E /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
 		0E26CF51255BF3A100716E27 /* ViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewData.swift; sourceTree = "<group>"; };
 		0E26CF56255BF3BF00716E27 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
+		0E26CFA7255D2EAA00716E27 /* ChatUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUser.swift; sourceTree = "<group>"; };
+		0E26D00B255E9FD900716E27 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		0EFA9C4225551448004267E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0EFA9D052557FC6A004267E9 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0EFA9D2125583CF3004267E9 /* ChatVC + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatVC + Extension.swift"; sourceTree = "<group>"; };
@@ -159,6 +163,7 @@
 		0E062B5D2552EF6800CEAB3E /* bejiApp */ = {
 			isa = PBXGroup;
 			children = (
+				0E26D00B255E9FD900716E27 /* R.generated.swift */,
 				0EFA9D052557FC6A004267E9 /* README.md */,
 				0E062BA32552FB9100CEAB3E /* Util */,
 				0E062B962552F9E000CEAB3E /* Infra */,
@@ -208,6 +213,7 @@
 				0E062BF22554151D00CEAB3E /* Model.swift */,
 				0E26CF51255BF3A100716E27 /* ViewData.swift */,
 				0E26CF56255BF3BF00716E27 /* ChatModel.swift */,
+				0E26CFA7255D2EAA00716E27 /* ChatUser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -290,6 +296,7 @@
 				0E062B582552EF6800CEAB3E /* Frameworks */,
 				0E062B592552EF6800CEAB3E /* Resources */,
 				350827191D4D328DE1D864AE /* [CP] Embed Pods Frameworks */,
+				0E26CFAC255E949C00716E27 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -420,6 +427,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0E26CFAC255E949C00716E27 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
+		};
 		24A48C751841B5BCB8531EFF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -527,6 +553,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E26CFA8255D2EAA00716E27 /* ChatUser.swift in Sources */,
 				0E26CF52255BF3A100716E27 /* ViewData.swift in Sources */,
 				0E062B632552EF6800CEAB3E /* ViewController.swift in Sources */,
 				0E062BAF2552FF7D00CEAB3E /* PurchaceViewController.swift in Sources */,
@@ -535,6 +562,7 @@
 				0E062B5F2552EF6800CEAB3E /* AppDelegate.swift in Sources */,
 				0E062BF82554163400CEAB3E /* Firebase.swift in Sources */,
 				0E062BD12553A90F00CEAB3E /* MessageMock.swift in Sources */,
+				0E26D00C255E9FD900716E27 /* R.generated.swift in Sources */,
 				0E062BE42554147600CEAB3E /* NetWork.swift in Sources */,
 				0E062BE9255414CE00CEAB3E /* Parther.swift in Sources */,
 				0E062BAA2552FC3900CEAB3E /* SelectViewController.swift in Sources */,

@@ -41,7 +41,7 @@ final class SelectViewController: UIViewController {
         super.viewDidLoad()
         setUp()
         viewdata.token = idtoken
-        self.navigationItem.titleView = UIImageView(image: UIImage(named: "タネを選ぼう"))
+        self.navigationItem.titleView = UIImageView(image: R.image.plate.selectPlantsPlate())
     }
     
     @objc func tapButton1(_ sender: UIButton){
@@ -155,13 +155,12 @@ extension SelectViewController {
         button5.addTarget(self,action: #selector(self.tapButton5(_ :)),for: .touchUpInside)
         button6.addTarget(self,action: #selector(self.tapButton6(_ :)),for: .touchUpInside)
         
-        button1.setImage(UIImage(imageLiteralResourceName: "potato"), for: .normal)
-        button2.setImage(UIImage(imageLiteralResourceName: "onion"), for: .normal)
-        button3.setImage(UIImage(imageLiteralResourceName: "carot"), for: .normal)
-        button4.setImage(UIImage(imageLiteralResourceName: "Strawberry"), for: .normal)
-        button5.setImage(UIImage(imageLiteralResourceName: "egplant"), for: .normal)
-        button6.setImage(UIImage(imageLiteralResourceName: "cucumber"), for: .normal)
-        
-        baseView.backgroundColor = UIColor(patternImage: UIImage(imageLiteralResourceName: "background"))
+        button1.setImage(R.image.button.selectPotato(), for: .normal)
+        button2.setImage(R.image.button.selectOnion(), for: .normal)
+        button3.setImage(R.image.button.selectCarrot(), for: .normal)
+        button4.setImage(R.image.button.selectPotato(), for: .normal)
+        button5.setImage(R.image.button.selectEgplant(), for: .normal)
+        button6.setImage(R.image.button.selectCucumber(), for: .normal)
+        baseView.backgroundColor = UIColor(patternImage: R.image.backGround.nomalBackground()!)
     }
 }

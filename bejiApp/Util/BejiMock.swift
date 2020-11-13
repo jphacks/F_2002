@@ -33,38 +33,38 @@ public enum BejiMock {
     
     func nameImage() -> UIImage {
         switch self {
-            case .ichigo: return UIImage(imageLiteralResourceName: "いちご名前")
-            case.jyagaimo: return UIImage(imageLiteralResourceName: "じゃがいも名前")
+            case .ichigo: return R.image.plate.strawberryPlate()!
+            case.jyagaimo: return R.image.plate.potatoPlate()!
                 
-            case.kyuuri: return UIImage(imageLiteralResourceName: "きゅうり名前")
+            case.kyuuri: return R.image.plate.cucumberPlate()!
                 
-            case .nasu: return UIImage(imageLiteralResourceName: "なす名前")
+            case .nasu: return R.image.plate.eggplantsPlate()!
                 
-            case .ninjin: return UIImage(imageLiteralResourceName: "にんじん名前")
+            case .ninjin: return R.image.plate.carrotPlate()!
                 
-            case .tamanegi: return UIImage(imageLiteralResourceName: "たまねぎ名前")
+            case .tamanegi: return R.image.plate.onionPlate()!
                 
         }
     }
     func purchaceImage() -> UIImage{
         switch self {
-            case .ichigo: return UIImage(imageLiteralResourceName: "strawberryBackground")
-            case.jyagaimo: return UIImage(imageLiteralResourceName: "potatoBackground")
+            case .ichigo: return R.image.backGround.strawberryBackground()!
+            case.jyagaimo: return R.image.backGround.potatoBackground()!
                 
-            case.kyuuri: return UIImage(imageLiteralResourceName: "cucumberbackground")
+            case.kyuuri: return R.image.backGround.cucumberBackground()!
                 
-            case .nasu: return UIImage(imageLiteralResourceName: "egplantBackground")
+            case .nasu: return R.image.backGround.eggplantBackground()!
                 
-            case .ninjin: return UIImage(imageLiteralResourceName: "carotBackground")
+            case .ninjin: return R.image.backGround.carrotBackground()!
                 
-            case .tamanegi: return UIImage(imageLiteralResourceName: "onionBackground")
+            case .tamanegi: return R.image.backGround.onionBackground()!
                 
         }
     }
     func name() -> String {
         switch self {
             case .ichigo: return "いちごくん"
-            case.jyagaimo: return "じゃがいもくん"
+            case .jyagaimo: return "じゃがいもくん"
                 
             case.kyuuri: return "きゅうりくん"
                 
@@ -78,43 +78,43 @@ public enum BejiMock {
     }
     func icon() -> UIImage {
         switch self {
-            case .ichigo: return UIImage(imageLiteralResourceName: "strawberry")
-            case.jyagaimo: return UIImage(imageLiteralResourceName: "potato")
+            case .ichigo: return R.image.icon.straberryIcon()!
+            case.jyagaimo: return R.image.icon.potatoIcon()!
                 
-            case.kyuuri: return UIImage(imageLiteralResourceName: "cucumber")
+            case.kyuuri: return R.image.icon.cucumberIcon()!
                 
-            case .nasu: return UIImage(imageLiteralResourceName: "egplant")
+            case .nasu: return R.image.icon.eggPlantsIcon()!
                 
-            case .ninjin: return UIImage(imageLiteralResourceName: "carot")
+            case .ninjin: return R.image.icon.carrotIcon()!
                 
-            case .tamanegi: return UIImage(imageLiteralResourceName: "onion")
+            case .tamanegi: return R.image.icon.onionIcon()!
                 
         }
     }
     func chatbackground() -> UIImage {
         switch self {
-            case .ichigo: return UIImage(imageLiteralResourceName: "いち背景")
-            case.jyagaimo: return UIImage(imageLiteralResourceName: "じゃが背景")
+            case .ichigo: return R.image.backGround.strawberryChatBackground()!
+            case.jyagaimo: return R.image.backGround.potatoChatBackground()!
                 
-            case.kyuuri: return UIImage(imageLiteralResourceName: "きゅう背景")
+            case.kyuuri: return R.image.backGround.cucumberChatBackGround()!
                 
-            case .nasu: return UIImage(imageLiteralResourceName: "なす背景")
-            case .ninjin: return UIImage(imageLiteralResourceName: "にん背景")
+            case .nasu: return R.image.backGround.eggplantChatBackground()!
+            case .ninjin: return R.image.backGround.carrotChatBackground()!
                 
-            case .tamanegi: return UIImage(imageLiteralResourceName: "たま背景")
+            case .tamanegi: return R.image.backGround.onionChatBackground()!
         }
     }
     func getIcon() -> UIImage {
         switch self {
-            case .ichigo: return UIImage(imageLiteralResourceName: "いちアイコン")
-            case.jyagaimo: return UIImage(imageLiteralResourceName: "じゃがアイコン")
+            case .ichigo: return R.image.icon.straberryIcon()!
+            case.jyagaimo: return R.image.icon.potatoIcon()!
                 
-            case.kyuuri: return UIImage(imageLiteralResourceName: "きゅうアイコン")
+            case.kyuuri: return R.image.icon.cucumberIcon()!
                 
-            case .nasu: return UIImage(imageLiteralResourceName: "なすアイコン")
-            case .ninjin: return UIImage(imageLiteralResourceName: "にんアイコン")
+            case .nasu: return R.image.icon.eggPlantsIcon()!
+            case .ninjin: return R.image.icon.carrotIcon()!
                 
-            case .tamanegi: return UIImage(imageLiteralResourceName: "たまアイコン")
+            case .tamanegi: return R.image.icon.onionIcon()!
         }
     }
     func imageMessage() -> String {
@@ -133,28 +133,28 @@ public enum BejiMock {
     }
     func plant() -> UIImage {
         switch self {
-            case .ichigo: return UIImage(imageLiteralResourceName: "いち")
-            case.jyagaimo: return UIImage(imageLiteralResourceName: "じゃが")
+            case .ichigo: return R.image.plantsPot.nomal.nomalStrawberry()!
+            case.jyagaimo: return  R.image.plantsPot.nomal.nomalPotato()!
                 
-            case.kyuuri: return UIImage(imageLiteralResourceName: "きゅう")
+            case.kyuuri: return R.image.plantsPot.nomal.nomaluCunber()!
                 
-            case .nasu: return UIImage(imageLiteralResourceName: "なす")
-            case .ninjin: return UIImage(imageLiteralResourceName: "にん")
+            case .nasu: return R.image.plantsPot.nomal.nomalEggplants()!
+            case .ninjin: return R.image.plantsPot.nomal.nomalCarrot()!
                 
-            case .tamanegi: return UIImage(imageLiteralResourceName: "たま")
+            case .tamanegi: return R.image.plantsPot.nomal.nomalOnion()!
         }
     }
     func glowth() -> UIImage{
         switch self {
-            case .ichigo: return UIImage(imageLiteralResourceName: "成長いち")
-            case.jyagaimo: return UIImage(imageLiteralResourceName: "成長じゃが")
+            case .ichigo: return R.image.plantsPot.growth.growthStrawberry()!
+            case.jyagaimo: return R.image.plantsPot.growth.growthPotato()!
                 
-            case.kyuuri: return UIImage(imageLiteralResourceName: "成長きゅう")
+            case.kyuuri: return R.image.plantsPot.growth.growthCucumber()!
                 
-            case .nasu: return UIImage(imageLiteralResourceName: "成長なす")
-            case .ninjin: return UIImage(imageLiteralResourceName: "成長にん")
+            case .nasu: return R.image.plantsPot.growth.growthEggplants()!
+            case .ninjin: return R.image.plantsPot.growth.growthCarot()!
                 
-            case .tamanegi: return UIImage(imageLiteralResourceName: "成長たま")
+            case .tamanegi: return R.image.plantsPot.growth.growthOnion()!
         }
     }
     
