@@ -14,30 +14,31 @@ final class StartViewController: UIViewController {
     let baseView: UIView = .init()
     let logo: UIImageView = .init()
     let button: UIButton = .init()
-     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
-       
+        
     }
     
     @objc func tapButton(_ sender: UIButton){
         self.performSegue(withIdentifier: "toSignUp", sender: nil)
     }
     func testData(){
-//        let header: HTTPHeaders? = ["Authorization": idtoken]
+        //        let header: HTTPHeaders? = ["Authorization": idtoken]
         let url = "https://d3or1724225rbx.cloudfront.net/plants/"
-        let parameters: [String : Any]? = [
+        let parameters: [String: Any]? = [
             "plant_id": 1
         ]
         AF.request(url, method: .get, parameters: parameters, encoding: JSONEncoding.default, headers:
-                    nil ).responseJSON { response  in
-                        print("res\(response)")
-                        guard let data = response.data else { return }
-                        print("data\(data)")
-                        let user = try! JSONDecoder().decode(NewModel.self, from: data)
-                        print("user\(user)")
-        }
+                    nil )
+            .responseJSON { response  in
+                print("res\(response)")
+                guard let data = response.data else { return }
+                print("data\(data)")
+                let user = try! JSONDecoder().decode(NewModel.self, from: data)
+                print("user\(user)")
+            }
     }
 }
 
@@ -61,7 +62,7 @@ extension StartViewController {
             logo.topAnchor.constraint(equalTo: baseView.topAnchor, constant: 183),
             logo.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
         ])
-        logo.image = UIImage(imageLiteralResourceName: "logo")
+        logo.image = R.image.logo()!
         
         NSLayoutConstraint.activate([
             button.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),

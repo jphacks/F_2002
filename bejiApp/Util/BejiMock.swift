@@ -8,26 +8,44 @@
 import Foundation
 import UIKit
 
-public enum BejiMock {
-    case tamanegi
-    case ninjin
-    case nasu
-    case jyagaimo
-    case ichigo
-    case kyuuri
+public enum BejiMock: String {
+    case tamanegi = "タマネギ"
+    case ninjin = "にんじん"
+    case nasu = "なす"
+    case jyagaimo = "じゃがいも"
+    case ichigo = "いちご"
+    case kyuuri = "きゅうり"
     
     func id() -> Int {
         switch self {
             case .ichigo: return 3
             case .jyagaimo: return 2
                 
-            case.kyuuri: return 6
+            case .kyuuri: return 6
                 
             case .nasu: return 4
                 
             case .ninjin: return 7
                 
             case .tamanegi: return 5
+        }
+    }
+    var chatName: String {
+        switch self {
+            case .ichigo: return "strawberry"
+            case .jyagaimo: return "potato"
+                
+            case .kyuuri: return "cucumber"
+                
+            case .nasu: return "eggplants"
+                
+            case .ninjin: return "carrot"
+                
+            case .tamanegi: return "onion"
+            
+            
+            
+            
         }
     }
     
@@ -59,6 +77,20 @@ public enum BejiMock {
                 
             case .tamanegi: return R.image.backGround.onionBackground()!
                 
+        }
+    }
+    func buttonImage() -> UIImage {
+        switch self {
+            case .ichigo: return R.image.button.selectStrawberry()!
+            case.jyagaimo: return R.image.button.selectPotato()!
+                
+            case.kyuuri: return R.image.button.selectCucumber()!
+                
+            case .nasu: return R.image.button.selectEgplant()!
+                
+            case .ninjin: return R.image.button.selectCarrot()!
+                
+            case .tamanegi: return R.image.button.selectOnion()!
         }
     }
     func name() -> String {
@@ -115,20 +147,6 @@ public enum BejiMock {
             case .ninjin: return R.image.icon.carrotIcon()!
                 
             case .tamanegi: return R.image.icon.onionIcon()!
-        }
-    }
-    func imageMessage() -> String {
-        switch self {
-            case .ichigo: return "健康診断ありがと。ちょっとお肌の調子がよくないわ…追肥してもらえるかしら。"
-            case.jyagaimo: return "写真ありがとういも！診断したところ、ちょっと元気ないいも…日当たりの良いところに移動してくれるいも？"
-                
-            case.kyuuri: return "きゅー！！！健康診断ありがきゅ！ちょっと寒いところにいるのが辛いかもきゅ…あたたかいところに移動して欲しいキュ！"
-                
-            case .nasu: return "俺を！！！！撮ったな！！！！！今日はすこぶる元気だ〜！！ありがとう！！！"
-                
-            case .ninjin: return "健康、健康だよ。おしゃべり、したいな。"
-                
-            case .tamanegi: return "診断したところ、ちょっと栄養が足りてないかも…活力剤を使ってもらえるかな？"
         }
     }
     func plant() -> UIImage {

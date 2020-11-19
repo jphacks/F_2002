@@ -22,7 +22,7 @@ class ChatModel {
         case daily = "日当たりはどう？"
         case conversation = "おしゃべりしよう"
     }
-    private var userMessages: [userMessage] = [.water,.disease,.nutrition,.tuuhi,.temperature,.daily,.conversation]
+    private var userMessages: [userMessage] = [.water, .disease,.nutrition, .tuuhi, .temperature, .daily, .conversation]
     var userMessageString: [String] { userMessages.map { $0.rawValue} }
     
     func replayMessage(userMessage: userMessage) -> String {
@@ -133,6 +133,20 @@ class ChatModel {
             case .ninjin: return "喋り方、ヘン？自由、俺の……"
                 
             case .tamanegi: return "国語算数理科社会。学校、楽しかった？"
+        }
+    }
+    func imageMessage() -> String {
+        switch type {
+            case .ichigo: return "健康診断ありがと。ちょっとお肌の調子がよくないわ…追肥してもらえるかしら。"
+            case.jyagaimo: return "写真ありがとういも！診断したところ、ちょっと元気ないいも…日当たりの良いところに移動してくれるいも？"
+                
+            case.kyuuri: return "きゅー！！！健康診断ありがきゅ！ちょっと寒いところにいるのが辛いかもきゅ…あたたかいところに移動して欲しいキュ！"
+                
+            case .nasu: return "俺を！！！！撮ったな！！！！！今日はすこぶる元気だ〜！！ありがとう！！！"
+                
+            case .ninjin: return "健康、健康だよ。おしゃべり、したいな。"
+                
+            case .tamanegi: return "診断したところ、ちょっと栄養が足りてないかも…活力剤を使ってもらえるかな？"
         }
     }
     

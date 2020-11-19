@@ -11,6 +11,8 @@ import Alamofire
 //stackviewの調整面倒なので脳死作成、後で書き直す
 final class SelectViewController: UIViewController {
     var idtoken: String = .init()
+    var buttonBeji: [BejiMock] = [.jyagaimo, .tamanegi, .ninjin]
+    var buttonBeji2: [BejiMock] = [.ichigo, .nasu, .kyuuri]
     private let button1: UIButton = .init()
     private let button2: UIButton = .init()
     private let button3: UIButton = .init()
@@ -40,14 +42,26 @@ final class SelectViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
+        makeButtons()
         viewdata.token = idtoken
         self.navigationItem.titleView = UIImageView(image: R.image.plate.selectPlantsPlate())
     }
-    
-    @objc func tapButton1(_ sender: UIButton){
-        self.viewdata.type = .jyagaimo
-        guard let token = viewdata.token else {fatalError()
+    func makeButtons(){
+        buttonBeji.forEach { type in
+            let button: UIButton = .init()
+            button.setImage(type.buttonImage(), for: .normal)
+            stackView.addArrangedSubview(button)
+            button.addTarget(self,action: #selector(self.tapButton1(_ :)),for: .touchUpInside)
+            button.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                button.widthAnchor.constraint(equalToConstant: 127),
+                button.heightAnchor.constraint(equalToConstant: 132)
+            ])
+            
         }
+    }
+    @objc func tapButton1(_ sender: UIButton){
+//        self.viewdata.type = .jyagaimo
         self.performSegue(withIdentifier: "toPurchace", sender: viewdata)
     }
     @objc func tapButton2(_ sender: UIButton){
@@ -93,12 +107,12 @@ extension SelectViewController {
         
         baseView.addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.addArrangedSubview(button1)
-        stackView.addArrangedSubview(button2)
-        stackView.addArrangedSubview(button3)
-        button1.translatesAutoresizingMaskIntoConstraints = false
-        button2.translatesAutoresizingMaskIntoConstraints = false
-        button3.translatesAutoresizingMaskIntoConstraints = false
+//        stackView.addArrangedSubview(button1)
+//        stackView.addArrangedSubview(button2)
+//        stackView.addArrangedSubview(button3)
+//        button1.translatesAutoresizingMaskIntoConstraints = false
+//        button2.translatesAutoresizingMaskIntoConstraints = false
+//        button3.translatesAutoresizingMaskIntoConstraints = false
         
         baseView.addSubview(stackView2)
         stackView2.translatesAutoresizingMaskIntoConstraints = false
@@ -116,19 +130,19 @@ extension SelectViewController {
             stackView.heightAnchor.constraint(equalToConstant: 444)
         ])
         
-        NSLayoutConstraint.activate([
-            button1.widthAnchor.constraint(equalToConstant: 127),
-            button1.heightAnchor.constraint(equalToConstant: 132)
-        ])
-        NSLayoutConstraint.activate([
-            button2.widthAnchor.constraint(equalToConstant: 127),
-            button2.heightAnchor.constraint(equalToConstant: 132)
-        ])
-        NSLayoutConstraint.activate([
-            button3.widthAnchor.constraint(equalToConstant: 127),
-            button3.heightAnchor.constraint(equalToConstant: 132)
-        ])
-        
+//        NSLayoutConstraint.activate([
+//            button1.widthAnchor.constraint(equalToConstant: 127),
+//            button1.heightAnchor.constraint(equalToConstant: 132)
+//        ])
+//        NSLayoutConstraint.activate([
+//            button2.widthAnchor.constraint(equalToConstant: 127),
+//            button2.heightAnchor.constraint(equalToConstant: 132)
+//        ])
+//        NSLayoutConstraint.activate([
+//            button3.widthAnchor.constraint(equalToConstant: 127),
+//            button3.heightAnchor.constraint(equalToConstant: 132)
+//        ])
+//
         NSLayoutConstraint.activate([
             stackView2.leadingAnchor.constraint(equalTo: self.stackView.trailingAnchor, constant: 27),
             stackView2.topAnchor.constraint(equalTo: baseView.topAnchor, constant: 174),

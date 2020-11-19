@@ -12,10 +12,10 @@ import Alamofire
 final class SignUpViewController: UIViewController {
     private let baseView: UIView = .init()
     private let mailTextField: UITextField = .init()
-    private let passTextField:UITextField = .init()
+    private let passTextField: UITextField = .init()
     private let button: UIButton = .init()
-    var idToken: String = .init()
-    var auth:Auth!
+    var viewdata = Viewdata()
+    var auth: Auth!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,34 +28,60 @@ final class SignUpViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toSelect" {
             let nextVC = segue.destination as! SelectViewController
-            nextVC.idtoken = self.idToken
+            nextVC.viewdata = self.viewdata
+            
+            
         }
     }
     //タップ時に入力欄問題なければidToken取得後サーバーに登録して画面遷移
     @objc func tapButton(_ sender: UIButton){
+        login()
+    }
+    
+    func login() {
         if mailTextField.text?.count != 0 && passTextField.text?.count != 0 {
             guard let mail = mailTextField.text else {fatalError()}
             guard let pass = passTextField.text else {fatalError()}
-            getIdToken(mail: mail, pass: pass)
+//            getIdToken(mail: mail, pass: pass)
+            tokumei()
         }
+    }
+    func tokumei(){
+        auth.signInAnonymously(){
+            authResult, error in
+                guard let user = authResult?.user else {
+                    return
+        }
+            user.getIDToken() {
+                token, error in
+                    guard let userToken = token else {
+                        return
+                
+            }
+                self.viewdata.token = userToken
+                self.viewdata.uid = user.uid
+                self.performSegue(withIdentifier: "toSelect", sender: userToken)
+                self.registerUser(idtoken: userToken)
+            }
+    }
     }
     //idtoken取得
-    private func getIdToken(mail: String, pass: String) {
-        auth.createUser(withEmail: mail, password: pass) { (result, error) in
-            if error == nil, let result = result {
-                result.user.sendEmailVerification(completion: { (error) in
-                    if error == nil {
-                        self.auth.currentUser?.getIDTokenForcingRefresh(true){ idToken, error in
-                            if error != nil { return }
-                            guard let token = idToken else {fatalError()}
-                            self.performSegue(withIdentifier: "toSelect", sender: self.idToken)
-                            self.registerUser(idtoken: token)
-                        }
-                    }
-                })
-            }
-        }
-    }
+//    private func getIdToken(mail: String, pass: String) {
+//        auth.createUser(withEmail: mail, password: pass) { (result, error) in
+//            if error == nil, let result = result {
+//                result.user.sendEmailVerification(completion: { (error) in
+//                    if error == nil {
+//                        self.auth.currentUser?.getIDTokenForcingRefresh(true){ idToken, error in
+//                            if error != nil { return }
+//                            guard let token = idToken else {fatalError()}
+//                            self.performSegue(withIdentifier: "toSelect", sender: self.viewdata)
+//                            self.registerUser(idtoken: token)
+//                        }
+//                    }
+//                })
+//            }
+//        }
+//    }
     //idtokenをサーバーに登録
     private func registerUser(idtoken: String) {
         let header: HTTPHeaders? = ["Authorization": idtoken]
