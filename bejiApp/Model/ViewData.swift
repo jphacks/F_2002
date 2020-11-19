@@ -10,4 +10,5 @@ import Foundation
 struct Viewdata{
     var token: String?
     var type: BejiMock = .ichigo
+    var uid: String?
 }

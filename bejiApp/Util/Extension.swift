@@ -32,6 +32,10 @@ public extension CALayer {
         }
     }
 }
+public func randomString(length: Int) -> String {
+  let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+  return String((0..<length).map{ _ in letters.randomElement()! })
+}
 class CustomView: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)

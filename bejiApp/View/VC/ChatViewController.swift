@@ -48,6 +48,7 @@ final class ChatViewController: MessagesViewController, MessageCellDelegate, Mes
         firebaseManager.databaseRef = Database.database().reference()
         loadMessage()
         setUp()
+        print("tesu\(viewdata.uid)")
     }
     func loadMessage(){
         DispatchQueue.main.async {
@@ -107,7 +108,6 @@ extension ChatViewController {
         return MockMessage(attributedText: attributedText, sender: currentSender() , messageId: UUID().uuidString, date: Date())
     }
     private func createPlantsMessage(text: String) -> MockMessage {
-        print("植物\(text)")
         let attributedText = NSAttributedString(string: text, attributes: [.font: UIFont.systemFont(ofSize: 15),
                                                                            .foregroundColor: UIColor.black])
         return MockMessage(attributedText: attributedText, sender: otherSender(), messageId: UUID().uuidString, date: Date())
@@ -124,7 +124,10 @@ extension ChatViewController {
         self.messagesCollectionView.scrollToBottom()
     }
     private func postUserMessage(){
-        firebaseManager.uploadChatData(from: "me", to: "plant", message: chatText, imageUrl: nil)
+        let data = ["name": "me", "message": chatText]
+        guard let uid = viewdata.uid else { fatalError() }
+        firebaseManager.databaseRef.child("chat_room").child("users/\(uid)/username/\(viewdata.type.chatName)/").childByAutoId().setValue(data)
+//        firebaseManager.uploadChatData(from: "me", to: "plant", message: chatText, imageUrl: nil)
         messageList.append(createUserMessage(text: chatText))
         self.reloadMessage()
     }
@@ -136,11 +139,13 @@ extension ChatViewController {
     private func postPlantsMessage(){
         let reply: String =  chatModel.replayMessage(userMessage: ChatModel.userMessage(rawValue: chatText)!)
         self.messageList.append(self.createPlantsMessage(text: reply))
-        firebaseManager.uploadChatData(from: "plant", to: "me", message: reply , imageUrl: nil)
+        let data = ["name": "plants", "message": reply]
+        guard let uid = viewdata.uid else { fatalError() }
+        firebaseManager.databaseRef.child("chat_room").child("users/\(uid)/username/\(viewdata.type.chatName)/").childByAutoId().setValue(data)
         self.reloadMessage()
     }
     private func postPlantsImageReplyMessage(){
-        self.messageList.append(self.createPlantsMessage(text: viewdata.type.imageMessage()))
+        self.messageList.append(self.createPlantsMessage(text: chatModel.imageMessage()))
         self.reloadMessage()
     }
 }
