@@ -9,36 +9,65 @@ import Foundation
 import UIKit
 import Alamofire
 import Rswift
+import Firebase
 
 final class StartViewController: UIViewController {
     let baseView: UIView = .init()
     let logo: UIImageView = .init()
     let button: UIButton = .init()
+    var viewdata = Viewdata()
+    var auth: Auth!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
-        
+        auth = Auth.auth()
     }
     
     @objc func tapButton(_ sender: UIButton){
-        self.performSegue(withIdentifier: "toSignUp", sender: nil)
+        login()
     }
-    func testData(){
-        //        let header: HTTPHeaders? = ["Authorization": idtoken]
-        let url = "https://d3or1724225rbx.cloudfront.net/plants/"
-        let parameters: [String: Any]? = [
-            "plant_id": 1
-        ]
-        AF.request(url, method: .get, parameters: parameters, encoding: JSONEncoding.default, headers:
-                    nil )
-            .responseJSON { response  in
-                print("res\(response)")
-                guard let data = response.data else { return }
-                print("data\(data)")
-                let user = try! JSONDecoder().decode(NewModel.self, from: data)
-                print("user\(user)")
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toSelect" {
+            let nextVC = segue.destination as! SelectViewController
+            nextVC.viewdata = self.viewdata
+        }
+    }
+    private func login() {
+        signInAnonymously()
+    }
+    private func signInAnonymously(){
+        auth.signInAnonymously(){
+            authResult, error in
+            guard let user = authResult?.user else {
+                return
             }
+            user.getIDToken() {
+                token, error in
+                guard let userToken = token else {
+                    return
+                }
+                self.viewdata.token = userToken
+                self.viewdata.uid = user.uid
+                self.performSegue(withIdentifier: "toSelect", sender: userToken)
+                self.registerUser(idtoken: userToken)
+            }
+        }
+    }
+    private func registerUser(idtoken: String) {
+        let header: HTTPHeaders? = ["Authorization": idtoken]
+        let url = "https://d3or1724225rbx.cloudfront.net/users"
+        let parameters: [String : Any]? = [
+            "name": "こんにゃく"
+        ]
+        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers:
+                    header ).responseJSON { response  in
+                        print("res\(response)")
+                        guard let data = response.data else { return }
+                        print("data\(data)")
+                        let user = try! JSONDecoder().decode(UserModel.self, from: data)
+                        print("user\(user)")
+                    }
     }
 }
 

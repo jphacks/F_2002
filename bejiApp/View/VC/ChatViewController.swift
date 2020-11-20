@@ -48,7 +48,6 @@ final class ChatViewController: MessagesViewController, MessageCellDelegate, Mes
         firebaseManager.databaseRef = Database.database().reference()
         loadMessage()
         setUp()
-        print("tesu\(viewdata.uid)")
     }
     func loadMessage(){
         DispatchQueue.main.async {
@@ -127,7 +126,6 @@ extension ChatViewController {
         let data = ["name": "me", "message": chatText]
         guard let uid = viewdata.uid else { fatalError() }
         firebaseManager.databaseRef.child("chat_room").child("users/\(uid)/username/\(viewdata.type.chatName)/").childByAutoId().setValue(data)
-//        firebaseManager.uploadChatData(from: "me", to: "plant", message: chatText, imageUrl: nil)
         messageList.append(createUserMessage(text: chatText))
         self.reloadMessage()
     }
