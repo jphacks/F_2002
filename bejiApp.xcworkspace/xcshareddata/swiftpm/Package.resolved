@@ -11,6 +11,15 @@
         }
       },
       {
+        "package": "FloatingPanel",
+        "repositoryURL": "https://github.com/SCENEE/FloatingPanel",
+        "state": {
+          "branch": null,
+          "revision": "9b1cb68f0a0f44fb726835d95f6079d94a408af7",
+          "version": "2.0.1"
+        }
+      },
+      {
         "package": "InputBarAccessoryView",
         "repositoryURL": "https://github.com/nathantannar4/InputBarAccessoryView",
         "state": {
@@ -26,6 +35,15 @@
           "branch": null,
           "revision": "1e4b93c27c179bf755a22c964a46262ca0961560",
           "version": "3.4.2"
+        }
+      },
+      {
+        "package": "RxSwift",
+        "repositoryURL": "https://github.com/ReactiveX/RxSwift",
+        "state": {
+          "branch": null,
+          "revision": "002d325b0bdee94e7882e1114af5ff4fe1e96afa",
+          "version": "5.1.1"
         }
       },
       {

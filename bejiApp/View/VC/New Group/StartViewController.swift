@@ -20,6 +20,7 @@ final class StartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setUp()
         auth = Auth.auth()
     }
@@ -47,15 +48,17 @@ final class StartViewController: UIViewController {
                 guard let userToken = token else {
                     return
                 }
+                print("sign\(userToken)")
                 self.viewdata.token = userToken
                 self.viewdata.uid = user.uid
-                self.performSegue(withIdentifier: "toSelect", sender: userToken)
+                self.performSegue(withIdentifier: "toSelect", sender: self.viewdata)
                 self.registerUser(idtoken: userToken)
             }
         }
     }
     private func registerUser(idtoken: String) {
         let header: HTTPHeaders? = ["Authorization": idtoken]
+        print("idt\(idtoken)")
         let url = "https://d3or1724225rbx.cloudfront.net/users"
         let parameters: [String : Any]? = [
             "name": "こんにゃく"
@@ -86,7 +89,7 @@ extension StartViewController {
             baseView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             baseView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
-        baseView.backgroundColor = UIColor(patternImage: R.image.backGround.nomalBackground()! )
+//        baseView.backgroundColor = UIColor(patternImage: R.image.backGround.nomalBackground()! )
         NSLayoutConstraint.activate([
             logo.topAnchor.constraint(equalTo: baseView.topAnchor, constant: 183),
             logo.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
@@ -101,5 +104,7 @@ extension StartViewController {
         ])
         button.setImage(R.image.button.startButton(), for: .normal)
         button.addTarget(self,action: #selector(self.tapButton(_ :)),for: .touchUpInside)
+        baseView.addBackground(image:  R.image.backGround.nomalBackground()!)
+//        baseView.backgroundColor = UIColor(patternImage:  (R.image.backGround.nomalBackground()?.resize(size: .init(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height - 88 )))! )
     }
 }

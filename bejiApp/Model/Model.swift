@@ -8,6 +8,27 @@
 import Foundation
 import Firebase
 
+struct IotModel {
+    let created: String
+    let cultivationld: String
+    let humidity: Status
+    let illuminance: Status
+    let pressure: Status
+    let solid_moisture: Status
+    let temperture: Status
+    let beji: BejiMock?
+    
+    struct Status {
+        let status: String
+        let value: Int
+    }
+}
+
+struct chatDataModel {
+    let title: String
+    let message: String
+}
+
 struct UserModel: Codable {
     var id: Int?
     var name: String?
@@ -112,7 +133,7 @@ public struct NewModel: Codable {
     public struct FinishCultivatingAt: Codable {
     }
     public let finishCultivatingAt: FinishCultivatingAt
-    public struct Rerord: Codable {
+    public struct Recrord: Codable {
         public struct Watering: Codable {
             public let id: Int
             public struct CreatedAt: Codable {
@@ -152,7 +173,7 @@ public struct NewModel: Codable {
         }
         public let harvesings: [Harvesing]
     }
-    public let rerord: Rerord
+    public let rerord: Recrord
     private enum CodingKeys: String, CodingKey {
         case id
         case createdAt = "created_at"

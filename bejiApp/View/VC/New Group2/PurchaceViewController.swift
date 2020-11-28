@@ -17,6 +17,7 @@ class PurchaceViewController: UIViewController {
     
     override func loadView() {
         super.loadView()
+        print("load\(viewdata.token)")
     }
     
     private let button: UIButton = .init()
@@ -40,10 +41,10 @@ class PurchaceViewController: UIViewController {
             baseView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
         
-//        button.setTitle("", for: .normal)
-//        button.setImage(UIImage(imageLiteralResourceName: "育てる"), for: .normal)
+        button.setImage(R.image.button.growButton()!, for: .normal)
         button.addTarget(self,action: #selector(self.tapButton1(_ :)),for: .touchUpInside)
-        baseView.backgroundColor = UIColor(patternImage: viewdata.type.purchaceImage())
+        baseView.addBackground(image: viewdata.type.purchaceImage())
+       
     }
     @objc func tapButton1(_ sender: UIButton){
         purchacePlant(data: viewdata)
@@ -65,25 +66,24 @@ class PurchaceViewController: UIViewController {
                     "plant_id": 1,
                     "nick_name": "じゃがーくん2世"
                 ]
-        let header: HTTPHeaders? = ["Authentication": token]
+        let header: HTTPHeaders? = ["Authorization": token]
+        print("確認\(token)")
         let url = "https://d3or1724225rbx.cloudfront.net/user/cultivations"
         AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers:
                     header ).responseJSON { response  in
                         switch response.result {
                             case .success(let res):
                                 print("json\(res)")
-//                                print(JSON(res))
-//                                guard let data = (response as AnyObject).data else { return }
-//                                print(data)
+                                
                             case .failure(let error): print(error)
                         }
-//                        print("json\(response)")
-//                        guard let data = response.data else { return }
-//                        print(data)
+                        print("json\(response)")
+                        guard let data = response.data else { return }
+                        print(data)
+                        let user = try! JSONDecoder().decode(CultivationIdModel.self, from: data)
+                        print(user)
 //                        let user = try! JSONDecoder().decode(NewModel.self, from: data)
 //                        print("植物購入\(user)")
-//                        self.button.setTitle(user.nickName, for: .normal)
-//                        self.button.backgroundColor = .red
                         
         }
     }

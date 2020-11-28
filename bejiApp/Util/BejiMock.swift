@@ -42,10 +42,6 @@ public enum BejiMock: String {
             case .ninjin: return "carrot"
                 
             case .tamanegi: return "onion"
-            
-            
-            
-            
         }
     }
     
@@ -174,6 +170,86 @@ public enum BejiMock: String {
                 
             case .tamanegi: return R.image.plantsPot.growth.growthOnion()!
         }
+    }
+    var iotGoodStatus: String {
+        switch self {
+            case .ichigo: return "今日のアタシ、輝いてる"
+            case .jyagaimo: return "元気だいも！"
+                
+            case.kyuuri: return "元気きゅきゅ！"
+                
+            case .nasu: return "俺は！！！！！元気だ！！"
+                
+            case .ninjin: return "健康、元気だよ。"
+                
+            case .tamanegi: return "元気、楽しい"
+                
+        }
+    }
+    var iotBadStatushumidity: String {
+        switch self {
+            case .ichigo: return "どういうつもりかしら"
+            case .jyagaimo: return "ここ、ちょっと困るいも"
+                
+            case.kyuuri: return "パサパサするきゅ"
+                
+            case .nasu: return "ここは生きづらい！"
+                
+            case .ninjin: return "湿気、体が…"
+                
+            case .tamanegi: return "乾燥、大敵。"
+                
+        }
+    }
+    var iotBadStatusWater: String {
+        switch self {
+            case .ichigo: return "あら…水が…"
+            case .jyagaimo: return "お水の調子良くないいも"
+                
+            case.kyuuri: return "パサパサするきゅ"
+                
+            case .nasu: return "水が危ないぜ……"
+                
+            case .ninjin: return "お水、様子が…"
+                
+            case .tamanegi: return "土。よくないかも"
+                
+        }
+    }
+    var iotBadstatusIlluminance: String {
+        switch self {
+            case .ichigo: return "あなたも日を気にするわよね"
+            case .jyagaimo: return "日当たり確認していも"
+                
+            case.kyuuri: return "明るさが気になるきゅ"
+                
+            case .nasu: return "日当たりみてくれるか？"
+                
+            case .ninjin: return "日光、調子が…"
+                
+            case .tamanegi: return "ううん…苦しい"
+                
+        }
+    }
+    var bigIcon: UIImage {
+        switch self {
+            case .ichigo: return R.image.icon.bigStraberry()!
+            case .jyagaimo: return R.image.icon.bigPotato()!
+                
+            case.kyuuri: return R.image.icon.bigCuCamber()!
+                
+            case .nasu: return R.image.icon.bigEggPlants()!
+                
+            case .ninjin: return R.image.icon.bigCarrot()!
+                
+            case .tamanegi: return R.image.icon.bigonion()!
+                
+        }
+        
+        
+        
+        
+        
     }
     
     
