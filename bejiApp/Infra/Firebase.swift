@@ -34,11 +34,8 @@ class FirebaseAction: NSObject {
 
         let dataUrl = URL(string: dataUrlStr)!
         var downloadUrl = ""
-
-        // Upload the file to the path "images/image.jpg"
         let uploadTask = imageRef.putFile(from: dataUrl, metadata: nil) { (metadata, error) in
             guard let metadata = metadata else {
-            // Uh-oh, an error occurred!
             return
             }
             // Metadata contains file metadata such as size, content-type.
@@ -57,7 +54,7 @@ class FirebaseAction: NSObject {
     func uploadChatData(from: String, to: String, message: String? = nil, imageUrl: String? = nil){
         databaseRef.child("chat").childByAutoId().setValue(["from": from, "to": to, "message": message, "image_url": imageUrl])
     }
-    func getIotData(viewdata: Viewdata,completion: @escaping(IotModel) -> (Void)){
+    func getIotData(viewdata: CommonData,completion: @escaping(IotModel) -> (Void)){
         
         guard let uid = viewdata.uid else { fatalError() }
         print("uid\(uid)")
@@ -84,7 +81,7 @@ class FirebaseAction: NSObject {
                                           humidity: humidityData,
                                           illuminance: illuminancedata,
                                           pressure: pressuredata,
-                                          solid_moisture: solidmoistureData,
+                                          solidMoisture: solidmoistureData,
                                           temperture: temperaturedata,
                                           beji: viewdata.type
             )
@@ -95,17 +92,17 @@ class FirebaseAction: NSObject {
             print(error.localizedDescription)
         }
     }
-    func getChatData(viewdata: Viewdata,completion: @escaping([chatDataModel]) -> (Void)){
+    func getChatData(viewdata: CommonData,completion: @escaping([ChatDataModel]) -> (Void)){
         
         guard let uid = viewdata.uid else { fatalError() }
         print("uid\(uid)")
         databaseRef.child("chat_room").child("users/\(uid)/username/\(viewdata.type.chatName)/").observeSingleEvent(of: .value, with: { (snapshot) in
             
-            var chatData: [chatDataModel] = []
+            var chatData: [ChatDataModel] = []
             for item in snapshot.children {
                 let child = item as! DataSnapshot
                 let dic = child.value as! NSDictionary
-                chatData.append(chatDataModel(title: dic["name"] as? String ?? "" , message: dic["message"] as? String ?? ""))
+                chatData.append(ChatDataModel(title: dic["name"] as? String ?? "" , message: dic["message"] as? String ?? ""))
             }
             let value = snapshot.value as? NSDictionary
             let message = value?["message"] as? String ?? ""

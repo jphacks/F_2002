@@ -7,7 +7,6 @@
 
 import Foundation
 
-
-struct CultivationIdModel: Codable{
+struct CultivationIdModel: Codable {
     let id: Int
 }

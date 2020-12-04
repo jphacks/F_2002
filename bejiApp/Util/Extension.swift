@@ -141,9 +141,9 @@ extension UIView {
     }
 }
 extension UIImage {
-    func resize(size _size: CGSize) -> UIImage? {
-        let widthRatio = _size.width / size.width
-        let heightRatio = _size.height / size.height
+    func resize(size: CGSize) -> UIImage? {
+        let widthRatio = size.width / size.width
+        let heightRatio = size.height / size.height
         let ratio = widthRatio < heightRatio ? widthRatio : heightRatio
 
         let resizedSize = CGSize(width: size.width * ratio, height: size.height * ratio)

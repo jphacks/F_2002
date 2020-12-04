@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Viewdata{
+struct CommonData {
     var token: String?
     var type: BejiMock = .ichigo
     var uid: String?

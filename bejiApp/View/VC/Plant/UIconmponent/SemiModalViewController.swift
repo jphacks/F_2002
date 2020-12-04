@@ -148,31 +148,16 @@ public class SemiModalViewController: UIViewController, OverCurrentTransitionabl
     static func make(data: IotModel ) -> SemiModalViewController {
         let sb = UIStoryboard(name: "SemiModalViewController", bundle: nil)
         let vc = sb.instantiateInitialViewController() as! SemiModalViewController
-      
-
-
-
-//        let mock: IotModel = .init(created: dateFormatter.string(from: dt),
-//                                  cultivationld: "",
-//                                  humidity: .init(status: "bad", value: 0),
-//                                  illuminance: .init(status: "bad", value: 0),
-//                                  pressure: .init(status: "bad", value: 0),
-//                                  solid_moisture: .init(status: "good", value: 0),
-//                                  temperture: .init(status: "bad", value: 0),
-//                                  beji: data.beji)
-        
-        print("チェック\(data)")
         vc.updateStatus(data: data)
         vc.iconImageView.image = data.beji?.bigIcon
         return vc
     }
-    
     func updateStatus(data: IotModel){
         timelabel.text = data.created
         commentLabel.text = data.beji?.iotGoodStatus
         commentLabel.textColor = .black
         print(data.humidity.status)
-        print(data.solid_moisture.status)
+        print(data.solidMoisture.status)
         print(data.illuminance.status)
         //Todo: アイコン変更
         if data.humidity.status == "ng"{
@@ -180,7 +165,7 @@ public class SemiModalViewController: UIViewController, OverCurrentTransitionabl
             commentLabel.text = data.beji?.iotBadStatushumidity
             commentLabel.textColor = .red
         }
-        if data.solid_moisture.status == "ng" {
+        if data.solidMoisture.status == "ng" {
             waterLabel.setImage(image: R.image.icon.bad()!)
             commentLabel.text = data.beji?.iotBadStatusWater
             commentLabel.textColor = .red
@@ -191,7 +176,6 @@ public class SemiModalViewController: UIViewController, OverCurrentTransitionabl
             commentLabel.textColor = .red
         }
     }
-
     @objc private func backgroundDidTap() {
         dismiss(animated: true, completion: nil)
     }
@@ -260,4 +244,3 @@ extension SemiModalViewController: UIViewControllerTransitioningDelegate {
         }
     }
 }
-

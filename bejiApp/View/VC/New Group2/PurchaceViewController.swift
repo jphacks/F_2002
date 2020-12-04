@@ -13,17 +13,14 @@ class PurchaceViewController: UIViewController {
     private let baseView: UIView = .init()
     private let plantImageView: UIImageView = .init()
     var type: BejiMock = .ichigo
-    var viewdata: Viewdata!
-    
+    var viewdata: CommonData!
     override func loadView() {
         super.loadView()
-        print("load\(viewdata.token)")
     }
-    
     private let button: UIButton = .init()
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.titleView = UIImageView(image: viewdata.type.nameImage())
+        self.navigationItem.titleView = UIImageView(image: viewdata.type.nameImage)
         self.view.addSubview(baseView)
         baseView.addSubview(button)
         baseView.translatesAutoresizingMaskIntoConstraints = false
@@ -35,16 +32,14 @@ class PurchaceViewController: UIViewController {
             button.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -45)
         ])
         NSLayoutConstraint.activate([
-            baseView.topAnchor.constraint(equalTo: self.view.topAnchor,constant: 88),
+            baseView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 88),
             baseView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             baseView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             baseView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
-        
         button.setImage(R.image.button.growButton()!, for: .normal)
         button.addTarget(self,action: #selector(self.tapButton1(_ :)),for: .touchUpInside)
-        baseView.addBackground(image: viewdata.type.purchaceImage())
-       
+        baseView.addBackground(image: viewdata.type.purchaceImage)
     }
     @objc func tapButton1(_ sender: UIButton){
         purchacePlant(data: viewdata)
@@ -58,7 +53,7 @@ class PurchaceViewController: UIViewController {
         }
     }
     //サーバーに購入データ登録後植物データ取得
-    private func purchacePlant(data: Viewdata){
+    private func purchacePlant(data: CommonData){
         guard let token = data.token else {
             fatalError()
         }
@@ -84,7 +79,6 @@ class PurchaceViewController: UIViewController {
                         print(user)
 //                        let user = try! JSONDecoder().decode(NewModel.self, from: data)
 //                        print("植物購入\(user)")
-                        
         }
     }
 }

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0E062B5F2552EF6800CEAB3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062B5E2552EF6800CEAB3E /* AppDelegate.swift */; };
 		0E062B612552EF6800CEAB3E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062B602552EF6800CEAB3E /* SceneDelegate.swift */; };
-		0E062B632552EF6800CEAB3E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062B622552EF6800CEAB3E /* ViewController.swift */; };
 		0E062B662552EF6800CEAB3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E062B642552EF6800CEAB3E /* Main.storyboard */; };
 		0E062B682552EF6900CEAB3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E062B672552EF6900CEAB3E /* Assets.xcassets */; };
 		0E062B6B2552EF6900CEAB3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E062B692552EF6900CEAB3E /* LaunchScreen.storyboard */; };
@@ -27,12 +26,11 @@
 		0E062BD12553A90F00CEAB3E /* MessageMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BD02553A90F00CEAB3E /* MessageMock.swift */; };
 		0E062BDE2553E34D00CEAB3E /* BejiMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BDD2553E34D00CEAB3E /* BejiMock.swift */; };
 		0E062BE42554147600CEAB3E /* NetWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BE32554147600CEAB3E /* NetWork.swift */; };
-		0E062BE9255414CE00CEAB3E /* Parther.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BE8255414CE00CEAB3E /* Parther.swift */; };
 		0E062BEE2554150A00CEAB3E /* APIType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BED2554150A00CEAB3E /* APIType.swift */; };
 		0E062BF32554151D00CEAB3E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BF22554151D00CEAB3E /* Model.swift */; };
 		0E062BF82554163400CEAB3E /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BF72554163400CEAB3E /* Firebase.swift */; };
 		0E1D9006256DE23C00EE0274 /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = 0E1D9005256DE23C00EE0274 /* FloatingPanel */; };
-		0E26CF52255BF3A100716E27 /* ViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E26CF51255BF3A100716E27 /* ViewData.swift */; };
+		0E26CF52255BF3A100716E27 /* CommonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E26CF51255BF3A100716E27 /* CommonData.swift */; };
 		0E26CF57255BF3BF00716E27 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E26CF56255BF3BF00716E27 /* ChatModel.swift */; };
 		0E26CFA8255D2EAA00716E27 /* ChatUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E26CFA7255D2EAA00716E27 /* ChatUser.swift */; };
 		0E26D015255EBC7500716E27 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 0E26D014255EBC7500716E27 /* RxCocoa */; };
@@ -44,10 +42,14 @@
 		0E4FB404256F76BA00D73A64 /* OverCurrentTransitioningInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4FB403256F76BA00D73A64 /* OverCurrentTransitioningInteractor.swift */; };
 		0E4FB46F257092F900D73A64 /* PlantViewControler + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4FB46E257092F900D73A64 /* PlantViewControler + Extension.swift */; };
 		0E4FB4772571D86B00D73A64 /* CultivationIdModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4FB4762571D86B00D73A64 /* CultivationIdModel.swift */; };
-		0E50167E2567FF410045D30D /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E50167D2567FF410045D30D /* R.generated.swift */; };
+		0E4FB47C2572300E00D73A64 /* IotDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4FB47B2572300E00D73A64 /* IotDataModel.swift */; };
 		0E7AD01E256F41D000647E03 /* SemiModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7AD01D256F41D000647E03 /* SemiModalViewController.swift */; };
 		0E7AD053256F4C3000647E03 /* SemiModalViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E7AD052256F4C3000647E03 /* SemiModalViewController.storyboard */; };
 		0E9B5A71256E0928008E17D5 /* HalfModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9B5A70256E0928008E17D5 /* HalfModal.swift */; };
+		0EB251712578B0D500057E6D /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 0EB251702578B0D500057E6D /* .swiftlint.yml */; };
+		0EB252302579127800057E6D /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB2522F2579127800057E6D /* R.generated.swift */; };
+		0EB2523F2579160300057E6D /* StartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB2523E2579160300057E6D /* StartViewModel.swift */; };
+		0EB2524A257A069700057E6D /* StartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB25249257A069700057E6D /* StartModel.swift */; };
 		0EFA9C4325551448004267E9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0EFA9C4225551448004267E9 /* GoogleService-Info.plist */; };
 		0EFA9D2225583CF3004267E9 /* ChatVC + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFA9D2125583CF3004267E9 /* ChatVC + Extension.swift */; };
 		A939A9762694533366656215 /* Pods_bejiApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6F8B16243AB1ABAE072403C /* Pods_bejiApp.framework */; };
@@ -77,7 +79,6 @@
 		0E062B5B2552EF6800CEAB3E /* bejiApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bejiApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E062B5E2552EF6800CEAB3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0E062B602552EF6800CEAB3E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0E062B622552EF6800CEAB3E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0E062B652552EF6800CEAB3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0E062B672552EF6900CEAB3E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0E062B6A2552EF6900CEAB3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -97,11 +98,10 @@
 		0E062BD02553A90F00CEAB3E /* MessageMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageMock.swift; sourceTree = "<group>"; };
 		0E062BDD2553E34D00CEAB3E /* BejiMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BejiMock.swift; sourceTree = "<group>"; };
 		0E062BE32554147600CEAB3E /* NetWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWork.swift; sourceTree = "<group>"; };
-		0E062BE8255414CE00CEAB3E /* Parther.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parther.swift; sourceTree = "<group>"; };
 		0E062BED2554150A00CEAB3E /* APIType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIType.swift; sourceTree = "<group>"; };
 		0E062BF22554151D00CEAB3E /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		0E062BF72554163400CEAB3E /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
-		0E26CF51255BF3A100716E27 /* ViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewData.swift; sourceTree = "<group>"; };
+		0E26CF51255BF3A100716E27 /* CommonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonData.swift; sourceTree = "<group>"; };
 		0E26CF56255BF3BF00716E27 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		0E26CFA7255D2EAA00716E27 /* ChatUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUser.swift; sourceTree = "<group>"; };
 		0E4FB3F1256F761A00D73A64 /* ModalPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalPresentationController.swift; sourceTree = "<group>"; };
@@ -110,10 +110,14 @@
 		0E4FB403256F76BA00D73A64 /* OverCurrentTransitioningInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverCurrentTransitioningInteractor.swift; sourceTree = "<group>"; };
 		0E4FB46E257092F900D73A64 /* PlantViewControler + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlantViewControler + Extension.swift"; sourceTree = "<group>"; };
 		0E4FB4762571D86B00D73A64 /* CultivationIdModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CultivationIdModel.swift; sourceTree = "<group>"; };
-		0E50167D2567FF410045D30D /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		0E4FB47B2572300E00D73A64 /* IotDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IotDataModel.swift; sourceTree = "<group>"; };
 		0E7AD01D256F41D000647E03 /* SemiModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemiModalViewController.swift; sourceTree = "<group>"; };
 		0E7AD052256F4C3000647E03 /* SemiModalViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SemiModalViewController.storyboard; sourceTree = "<group>"; };
 		0E9B5A70256E0928008E17D5 /* HalfModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfModal.swift; sourceTree = "<group>"; };
+		0EB251702578B0D500057E6D /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		0EB2522F2579127800057E6D /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		0EB2523E2579160300057E6D /* StartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewModel.swift; sourceTree = "<group>"; };
+		0EB25249257A069700057E6D /* StartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartModel.swift; sourceTree = "<group>"; };
 		0EFA9C4225551448004267E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0EFA9D052557FC6A004267E9 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0EFA9D2125583CF3004267E9 /* ChatVC + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatVC + Extension.swift"; sourceTree = "<group>"; };
@@ -165,11 +169,13 @@
 		0E062B522552EF6800CEAB3E = {
 			isa = PBXGroup;
 			children = (
+				0EB251702578B0D500057E6D /* .swiftlint.yml */,
 				0E062B5D2552EF6800CEAB3E /* bejiApp */,
 				0E062B742552EF6900CEAB3E /* bejiAppTests */,
 				0E062B7F2552EF6900CEAB3E /* bejiAppUITests */,
 				0E062B5C2552EF6800CEAB3E /* Products */,
 				3495EE6B414689D513FF12C4 /* Pods */,
+				0EB252342579133200057E6D /* Generated */,
 				A508549DE1E576D3F899C699 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -187,7 +193,6 @@
 		0E062B5D2552EF6800CEAB3E /* bejiApp */ = {
 			isa = PBXGroup;
 			children = (
-				0E50167D2567FF410045D30D /* R.generated.swift */,
 				0EFA9D052557FC6A004267E9 /* README.md */,
 				0E062BA32552FB9100CEAB3E /* Util */,
 				0E062B962552F9E000CEAB3E /* Infra */,
@@ -195,7 +200,6 @@
 				0E062B942552F9B500CEAB3E /* View */,
 				0E062B5E2552EF6800CEAB3E /* AppDelegate.swift */,
 				0E062B602552EF6800CEAB3E /* SceneDelegate.swift */,
-				0E062B622552EF6800CEAB3E /* ViewController.swift */,
 				0E062B672552EF6900CEAB3E /* Assets.xcassets */,
 				0EFA9C4225551448004267E9 /* GoogleService-Info.plist */,
 				0E062B692552EF6900CEAB3E /* LaunchScreen.storyboard */,
@@ -225,7 +229,7 @@
 		0E062B942552F9B500CEAB3E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0E062BB32552FF9400CEAB3E /* View */,
+				0E062BB32552FF9400CEAB3E /* StoryBoard */,
 				0E062B9C2552FAE500CEAB3E /* VC */,
 			);
 			path = View;
@@ -235,10 +239,11 @@
 			isa = PBXGroup;
 			children = (
 				0E062BF22554151D00CEAB3E /* Model.swift */,
-				0E26CF51255BF3A100716E27 /* ViewData.swift */,
+				0E26CF51255BF3A100716E27 /* CommonData.swift */,
 				0E26CF56255BF3BF00716E27 /* ChatModel.swift */,
 				0E26CFA7255D2EAA00716E27 /* ChatUser.swift */,
 				0E4FB4762571D86B00D73A64 /* CultivationIdModel.swift */,
+				0E4FB47B2572300E00D73A64 /* IotDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -247,7 +252,6 @@
 			isa = PBXGroup;
 			children = (
 				0E062BE32554147600CEAB3E /* NetWork.swift */,
-				0E062BE8255414CE00CEAB3E /* Parther.swift */,
 				0E062BED2554150A00CEAB3E /* APIType.swift */,
 				0E062BF72554163400CEAB3E /* Firebase.swift */,
 			);
@@ -277,13 +281,13 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
-		0E062BB32552FF9400CEAB3E /* View */ = {
+		0E062BB32552FF9400CEAB3E /* StoryBoard */ = {
 			isa = PBXGroup;
 			children = (
 				0E062B642552EF6800CEAB3E /* Main.storyboard */,
 				0E7AD052256F4C3000647E03 /* SemiModalViewController.storyboard */,
 			);
-			path = View;
+			path = StoryBoard;
 			sourceTree = "<group>";
 		};
 		0E4FB3F0256F760100D73A64 /* Modal */ = {
@@ -320,6 +324,8 @@
 			isa = PBXGroup;
 			children = (
 				0E062B972552FA3000CEAB3E /* StartViewController.swift */,
+				0EB2523E2579160300057E6D /* StartViewModel.swift */,
+				0EB25249257A069700057E6D /* StartModel.swift */,
 			);
 			path = Start;
 			sourceTree = "<group>";
@@ -347,6 +353,14 @@
 				0E062BB925535F5600CEAB3E /* ChatViewController.swift */,
 			);
 			path = Chat;
+			sourceTree = "<group>";
+		};
+		0EB252342579133200057E6D /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				0EB2522F2579127800057E6D /* R.generated.swift */,
+			);
+			name = Generated;
 			sourceTree = "<group>";
 		};
 		3495EE6B414689D513FF12C4 /* Pods */ = {
@@ -497,6 +511,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EB251712578B0D500057E6D /* .swiftlint.yml in Resources */,
 				0E062B6B2552EF6900CEAB3E /* LaunchScreen.storyboard in Resources */,
 				0EFA9C4325551448004267E9 /* GoogleService-Info.plist in Resources */,
 				0E062B682552EF6900CEAB3E /* Assets.xcassets in Resources */,
@@ -651,21 +666,22 @@
 				0E26CFA8255D2EAA00716E27 /* ChatUser.swift in Sources */,
 				0E4FB3FF256F768000D73A64 /* OverCurrentTransitionable.swift in Sources */,
 				0E9B5A71256E0928008E17D5 /* HalfModal.swift in Sources */,
-				0E26CF52255BF3A100716E27 /* ViewData.swift in Sources */,
+				0E26CF52255BF3A100716E27 /* CommonData.swift in Sources */,
+				0EB2524A257A069700057E6D /* StartModel.swift in Sources */,
 				0E4FB4772571D86B00D73A64 /* CultivationIdModel.swift in Sources */,
+				0EB2523F2579160300057E6D /* StartViewModel.swift in Sources */,
 				0E7AD01E256F41D000647E03 /* SemiModalViewController.swift in Sources */,
-				0E062B632552EF6800CEAB3E /* ViewController.swift in Sources */,
 				0E062BAF2552FF7D00CEAB3E /* PurchaceViewController.swift in Sources */,
 				0E062B982552FA3000CEAB3E /* StartViewController.swift in Sources */,
 				0E062BEE2554150A00CEAB3E /* APIType.swift in Sources */,
 				0E062B5F2552EF6800CEAB3E /* AppDelegate.swift in Sources */,
 				0E4FB404256F76BA00D73A64 /* OverCurrentTransitioningInteractor.swift in Sources */,
 				0E062BF82554163400CEAB3E /* Firebase.swift in Sources */,
-				0E50167E2567FF410045D30D /* R.generated.swift in Sources */,
+				0E4FB47C2572300E00D73A64 /* IotDataModel.swift in Sources */,
 				0E4FB3F2256F761A00D73A64 /* ModalPresentationController.swift in Sources */,
 				0E062BD12553A90F00CEAB3E /* MessageMock.swift in Sources */,
+				0EB252302579127800057E6D /* R.generated.swift in Sources */,
 				0E062BE42554147600CEAB3E /* NetWork.swift in Sources */,
-				0E062BE9255414CE00CEAB3E /* Parther.swift in Sources */,
 				0E4FB46F257092F900D73A64 /* PlantViewControler + Extension.swift in Sources */,
 				0E062BAA2552FC3900CEAB3E /* SelectViewController.swift in Sources */,
 				0E062BF32554151D00CEAB3E /* Model.swift in Sources */,

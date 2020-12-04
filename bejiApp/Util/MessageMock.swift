@@ -11,13 +11,9 @@ import MessageKit
 import Messages
 import MessageUI
 import InputBarAccessoryView
-import UIKit
-import MessageKit
 import CoreLocation
 
-
-private struct MockMediaItem: MediaItem {
-
+private struct ChatMediaItem: MediaItem {
     var url: URL?
     var image: UIImage?
     var placeholderImage: UIImage
@@ -29,37 +25,29 @@ private struct MockMediaItem: MediaItem {
         self.placeholderImage = UIImage()
     }
 }
-
-
-internal struct MockMessage: MessageType {
+internal struct ChatMessageType: MessageType {
     var sender: SenderType
     var messageId: String
     var sentDate: Date
     var kind: MessageKind
-    
     private init(kind: MessageKind, sender: SenderType, messageId: String, date: Date) {
         self.kind = kind
         self.sender = sender
         self.messageId = messageId
         self.sentDate = date
     }
-    
     init(text: String, sender: SenderType, messageId: String, date: Date) {
         self.init(kind: .text(text), sender: sender, messageId: messageId, date: date)
     }
-    
     init(attributedText: NSAttributedString, sender: SenderType, messageId: String, date: Date) {
         self.init(kind: .attributedText(attributedText), sender: sender, messageId: messageId, date: date)
     }
-    
     init(image: UIImage, sender: SenderType, messageId: String, date: Date) {
-        let mediaItem = MockMediaItem(image: image)
+        let mediaItem = ChatMediaItem(image: image)
         self.init(kind: .photo(mediaItem), sender: sender, messageId: messageId, date: date)
     }
-    
     init(thumbnail: UIImage, sender: SenderType, messageId: String, date: Date) {
-        let mediaItem = MockMediaItem(image: thumbnail)
+        let mediaItem = ChatMediaItem(image: thumbnail)
         self.init(kind: .video(mediaItem), sender: sender, messageId: messageId, date: date)
     }
 }
-

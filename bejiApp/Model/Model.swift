@@ -8,23 +8,7 @@
 import Foundation
 import Firebase
 
-struct IotModel {
-    let created: String
-    let cultivationld: String
-    let humidity: Status
-    let illuminance: Status
-    let pressure: Status
-    let solid_moisture: Status
-    let temperture: Status
-    let beji: BejiMock?
-    
-    struct Status {
-        let status: String
-        let value: Int
-    }
-}
-
-struct chatDataModel {
+struct ChatDataModel {
     let title: String
     let message: String
 }
@@ -33,35 +17,8 @@ struct UserModel: Codable {
     var id: Int?
     var name: String?
     var email: String?
-    var user_plants: String?
+    var userPlants: String?
 }
-
-//class PlantModel: Codable {
-//    var id: Int?
-//    var name: String?
-//    var kit_name: String?
-//    var plant_description: String?
-//    var price: Int?
-//    var period: Int?
-//    var difficurty: Int?
-//    var season_from: Int?
-//    var season_to: Int?
-//    var temperatures: Array<Temperature>?
-//    var waters: Array<Water>?
-//}
-//
-//class Temperature: Codable {
-//    var id: Int?
-//    var name: String?
-//    var value: Int?
-//}
-//
-//class Water: Codable {
-//    var id: Int?
-//    var name: String?
-//    var value: Int?
-//}
-
 public struct NewModel: Codable {
     public let id: Int
     public struct CreatedAt: Codable {
