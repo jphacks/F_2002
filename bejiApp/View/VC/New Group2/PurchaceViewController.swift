@@ -13,16 +13,14 @@ class PurchaceViewController: UIViewController {
     private let baseView: UIView = .init()
     private let plantImageView: UIImageView = .init()
     var type: BejiMock = .ichigo
-    var viewdata: Viewdata!
-    
+    var viewdata: CommonData!
     override func loadView() {
         super.loadView()
     }
-    
     private let button: UIButton = .init()
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.titleView = UIImageView(image: viewdata.type.nameImage())
+        self.navigationItem.titleView = UIImageView(image: viewdata.type.nameImage)
         self.view.addSubview(baseView)
         baseView.addSubview(button)
         baseView.translatesAutoresizingMaskIntoConstraints = false
@@ -34,16 +32,14 @@ class PurchaceViewController: UIViewController {
             button.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -45)
         ])
         NSLayoutConstraint.activate([
-            baseView.topAnchor.constraint(equalTo: self.view.topAnchor,constant: 88),
+            baseView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 88),
             baseView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             baseView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             baseView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
-        
-//        button.setTitle("", for: .normal)
-//        button.setImage(UIImage(imageLiteralResourceName: "育てる"), for: .normal)
+        button.setImage(R.image.button.growButton()!, for: .normal)
         button.addTarget(self,action: #selector(self.tapButton1(_ :)),for: .touchUpInside)
-        baseView.backgroundColor = UIColor(patternImage: viewdata.type.purchaceImage())
+        baseView.addBackground(image: viewdata.type.purchaceImage)
     }
     @objc func tapButton1(_ sender: UIButton){
         purchacePlant(data: viewdata)
@@ -57,7 +53,7 @@ class PurchaceViewController: UIViewController {
         }
     }
     //サーバーに購入データ登録後植物データ取得
-    private func purchacePlant(data: Viewdata){
+    private func purchacePlant(data: CommonData){
         guard let token = data.token else {
             fatalError()
         }
@@ -65,26 +61,24 @@ class PurchaceViewController: UIViewController {
                     "plant_id": 1,
                     "nick_name": "じゃがーくん2世"
                 ]
-        let header: HTTPHeaders? = ["Authentication": token]
+        let header: HTTPHeaders? = ["Authorization": token]
+        print("確認\(token)")
         let url = "https://d3or1724225rbx.cloudfront.net/user/cultivations"
         AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers:
                     header ).responseJSON { response  in
                         switch response.result {
                             case .success(let res):
                                 print("json\(res)")
-//                                print(JSON(res))
-//                                guard let data = (response as AnyObject).data else { return }
-//                                print(data)
+                                
                             case .failure(let error): print(error)
                         }
-//                        print("json\(response)")
-//                        guard let data = response.data else { return }
-//                        print(data)
+                        print("json\(response)")
+                        guard let data = response.data else { return }
+                        print(data)
+                        let user = try! JSONDecoder().decode(CultivationIdModel.self, from: data)
+                        print(user)
 //                        let user = try! JSONDecoder().decode(NewModel.self, from: data)
 //                        print("植物購入\(user)")
-//                        self.button.setTitle(user.nickName, for: .normal)
-//                        self.button.backgroundColor = .red
-                        
         }
     }
 }

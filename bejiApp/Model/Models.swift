@@ -18,12 +18,12 @@ class PlantModel: NSObject {
     var id: Int?
     var name: String?
     var kit_name: String?
-    var plant_description: String?
+    var plantDescription: String?
     var price: Int?
     var period: Int?
     var difficurty: Int?
-    var season_from: Int?
-    var season_to: Int?
+    var seasonFrom: Int?
+    var seasonTo: Int?
     var temperatures: Array<Temperature>?
     var waters: Array<Water>?
 }

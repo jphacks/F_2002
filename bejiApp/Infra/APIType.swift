@@ -1,4 +1,3 @@
-//
 //  APIType.swift
 //  bejiApp
 //
@@ -6,8 +5,7 @@
 //
 
 import Foundation
-
-let Domain = "https://e3c902a3-9f7d-4f1c-9b9a-daa5e4633165.mock.pstmn.io"
+import Alamofire
 
 public protocol TargetType {
     var domain: String { get }
@@ -32,64 +30,62 @@ public enum API {
 }
 
 extension API: TargetType {
-    public var domain : String {
-        return Domain
+    public var domain: String {
+        return "https://d3or1724225rbx.cloudfront.net"
     }
-    
-    public var path : String {
+    public var path: String {
         switch self {
-            case .users:
+        case .users:
                 return "\(domain)" + "/users"
-            case .plants:
+        case .plants:
                 return "\(domain)" + "/plants"
-            case .userPlants:
+        case .userPlants:
                 return "\(domain)" + "/user/cultivations"
-            case .user:
+        case .user:
                 return "\(domain)" + "/user"
-            case .userChange:
+        case .userChange:
                 return "\(domain)" + "/user"
-            case .userDelete:
+        case .userDelete:
                 return "\(domain)" + "/user"
-            case .plant(let plantId):
+        case .plant(let plantId):
                 return "\(domain)" + "/plants/\(plantId)"
-            case .profile(let userId):
+        case .profile(let userId):
                 return "\(domain)" + "/users/\(userId)"
-            case .userPlant(let plantId):
+        case .userPlant(let plantId):
                 return "\(domain)" + "/user/cultivations/\(plantId)"
-            case .userPlantChange(let plantId):
+        case .userPlantChange(let plantId):
                 return "\(domain)" + "/user/cultivations/\(plantId)"
-            case .userPlantDelete(let plantId):
+        case .userPlantDelete(let plantId):
                 return "\(domain)" + "/user/cultivations/\(plantId)"
-            case .plantWatering(let plantId):
+        case .plantWatering(let plantId):
                 return "\(domain)" + "/user/cultivations/\(plantId)/watering"
         }
     }
-    
     public var method: String {
         switch self {
-            case .users:
+        case .users:
                 return "POST"
-            case .plants:
+        case .plants:
                 return "GET"
-            case .user:
+        case .user:
                 return "GET"
-            case .userChange:
+        case .userChange:
                 return "PUT"
-            case .userDelete:
+        case .userDelete:
                 return "DELETE"
-            case .plant:
+        case .plant:
                 return "GET"
-            case .profile:
+        case .profile:
                 return "GET"
-            case .userPlants:
+        case .userPlants:
                 return "GET"
-            case .userPlant:
+        case .userPlant:
                 return "GET"
-            case .userPlantChange:
+        case .userPlantChange:
                 return "PUT"
-            case .userPlantDelete:
+        case .userPlantDelete:
                 return "DELETE"
-            case .plantWatering:
+        case .plantWatering:
                 return "POST"
         }
     }

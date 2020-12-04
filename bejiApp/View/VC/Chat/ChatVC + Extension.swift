@@ -11,20 +11,15 @@ import MessageKit
 import Messages
 import MessageUI
 import InputBarAccessoryView
-import UIKit
-import MessageKit
 import CoreLocation
 import ActionSheetPicker_3_0
 import FirebaseDatabase
 import Firebase
 
-//主にUI部分記述
-
 extension ChatViewController: MessagesDisplayDelegate {
     func textColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
         return isFromCurrentSender(message: message) ? .black : .darkText
     }
-    
     func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
         return isFromCurrentSender(message: message) ?
             UIColor(hex: "98B982") :
@@ -36,20 +31,18 @@ extension ChatViewController: MessagesDisplayDelegate {
     }
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
         if message.sender.displayName == "自分" {}
-        if message.sender.displayName == viewdata.type.name() {
-            let avatar = Avatar(image: viewdata.type.getIcon(), initials: "な")
-            
+        if message.sender.displayName == viewdata.type.name{
+            let avatar = Avatar(image: viewdata.type.getIcon, initials: "な")
             avatarView.set(avatar: avatar)
         }
     }
 }
 extension ChatViewController {
-    func setUp(){
+    func setUp() {
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
         messagesCollectionView.messageCellDelegate = self
-        
         messageInputBar.delegate = self
         messageInputBar.sendButton.tintColor = UIColor.lightGray
 
@@ -62,8 +55,6 @@ extension ChatViewController {
             clearButton.leadingAnchor.constraint(equalTo: self.messageInputBar.inputTextView.leadingAnchor),
             clearButton.topAnchor.constraint(equalTo: self.messageInputBar.inputTextView.topAnchor)
         ])
-        
-        
         setupCollectionView()
         maintainPositionOnKeyboardFrameChanged = true
         messageInputBar.backgroundView.backgroundColor = .clear

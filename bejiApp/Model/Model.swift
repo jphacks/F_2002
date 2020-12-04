@@ -8,39 +8,17 @@
 import Foundation
 import Firebase
 
+struct ChatDataModel {
+    let title: String
+    let message: String
+}
+
 struct UserModel: Codable {
     var id: Int?
     var name: String?
     var email: String?
-    var user_plants: String?
+    var userPlants: String?
 }
-
-//class PlantModel: Codable {
-//    var id: Int?
-//    var name: String?
-//    var kit_name: String?
-//    var plant_description: String?
-//    var price: Int?
-//    var period: Int?
-//    var difficurty: Int?
-//    var season_from: Int?
-//    var season_to: Int?
-//    var temperatures: Array<Temperature>?
-//    var waters: Array<Water>?
-//}
-//
-//class Temperature: Codable {
-//    var id: Int?
-//    var name: String?
-//    var value: Int?
-//}
-//
-//class Water: Codable {
-//    var id: Int?
-//    var name: String?
-//    var value: Int?
-//}
-
 public struct NewModel: Codable {
     public let id: Int
     public struct CreatedAt: Codable {
@@ -112,7 +90,7 @@ public struct NewModel: Codable {
     public struct FinishCultivatingAt: Codable {
     }
     public let finishCultivatingAt: FinishCultivatingAt
-    public struct Rerord: Codable {
+    public struct Recrord: Codable {
         public struct Watering: Codable {
             public let id: Int
             public struct CreatedAt: Codable {
@@ -152,7 +130,7 @@ public struct NewModel: Codable {
         }
         public let harvesings: [Harvesing]
     }
-    public let rerord: Rerord
+    public let rerord: Recrord
     private enum CodingKeys: String, CodingKey {
         case id
         case createdAt = "created_at"

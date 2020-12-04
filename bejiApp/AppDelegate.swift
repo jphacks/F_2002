@@ -15,8 +15,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 //    UINavigationBar.appearance().shadowImage = UIImage()
 //    UINavigationBar.appearance().barTintColor = UIColor(hex: "92AD78")
     var window: UIWindow?
+    func setup() {
+        //UserDefaults.standard.set(false, forKey: "visit") //リセット用
+//        let visit = UserDefaults.standard.bool(forKey: "visit")
+//        if visit {
+//            //二回目以降
+//            print("二回目以降")
+//        } else {
+//            //初回アクセス
+//            print("初回起動")
+//            UserDefaults.standard.set(true, forKey: "visit")
+//        }
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+
+                if(launchedBefore == true) {
+                   
+                    //動作確認のために1回実行ごとに値をfalseに設定し直す
+                    UserDefaults.standard.set(false, forKey: "launchedBefore")
+                    print("初回")
+         
+                } else {
+                    //起動を判定するlaunchedBeforeという論理型のKeyをUserDefaultsに用意
+                    UserDefaults.standard.set(true, forKey: "launchedBefore")
+                }
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        setup()
         FirebaseApp.configure()
             UINavigationBar.appearance().shadowImage = UIImage()
             UINavigationBar.appearance().barTintColor = UIColor(hex: "92AD78")

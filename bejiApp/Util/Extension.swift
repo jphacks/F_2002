@@ -118,3 +118,41 @@ extension UIApplication {
         return nil
     }
 }
+
+extension UIView {
+    func addBackground(image: UIImage) {
+        // スクリーンサイズの取得
+        let width = UIScreen.main.bounds.size.width
+        let height = UIScreen.main.bounds.size.height - 88
+
+        // スクリーンサイズにあわせてimageViewの配置
+        let imageViewBackground = UIImageView(frame: CGRect(x: 0, y: 0, width: width, height: height))
+        //imageViewに背景画像を表示
+        
+        imageViewBackground.image = image.resize(size: .init(width: width, height: height))
+
+        // 画像の表示モードを変更。
+        imageViewBackground.contentMode = UIView.ContentMode.scaleAspectFill
+
+        // subviewをメインビューに追加
+        self.addSubview(imageViewBackground)
+        // 加えたsubviewを、最背面に設置する
+        self.sendSubviewToBack(imageViewBackground)
+    }
+}
+extension UIImage {
+    func resize(size: CGSize) -> UIImage? {
+        let widthRatio = size.width / size.width
+        let heightRatio = size.height / size.height
+        let ratio = widthRatio < heightRatio ? widthRatio : heightRatio
+
+        let resizedSize = CGSize(width: size.width * ratio, height: size.height * ratio)
+
+        UIGraphicsBeginImageContextWithOptions(resizedSize, false, 0.0) // 変更
+        draw(in: CGRect(origin: .zero, size: resizedSize))
+        let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return resizedImage
+    }
+}
