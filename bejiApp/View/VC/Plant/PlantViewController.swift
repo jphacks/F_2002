@@ -19,7 +19,6 @@ final class PlantViewController: UIViewController {
     let baseView: UIView = .init()
     let statusBadSignal: UIImageView = .init()
     let firebaseManager: FirebaseAction = .init()
-    var viewdata: CommonData!
     override func viewDidLoad() {
         super.viewDidLoad()
         firebaseManager.databaseRef = Database.database().reference()

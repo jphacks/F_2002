@@ -26,10 +26,8 @@ protocol StartViewModelType {
 
 final class StartViewModel: StartViewModelType, StartViewModelInputs, StartViewModelOutputs {
     var data: PublishRelay<CommonData> = .init()
-    
     var inputs: StartViewModelInputs { return self }
     var outputs: StartViewModelOutputs { return self }
-    
     var onTapStartButton: PublishRelay<Void> = .init()
     let disposebag = DisposeBag()
     var model = StartModel()
@@ -37,11 +35,10 @@ final class StartViewModel: StartViewModelType, StartViewModelInputs, StartViewM
     init() {
         onTapStartButton.subscribe(onNext: { [weak self] _ in
             guard let self = self  else { return }
-            self.test()
+            self.register()
         }).disposed(by: disposebag)
     }
-    
-    func test(){
+    func register(){
         model.signInAnonymously().bind(to: data).disposed(by: disposebag)
     }
 }

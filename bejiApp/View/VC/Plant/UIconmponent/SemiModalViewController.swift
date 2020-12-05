@@ -50,28 +50,22 @@ public class SemiModalViewController: UIViewController, OverCurrentTransitionabl
     public override func viewDidLoad() {
         super.viewDidLoad()
         setLayout()
-        
-
         interactor.startHandler = { [weak self] in
             self?.tableView.bounces = false
         }
         interactor.resetHandler = { [weak self] in
             self?.tableView.bounces = true
         }
-
         setupViews()
     }
     func setLayout(){
-        self.view.addSubview(backgroundView)
-        backgroundView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubviews(backgroundView, contentView).activateAutoLayout()
         NSLayoutConstraint.activate([
             backgroundView.topAnchor.constraint(equalTo: self.view.topAnchor),
             backgroundView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             backgroundView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             backgroundView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.height/2)
         ])
-        self.view.addSubview(contentView)
-        contentView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             contentView.topAnchor.constraint(equalTo: self.backgroundView.bottomAnchor),
             contentView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
@@ -80,23 +74,9 @@ public class SemiModalViewController: UIViewController, OverCurrentTransitionabl
         ])
         backgroundView.backgroundColor = .clear
         self.view.backgroundColor = .clear
-        contentView.addSubview(labelStackView)
-        contentView.addSubview(iconImageView)
-        iconImageView.translatesAutoresizingMaskIntoConstraints = false
-        labelStackView.translatesAutoresizingMaskIntoConstraints = false
-        labelStackView.addArrangedSubview(waterLabel)
-        labelStackView.addArrangedSubview(sunLabel)
-        labelStackView.addArrangedSubview(humidityLabel)
-        waterLabel.translatesAutoresizingMaskIntoConstraints = false
-        sunLabel.translatesAutoresizingMaskIntoConstraints = false
-        humidityLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        
-        contentView.addSubview(timelabel)
-        contentView.addSubview(commentLabel)
-        timelabel.translatesAutoresizingMaskIntoConstraints = false
-        commentLabel.translatesAutoresizingMaskIntoConstraints = false
-        
+        contentView.addSubviews(labelStackView, iconImageView).activateAutoLayout()
+        labelStackView.addArrangedSubviews(waterLabel, sunLabel, humidityLabel).activateAutoLayout()
+        contentView.addSubviews(timelabel, commentLabel).activateAutoLayout()
         NSLayoutConstraint.activate([
             commentLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             commentLabel.topAnchor.constraint(equalTo: iconImageView.bottomAnchor, constant: 6),

@@ -9,37 +9,14 @@ import UIKit
 import Alamofire
 
 //API実装：植物選択購入
-class PurchaceViewController: UIViewController {
+final class PurchaceViewController: UIViewController {
     private let baseView: UIView = .init()
     private let plantImageView: UIImageView = .init()
     var type: BejiMock = .ichigo
-    var viewdata: CommonData!
-    override func loadView() {
-        super.loadView()
-    }
     private let button: UIButton = .init()
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.titleView = UIImageView(image: viewdata.type.nameImage)
-        self.view.addSubview(baseView)
-        baseView.addSubview(button)
-        baseView.translatesAutoresizingMaskIntoConstraints = false
-        button.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            button.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            button.widthAnchor.constraint(equalToConstant: 352),
-            button.heightAnchor.constraint(equalToConstant: 48),
-            button.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -45)
-        ])
-        NSLayoutConstraint.activate([
-            baseView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 88),
-            baseView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            baseView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            baseView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
-        ])
-        button.setImage(R.image.button.growButton()!, for: .normal)
-        button.addTarget(self,action: #selector(self.tapButton1(_ :)),for: .touchUpInside)
-        baseView.addBackground(image: viewdata.type.purchaceImage)
+       setUp()
     }
     @objc func tapButton1(_ sender: UIButton){
         purchacePlant(data: viewdata)
@@ -80,5 +57,27 @@ class PurchaceViewController: UIViewController {
 //                        let user = try! JSONDecoder().decode(NewModel.self, from: data)
 //                        print("植物購入\(user)")
         }
+    }
+}
+extension PurchaceViewController {
+    func setUp(){
+        self.navigationItem.titleView = UIImageView(image: viewdata.type.nameImage)
+        self.view.addSubviews(baseView).activateAutoLayout()
+        baseView.addSubviews(button).activateAutoLayout()
+        NSLayoutConstraint.activate([
+            button.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            button.widthAnchor.constraint(equalToConstant: 352),
+            button.heightAnchor.constraint(equalToConstant: 48),
+            button.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -45)
+        ])
+        NSLayoutConstraint.activate([
+            baseView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 88),
+            baseView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            baseView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            baseView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+        ])
+        button.setImage(R.image.button.growButton()!, for: .normal)
+        button.addTarget(self,action: #selector(self.tapButton1(_ :)),for: .touchUpInside)
+        baseView.addBackground(image: viewdata.type.purchaceImage)
     }
 }

@@ -18,7 +18,6 @@ import Firebase
 final class ChatViewController: MessagesViewController, MessageCellDelegate, MessagesLayoutDelegate, UINavigationControllerDelegate {
     var messageList: [ChatMessageType] = []
     let firebaseManager: FirebaseAction = .init()
-    var viewdata: CommonData!
 
     private let baseView: UIView = .init()
     lazy var chatModel: ChatModel = .init(type: viewdata.type)
