@@ -23,17 +23,10 @@ public class HalfModalView: UIView {
     }
     
     private func setLayout(){
-        
         borderView.backgroundColor = .gray
         nameLabel.text = "テスト"
         statusImage.image = R.image.icon.good()
-        addSubview(nameLabel)
-        addSubview(statusImage)
-        addSubview(borderView)
-        nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        statusImage.translatesAutoresizingMaskIntoConstraints = false
-        borderView.translatesAutoresizingMaskIntoConstraints = false
-        
+        addSubviews(nameLabel, statusImage, borderView).activateAutoLayout()
         NSLayoutConstraint.activate([
             nameLabel.heightAnchor.constraint(equalToConstant: 43),
             nameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
@@ -53,8 +46,6 @@ public class HalfModalView: UIView {
             borderView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             borderView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             borderView.heightAnchor.constraint(equalToConstant: 1)
-        
-        
         ])
         nameLabel.font = .systemFont(ofSize: 30)
     }

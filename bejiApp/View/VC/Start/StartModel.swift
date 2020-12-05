@@ -48,7 +48,7 @@ class StartModel: StartModelProtocol {
         let parameters: [String: Any]? = ["name": "こんにゃく" ]
         AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: header ).responseJSON { response  in
             guard let data = response.data else { return }
-            let user = try! JSONDecoder().decode(UserModel.self, from: data)
+            let user = try? JSONDecoder().decode(UserModel.self, from: data)
             print("Request_url: \(api.path)")
             print("response: \(response)")
             print("data: \(data)")

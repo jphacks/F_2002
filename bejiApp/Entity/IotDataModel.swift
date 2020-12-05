@@ -16,6 +16,8 @@ struct IotModel {
     let solidMoisture: Status
     let temperture: Status
     let beji: BejiMock?
+    
+
     struct Status {
         let status: String
         let value: Int

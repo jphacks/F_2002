@@ -156,3 +156,61 @@ extension UIImage {
         return resizedImage
     }
 }
+extension UIStackView {
+    @discardableResult
+    func addArrangedSubviews(_ views: [UIView]) -> [UIView] {
+        views.forEach { addArrangedSubview($0) }
+        return views
+    }
+
+    @discardableResult
+    func addArrangedSubviews(_ views: UIView...) -> [UIView] {
+        addArrangedSubviews(views)
+    }
+}
+extension UIView {
+    @discardableResult
+    func addSubviews(_ views: [UIView]) -> [UIView] {
+        views.forEach { view in
+            addSubview(view)
+        }
+        return views
+    }
+
+    @discardableResult
+    func addSubviews(_ views: UIView...) -> [UIView] {
+        addSubviews(views)
+        return views
+    }
+    func iterate(filter: ((UIView) -> Bool)? = nil, _ operation: (UIView) -> Void) {
+        if filter?(self) ?? true {
+            operation(self)
+        }
+        subviews.forEach { $0.iterate(filter: filter, operation) }
+    }
+
+    func iterate<T: UIView>(_ operation: (T) -> Void) {
+        iterate { view in
+            if let view = view as? T {
+                operation(view)
+            }
+        }
+    }
+    func activateAutolayout() {
+        iterate { $0.translatesAutoresizingMaskIntoConstraints = false }
+    }
+}
+public extension UIViewController {
+    /// Set translatesAutoresizingMaskIntoConstraints = false to all subviews (Not self.view)
+    func activateAutolayout() {
+        view.iterate { if $0 != view { $0.translatesAutoresizingMaskIntoConstraints = false } }
+    }
+}
+public extension Array where Element: UIView {
+    @discardableResult
+    func activateAutoLayout() -> Self {
+        forEach { $0.activateAutolayout() }
+        return self
+    }
+}
+

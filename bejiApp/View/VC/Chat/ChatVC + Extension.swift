@@ -67,7 +67,6 @@ extension ChatViewController {
         messageInputBar.inputTextView.leadingAnchor.constraint(equalTo: messageInputBar.leftStackView.trailingAnchor, constant: 10).isActive = true
         messageInputBar.inputTextView.trailingAnchor.constraint(equalTo: messageInputBar.rightStackView.trailingAnchor, constant: -10).isActive = true
         messageInputBar.rightStackView.isHidden = true
-        
         scrollsToBottomOnKeyboardBeginsEditing = true
         scrollsToLastItemOnKeyboardBeginsEditing = true
         maintainPositionOnKeyboardFrameChanged = true

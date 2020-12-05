@@ -8,18 +8,19 @@
 import UIKit
 import Firebase
 import Alamofire
-
-//stackviewの調整面倒なので脳死作成、後で書き直す
+import RxSwift
+import RxCocoa
 
 final class SelectViewController: UIViewController {
-    private let potatoButton: UIButton = .init()
-    private let onionButton: UIButton = .init()
-    private let carrotButton: UIButton = .init()
-    private let strawberryButton: UIButton = .init()
-    private let eggplantsButton: UIButton = .init()
-    private let cucamberButton: UIButton = .init()
+    private let potatoButton: PlantButton = .init(type: .jyagaimo)
+    private let onionButton: PlantButton = .init(type: .tamanegi)
+    private let carrotButton: PlantButton = .init(type: .ninjin)
+    private let strawberryButton: PlantButton = .init(type: .ichigo)
+    private let eggplantsButton: PlantButton = .init(type: .nasu)
+    private let cucamberButton: PlantButton = .init(type: .kyuuri)
     private let baseView: UIView = .init()
-    var viewdata = CommonData()
+    private let disposeBag: DisposeBag = .init()
+    let viewModel = SelectViewModel()
     private let leftStackView: UIStackView = {
         let view: UIStackView = .init()
         view.alignment = .leading
@@ -51,34 +52,8 @@ final class SelectViewController: UIViewController {
         self.navigationItem.titleView = UIImageView(image: R.image.plate.selectPlantsPlate())
     }
     @objc
-    func onTapPotatoButton(_ sender: UIButton) {
-        self.viewdata.type = .jyagaimo
-        purchacePlants(data: viewdata)
-        self.performSegue(withIdentifier: "toPurchace", sender: viewdata)
-    }
-    @objc
-    func onTapOnionButton(_ sender: UIButton) {
-        self.viewdata.type = .tamanegi
-        self.performSegue(withIdentifier: "toPurchace", sender: viewdata)
-    }
-    @objc
-    func onTapCarrotButton(_ sender: UIButton) {
-        self.viewdata.type = .ninjin
-        self.performSegue(withIdentifier: "toPurchace", sender: viewdata)
-    }
-    @objc
-    func onTapStraberryButton(_ sender: UIButton) {
-        self.viewdata.type = .ichigo
-        self.performSegue(withIdentifier: "toPurchace", sender: viewdata)
-    }
-    @objc
-    func onTapEggplantsButton(_ sender: UIButton) {
-        self.viewdata.type = .nasu
-        self.performSegue(withIdentifier: "toPurchace", sender: viewdata)
-    }
-    @objc
-    func onTapCucumberButton(_ sender: UIButton) {
-        self.viewdata.type = .kyuuri
+    func onTapPlantButton(_ sender: UIButton) {
+        
         self.performSegue(withIdentifier: "toPurchace", sender: viewdata)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -91,31 +66,19 @@ final class SelectViewController: UIViewController {
 extension SelectViewController {
     private func setUp() {
         self.navigationItem.hidesBackButton = true
-        self.view.addSubview(baseView)
-        baseView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubviews(baseView).activateAutoLayout()
         NSLayoutConstraint.activate([
             baseView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 88),
             baseView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             baseView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             baseView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
-        baseView.addSubview(bigStackView)
-        bigStackView.addArrangedSubview(leftStackView)
-        bigStackView.addArrangedSubview(rightStackView)
-        bigStackView.translatesAutoresizingMaskIntoConstraints = false
-        leftStackView.addArrangedSubview(potatoButton)
-        leftStackView.addArrangedSubview(onionButton)
-        leftStackView.addArrangedSubview(carrotButton)
-        potatoButton.translatesAutoresizingMaskIntoConstraints = false
-        onionButton.translatesAutoresizingMaskIntoConstraints = false
-        carrotButton.translatesAutoresizingMaskIntoConstraints = false
-        rightStackView.translatesAutoresizingMaskIntoConstraints = false
-        rightStackView.addArrangedSubview(strawberryButton)
-        rightStackView.addArrangedSubview(eggplantsButton)
-        rightStackView.addArrangedSubview(cucamberButton)
-        strawberryButton.translatesAutoresizingMaskIntoConstraints = false
-        eggplantsButton.translatesAutoresizingMaskIntoConstraints = false
-        cucamberButton.translatesAutoresizingMaskIntoConstraints = false
+        baseView.addSubviews(bigStackView).activateAutoLayout()
+        bigStackView.addArrangedSubviews(leftStackView, rightStackView).activateAutoLayout()
+        leftStackView.addArrangedSubviews(potatoButton, onionButton, carrotButton).activateAutoLayout()
+        rightStackView.addArrangedSubviews(strawberryButton, eggplantsButton, cucamberButton).activateAutoLayout()
+        let buttons: [UIButton] = [potatoButton,onionButton,carrotButton,strawberryButton,eggplantsButton,cucamberButton]
+        
         NSLayoutConstraint.activate([
             bigStackView.centerXAnchor.constraint(equalTo: self.baseView.centerXAnchor),
             bigStackView.centerYAnchor.constraint(equalTo: self.baseView.centerYAnchor)
@@ -124,40 +87,13 @@ extension SelectViewController {
             leftStackView.widthAnchor.constraint(equalToConstant: 127 ),
             leftStackView.heightAnchor.constraint(equalToConstant: 444)
         ])
-        NSLayoutConstraint.activate([
-            potatoButton.widthAnchor.constraint(equalToConstant: 127),
-            potatoButton.heightAnchor.constraint(equalToConstant: 132)
-        ])
-        NSLayoutConstraint.activate([
-            onionButton.widthAnchor.constraint(equalToConstant: 127),
-            onionButton.heightAnchor.constraint(equalToConstant: 132)
-        ])
-        NSLayoutConstraint.activate([
-            carrotButton.widthAnchor.constraint(equalToConstant: 127),
-            carrotButton.heightAnchor.constraint(equalToConstant: 132)
-        ])
-        NSLayoutConstraint.activate([
-            rightStackView.widthAnchor.constraint(equalToConstant: 127 ),
-            rightStackView.heightAnchor.constraint(equalToConstant: 444)
-        ])
-        NSLayoutConstraint.activate([
-            strawberryButton.widthAnchor.constraint(equalToConstant: 127),
-            strawberryButton.heightAnchor.constraint(equalToConstant: 132)
-        ])
-        NSLayoutConstraint.activate([
-            eggplantsButton.widthAnchor.constraint(equalToConstant: 127),
-            eggplantsButton.heightAnchor.constraint(equalToConstant: 132)
-        ])
-        NSLayoutConstraint.activate([
-            cucamberButton.widthAnchor.constraint(equalToConstant: 127),
-            cucamberButton.heightAnchor.constraint(equalToConstant: 132)
-        ])
-        potatoButton.addTarget(self, action: #selector(self.onTapPotatoButton(_ :)), for: .touchUpInside)
-        onionButton.addTarget(self, action: #selector(self.onTapOnionButton(_:)), for: .touchUpInside)
-        carrotButton.addTarget(self, action: #selector(self.onTapCarrotButton(_:)), for: .touchUpInside)
-        strawberryButton.addTarget(self, action: #selector(self.onTapStraberryButton(_:)), for: .touchUpInside)
-        eggplantsButton.addTarget(self, action: #selector(self.onTapEggplantsButton(_:)), for: .touchUpInside)
-        cucamberButton.addTarget(self, action: #selector(self.onTapCucumberButton(_:)), for: .touchUpInside)
+        buttons.forEach {
+            $0.widthAnchor.constraint(equalToConstant: 127).isActive = true
+            $0.heightAnchor.constraint(equalToConstant: 132).isActive = true
+            $0.rx.tap.bind(to: viewModel.inputs.onTapSelectButton).disposed(by: disposeBag)
+            $0.addTarget(self, action: #selector(self.onTapPlantButton(_:)), for: .touchUpInside)
+        }
+        
         potatoButton.setImage(R.image.button.selectPotato(), for: .normal)
         onionButton.setImage(R.image.button.selectOnion(), for: .normal)
         carrotButton.setImage(R.image.button.selectCarrot(), for: .normal)
