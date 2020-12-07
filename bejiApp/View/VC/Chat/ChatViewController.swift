@@ -18,9 +18,12 @@ import Firebase
 final class ChatViewController: MessagesViewController, MessageCellDelegate, MessagesLayoutDelegate, UINavigationControllerDelegate {
     var messageList: [ChatMessageType] = []
     let firebaseManager: FirebaseAction = .init()
+    var appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
 
     private let baseView: UIView = .init()
-    lazy var chatModel: ChatModel = .init(type: viewdata.type)
+    //viewdataType使用
+    lazy var chatModel: ChatModel = .init(type: appDelegate.viewdata!.type)
+    
     var chatText: String = "" {
         didSet {
             self.postUserMessage()
@@ -37,8 +40,10 @@ final class ChatViewController: MessagesViewController, MessageCellDelegate, Mes
         getData() { chat in
             self.loadingExistMessage(data: chat)
         }
-        self.navigationItem.titleView = UIImageView(image: viewdata.type.nameImage)
-        self.view.backgroundColor = UIColor(patternImage: viewdata.type.chatbackground)
+        //viewdata
+        self.navigationItem.titleView = UIImageView(image: chatModel.type.nameImage)
+        //viewdata
+        self.view.backgroundColor = UIColor(patternImage: chatModel.type.chatbackground)
         setUp()
     }
     private func loadingExistMessage(data: [ChatDataModel]) {
@@ -56,8 +61,10 @@ final class ChatViewController: MessagesViewController, MessageCellDelegate, Mes
         }
     }
     private func getData(completion: @escaping([ChatDataModel]) -> ()){
-        guard let uid = viewdata.uid else { fatalError() }
-        firebaseManager.databaseRef.child("chat_room").child("users/\(uid)/username/\(viewdata.type.chatName)/").observeSingleEvent(of: .value, with: { (snapshot) in
+        //todo
+        guard let uid = appDelegate.viewdata!.uid else { fatalError() }
+        //viewdata
+        firebaseManager.databaseRef.child("chat_room").child("users/\(uid)/username/\(appDelegate.viewdata!.type.chatName)/").observeSingleEvent(of: .value, with: { (snapshot) in
             
             var chatData: [ChatDataModel] = []
             for item in snapshot.children {
@@ -150,8 +157,8 @@ extension ChatViewController {
     }
     private func postUserMessage() {
         let data = ["name": "me", "message": chatText]
-        guard let uid = viewdata.uid else { fatalError() }
-        firebaseManager.databaseRef.child("chat_room").child("users/\(uid)/username/\(viewdata.type.chatName)/").childByAutoId().setValue(data)
+        guard let uid = appDelegate.viewdata!.uid else { fatalError() }
+        firebaseManager.databaseRef.child("chat_room").child("users/\(uid)/username/\(appDelegate.viewdata!.type.chatName)/").childByAutoId().setValue(data)
         messageList.append(createUserMessage(text: chatText))
         self.reloadMessage()
     }
@@ -167,8 +174,9 @@ extension ChatViewController {
         let reply: String =  chatModel.replayMessage(userMessage: ChatModel.UserMessage(rawValue: chatText)!)
         self.messageList.append(self.createPlantsMessage(text: reply))
         let data = ["name": "plants", "message": reply]
-        guard let uid = viewdata.uid else { fatalError() }
-        firebaseManager.databaseRef.child("chat_room").child("users/\(uid)/username/\(viewdata.type.chatName)/").childByAutoId().setValue(data)
+        guard let uid = appDelegate.viewdata!.uid else { fatalError() }
+        //viewdata
+        firebaseManager.databaseRef.child("chat_room").child("users/\(uid)/username/\(chatModel.type.chatName)/").childByAutoId().setValue(data)
         self.reloadMessage()
     }
     private func postPlantsImageReplyMessage() {
@@ -188,7 +196,8 @@ extension ChatViewController: MessagesDataSource {
     }
     //植物
     func otherSender() -> SenderType {
-        return ChatUser(senderId: "456", displayName: viewdata.type.name)
+        //viewdata
+        return ChatUser(senderId: "456", displayName: chatModel.type.name)
     }
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
         return messageList.count

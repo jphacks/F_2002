@@ -10,10 +10,7 @@ import Firebase
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
-
-
-//    UINavigationBar.appearance().shadowImage = UIImage()
-//    UINavigationBar.appearance().barTintColor = UIColor(hex: "92AD78")
+    public var viewdata: CommonData?
     var window: UIWindow?
     func setup() {
         //UserDefaults.standard.set(false, forKey: "visit") //リセット用
