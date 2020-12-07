@@ -20,7 +20,8 @@ final class SelectViewController: UIViewController {
     private let cucamberButton: PlantButton = .init(type: .kyuuri)
     private let baseView: UIView = .init()
     private let disposeBag: DisposeBag = .init()
-    let viewModel = SelectViewModel()
+    lazy var buttons: [PlantButton] = [potatoButton,onionButton,carrotButton,strawberryButton,eggplantsButton,cucamberButton]
+    var viewModel = SelectViewModel()
     private let leftStackView: UIStackView = {
         let view: UIStackView = .init()
         view.alignment = .leading
@@ -47,21 +48,23 @@ final class SelectViewController: UIViewController {
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.titleView = UIImageView(image: R.image.plate.selectPlantsPlate())
         baseView.addBackground(image: R.image.backGround.nomalBackground()! )
         setUp()
-        self.navigationItem.titleView = UIImageView(image: R.image.plate.selectPlantsPlate())
+        setRx()
     }
-    @objc
-    func onTapPlantButton(_ sender: UIButton) {
-        
-        self.performSegue(withIdentifier: "toPurchace", sender: viewdata)
-    }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toPurchace" {
-            let nextVC = segue.destination as! PurchaceViewController
-            nextVC.viewdata = self.viewdata
+    private func setRx(){
+        buttons.forEach {
+            let type = $0.type
+            $0.rx.tap.subscribe(onNext:  { [weak self] in
+                guard let self = self else { fatalError()}
+                self.viewModel.inputs.onTapSelectButton.accept(type)
+                self.performSegue(withIdentifier: "toPurchace", sender: nil)
+            }).disposed(by: disposeBag)
+            
         }
     }
+    
 }
 extension SelectViewController {
     private func setUp() {
@@ -77,7 +80,6 @@ extension SelectViewController {
         bigStackView.addArrangedSubviews(leftStackView, rightStackView).activateAutoLayout()
         leftStackView.addArrangedSubviews(potatoButton, onionButton, carrotButton).activateAutoLayout()
         rightStackView.addArrangedSubviews(strawberryButton, eggplantsButton, cucamberButton).activateAutoLayout()
-        let buttons: [UIButton] = [potatoButton,onionButton,carrotButton,strawberryButton,eggplantsButton,cucamberButton]
         
         NSLayoutConstraint.activate([
             bigStackView.centerXAnchor.constraint(equalTo: self.baseView.centerXAnchor),
@@ -90,36 +92,6 @@ extension SelectViewController {
         buttons.forEach {
             $0.widthAnchor.constraint(equalToConstant: 127).isActive = true
             $0.heightAnchor.constraint(equalToConstant: 132).isActive = true
-            $0.rx.tap.bind(to: viewModel.inputs.onTapSelectButton).disposed(by: disposeBag)
-            $0.addTarget(self, action: #selector(self.onTapPlantButton(_:)), for: .touchUpInside)
-        }
-        
-        potatoButton.setImage(R.image.button.selectPotato(), for: .normal)
-        onionButton.setImage(R.image.button.selectOnion(), for: .normal)
-        carrotButton.setImage(R.image.button.selectCarrot(), for: .normal)
-        strawberryButton.setImage(R.image.button.selectStrawberry(), for: .normal)
-        eggplantsButton.setImage(R.image.button.selectEgplant(), for: .normal)
-        cucamberButton.setImage(R.image.button.selectCucumber(), for: .normal)
-    }
-    private func purchacePlants(data: CommonData) {
-        guard let token = data.token else {
-            fatalError("notToken")
-        }
-        let parameters: [String: Any]? = [
-            "plant_id": 1,
-            "nick_name": "じゃがーくん2世"
-        ]
-        let header: HTTPHeaders? = ["Authentication": token]
-        print("tes確認\(token)")
-        let url = "https://d3or1724225rbx.cloudfront.net/user/cultivations/3"
-        AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers:
-                    header ).responseJSON { response  in
-                        switch response.result {
-                        case .success(let res):
-                                print("testjson\(res)")
-                        case .failure(let error):
-                            print(error)
-                        }
         }
     }
 }

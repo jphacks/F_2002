@@ -239,8 +239,12 @@
 		0E062B942552F9B500CEAB3E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0E4FB44C256FAD4400D73A64 /* Chat */,
+				0E4FB408256F76F500D73A64 /* Plant */,
+				0E4FB446256FAD2300D73A64 /* Select */,
+				0E4FB447256FAD2E00D73A64 /* Purchace */,
+				0E4FB442256FAD1100D73A64 /* Start */,
 				0E062BB32552FF9400CEAB3E /* StoryBoard */,
-				0E062B9C2552FAE500CEAB3E /* VC */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -265,18 +269,6 @@
 				0E062BF72554163400CEAB3E /* Firebase.swift */,
 			);
 			path = Infra;
-			sourceTree = "<group>";
-		};
-		0E062B9C2552FAE500CEAB3E /* VC */ = {
-			isa = PBXGroup;
-			children = (
-				0E4FB442256FAD1100D73A64 /* Start */,
-				0E4FB446256FAD2300D73A64 /* Select */,
-				0E4FB447256FAD2E00D73A64 /* Purchace */,
-				0E4FB408256F76F500D73A64 /* Plant */,
-				0E4FB44C256FAD4400D73A64 /* Chat */,
-			);
-			path = VC;
 			sourceTree = "<group>";
 		};
 		0E062BA32552FB9100CEAB3E /* Util */ = {
