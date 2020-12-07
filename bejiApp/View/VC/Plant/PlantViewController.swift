@@ -19,6 +19,7 @@ final class PlantViewController: UIViewController {
     let baseView: UIView = .init()
     let statusBadSignal: UIImageView = .init()
     let firebaseManager: FirebaseAction = .init()
+    var appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         firebaseManager.databaseRef = Database.database().reference()
@@ -26,10 +27,10 @@ final class PlantViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        firebaseManager.getIotData(viewdata: viewdata) {data in
+        firebaseManager.getIotData(viewdata: appDelegate.viewdata!) {data in
             self.loadIotStatus(iot: data)
         }
-        firebaseManager.getChatData(viewdata: viewdata) { data in
+        firebaseManager.getChatData(viewdata: appDelegate.viewdata!) { data in
             var changedata = data
             changedata.removeLast()
             self.getPalntComment(comment: changedata.last?.message ?? "よろしく!!!")
@@ -41,11 +42,11 @@ final class PlantViewController: UIViewController {
 }
 extension PlantViewController {
     @objc func tapButton(_ sender: UIButton){
-        self.performSegue(withIdentifier: "toChat", sender: viewdata)
+        self.performSegue(withIdentifier: "toChat", sender: appDelegate.viewdata!)
     }
     @objc func tapiotButton(_ sender: UIButton){
-        firebaseManager.getIotData(viewdata: viewdata) {  data in
-            self.iotButton.setImage(self.viewdata.type.glowth, for: .normal)
+        firebaseManager.getIotData(viewdata: appDelegate.viewdata!) {  data in
+            self.iotButton.setImage(self.appDelegate.viewdata!.type.glowth, for: .normal)
             let vc = SemiModalViewController.make(data: data)
             self.present(vc, animated: true, completion: nil)
         }
@@ -53,7 +54,6 @@ extension PlantViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toChat" {
             let nextVC = segue.destination as! ChatViewController
-            nextVC.viewdata = viewdata
         }
     }
     func loadIotStatus(iot: IotModel){

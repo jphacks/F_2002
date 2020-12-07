@@ -29,26 +29,9 @@ class APIClient: NSObject {
             }
             return requestMethod
         }
-    func registerUser(idtoken: String){
-        let api: API = .users
-        let header: HTTPHeaders? = ["Authorization": idtoken]
-        print("idt\(idtoken)")
-        let url = api.path
-        let parameters: [String : Any]? = [
-            "name": "こんにゃく"
-        ]
-        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers:
-                    header ).responseJSON { response  in
-                        guard let data = response.data else { return }
-                        let user = try! JSONDecoder().decode(UserModel.self, from: data)
-                        print("Request_url: \(api.path)")
-                        print("response: \(response)")
-                        print("data: \(data)")
-                        print("user: \(user)")
-        }
+
         
     }
-}
 //typealias NetworkStartHandler = ()->()
 //typealias NetworkErrorHandler = (NSError)->()
 //typealias NetworkFinishHandler = (Any?)->()

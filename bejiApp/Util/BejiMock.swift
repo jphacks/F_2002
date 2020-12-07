@@ -15,6 +15,8 @@ public enum BejiMock: String {
     case jyagaimo = "じゃがいも"
     case ichigo = "いちご"
     case kyuuri = "きゅうり"
+    
+    
     func id() -> Int {
         switch self {
         case .ichigo:
@@ -269,6 +271,23 @@ public enum BejiMock: String {
             return R.image.icon.bigCarrot()!
         case .tamanegi:
             return R.image.icon.bigonion()!
+        }
+    }
+    var plantsButtonImage: UIImage {
+        switch self {
+        case .ichigo:
+            return R.image.button.selectStrawberry()!
+        case .jyagaimo:
+            return R.image.button.selectPotato()!
+        case .kyuuri:
+            return R.image.button.selectCucumber()!
+        case .nasu:
+            return R.image.button.selectEgplant()!
+        case .ninjin:
+            return R.image.button.selectCarrot()!
+        case .tamanegi:
+            return R.image.button.selectOnion()!
+           
         }
     }
 }
