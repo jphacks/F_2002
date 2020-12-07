@@ -14,7 +14,7 @@ You can develop bejiApp
 
 ### Configuration
 
-- UI implementation: Storyboard + XIB
+- UI implementation: codeLayout + XIB
 - Architecture: MVVM + RxSwift
 - CI: DeployaGate(https://deploygate.com/)
 
@@ -40,5 +40,5 @@ pod update
 
 I would be happy if you contribute :)
 
-- [New issue](https://github.com/ikemoti/bejiApp/issues/new)
-- [New pull request](https://github.com/ikemoti/bejiApp/compare)
+- [New issue](https://github.com/jphacks/F_2002/issues/new)
+- [New pull request](https://github.com/jphacks/F_2002/compare)
