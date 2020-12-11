@@ -19,28 +19,18 @@ final class PurchaceViewController: UIViewController {
     override func loadView() {
         super.loadView()
         guard let value: String = UserDefaults.standard.string(forKey: "bejiType") else { fatalError()}
-        type = getUserDefaultsPlant(key: value)
+        type = value.getUserDefaultsPlant()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
+        setRx()
     }
     private func setRx(){
         button.rx.tap.subscribe(onNext: { [weak self] in
             guard let self = self else { fatalError()}
             self.performSegue(withIdentifier: "toPlants", sender: nil)
         }).disposed(by: disposeBag)
-    }
-    func getUserDefaultsPlant(key: String) -> BejiMock {
-        switch key {
-            case "strawberry" : return .ichigo
-            case "potato" : return .jyagaimo
-            case "cucumber" : return .kyuuri
-            case "eggplants" : return .nasu
-            case "carrot" : return .ninjin
-            case "onion" : return .tamanegi
-            default: return .jyagaimo
-        }
     }
 }
 extension PurchaceViewController {

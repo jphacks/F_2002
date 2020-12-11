@@ -24,7 +24,8 @@ final class StartViewController: UIViewController {
         super.viewDidLoad()
         setUp()
         setRx()
-      
+        var appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.viewdata?.uid = "68JBTDYnvmgIHdDjLuQcx6uLjEm1"
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toSelect" {

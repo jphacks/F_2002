@@ -125,14 +125,14 @@ public class SemiModalViewController: UIViewController, OverCurrentTransitionabl
         tableView.dataSource = self
     }
 
-    static func make(data: IotModel ) -> SemiModalViewController {
+    static func make(data: IotData ) -> SemiModalViewController {
         let sb = UIStoryboard(name: "SemiModalViewController", bundle: nil)
         let vc = sb.instantiateInitialViewController() as! SemiModalViewController
         vc.updateStatus(data: data)
         vc.iconImageView.image = data.beji?.bigIcon
         return vc
     }
-    func updateStatus(data: IotModel){
+    func updateStatus(data: IotData){
         timelabel.text = data.created
         commentLabel.text = data.beji?.iotGoodStatus
         commentLabel.textColor = .black

@@ -8,10 +8,6 @@
 import Foundation
 import Firebase
 
-struct ChatDataModel {
-    let title: String
-    let message: String
-}
 
 struct UserModel: Codable {
     var id: Int?

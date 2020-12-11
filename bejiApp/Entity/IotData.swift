@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct IotModel {
+struct IotData {
     let created: String
     let cultivationld: String
     let humidity: Status
@@ -17,7 +17,6 @@ struct IotModel {
     let temperture: Status
     let beji: BejiMock?
     
-
     struct Status {
         let status: String
         let value: Int

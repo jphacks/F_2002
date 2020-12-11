@@ -18,11 +18,10 @@ import Firebase
 final class ChatViewController: MessagesViewController, MessageCellDelegate, MessagesLayoutDelegate, UINavigationControllerDelegate {
     var messageList: [ChatMessageType] = []
     let firebaseManager: FirebaseAction = .init()
-    var appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
-
+    var mockViewData: CommonData = .init(token: nil, type: .ichigo, uid: "2EXSKlJkJWSqzoCh7oi3WpKukHF3", cultivationId: nil)
     private let baseView: UIView = .init()
     //viewdataType使用
-    lazy var chatModel: ChatModel = .init(type: appDelegate.viewdata!.type)
+    lazy var chatModel: ChatModel = .init(type: mockViewData.type)
     
     var chatText: String = "" {
         didSet {
@@ -46,7 +45,7 @@ final class ChatViewController: MessagesViewController, MessageCellDelegate, Mes
         self.view.backgroundColor = UIColor(patternImage: chatModel.type.chatbackground)
         setUp()
     }
-    private func loadingExistMessage(data: [ChatDataModel]) {
+    private func loadingExistMessage(data: [ChatData]) {
         if data.count == 1 {
             loadMessage()
         } else {
@@ -60,17 +59,16 @@ final class ChatViewController: MessagesViewController, MessageCellDelegate, Mes
             }
         }
     }
-    private func getData(completion: @escaping([ChatDataModel]) -> ()){
+    private func getData(completion: @escaping([ChatData]) -> ()){
         //todo
-        guard let uid = appDelegate.viewdata!.uid else { fatalError() }
         //viewdata
-        firebaseManager.databaseRef.child("chat_room").child("users/\(uid)/username/\(appDelegate.viewdata!.type.chatName)/").observeSingleEvent(of: .value, with: { (snapshot) in
+        firebaseManager.databaseRef.child("chat_room").child("users/\(mockViewData.uid)/username/\(mockViewData.type.chatName)/").observeSingleEvent(of: .value, with: { (snapshot) in
             
-            var chatData: [ChatDataModel] = []
+            var chatData: [ChatData] = []
             for item in snapshot.children {
                 let child = item as! DataSnapshot
                 let dic = child.value as! NSDictionary
-                chatData.append(ChatDataModel(title: dic["name"] as? String ?? "", message: dic["message"] as? String ?? ""))
+                chatData.append(ChatData(title: dic["name"] as? String ?? "", message: dic["message"] as? String ?? ""))
             }
             let value = snapshot.value as? NSDictionary
             let message = value?["message"] as? String ?? ""
@@ -157,8 +155,7 @@ extension ChatViewController {
     }
     private func postUserMessage() {
         let data = ["name": "me", "message": chatText]
-        guard let uid = appDelegate.viewdata!.uid else { fatalError() }
-        firebaseManager.databaseRef.child("chat_room").child("users/\(uid)/username/\(appDelegate.viewdata!.type.chatName)/").childByAutoId().setValue(data)
+        firebaseManager.databaseRef.child("chat_room").child("users/\(mockViewData.uid)/username/\(mockViewData.type.chatName)/").childByAutoId().setValue(data)
         messageList.append(createUserMessage(text: chatText))
         self.reloadMessage()
     }
@@ -174,9 +171,8 @@ extension ChatViewController {
         let reply: String =  chatModel.replayMessage(userMessage: ChatModel.UserMessage(rawValue: chatText)!)
         self.messageList.append(self.createPlantsMessage(text: reply))
         let data = ["name": "plants", "message": reply]
-        guard let uid = appDelegate.viewdata!.uid else { fatalError() }
         //viewdata
-        firebaseManager.databaseRef.child("chat_room").child("users/\(uid)/username/\(chatModel.type.chatName)/").childByAutoId().setValue(data)
+        firebaseManager.databaseRef.child("chat_room").child("users/\(mockViewData.uid)/username/\(chatModel.type.chatName)/").childByAutoId().setValue(data)
         self.reloadMessage()
     }
     private func postPlantsImageReplyMessage() {
@@ -190,11 +186,9 @@ extension ChatViewController {
 }
 
 extension ChatViewController: MessagesDataSource {
-    //ユーザー
     func currentSender() -> SenderType {
         return ChatUser(senderId: "123", displayName: "自分")
     }
-    //植物
     func otherSender() -> SenderType {
         //viewdata
         return ChatUser(senderId: "456", displayName: chatModel.type.name)

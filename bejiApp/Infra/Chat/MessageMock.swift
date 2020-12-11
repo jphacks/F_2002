@@ -25,7 +25,7 @@ private struct ChatMediaItem: MediaItem {
         self.placeholderImage = UIImage()
     }
 }
-internal struct ChatMessageType: MessageType {
+struct ChatMessageType: MessageType {
     var sender: SenderType
     var messageId: String
     var sentDate: Date
