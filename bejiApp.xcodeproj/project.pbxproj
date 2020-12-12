@@ -39,9 +39,8 @@
 		0E4FB3F7256F763D00D73A64 /* DismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4FB3F6256F763D00D73A64 /* DismissAnimator.swift */; };
 		0E4FB3FF256F768000D73A64 /* OverCurrentTransitionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4FB3FE256F768000D73A64 /* OverCurrentTransitionable.swift */; };
 		0E4FB404256F76BA00D73A64 /* OverCurrentTransitioningInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4FB403256F76BA00D73A64 /* OverCurrentTransitioningInteractor.swift */; };
-		0E4FB46F257092F900D73A64 /* PlantViewControler + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4FB46E257092F900D73A64 /* PlantViewControler + Extension.swift */; };
-		0E4FB4772571D86B00D73A64 /* CultivationIdModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4FB4762571D86B00D73A64 /* CultivationIdModel.swift */; };
-		0E4FB47C2572300E00D73A64 /* IotDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4FB47B2572300E00D73A64 /* IotDataModel.swift */; };
+		0E4FB4772571D86B00D73A64 /* CultivationId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4FB4762571D86B00D73A64 /* CultivationId.swift */; };
+		0E4FB47C2572300E00D73A64 /* IotData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4FB47B2572300E00D73A64 /* IotData.swift */; };
 		0E7AD01E256F41D000647E03 /* SemiModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7AD01D256F41D000647E03 /* SemiModalViewController.swift */; };
 		0E7AD053256F4C3000647E03 /* SemiModalViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E7AD052256F4C3000647E03 /* SemiModalViewController.storyboard */; };
 		0E9B5A71256E0928008E17D5 /* HalfModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9B5A70256E0928008E17D5 /* HalfModal.swift */; };
@@ -56,6 +55,14 @@
 		0ED2FC0D257E318A0070B165 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED2FC0C257E318A0070B165 /* StartViewController.swift */; };
 		0ED2FC12257E31920070B165 /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED2FC11257E31920070B165 /* SelectViewController.swift */; };
 		0ED2FC17257E319B0070B165 /* PurchaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED2FC16257E319A0070B165 /* PurchaceViewController.swift */; };
+		0ED2FC1C257E36360070B165 /* UIView+ .swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED2FC1B257E36360070B165 /* UIView+ .swift */; };
+		0ED2FC2B257E4D2C0070B165 /* PlantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED2FC2A257E4D2C0070B165 /* PlantViewModel.swift */; };
+		0ED2FC33257E4E950070B165 /* PlantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED2FC32257E4E950070B165 /* PlantModel.swift */; };
+		0ED2FC54257F16CB0070B165 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED2FC53257F16CB0070B165 /* ChatViewModel.swift */; };
+		0ED2FC59257F18F50070B165 /* MockReply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED2FC58257F18F50070B165 /* MockReply.swift */; };
+		0ED2FC6B2583ABCC0070B165 /* ChatData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED2FC6A2583ABCC0070B165 /* ChatData.swift */; };
+		0ED2FC702583AC0E0070B165 /* ChatImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED2FC6F2583AC0E0070B165 /* ChatImageData.swift */; };
+		0ED2FC7E2583AFB60070B165 /* ChatModelkai.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED2FC7D2583AFB60070B165 /* ChatModelkai.swift */; };
 		0EFA9C4325551448004267E9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0EFA9C4225551448004267E9 /* GoogleService-Info.plist */; };
 		0EFA9D2225583CF3004267E9 /* ChatVC + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFA9D2125583CF3004267E9 /* ChatVC + Extension.swift */; };
 		A939A9762694533366656215 /* Pods_bejiApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6F8B16243AB1ABAE072403C /* Pods_bejiApp.framework */; };
@@ -113,9 +120,8 @@
 		0E4FB3F6256F763D00D73A64 /* DismissAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissAnimator.swift; sourceTree = "<group>"; };
 		0E4FB3FE256F768000D73A64 /* OverCurrentTransitionable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverCurrentTransitionable.swift; sourceTree = "<group>"; };
 		0E4FB403256F76BA00D73A64 /* OverCurrentTransitioningInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverCurrentTransitioningInteractor.swift; sourceTree = "<group>"; };
-		0E4FB46E257092F900D73A64 /* PlantViewControler + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlantViewControler + Extension.swift"; sourceTree = "<group>"; };
-		0E4FB4762571D86B00D73A64 /* CultivationIdModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CultivationIdModel.swift; sourceTree = "<group>"; };
-		0E4FB47B2572300E00D73A64 /* IotDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IotDataModel.swift; sourceTree = "<group>"; };
+		0E4FB4762571D86B00D73A64 /* CultivationId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CultivationId.swift; sourceTree = "<group>"; };
+		0E4FB47B2572300E00D73A64 /* IotData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IotData.swift; sourceTree = "<group>"; };
 		0E7AD01D256F41D000647E03 /* SemiModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemiModalViewController.swift; sourceTree = "<group>"; };
 		0E7AD052256F4C3000647E03 /* SemiModalViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SemiModalViewController.storyboard; sourceTree = "<group>"; };
 		0E9B5A70256E0928008E17D5 /* HalfModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfModal.swift; sourceTree = "<group>"; };
@@ -130,6 +136,14 @@
 		0ED2FC0C257E318A0070B165 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		0ED2FC11257E31920070B165 /* SelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
 		0ED2FC16257E319A0070B165 /* PurchaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaceViewController.swift; sourceTree = "<group>"; };
+		0ED2FC1B257E36360070B165 /* UIView+ .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ .swift"; sourceTree = "<group>"; };
+		0ED2FC2A257E4D2C0070B165 /* PlantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantViewModel.swift; sourceTree = "<group>"; };
+		0ED2FC32257E4E950070B165 /* PlantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantModel.swift; sourceTree = "<group>"; };
+		0ED2FC53257F16CB0070B165 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+		0ED2FC58257F18F50070B165 /* MockReply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockReply.swift; sourceTree = "<group>"; };
+		0ED2FC6A2583ABCC0070B165 /* ChatData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatData.swift; sourceTree = "<group>"; };
+		0ED2FC6F2583AC0E0070B165 /* ChatImageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatImageData.swift; sourceTree = "<group>"; };
+		0ED2FC7D2583AFB60070B165 /* ChatModelkai.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModelkai.swift; sourceTree = "<group>"; };
 		0EFA9C4225551448004267E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0EFA9D2125583CF3004267E9 /* ChatVC + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatVC + Extension.swift"; sourceTree = "<group>"; };
 		2B895CC088FE5F7B07BCF724 /* Pods-bejiApp-bejiAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bejiApp-bejiAppUITests.release.xcconfig"; path = "Target Support Files/Pods-bejiApp-bejiAppUITests/Pods-bejiApp-bejiAppUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -239,8 +253,12 @@
 		0E062B942552F9B500CEAB3E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0E4FB442256FAD1100D73A64 /* Start */,
+				0E4FB446256FAD2300D73A64 /* Select */,
+				0E4FB447256FAD2E00D73A64 /* Purchace */,
+				0E4FB408256F76F500D73A64 /* Plant */,
+				0E4FB44C256FAD4400D73A64 /* Chat */,
 				0E062BB32552FF9400CEAB3E /* StoryBoard */,
-				0E062B9C2552FAE500CEAB3E /* VC */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -251,8 +269,10 @@
 				0E062BF22554151D00CEAB3E /* Model.swift */,
 				0E26CF51255BF3A100716E27 /* CommonData.swift */,
 				0E26CFA7255D2EAA00716E27 /* ChatUser.swift */,
-				0E4FB4762571D86B00D73A64 /* CultivationIdModel.swift */,
-				0E4FB47B2572300E00D73A64 /* IotDataModel.swift */,
+				0E4FB4762571D86B00D73A64 /* CultivationId.swift */,
+				0E4FB47B2572300E00D73A64 /* IotData.swift */,
+				0ED2FC6A2583ABCC0070B165 /* ChatData.swift */,
+				0ED2FC6F2583AC0E0070B165 /* ChatImageData.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -260,6 +280,7 @@
 		0E062B962552F9E000CEAB3E /* Infra */ = {
 			isa = PBXGroup;
 			children = (
+				0ED2FC662583AB740070B165 /* Chat */,
 				0E062BE32554147600CEAB3E /* NetWork.swift */,
 				0E062BED2554150A00CEAB3E /* APIType.swift */,
 				0E062BF72554163400CEAB3E /* Firebase.swift */,
@@ -267,25 +288,13 @@
 			path = Infra;
 			sourceTree = "<group>";
 		};
-		0E062B9C2552FAE500CEAB3E /* VC */ = {
-			isa = PBXGroup;
-			children = (
-				0E4FB442256FAD1100D73A64 /* Start */,
-				0E4FB446256FAD2300D73A64 /* Select */,
-				0E4FB447256FAD2E00D73A64 /* Purchace */,
-				0E4FB408256F76F500D73A64 /* Plant */,
-				0E4FB44C256FAD4400D73A64 /* Chat */,
-			);
-			path = VC;
-			sourceTree = "<group>";
-		};
 		0E062BA32552FB9100CEAB3E /* Util */ = {
 			isa = PBXGroup;
 			children = (
 				0EB2524E257A5E9B00057E6D /* Extension */,
+				0ED2FC652580A7CC0070B165 /* New Group */,
 				0E4FB3F0256F760100D73A64 /* Modal */,
 				0E062BA42552FBA500CEAB3E /* Extension.swift */,
-				0E062BD02553A90F00CEAB3E /* MessageMock.swift */,
 				0E062BDD2553E34D00CEAB3E /* BejiMock.swift */,
 			);
 			path = Util;
@@ -324,7 +333,8 @@
 			children = (
 				0E4FB409256F770400D73A64 /* UIconmponent */,
 				0E062BB42553004C00CEAB3E /* PlantViewController.swift */,
-				0E4FB46E257092F900D73A64 /* PlantViewControler + Extension.swift */,
+				0ED2FC2A257E4D2C0070B165 /* PlantViewModel.swift */,
+				0ED2FC32257E4E950070B165 /* PlantModel.swift */,
 			);
 			path = Plant;
 			sourceTree = "<group>";
@@ -342,8 +352,8 @@
 			isa = PBXGroup;
 			children = (
 				0ED2FC0C257E318A0070B165 /* StartViewController.swift */,
-				0EB2523E2579160300057E6D /* StartViewModel.swift */,
 				0EB25249257A069700057E6D /* StartModel.swift */,
+				0EB2523E2579160300057E6D /* StartViewModel.swift */,
 			);
 			path = Start;
 			sourceTree = "<group>";
@@ -351,8 +361,8 @@
 		0E4FB446256FAD2300D73A64 /* Select */ = {
 			isa = PBXGroup;
 			children = (
-				0ED2FC11257E31920070B165 /* SelectViewController.swift */,
 				0E1D1EF8257E271900C0CBA7 /* UIComponent */,
+				0ED2FC11257E31920070B165 /* SelectViewController.swift */,
 				0EB2524F257A5F9000057E6D /* SelectViewModel.swift */,
 				0E1D1EF9257E273400C0CBA7 /* SelectModel.swift */,
 			);
@@ -372,9 +382,10 @@
 		0E4FB44C256FAD4400D73A64 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
-				0E26CF56255BF3BF00716E27 /* ChatModel.swift */,
 				0EFA9D2125583CF3004267E9 /* ChatVC + Extension.swift */,
 				0E062BB925535F5600CEAB3E /* ChatViewController.swift */,
+				0ED2FC53257F16CB0070B165 /* ChatViewModel.swift */,
+				0ED2FC7D2583AFB60070B165 /* ChatModelkai.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -391,8 +402,26 @@
 			isa = PBXGroup;
 			children = (
 				0E1D1EF3257E164800C0CBA7 /* String.swift */,
+				0ED2FC1B257E36360070B165 /* UIView+ .swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		0ED2FC652580A7CC0070B165 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group";
+			sourceTree = "<group>";
+		};
+		0ED2FC662583AB740070B165 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				0E062BD02553A90F00CEAB3E /* MessageMock.swift */,
+				0ED2FC58257F18F50070B165 /* MockReply.swift */,
+				0E26CF56255BF3BF00716E27 /* ChatModel.swift */,
+			);
+			path = Chat;
 			sourceTree = "<group>";
 		};
 		3495EE6B414689D513FF12C4 /* Pods */ = {
@@ -699,37 +728,44 @@
 				0E4FB3FF256F768000D73A64 /* OverCurrentTransitionable.swift in Sources */,
 				0E9B5A71256E0928008E17D5 /* HalfModal.swift in Sources */,
 				0E26CF52255BF3A100716E27 /* CommonData.swift in Sources */,
+				0ED2FC33257E4E950070B165 /* PlantModel.swift in Sources */,
+				0ED2FC702583AC0E0070B165 /* ChatImageData.swift in Sources */,
 				0EB2524A257A069700057E6D /* StartModel.swift in Sources */,
-				0E4FB4772571D86B00D73A64 /* CultivationIdModel.swift in Sources */,
+				0E4FB4772571D86B00D73A64 /* CultivationId.swift in Sources */,
 				0EB2523F2579160300057E6D /* StartViewModel.swift in Sources */,
+				0ED2FC59257F18F50070B165 /* MockReply.swift in Sources */,
 				0E7AD01E256F41D000647E03 /* SemiModalViewController.swift in Sources */,
 				0EB25255257AFD7600057E6D /* PurchaceViewModel.swift in Sources */,
 				0EB2525F257B613E00057E6D /* PlantsButton.swift in Sources */,
 				0ED2FC12257E31920070B165 /* SelectViewController.swift in Sources */,
 				0E062BEE2554150A00CEAB3E /* APIType.swift in Sources */,
+				0ED2FC54257F16CB0070B165 /* ChatViewModel.swift in Sources */,
 				0E062B5F2552EF6800CEAB3E /* AppDelegate.swift in Sources */,
 				0E4FB404256F76BA00D73A64 /* OverCurrentTransitioningInteractor.swift in Sources */,
+				0ED2FC2B257E4D2C0070B165 /* PlantViewModel.swift in Sources */,
 				0E062BF82554163400CEAB3E /* Firebase.swift in Sources */,
-				0E4FB47C2572300E00D73A64 /* IotDataModel.swift in Sources */,
+				0E4FB47C2572300E00D73A64 /* IotData.swift in Sources */,
 				0E1D1EFA257E273400C0CBA7 /* SelectModel.swift in Sources */,
 				0E4FB3F2256F761A00D73A64 /* ModalPresentationController.swift in Sources */,
 				0E062BD12553A90F00CEAB3E /* MessageMock.swift in Sources */,
 				0EB252302579127800057E6D /* R.generated.swift in Sources */,
 				0E062BE42554147600CEAB3E /* NetWork.swift in Sources */,
-				0E4FB46F257092F900D73A64 /* PlantViewControler + Extension.swift in Sources */,
 				0E062BF32554151D00CEAB3E /* Model.swift in Sources */,
 				0E062BDE2553E34D00CEAB3E /* BejiMock.swift in Sources */,
 				0E062BA52552FBA500CEAB3E /* Extension.swift in Sources */,
 				0ED2FC17257E319B0070B165 /* PurchaceViewController.swift in Sources */,
 				0EB2525A257AFF7900057E6D /* PurchaceModel.swift in Sources */,
 				0E062B612552EF6800CEAB3E /* SceneDelegate.swift in Sources */,
+				0ED2FC6B2583ABCC0070B165 /* ChatData.swift in Sources */,
 				0E26CF57255BF3BF00716E27 /* ChatModel.swift in Sources */,
 				0ED2FC0D257E318A0070B165 /* StartViewController.swift in Sources */,
+				0ED2FC7E2583AFB60070B165 /* ChatModelkai.swift in Sources */,
 				0E062BBA25535F5600CEAB3E /* ChatViewController.swift in Sources */,
 				0E4FB3F7256F763D00D73A64 /* DismissAnimator.swift in Sources */,
 				0EFA9D2225583CF3004267E9 /* ChatVC + Extension.swift in Sources */,
 				0E1D1EF4257E164800C0CBA7 /* String.swift in Sources */,
 				0E062BB52553004C00CEAB3E /* PlantViewController.swift in Sources */,
+				0ED2FC1C257E36360070B165 /* UIView+ .swift in Sources */,
 				0EB25250257A5F9000057E6D /* SelectViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

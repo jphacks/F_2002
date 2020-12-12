@@ -118,28 +118,6 @@ extension UIApplication {
         return nil
     }
 }
-
-extension UIView {
-    func addBackground(image: UIImage) {
-        // スクリーンサイズの取得
-        let width = UIScreen.main.bounds.size.width
-        let height = UIScreen.main.bounds.size.height - 88
-
-        // スクリーンサイズにあわせてimageViewの配置
-        let imageViewBackground = UIImageView(frame: CGRect(x: 0, y: 0, width: width, height: height))
-        //imageViewに背景画像を表示
-        
-        imageViewBackground.image = image.resize(size: .init(width: width, height: height))
-
-        // 画像の表示モードを変更。
-        imageViewBackground.contentMode = UIView.ContentMode.scaleAspectFill
-
-        // subviewをメインビューに追加
-        self.addSubview(imageViewBackground)
-        // 加えたsubviewを、最背面に設置する
-        self.sendSubviewToBack(imageViewBackground)
-    }
-}
 extension UIImage {
     func resize(size: CGSize) -> UIImage? {
         let widthRatio = size.width / size.width
@@ -166,38 +144,6 @@ extension UIStackView {
     @discardableResult
     func addArrangedSubviews(_ views: UIView...) -> [UIView] {
         addArrangedSubviews(views)
-    }
-}
-extension UIView {
-    @discardableResult
-    func addSubviews(_ views: [UIView]) -> [UIView] {
-        views.forEach { view in
-            addSubview(view)
-        }
-        return views
-    }
-
-    @discardableResult
-    func addSubviews(_ views: UIView...) -> [UIView] {
-        addSubviews(views)
-        return views
-    }
-    func iterate(filter: ((UIView) -> Bool)? = nil, _ operation: (UIView) -> Void) {
-        if filter?(self) ?? true {
-            operation(self)
-        }
-        subviews.forEach { $0.iterate(filter: filter, operation) }
-    }
-
-    func iterate<T: UIView>(_ operation: (T) -> Void) {
-        iterate { view in
-            if let view = view as? T {
-                operation(view)
-            }
-        }
-    }
-    func activateAutolayout() {
-        iterate { $0.translatesAutoresizingMaskIntoConstraints = false }
     }
 }
 public extension UIViewController {

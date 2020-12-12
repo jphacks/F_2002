@@ -53,7 +53,7 @@ class FirebaseAction: NSObject {
     func uploadChatData(from: String, to: String, message: String? = nil, imageUrl: String? = nil){
         databaseRef.child("chat").childByAutoId().setValue(["from": from, "to": to, "message": message, "image_url": imageUrl])
     }
-    func getIotData(viewdata: CommonData,completion: @escaping(IotModel) -> (Void)){
+    func getIotData(viewdata: CommonData,completion: @escaping(IotData) -> (Void)){
         
         guard let uid = viewdata.uid else { fatalError() }
         print("uid\(uid)")
@@ -71,12 +71,12 @@ class FirebaseAction: NSObject {
             let pressure = value?["pressure"] as? NSDictionary
             let solidmoisture = value?["solid_moisture"] as? NSDictionary
             let temperature = value?["temperature"] as? NSDictionary
-            let humidityData: IotModel.Status = .init(status: humidity?["status"] as? String ?? "", value: humidity?["value"] as? Int ?? 0)
-            let illuminancedata: IotModel.Status = .init(status: illuminance?["status"] as? String ?? "", value: illuminance?["value"] as? Int ?? 0)
-            let pressuredata: IotModel.Status = .init(status: pressure?["status"] as? String ?? "", value: pressure?["value"] as? Int ?? 0)
-            let solidmoistureData: IotModel.Status =  .init(status: solidmoisture?["status"] as? String ?? "", value: solidmoisture?["value"] as? Int ?? 0)
-            let temperaturedata: IotModel.Status = .init(status: temperature?["status"] as? String ?? "", value: temperature?["value"] as? Int ?? 0)
-            var iotData: IotModel = .init(created: create, cultivationld: cultivationId,
+            let humidityData: IotData.Status = .init(status: humidity?["status"] as? String ?? "", value: humidity?["value"] as? Int ?? 0)
+            let illuminancedata: IotData.Status = .init(status: illuminance?["status"] as? String ?? "", value: illuminance?["value"] as? Int ?? 0)
+            let pressuredata: IotData.Status = .init(status: pressure?["status"] as? String ?? "", value: pressure?["value"] as? Int ?? 0)
+            let solidmoistureData: IotData.Status =  .init(status: solidmoisture?["status"] as? String ?? "", value: solidmoisture?["value"] as? Int ?? 0)
+            let temperaturedata: IotData.Status = .init(status: temperature?["status"] as? String ?? "", value: temperature?["value"] as? Int ?? 0)
+            var iotData: IotData = .init(created: create, cultivationld: cultivationId,
                                           humidity: humidityData,
                                           illuminance: illuminancedata,
                                           pressure: pressuredata,
@@ -91,17 +91,17 @@ class FirebaseAction: NSObject {
             print(error.localizedDescription)
         }
     }
-    func getChatData(viewdata: CommonData,completion: @escaping([ChatDataModel]) -> (Void)){
+    func getChatData(viewdata: CommonData,completion: @escaping([ChatData]) -> (Void)){
         
         guard let uid = viewdata.uid else { fatalError() }
         print("uid\(uid)")
         databaseRef.child("chat_room").child("users/\(uid)/username/\(viewdata.type.chatName)/").observeSingleEvent(of: .value, with: { (snapshot) in
             
-            var chatData: [ChatDataModel] = []
+            var chatData: [ChatData] = []
             for item in snapshot.children {
                 let child = item as! DataSnapshot
                 let dic = child.value as! NSDictionary
-                chatData.append(ChatDataModel(title: dic["name"] as? String ?? "" , message: dic["message"] as? String ?? ""))
+                chatData.append(ChatData(title: dic["name"] as? String ?? "" , message: dic["message"] as? String ?? ""))
             }
             let value = snapshot.value as? NSDictionary
             let message = value?["message"] as? String ?? ""

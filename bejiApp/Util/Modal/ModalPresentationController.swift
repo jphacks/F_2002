@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-
 final class ModalPresentationController: UIPresentationController {
     private let overlayView = UIView()
 

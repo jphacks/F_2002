@@ -14,73 +14,84 @@ import CoreLocation
 import ActionSheetPicker_3_0
 import FirebaseDatabase
 import Firebase
+import RxSwift
 
 final class ChatViewController: MessagesViewController, MessageCellDelegate, MessagesLayoutDelegate, UINavigationControllerDelegate {
     var messageList: [ChatMessageType] = []
-    let firebaseManager: FirebaseAction = .init()
-    var appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
-
+    var mockViewData: CommonData = .init(token: nil, type: .ichigo, uid: "2EXSKlJkJWSqzoCh7oi3WpKukHF3", cultivationId: nil)
     private let baseView: UIView = .init()
+    let disposebag = DisposeBag()
+    let viewModel = ChatViewModel()
     //viewdataType使用
-    lazy var chatModel: ChatModel = .init(type: appDelegate.viewdata!.type)
-    
-    var chatText: String = "" {
-        didSet {
-            self.postUserMessage()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                self.postPlantsMessage()
-            }
-        }
-    }
-    //TextinputView無効化,PickerView用ボタン
+    lazy var chatModel: ChatModel = .init(type: mockViewData.type)
     let clearButton: UIButton = .init()
     override func viewDidLoad() {
         super.viewDidLoad()
-        firebaseManager.databaseRef = Database.database().reference()
-        getData() { chat in
-            self.loadingExistMessage(data: chat)
-        }
-        //viewdata
+        setRx()
         self.navigationItem.titleView = UIImageView(image: chatModel.type.nameImage)
-        //viewdata
         self.view.backgroundColor = UIColor(patternImage: chatModel.type.chatbackground)
         setUp()
     }
-    private func loadingExistMessage(data: [ChatDataModel]) {
+    private func loadingExistMessage(data: [ChatData]) {
         if data.count == 1 {
             loadMessage()
         } else {
             data.forEach {
                 if $0.title == "me"{
+                    print("me")
                     loadUserMessage(message: $0.message)
                 }
                 if $0.title == "plants" {
+                    print("plants")
                     loadPlantsMessage(message: $0.message)
                 }
             }
         }
     }
-    private func getData(completion: @escaping([ChatDataModel]) -> ()){
-        //todo
-        guard let uid = appDelegate.viewdata!.uid else { fatalError() }
-        //viewdata
-        firebaseManager.databaseRef.child("chat_room").child("users/\(uid)/username/\(appDelegate.viewdata!.type.chatName)/").observeSingleEvent(of: .value, with: { (snapshot) in
-            
-            var chatData: [ChatDataModel] = []
-            for item in snapshot.children {
-                let child = item as! DataSnapshot
-                let dic = child.value as! NSDictionary
-                chatData.append(ChatDataModel(title: dic["name"] as? String ?? "", message: dic["message"] as? String ?? ""))
-            }
-            let value = snapshot.value as? NSDictionary
-            let message = value?["message"] as? String ?? ""
-            let name = value?["name"] as? String ?? ""
-            chatData.append(.init(title: message, message: name))
-            completion(chatData)
-            print("ch\(chatData)")
-        }) { (error) in
-            print(error.localizedDescription)
-        }
+    
+    func setRx(){
+        clearButton.rx.tap.subscribe(onNext: {
+            ActionSheetStringPicker.show(withTitle: "会話を選ぼう!!",
+                                         rows: self.chatModel.userMessageString,
+                                         initialSelection: 1,
+                                         doneBlock: { picker, value, index in
+                                            self.viewModel.inputs.onTapMessageButton.accept(index as! String)
+                                            return
+                                         },
+                                         cancel: { picker in
+                                            return
+                                         },
+                                         origin: self.clearButton)
+        }).disposed(by: disposebag)
+        
+        viewModel.outputs.chatData.subscribe(onNext: { [weak self] data in
+            guard let self = self else { fatalError() }
+            self.messageList.append(self.createUserMessage(text: data.message))
+            self.reloadMessage()
+        }).disposed(by: disposebag)
+        
+        viewModel.outputs.chatPlantData.subscribe(onNext: { [weak self] data in
+            guard let self = self else { fatalError() }
+            self.messageList.append(self.createPlantMessage(text: data.message))
+            self.reloadMessage()
+        }).disposed(by: disposebag)
+        
+        viewModel.outputs.chatDatas.subscribe(onNext: { [weak self] data in
+            guard let self = self else { fatalError() }
+            self.loadingExistMessage(data: data)
+        }).disposed(by: disposebag)
+        
+        viewModel.outputs.chatImage.subscribe(onNext: { [weak self] data in
+            guard let self = self else { fatalError() }
+            self.createUserImageMwessage(image: data.image)
+        }).disposed(by: disposebag)
+        
+        viewModel.outputs.chatImageReply.subscribe(onNext: { [weak self] data in
+            guard let self = self else { fatalError() }
+            self.loadPlantsMessage(message: data.message)
+        }).disposed(by: disposebag)
+        
+        
     }
     private func loadMessage() {
         DispatchQueue.main.async {
@@ -88,20 +99,6 @@ final class ChatViewController: MessagesViewController, MessageCellDelegate, Mes
             self.messagesCollectionView.reloadData()
             self.messagesCollectionView.scrollToBottom()
         }
-    }
-    //clearButtonタップ時の挙動
-    @objc func tapButton(_ sender: UIButton){
-        ActionSheetStringPicker.show(withTitle: "会話を選ぼう!!",
-                                     rows: chatModel.userMessageString,
-                                     initialSelection: 1,
-                                     doneBlock: { picker, value, index in
-                                        self.chatText = index as! String
-                                        return
-                                     },
-                                     cancel: { picker in
-                                        return
-                                     },
-                                     origin: sender)
     }
     
     func makeCameraButton(named: String) -> InputBarButtonItem {
@@ -122,10 +119,9 @@ final class ChatViewController: MessagesViewController, MessageCellDelegate, Mes
                 self.present(picker, animated: true, completion: nil)
             }
     }
-    //初期メッセージ
     private func getMessages() -> [ChatMessageType] {
         return [
-            createPlantsMessage(text: "チャットルームだよ！会話したい時は下の選択ボタンから話したい内容を選択してね！")
+            createPlantMessage(text: "チャットルームだよ！会話したい時は下の選択ボタンから話したい内容を選択してね！")
         ]
     }
     override func didReceiveMemoryWarning() {
@@ -139,7 +135,7 @@ extension ChatViewController {
                                                                            .foregroundColor: UIColor.black])
         return ChatMessageType(attributedText: attributedText, sender: currentSender() , messageId: UUID().uuidString, date: Date())
     }
-    private func createPlantsMessage(text: String) -> ChatMessageType {
+    private func createPlantMessage(text: String) -> ChatMessageType {
         let attributedText = NSAttributedString(string: text, attributes: [.font: UIFont.systemFont(ofSize: 15),
                                                                            .foregroundColor: UIColor.black])
         return ChatMessageType(attributedText: attributedText, sender: otherSender(), messageId: UUID().uuidString, date: Date())
@@ -155,13 +151,6 @@ extension ChatViewController {
         self.messagesCollectionView.reloadData()
         self.messagesCollectionView.scrollToBottom()
     }
-    private func postUserMessage() {
-        let data = ["name": "me", "message": chatText]
-        guard let uid = appDelegate.viewdata!.uid else { fatalError() }
-        firebaseManager.databaseRef.child("chat_room").child("users/\(uid)/username/\(appDelegate.viewdata!.type.chatName)/").childByAutoId().setValue(data)
-        messageList.append(createUserMessage(text: chatText))
-        self.reloadMessage()
-    }
     private func postUserImageMessage(_ image: UIImage) {
         messageList.append(createUserImageMwessage(image: image))
         reloadMessage()
@@ -170,31 +159,20 @@ extension ChatViewController {
         messageList.append(createUserMessage(text: message))
         self.reloadMessage()
     }
-    private func postPlantsMessage() {
-        let reply: String =  chatModel.replayMessage(userMessage: ChatModel.UserMessage(rawValue: chatText)!)
-        self.messageList.append(self.createPlantsMessage(text: reply))
-        let data = ["name": "plants", "message": reply]
-        guard let uid = appDelegate.viewdata!.uid else { fatalError() }
-        //viewdata
-        firebaseManager.databaseRef.child("chat_room").child("users/\(uid)/username/\(chatModel.type.chatName)/").childByAutoId().setValue(data)
-        self.reloadMessage()
-    }
     private func postPlantsImageReplyMessage() {
-        self.messageList.append(self.createPlantsMessage(text: chatModel.imageMessage))
+        self.messageList.append(self.createPlantMessage(text: chatModel.imageMessage))
         self.reloadMessage()
     }
     private func loadPlantsMessage(message: String) {
-        messageList.append(createPlantsMessage(text: message))
+        messageList.append(createPlantMessage(text: message))
         self.reloadMessage()
     }
 }
 
 extension ChatViewController: MessagesDataSource {
-    //ユーザー
     func currentSender() -> SenderType {
         return ChatUser(senderId: "123", displayName: "自分")
     }
-    //植物
     func otherSender() -> SenderType {
         //viewdata
         return ChatUser(senderId: "456", displayName: chatModel.type.name)
@@ -220,10 +198,12 @@ extension ChatViewController: InputBarAccessoryViewDelegate {}
 
 extension ChatViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let image = info[.originalImage] as? UIImage
-        UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
+        let imag = info[.originalImage] as? UIImage
+        UIImageWriteToSavedPhotosAlbum(imag!, nil, nil, nil)
         self.dismiss(animated: true, completion: nil)
-        postUserImageMessage(image!)
+        guard let image = imag else { return }
+        viewModel.inputs.onTapCameraButton.accept(image)
+//        postUserImageMessage(image!)
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.postPlantsImageReplyMessage()
         }
