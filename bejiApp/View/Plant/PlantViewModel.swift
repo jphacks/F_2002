@@ -11,13 +11,13 @@ import UIKit
 import RxCocoa
 
 protocol PlantViewModelInputs {
-    var onTapChatButton: PublishRelay<Void> { get }
     var onTapIotButton: PublishRelay<Void> { get }
 }
 
 protocol PlantViewModelOutputs {
-    var iotData: PublishRelay<CommonData> { get }
-    var chatData: PublishRelay<ChatData> { get }
+    var iotData: PublishRelay<IotData> { get }
+    var loadChatData: Observable<ChatData> { get }
+    var loadIotData: Observable<IotData> { get }
 }
 
 protocol PlantViewModelType {
@@ -26,29 +26,34 @@ protocol PlantViewModelType {
 }
 
 class PlantViewModel: PlantViewModelInputs, PlantViewModelOutputs, PlantViewModelType {
-    var chatData: PublishRelay<ChatData> = .init()
-    var iotData: PublishRelay<CommonData> = .init()
+    var loadChatData: Observable<ChatData>
+    
+    var loadIotData: Observable<IotData>
+    
+    var iotData: PublishRelay<IotData> = .init()
     var inputs: PlantViewModelInputs { return self}
     var outputs: PlantViewModelOutputs { return self }
     var onTapChatButton: PublishRelay<Void> = .init()
     var onTapIotButton: PublishRelay<Void> = .init()
     let disposebag = DisposeBag()
     let model = PlantModel()
+    var data = CommonData()
     
-    init() {
+    init(data: CommonData) {
+        self.data = data
+        //初期読み込みIOT
+        loadIotData = model.getIotData(data: data)
+        //初期読み込みチャットデータ
+        loadChatData = model.getChatLastData(data: data)
+        
         onTapIotButton.subscribe(onNext: { [weak self] _ in
             guard let self = self  else { return }
-            
-        }).disposed(by: disposebag)
-        onTapChatButton.subscribe(onNext: { [weak self] _ in
-            guard let self = self  else { return }
-//            self.getChatLastData(data: <#T##CommonData#>)
+            self.getIotData()
         }).disposed(by: disposebag)
         
     }
-    func getChatLastData(data: CommonData){
-        let data = model.getChatData(data: data)
-        
+    private func getIotData(){
+        model.getIotData(data: data).bind(to: iotData).disposed(by: disposebag)
     }
 }
 

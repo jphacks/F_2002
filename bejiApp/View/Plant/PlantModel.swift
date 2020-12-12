@@ -12,7 +12,7 @@ import RxSwift
 
 protocol PlantModelProtocol {
     func getIotData(data: CommonData) -> Observable<IotData>
-    func getChatData(data: CommonData) -> Observable<[ChatData]>
+    func getChatLastData(data: CommonData) -> Observable<ChatData>
     
 }
 
@@ -31,16 +31,16 @@ class PlantModel: PlantModelProtocol {
             return Disposables.create()
         }
     }
-    
-    
-    func getChatData(data: CommonData) -> Observable<[ChatData]> {
+    func getChatLastData(data: CommonData) -> Observable<ChatData> {
         return Observable.create { [self] observer in
-            var iotData: [ChatData] = []
+            var chatData: [ChatData] = []
             firebaseManager.getChatData(viewdata: data) {
                 [weak self]
                 chat in
-                iotData = chat
-                observer.onNext(iotData)
+                chatData = chat
+                chatData.removeLast()
+                let chatlastData = chatData.last ?? .init(title: "plants", message: "よろしく！！")
+                observer.onNext(chatlastData)
                 observer.onCompleted()
             }
             return Disposables.create()

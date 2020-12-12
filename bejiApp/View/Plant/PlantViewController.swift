@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
+import RxSwift
 
 //loading時にユーザー情報に応じた植物情報取得
 final class PlantViewController: UIViewController {
@@ -19,6 +20,8 @@ final class PlantViewController: UIViewController {
     private let baseView: UIView = .init()
     private let statusBadSignal: UIImageView = .init()
     private var type : BejiMock?
+    private let disposeBag = DisposeBag()
+    
     var viewData: CommonData = {
         var data = CommonData()
         guard let value: String = UserDefaults.standard.string(forKey: "bejiType") else { fatalError()}
@@ -30,6 +33,8 @@ final class PlantViewController: UIViewController {
         return data
     }()
     
+    lazy var viewModel: PlantViewModel = .init(data: viewData)
+    
     override func loadView() {
         super.loadView()
         guard let value: String = UserDefaults.standard.string(forKey: "bejiType") else { fatalError()}
@@ -38,41 +43,44 @@ final class PlantViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setRx()
         setUp()
     }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-//        firebaseManager.getIotData(viewdata: viewData) {data in
-//            self.loadIotStatus(iot: data)
-//        }
-//        firebaseManager.getChatData(viewdata: viewData) { data in
-//            var changedata = data
-//            changedata.removeLast()
-//            self.getPalntComment(comment: changedata.last?.message ?? "よろしく!!!")
-//        }
+    
+    func setRx(){
+        viewModel.outputs.loadIotData.subscribe(onNext: { [weak self] data in
+            guard self != nil else { return }
+            if data.humidity.status == "ok" && data.illuminance.status == "ok" && data.solidMoisture.status == "ok"
+            { print("ok") } else {
+                print("bad")
+                //画像
+            }
+        }).disposed(by: disposeBag)
+        
+        viewModel.outputs.loadChatData.subscribe(onNext: { [weak self] data in
+            guard let self = self else { return }
+            print(data.message)
+            self.getPalntComment(comment: data.message)
+        }).disposed(by: disposeBag)
+        
+        chatButton.rx.tap.subscribe(onNext: { [weak self] _ in
+            guard let self = self else { return }
+            self.performSegue(withIdentifier: "toChat", sender: nil)
+        }).disposed(by: disposeBag)
+        
+        viewModel.outputs.iotData.subscribe(onNext: { [weak self] data in
+            guard let self = self else { return }
+            //植物成長画像追加
+            let vc = SemiModalViewController.make(data: data)
+            self.present(vc, animated: true, completion: nil)
+        }).disposed(by: disposeBag)
+        
+        iotButton.rx.tap.asObservable()
+            .bind(to: viewModel.inputs.onTapIotButton)
+            .disposed(by: disposeBag)
     }
     func getPalntComment(comment: String){
         commentLabel.text = comment
-    }
-}
-extension PlantViewController {
-    @objc func tapButton(_ sender: UIButton){
-        self.performSegue(withIdentifier: "toChat", sender: nil)
-    }
-    @objc func tapiotButton(_ sender: UIButton){
-//        firebaseManager.getIotData(viewdata: viewData) {  data in
-//            self.iotButton.setImage(self.viewData.type.glowth, for: .normal)
-//            let vc = SemiModalViewController.make(data: data)
-//            self.present(vc, animated: true, completion: nil)
-//        }
-    }
-    func loadIotStatus(iot: IotData){
-        if iot.humidity.status == "ok" && iot.illuminance.status == "ok" && iot.solidMoisture.status == "ok"
-        {
-            print("ok")
-        } else {
-            print("bad")
-        }
     }
 }
 
@@ -99,7 +107,7 @@ extension PlantViewController {
             commentLabel.trailingAnchor.constraint(equalTo: commentView.trailingAnchor,constant: -40),
             commentLabel.topAnchor.constraint(equalTo: commentView.topAnchor,constant: 50),
         ])
-        commentLabel.text = "これからの成長が楽しみ！！！"
+        
         commentLabel.font = .boldSystemFont(ofSize: 20)
         commentLabel.textColor = .black
         commentLabel.clipsToBounds = true
@@ -132,8 +140,6 @@ extension PlantViewController {
             iotButton.heightAnchor.constraint(equalToConstant: 191)
         ])
         iotButton.setImage(viewData.type.plant, for: .normal)
-        chatButton.addTarget(self,action: #selector(self.tapButton(_ :)),for: .touchUpInside)
-        iotButton.addTarget(self,action: #selector(self.tapiotButton(_ :)),for: .touchUpInside)
         statusBadSignal.image = R.image.icon.badSign()
         NSLayoutConstraint.activate([
             statusBadSignal.centerXAnchor.constraint(equalTo: iotButton.trailingAnchor),
