@@ -31,7 +31,7 @@ extension ChatViewController: MessagesDisplayDelegate {
     }
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
         if message.sender.displayName == "自分" {}
-        if message.sender.displayName == mockViewData.type.name{
+        if message.sender.displayName == mockViewData.type.name {
             let avatar = Avatar(image: mockViewData.type.getIcon, initials: "な")
             avatarView.set(avatar: avatar)
         }
@@ -47,7 +47,7 @@ extension ChatViewController {
         messageInputBar.sendButton.tintColor = UIColor.lightGray
 
         messageInputBar.addSubviews(clearButton).activateAutoLayout()
-        clearButton.backgroundColor = .clear
+        clearButton.backgroundColor = .red
         NSLayoutConstraint.activate([
             clearButton.heightAnchor.constraint(equalTo: messageInputBar.inputTextView.heightAnchor),
             clearButton.widthAnchor.constraint(equalTo: messageInputBar.inputTextView.widthAnchor),
@@ -59,8 +59,8 @@ extension ChatViewController {
         scrollsToBottomOnKeyboardBeginsEditing = true
         scrollsToLastItemOnKeyboardBeginsEditing = true
         maintainPositionOnKeyboardFrameChanged = true
-        messageInputBar.inputTextView.attributedText = NSAttributedString(string: chatText, attributes: [.font: UIFont.systemFont(ofSize: 15),
-                                                                                                       .foregroundColor: UIColor.black])
+//        messageInputBar.inputTextView.attributedText = NSAttributedString(string: chatText, attributes: [.font: UIFont.systemFont(ofSize: 15),
+//                                                                                                         .foregroundColor: UIColor.black])
         let items = [
             makeCameraButton(named: "カメラ").onTextViewDidChange { button, textView in
                 button.tintColor = UIColor(hex: "749B59")
@@ -69,7 +69,8 @@ extension ChatViewController {
         ]
         items.forEach { $0.tintColor = UIColor(hex: "749B59") }
         messageInputBar.setStackViewItems(items, forStack: .left, animated: false)
-        clearButton.addTarget(self,action: #selector(self.tapButton(_ :)),for: .touchUpInside)
+//        clearButton.addTarget(self,action: #selector(self.tapButton(_ :)),for: .touchUpInside)
+        setMessageInputBar()
     }
     func setupCollectionView() {
            guard let flowLayout = messagesCollectionView.collectionViewLayout as? MessagesCollectionViewFlowLayout else {

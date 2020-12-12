@@ -39,6 +39,7 @@ final class StartViewModel: StartViewModelType, StartViewModelInputs, StartViewM
         }).disposed(by: disposebag)
     }
     func register(){
+        print("register")
         model.signInAnonymously().bind(to: data).disposed(by: disposebag)
     }
 }
