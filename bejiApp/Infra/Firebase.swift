@@ -15,46 +15,31 @@ import FirebaseStorage
 //将来的にFirebaseで画像保存->判別する際に利用するファイル
 
 class FirebaseAction: NSObject {
-
+    
     let storage = Storage.storage()
     var databaseRef: DatabaseReference!
     var userID: String!
-
+    
     func fileupload(dataUrlStr: String?) -> String {
-        //保存するURLを指定
         let storageRef = storage.reference(forURL: "path/to/project/url")
         let uuid = UUID()
-        //ディレクトリを指定
         let imageRef = storageRef.child("images").child(userID).child("\(uuid).jpg")
-
         guard let dataUrlStr = dataUrlStr else {
-                return ""
-            }
-
+            return ""
+        }
         let dataUrl = URL(string: dataUrlStr)!
         var downloadUrl = ""
         let uploadTask = imageRef.putFile(from: dataUrl, metadata: nil) { (metadata, error) in
-            guard let metadata = metadata else {
-            return
-            }
-            // Metadata contains file metadata such as size, content-type.
+            guard let metadata = metadata else { return }
             let size = metadata.size
-            // You can also access to download URL after upload.
             imageRef.downloadURL { (url, error) in
-                guard let downloadURL = url else {
-                    // Uh-oh, an error occurred!
-                    return
-                }
+                guard let downloadURL = url else { return }
                 downloadUrl = downloadURL.absoluteString
             }
         }
         return downloadUrl
     }
-    func uploadChatData(from: String, to: String, message: String? = nil, imageUrl: String? = nil){
-        databaseRef.child("chat").childByAutoId().setValue(["from": from, "to": to, "message": message, "image_url": imageUrl])
-    }
     func getIotData(viewdata: CommonData,completion: @escaping(IotData) -> (Void)){
-        
         guard let uid = viewdata.uid else { fatalError() }
         print("uid\(uid)")
         databaseRef.child("device_data").child("4fafc201-1fb5-459e-8fcc-c5c9c331914b").observeSingleEvent(of: .value, with: { (snapshot) in
@@ -77,12 +62,12 @@ class FirebaseAction: NSObject {
             let solidmoistureData: IotData.Status =  .init(status: solidmoisture?["status"] as? String ?? "", value: solidmoisture?["value"] as? Int ?? 0)
             let temperaturedata: IotData.Status = .init(status: temperature?["status"] as? String ?? "", value: temperature?["value"] as? Int ?? 0)
             var iotData: IotData = .init(created: create, cultivationld: cultivationId,
-                                          humidity: humidityData,
-                                          illuminance: illuminancedata,
-                                          pressure: pressuredata,
-                                          solidMoisture: solidmoistureData,
-                                          temperture: temperaturedata,
-                                          beji: viewdata.type
+                                         humidity: humidityData,
+                                         illuminance: illuminancedata,
+                                         pressure: pressuredata,
+                                         solidMoisture: solidmoistureData,
+                                         temperture: temperaturedata,
+                                         beji: viewdata.type
             )
             print("firebasecheck\(iotData)")
             completion(iotData)
@@ -92,11 +77,8 @@ class FirebaseAction: NSObject {
         }
     }
     func getChatData(viewdata: CommonData,completion: @escaping([ChatData]) -> (Void)){
-        
         guard let uid = viewdata.uid else { fatalError() }
-        print("uid\(uid)")
         databaseRef.child("chat_room").child("users/\(uid)/username/\(viewdata.type.chatName)/").observeSingleEvent(of: .value, with: { (snapshot) in
-            
             var chatData: [ChatData] = []
             for item in snapshot.children {
                 let child = item as! DataSnapshot
@@ -107,10 +89,18 @@ class FirebaseAction: NSObject {
             let message = value?["message"] as? String ?? ""
             let name = value?["name"] as? String ?? ""
             chatData.append(.init(title: message, message: name))
+            Log.printLog(type: "getChatData", logData: chatData)
             completion(chatData)
-            print("ch\(chatData)")
         }) { (error) in
             print(error.localizedDescription)
         }
     }
+    func postChatData(userMessage: String,viewdata: CommonData, completion: @escaping(ChatData) -> (Void)) {
+        guard let uid = viewdata.uid else { fatalError() }
+        let data = ["name": "me", "message": userMessage]
+        databaseRef.child("chat_room").child("users/\(uid)/username/\(viewdata.type.chatName)/").childByAutoId().setValue(data)
+        let chatData: ChatData = .init(title: data["name"] as? String ?? "", message: data["message"] as? String ?? "")
+        completion(chatData)
+    }
+    
 }

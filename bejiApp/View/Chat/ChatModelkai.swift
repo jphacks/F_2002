@@ -21,49 +21,27 @@ protocol ChatModelProtocol {
 class ChatModelkai: ChatModelProtocol {
     private var auth: Auth?
     private let firebaseManager: FirebaseAction = .init()
+    let mockViewData: CommonData = .init(token: nil, type: .jyagaimo, uid: "028FGl4ElrbVR252OwzjEXTxpwJ2", cultivationId: nil)
     init() {
         auth = Auth.auth()
         firebaseManager.databaseRef = Database.database().reference()
     }
     func getChatData() -> Observable<[ChatData]> {
         return Observable.create { [self] observer in
-            let mockViewData: CommonData = .init(token: nil, type: .jyagaimo, uid: "028FGl4ElrbVR252OwzjEXTxpwJ2", cultivationId: nil)
-            guard let uid = mockViewData.uid else { fatalError() }
-            firebaseManager.databaseRef.child("chat_room").child("users/\(uid)/username/\(mockViewData.type.chatName)/").observeSingleEvent(of: .value, with: { (snapshot) in
-                var chatData: [ChatData] = []
-                for item in snapshot.children {
-                    let child = item as! DataSnapshot
-                    let dic = child.value as! NSDictionary
-                    chatData.append(ChatData(title: dic["name"] as? String ?? "", message: dic["message"] as? String ?? ""))
-                }
-                let value = snapshot.value as? NSDictionary
-                let message = value?["message"] as? String ?? ""
-                let name = value?["name"] as? String ?? ""
-                chatData.append(.init(title: message, message: name))
-                print("ch\(chatData)")
-                observer.onNext(chatData)
+            firebaseManager.getChatData(viewdata: mockViewData) { data in
+                observer.onNext(data)
                 observer.onCompleted()
-            })
-            { (error) in
-                print(error.localizedDescription)
+                print(data)
             }
-//            firebaseManager.getChatData(viewdata: mockViewData) { data in
-//                observer.onNext(data)
-//                observer.onCompleted()
-//                print(data)
-//            }
             return Disposables.create()
         }
     }
     func postMessage(message: String) -> Observable<ChatData> {
         return Observable.create { [self] observer in
-            let data = ["name": "me", "message": message]
-            let mockViewData: CommonData = .init(token: nil, type: .jyagaimo, uid: "028FGl4ElrbVR252OwzjEXTxpwJ2", cultivationId: nil)
-            guard let uid = mockViewData.uid else { fatalError() }
-            firebaseManager.databaseRef.child("chat_room").child("users/\(uid)/username/\(mockViewData.type.chatName)/").childByAutoId().setValue(data)
-            let chatData: ChatData = .init(title: data["name"] as? String ?? "", message: data["message"] as? String ?? "")
-            observer.onNext(chatData)
-            observer.onCompleted()
+            firebaseManager.postChatData(userMessage: message, viewdata: mockViewData) { data in
+                observer.onNext(data)
+                observer.onCompleted()
+            }
             return Disposables.create()
         }
     }
