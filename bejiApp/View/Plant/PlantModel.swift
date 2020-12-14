@@ -13,7 +13,6 @@ import RxSwift
 protocol PlantModelProtocol {
     func getIotData(data: CommonData) -> Observable<IotData>
     func getChatLastData(data: CommonData) -> Observable<ChatData>
-    
 }
 
 class PlantModel: PlantModelProtocol {

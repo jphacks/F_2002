@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ChatModel {
+class Chat {
     var type: BejiMock
     init(type: BejiMock) {
         self.type = type

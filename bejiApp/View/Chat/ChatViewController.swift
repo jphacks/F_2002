@@ -17,13 +17,13 @@ import Firebase
 import RxSwift
 
 final class ChatViewController: MessagesViewController, MessageCellDelegate, MessagesLayoutDelegate, UINavigationControllerDelegate {
-    var messageList: [ChatMessageType] = []
+    private var messageList: [ChatMessageType] = []
     var mockViewData: CommonData = .init(token: nil, type: .ichigo, uid: "2EXSKlJkJWSqzoCh7oi3WpKukHF3", cultivationId: nil)
     private let baseView: UIView = .init()
-    let disposebag = DisposeBag()
+    private let disposebag = DisposeBag()
     let viewModel = ChatViewModel()
     //viewdataType使用
-    lazy var chatModel: ChatModel = .init(type: mockViewData.type)
+    lazy var chatModel: Chat = .init(type: mockViewData.type)
     let clearButton: UIButton = .init()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +34,7 @@ final class ChatViewController: MessagesViewController, MessageCellDelegate, Mes
     }
     private func loadingExistMessage(data: [ChatData]) {
         if data.count == 1 {
-            loadMessage()
+//            loadMessage()
         } else {
             data.forEach {
                 if $0.title == "me"{
@@ -93,13 +93,13 @@ final class ChatViewController: MessagesViewController, MessageCellDelegate, Mes
         
         
     }
-    private func loadMessage() {
-        DispatchQueue.main.async {
-            self.messageList = self.getMessages()
-            self.messagesCollectionView.reloadData()
-            self.messagesCollectionView.scrollToBottom()
-        }
-    }
+//    private func loadMessage() {
+//        DispatchQueue.main.async {
+//            self.messageList = self.getMessages()
+//            self.messagesCollectionView.reloadData()
+//            self.messagesCollectionView.scrollToBottom()
+//        }
+//    }
     
     func makeCameraButton(named: String) -> InputBarButtonItem {
         return InputBarButtonItem()
@@ -118,14 +118,6 @@ final class ChatViewController: MessagesViewController, MessageCellDelegate, Mes
                 picker.delegate = self
                 self.present(picker, animated: true, completion: nil)
             }
-    }
-    private func getMessages() -> [ChatMessageType] {
-        return [
-            createPlantMessage(text: "チャットルームだよ！会話したい時は下の選択ボタンから話したい内容を選択してね！")
-        ]
-    }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
 }
 
@@ -171,11 +163,11 @@ extension ChatViewController {
 
 extension ChatViewController: MessagesDataSource {
     func currentSender() -> SenderType {
-        return ChatUser(senderId: "123", displayName: "自分")
+        return ChatUser(senderId: "", displayName: "自分")
     }
     func otherSender() -> SenderType {
         //viewdata
-        return ChatUser(senderId: "456", displayName: chatModel.type.name)
+        return ChatUser(senderId: "", displayName: chatModel.type.name)
     }
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
         return messageList.count

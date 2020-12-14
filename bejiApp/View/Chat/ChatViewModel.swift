@@ -31,6 +31,7 @@ protocol ChatViewModelType {
 }
 
 class ChatViewModel: ChatViewModelType, ChatViewModelInputs, ChatViewModelOutputs {
+        
     var chatImageReply: PublishRelay<ChatData> = .init()
     
     var chatPlantData: PublishRelay<ChatData> = .init()
@@ -60,6 +61,7 @@ class ChatViewModel: ChatViewModelType, ChatViewModelInputs, ChatViewModelOutput
         chatDatas = model.getChatData()
         onTapMessageButton.subscribe(onNext: { [weak self] message in
             guard let self = self  else { return }
+            print("message押した")
             self.postUserMessage(message: message)
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                 self.postPlantMessage(message: message)
@@ -69,7 +71,7 @@ class ChatViewModel: ChatViewModelType, ChatViewModelInputs, ChatViewModelOutput
         
         onTapCameraButton.subscribe(onNext: { [weak self] image in
             guard let self = self  else { return }
-            self.postImagePlantMassage(image: image)
+//            self.postImagePlantMassage(image: image)
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                 self.postImageUserMessage()
             }
@@ -82,9 +84,9 @@ class ChatViewModel: ChatViewModelType, ChatViewModelInputs, ChatViewModelOutput
     private func postPlantMessage(message: String){
         model.postPlantsMessage(message: message).bind(to: chatPlantData).disposed(by: disposebag)
     }
-    private func postImagePlantMassage(image: UIImage){
-        model.postImage(image: image).bind(to: chatImage).disposed(by: disposebag)
-    }
+//    private func postImagePlantMassage(image: UIImage){
+//        model..bind(to: chatImage).disposed(by: disposebag)
+//    }
     
     private func postImageUserMessage(){
         //type対応

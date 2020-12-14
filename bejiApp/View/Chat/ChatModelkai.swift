@@ -27,9 +27,9 @@ class ChatModelkai: ChatModelProtocol {
     }
     func getChatData() -> Observable<[ChatData]> {
         return Observable.create { [self] observer in
-            let mockViewData: CommonData = .init(token: nil, type: .ichigo, uid: "2EXSKlJkJWSqzoCh7oi3WpKukHF3", cultivationId: nil)
-            firebaseManager.databaseRef.child("chat_room").child("users/\(mockViewData.uid)/username/\(mockViewData.type.chatName)/").observeSingleEvent(of: .value, with: { (snapshot) in
-                
+            let mockViewData: CommonData = .init(token: nil, type: .jyagaimo, uid: "028FGl4ElrbVR252OwzjEXTxpwJ2", cultivationId: nil)
+            guard let uid = mockViewData.uid else { fatalError() }
+            firebaseManager.databaseRef.child("chat_room").child("users/\(uid)/username/\(mockViewData.type.chatName)/").observeSingleEvent(of: .value, with: { (snapshot) in
                 var chatData: [ChatData] = []
                 for item in snapshot.children {
                     let child = item as! DataSnapshot
@@ -47,14 +47,20 @@ class ChatModelkai: ChatModelProtocol {
             { (error) in
                 print(error.localizedDescription)
             }
+//            firebaseManager.getChatData(viewdata: mockViewData) { data in
+//                observer.onNext(data)
+//                observer.onCompleted()
+//                print(data)
+//            }
             return Disposables.create()
         }
     }
     func postMessage(message: String) -> Observable<ChatData> {
         return Observable.create { [self] observer in
             let data = ["name": "me", "message": message]
-            let mockViewData: CommonData = .init(token: nil, type: .ichigo, uid: "2EXSKlJkJWSqzoCh7oi3WpKukHF3", cultivationId: nil)
-            firebaseManager.databaseRef.child("chat_room").child("users/\(mockViewData.uid)/username/\(mockViewData.type.chatName)/").childByAutoId().setValue(data)
+            let mockViewData: CommonData = .init(token: nil, type: .jyagaimo, uid: "028FGl4ElrbVR252OwzjEXTxpwJ2", cultivationId: nil)
+            guard let uid = mockViewData.uid else { fatalError() }
+            firebaseManager.databaseRef.child("chat_room").child("users/\(uid)/username/\(mockViewData.type.chatName)/").childByAutoId().setValue(data)
             let chatData: ChatData = .init(title: data["name"] as? String ?? "", message: data["message"] as? String ?? "")
             observer.onNext(chatData)
             observer.onCompleted()
@@ -63,28 +69,21 @@ class ChatModelkai: ChatModelProtocol {
     }
     func postPlantsMessage(message: String) -> Observable<ChatData> {
         return Observable.create { [self] observer in
-            var mockViewData: CommonData = .init(token: nil, type: .ichigo, uid: "2EXSKlJkJWSqzoCh7oi3WpKukHF3", cultivationId: nil)
-            let chatM = ChatModel(type: mockViewData.type)
-            let reply: String =  chatM.replayMessage(userMessage: ChatModel.UserMessage(rawValue: message)!)
+            var mockViewData: CommonData = .init(token: nil, type: .jyagaimo, uid: "028FGl4ElrbVR252OwzjEXTxpwJ2", cultivationId: nil)
+            let chatM = Chat(type: mockViewData.type)
+            let reply: String =  chatM.replayMessage(userMessage: Chat.UserMessage(rawValue: message)!)
             let data = ["name": "plants", "message": reply]
-            firebaseManager.databaseRef.child("chat_room").child("users/\(String(describing: mockViewData.uid))/username/\(mockViewData.type.chatName)/").childByAutoId().setValue(data)
+            guard let uid = mockViewData.uid else { fatalError() }
+            firebaseManager.databaseRef.child("chat_room").child("users/\(uid)/username/\(mockViewData.type.chatName)/").childByAutoId().setValue(data)
             let chatData: ChatData = .init(title: data["name"] ?? "", message: data["message"] ?? "")
             observer.onNext(chatData)
             observer.onCompleted()
             return Disposables.create()
         }
     }
-    func postImage(image: UIImage) -> Observable<ChatImageData> {
-        return Observable.create { [self] observer in
-            let data = ChatImageData(title: "me", image: image)
-            observer.onNext(data)
-            observer.onCompleted()
-            return Disposables.create()
-        }
-    }
     func postImageReply(type: BejiMock) -> Observable<ChatData> {
         return Observable.create { [self] observer in
-            let chat = ChatModel(type: type)
+            let chat = Chat(type: type)
             let data = ChatData(title: "plants", message: chat.imageMessage)
             observer.onNext(data)
             observer.onCompleted()

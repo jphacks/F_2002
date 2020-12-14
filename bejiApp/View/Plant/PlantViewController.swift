@@ -50,7 +50,9 @@ final class PlantViewController: UIViewController {
     func setRx(){
         viewModel.outputs.loadIotData.subscribe(onNext: { [weak self] data in
             guard self != nil else { return }
-            if data.humidity.status == "ok" && data.illuminance.status == "ok" && data.solidMoisture.status == "ok"
+            if data.humidity.status == "ok" &&
+               data.illuminance.status == "ok" &&
+               data.solidMoisture.status == "ok"
             { print("ok") } else {
                 print("bad")
                 //画像
