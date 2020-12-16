@@ -39,6 +39,8 @@ extension ChatViewController: MessagesDisplayDelegate {
 }
 extension ChatViewController {
     func setUp() {
+        self.navigationItem.titleView = UIImageView(image: chatModel.type.nameImage)
+        self.view.backgroundColor = UIColor(patternImage: chatModel.type.chatbackground)
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
@@ -69,7 +71,6 @@ extension ChatViewController {
         ]
         items.forEach { $0.tintColor = UIColor(hex: "749B59") }
         messageInputBar.setStackViewItems(items, forStack: .left, animated: false)
-//        clearButton.addTarget(self,action: #selector(self.tapButton(_ :)),for: .touchUpInside)
         setMessageInputBar()
     }
     func setupCollectionView() {

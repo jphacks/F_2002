@@ -16,7 +16,7 @@ protocol StartViewModelInputs {
 }
 
 protocol StartViewModelOutputs {
-    var  data: PublishRelay<CommonData> { get }
+    var data: PublishRelay<CommonData> { get }
 }
 
 protocol StartViewModelType {
@@ -25,11 +25,11 @@ protocol StartViewModelType {
 }
 
 final class StartViewModel: StartViewModelType, StartViewModelInputs, StartViewModelOutputs {
+    private let disposebag = DisposeBag()
     var data: PublishRelay<CommonData> = .init()
     var inputs: StartViewModelInputs { return self }
     var outputs: StartViewModelOutputs { return self }
     var onTapStartButton: PublishRelay<Void> = .init()
-    let disposebag = DisposeBag()
     var model = StartModel()
     
     init() {
@@ -38,8 +38,7 @@ final class StartViewModel: StartViewModelType, StartViewModelInputs, StartViewM
             self.register()
         }).disposed(by: disposebag)
     }
-    func register(){
-        print("register")
+    private func register(){
         model.signInAnonymously().bind(to: data).disposed(by: disposebag)
     }
 }

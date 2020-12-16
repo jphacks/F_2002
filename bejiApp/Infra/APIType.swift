@@ -12,7 +12,6 @@ public protocol TargetType {
     var path: String { get }
     var method: String { get }
 }
-
 // 実行されるAPIの種類を管理
 public enum API {
     case users

@@ -16,37 +16,18 @@ import FirebaseDatabase
 import Firebase
 import RxSwift
 
-final class ChatViewController: MessagesViewController, MessageCellDelegate, MessagesLayoutDelegate, UINavigationControllerDelegate {
+ class ChatViewController: MessagesViewController, MessageCellDelegate, MessagesLayoutDelegate, UINavigationControllerDelegate {
     private var messageList: [ChatMessageType] = []
     var mockViewData: CommonData = .init(token: nil, type: .ichigo, uid: "2EXSKlJkJWSqzoCh7oi3WpKukHF3", cultivationId: nil)
     private let baseView: UIView = .init()
     private let disposebag = DisposeBag()
     let viewModel = ChatViewModel()
-    //viewdataType使用
     lazy var chatModel: Chat = .init(type: mockViewData.type)
     let clearButton: UIButton = .init()
     override func viewDidLoad() {
         super.viewDidLoad()
         setRx()
-        self.navigationItem.titleView = UIImageView(image: chatModel.type.nameImage)
-        self.view.backgroundColor = UIColor(patternImage: chatModel.type.chatbackground)
         setUp()
-    }
-    private func loadingExistMessage(data: [ChatData]) {
-        if data.count == 1 {
-//            loadMessage()
-        } else {
-            data.forEach {
-                if $0.title == "me"{
-                    print("me")
-                    loadUserMessage(message: $0.message)
-                }
-                if $0.title == "plants" {
-                    print("plants")
-                    loadPlantsMessage(message: $0.message)
-                }
-            }
-        }
     }
     
     func setRx(){
@@ -78,12 +59,22 @@ final class ChatViewController: MessagesViewController, MessageCellDelegate, Mes
         
         viewModel.outputs.chatDatas.subscribe(onNext: { [weak self] data in
             guard let self = self else { fatalError() }
-            self.loadingExistMessage(data: data)
+            if data.count == 1 {
+            } else {
+                data.forEach {
+                    if $0.title == "me"{
+                        self.loadUserMessage(message: $0.message)
+                    }
+                    if $0.title == "plants" {
+                        self.loadPlantsMessage(message: $0.message)
+                    }
+                }
+            }
         }).disposed(by: disposebag)
         
         viewModel.outputs.chatImage.subscribe(onNext: { [weak self] data in
             guard let self = self else { fatalError() }
-            self.createUserImageMwessage(image: data.image)
+            self.postUserImageMessage(data.image)
         }).disposed(by: disposebag)
         
         viewModel.outputs.chatImageReply.subscribe(onNext: { [weak self] data in
@@ -166,7 +157,6 @@ extension ChatViewController: MessagesDataSource {
         return ChatUser(senderId: "", displayName: "自分")
     }
     func otherSender() -> SenderType {
-        //viewdata
         return ChatUser(senderId: "", displayName: chatModel.type.name)
     }
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
@@ -195,9 +185,5 @@ extension ChatViewController: UIImagePickerControllerDelegate {
         self.dismiss(animated: true, completion: nil)
         guard let image = imag else { return }
         viewModel.inputs.onTapCameraButton.accept(image)
-//        postUserImageMessage(image!)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.postPlantsImageReplyMessage()
-        }
     }
 }

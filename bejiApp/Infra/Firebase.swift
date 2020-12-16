@@ -13,13 +13,12 @@ import FirebaseCore
 import FirebaseStorage
 
 //将来的にFirebaseで画像保存->判別する際に利用するファイル
+//汚いので書き直す
 
 class FirebaseAction: NSObject {
-    
     let storage = Storage.storage()
     var databaseRef: DatabaseReference!
     var userID: String!
-    
     func fileupload(dataUrlStr: String?) -> String {
         let storageRef = storage.reference(forURL: "path/to/project/url")
         let uuid = UUID()
@@ -39,6 +38,8 @@ class FirebaseAction: NSObject {
         }
         return downloadUrl
     }
+    
+    //汚すぎるので後でちゃんと書く
     func getIotData(viewdata: CommonData,completion: @escaping(IotData) -> (Void)){
         guard let uid = viewdata.uid else { fatalError() }
         print("uid\(uid)")
@@ -48,6 +49,22 @@ class FirebaseAction: NSObject {
             dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yMMMdHms", options: 0, locale: Locale(identifier: "ja_JP"))
             print(dateFormatter.string(from: dt))
             let value = snapshot.value as? NSDictionary
+            guard let v = value else { return }
+//            do {
+//                    // Dict -> JSON
+//                let jsonData = try JSONSerialization.data(withJSONObject: v, options: []) //(*)options??
+//
+//                let json = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue)! as String
+//                Log.printLog(type: "jdon", logData: json)
+//                let user = try! JSONDecoder().decode(IotData.self, from: jsonData)
+//
+//                Log.printLog(type: "いえーーい", logData: user)
+//                Log.printLog(type: "jdondata", logData: jsonData)
+//
+//                } catch {
+//                    print("Error!: \(error)")
+//                }
+
             let date =  dateFormatter.string(from: dt)
             let create = value?["createdAt"] as? String ?? ""
             let cultivationId = value?["cultivationId"] as? String ?? ""
@@ -62,7 +79,7 @@ class FirebaseAction: NSObject {
             let solidmoistureData: IotData.Status =  .init(status: solidmoisture?["status"] as? String ?? "", value: solidmoisture?["value"] as? Int ?? 0)
             let temperaturedata: IotData.Status = .init(status: temperature?["status"] as? String ?? "", value: temperature?["value"] as? Int ?? 0)
             var iotData: IotData = .init(created: create, cultivationld: cultivationId,
-                                         humidity: humidityData,
+                                         humidity: humidityData ,
                                          illuminance: illuminancedata,
                                          pressure: pressuredata,
                                          solidMoisture: solidmoistureData,

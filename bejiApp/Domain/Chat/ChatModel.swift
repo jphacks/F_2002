@@ -10,7 +10,6 @@ import UIKit
 import Firebase
 import RxSwift
 
-
 protocol ChatModelProtocol {
     //   func loadExistChatData(data: [ChatData])
     func getChatData() -> Observable<[ChatData]>
@@ -18,7 +17,7 @@ protocol ChatModelProtocol {
     func postPlantsMessage(message: String) -> Observable<ChatData>
 }
 
-class ChatModelkai: ChatModelProtocol {
+class ChatModel: ChatModelProtocol {
     private var auth: Auth?
     private let firebaseManager: FirebaseAction = .init()
     let mockViewData: CommonData = .init(token: nil, type: .jyagaimo, uid: "028FGl4ElrbVR252OwzjEXTxpwJ2", cultivationId: nil)
@@ -47,7 +46,6 @@ class ChatModelkai: ChatModelProtocol {
     }
     func postPlantsMessage(message: String) -> Observable<ChatData> {
         return Observable.create { [self] observer in
-            var mockViewData: CommonData = .init(token: nil, type: .jyagaimo, uid: "028FGl4ElrbVR252OwzjEXTxpwJ2", cultivationId: nil)
             let chatM = Chat(type: mockViewData.type)
             let reply: String =  chatM.replayMessage(userMessage: Chat.UserMessage(rawValue: message)!)
             let data = ["name": "plants", "message": reply]
@@ -59,8 +57,18 @@ class ChatModelkai: ChatModelProtocol {
             return Disposables.create()
         }
     }
+    func postImage(image: UIImage)  -> Observable<ChatImageData>{
+        return Observable.create { observer in
+            let data = ChatImageData(title: "user", image: image)
+            //Todo: Firebaseに画像登録処理
+            observer.onNext(data)
+            observer.onCompleted()
+            return Disposables.create()
+        }
+        
+    }
     func postImageReply(type: BejiMock) -> Observable<ChatData> {
-        return Observable.create { [self] observer in
+        return Observable.create { observer in
             let chat = Chat(type: type)
             let data = ChatData(title: "plants", message: chat.imageMessage)
             observer.onNext(data)

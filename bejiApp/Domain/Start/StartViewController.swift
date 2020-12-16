@@ -16,7 +16,7 @@ import RxCocoa
 final class StartViewController: UIViewController {
     private let baseView: UIView = .init()
     private let logo: UIImageView = .init()
-    private let button: UIButton = .init()
+    private let startButton: UIButton = .init()
     private let disposeBag = DisposeBag()
 //    var viewdata: CommonData!
     private let viewModel: StartViewModel = .init()
@@ -24,26 +24,20 @@ final class StartViewController: UIViewController {
         super.viewDidLoad()
         setUp()
         setRx()
-        var appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.viewdata?.uid = "68JBTDYnvmgIHdDjLuQcx6uLjEm1"
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toSelect" {
-        }
-    }
-    func setRx(){
-        button.rx.tap.bind(to: viewModel.inputs.onTapStartButton).disposed(by: disposeBag)
+
+    private func setRx(){
+        startButton.rx.tap.bind(to: viewModel.inputs.onTapStartButton).disposed(by: disposeBag)
         viewModel.outputs.data.subscribe (onNext: {[weak self] data in
-            guard let self = self else {return}
-            print("Rx\(data)")
+            guard let self = self else { return }
             self.performSegue(withIdentifier: "toSelect", sender: nil)
         }).disposed(by: disposeBag)
     }
 }
 
 extension StartViewController {
-    func setUp() {
-        self.view.addSubviews(baseView, logo, button).activateAutoLayout()
+    private func setUp() {
+        self.view.addSubviews(baseView, logo, startButton).activateAutoLayout()
         NSLayoutConstraint.activate([
             baseView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 88),
             baseView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
@@ -56,12 +50,12 @@ extension StartViewController {
         ])
 //        logo.image = R.image.logo()!
         NSLayoutConstraint.activate([
-            button.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            button.widthAnchor.constraint(equalToConstant: 183),
-            button.heightAnchor.constraint(equalToConstant: 62),
-            button.topAnchor.constraint(equalTo: logo.bottomAnchor, constant: 157)
+            startButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            startButton.widthAnchor.constraint(equalToConstant: 183),
+            startButton.heightAnchor.constraint(equalToConstant: 62),
+            startButton.topAnchor.constraint(equalTo: logo.bottomAnchor, constant: 157)
         ])
-        button.setImage(R.image.button.startButton(), for: .normal)
+        startButton.setImage(R.image.button.startButton(), for: .normal)
         baseView.addBackground(image: R.image.backGround.nomalBackground()!)
     }
 }
