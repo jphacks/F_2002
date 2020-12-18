@@ -17,7 +17,7 @@ protocol PlantViewModelInputs {
 protocol PlantViewModelOutputs {
     var iotData: PublishRelay<IotData> { get }
     var loadChatData: Observable<ChatData> { get }
-    var loadIotData: Observable<IotData> { get }
+    var isGoodIot: Observable<Bool> { get }
 }
 
 protocol PlantViewModelType {
@@ -26,6 +26,8 @@ protocol PlantViewModelType {
 }
 
 class PlantViewModel: PlantViewModelInputs, PlantViewModelOutputs, PlantViewModelType {
+    var isGoodIot: Observable<Bool>
+    
     var loadChatData: Observable<ChatData>
     
     var loadIotData: Observable<IotData>
@@ -42,19 +44,19 @@ class PlantViewModel: PlantViewModelInputs, PlantViewModelOutputs, PlantViewMode
     init(data: CommonData) {
         self.data = data
         //初期読み込みIOT
-        loadIotData = model.getIotData(data: data)
+        isGoodIot = model.getIotData(data: data)
         //初期読み込みチャットデータ
         loadChatData = model.getChatLastData(data: data)
         
         onTapIotButton.subscribe(onNext: { [weak self] _ in
             guard let self = self  else { return }
-            self.getIotData()
+//            self.getIotData()
         }).disposed(by: disposebag)
         
     }
-    private func getIotData(){
-        model.getIotData(data: data).bind(to: iotData).disposed(by: disposebag)
-    }
+//    private func getIotData(){
+//        model.getIotData(data: data).bind(to: iotData).disposed(by: disposebag)
+//    }
 }
 
 

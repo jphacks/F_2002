@@ -9,11 +9,11 @@ import Foundation
 import UIKit
 
 protocol SelectModelProtocol {
-    func postUserDefaults(type: BejiMock)
+    func postUserDefaults(type: Vegitable)
 }
 
 final class SelectModel: SelectModelProtocol {
-    func postUserDefaults(type: BejiMock) {
+    func postUserDefaults(type: Vegitable) {
         UserDefaults.standard.setValue(type.chatName, forKey: "bejiType")
     }
 }

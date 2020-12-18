@@ -49,7 +49,7 @@ final class SelectViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.titleView = UIImageView(image: R.image.plate.selectPlantsPlate())
-        baseView.addBackground(image: R.image.backGround.nomalBackground()! )
+        self.view.addBackground(image: R.image.testBackground()!)
         setUp()
         setRx()
     }
@@ -61,29 +61,20 @@ final class SelectViewController: UIViewController {
                 self.viewModel.inputs.onTapSelectButton.accept(type)
                 self.performSegue(withIdentifier: "toPurchace", sender: nil)
             }).disposed(by: disposeBag)
-            
         }
     }
-    
 }
 extension SelectViewController {
     private func setUp() {
         self.navigationItem.hidesBackButton = true
-        self.view.addSubviews(baseView).activateAutoLayout()
-        NSLayoutConstraint.activate([
-            baseView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 88),
-            baseView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            baseView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            baseView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
-        ])
-        baseView.addSubviews(bigStackView).activateAutoLayout()
+        self.view.addSubviews(bigStackView).activateAutoLayout()
         bigStackView.addArrangedSubviews(leftStackView, rightStackView).activateAutoLayout()
         leftStackView.addArrangedSubviews(potatoButton, onionButton, carrotButton).activateAutoLayout()
         rightStackView.addArrangedSubviews(strawberryButton, eggplantsButton, cucamberButton).activateAutoLayout()
         
         NSLayoutConstraint.activate([
-            bigStackView.centerXAnchor.constraint(equalTo: self.baseView.centerXAnchor),
-            bigStackView.centerYAnchor.constraint(equalTo: self.baseView.centerYAnchor)
+            bigStackView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            bigStackView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: 88)
         ])
         NSLayoutConstraint.activate([
             leftStackView.widthAnchor.constraint(equalToConstant: 127 ),

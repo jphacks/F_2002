@@ -8,8 +8,8 @@
 import Foundation
 
 class Chat {
-    var type: BejiMock
-    init(type: BejiMock) {
+    var type: Vegitable
+    init(type: Vegitable) {
         self.type = type
     }
     enum UserMessage: String {

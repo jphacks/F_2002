@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-public enum BejiMock: String, Codable {
+public enum Vegitable: String, Codable {
     case tamanegi = "タマネギ"
     case ninjin = "にんじん"
     case nasu = "なす"

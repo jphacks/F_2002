@@ -37,18 +37,19 @@ final class StartViewController: UIViewController {
 
 extension StartViewController {
     private func setUp() {
-        self.view.addSubviews(baseView, logo, startButton).activateAutoLayout()
+        self.view.addSubviews(logo, startButton).activateAutoLayout()
+//        NSLayoutConstraint.activate([
+//            baseView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 88),
+//            baseView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+//            baseView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+//            baseView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+//        ])
         NSLayoutConstraint.activate([
-            baseView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 88),
-            baseView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            baseView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            baseView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+//            logo.topAnchor.constraint(equalTo: baseView.topAnchor, constant: 183),
+            logo.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            logo.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
         ])
-        NSLayoutConstraint.activate([
-            logo.topAnchor.constraint(equalTo: baseView.topAnchor, constant: 183),
-            logo.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
-        ])
-//        logo.image = R.image.logo()!
+        logo.image = R.image.logo()!
         NSLayoutConstraint.activate([
             startButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             startButton.widthAnchor.constraint(equalToConstant: 183),
@@ -56,6 +57,8 @@ extension StartViewController {
             startButton.topAnchor.constraint(equalTo: logo.bottomAnchor, constant: 157)
         ])
         startButton.setImage(R.image.button.startButton(), for: .normal)
-        baseView.addBackground(image: R.image.backGround.nomalBackground()!)
+//        baseView.addBackground(image: R.image.backGround.nomalBackground()!)
+        self.view.addBackground(image:  R.image.testBackground()!)
+        
     }
 }

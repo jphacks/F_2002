@@ -41,7 +41,7 @@ extension UIView {
     }
     func addBackground(image: UIImage) {
         let width = UIScreen.main.bounds.size.width
-        let height = UIScreen.main.bounds.size.height - 88
+        let height = UIScreen.main.bounds.size.height
         let imageViewBackground = UIImageView(frame: CGRect(x: 0, y: 0, width: width, height: height))
         imageViewBackground.image = image.resize(size: .init(width: width, height: height))
         imageViewBackground.contentMode = UIView.ContentMode.scaleAspectFill

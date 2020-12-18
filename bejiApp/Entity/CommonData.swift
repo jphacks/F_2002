@@ -9,7 +9,7 @@ import Foundation
 
 struct CommonData {
     var token: String?
-    var type: BejiMock = .ichigo
+    var type: Vegitable = .ichigo
     var uid: String?
     var cultivationId: String?
 }

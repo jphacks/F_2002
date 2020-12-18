@@ -10,9 +10,9 @@ import UIKit
 import RxSwift
 
 class PlantButton: UIButton {
-    var plantType: PublishSubject<BejiMock> = .init()
-    var type: BejiMock = .ichigo
-    init(type: BejiMock) {
+    var plantType: PublishSubject<Vegitable> = .init()
+    var type: Vegitable = .ichigo
+    init(type: Vegitable) {
         super.init(frame: .zero)
         self.type = type
         self.setImage(type.plantsButtonImage, for: .normal)

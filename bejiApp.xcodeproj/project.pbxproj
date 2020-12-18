@@ -21,7 +21,7 @@
 		0E062BC62553A6EB00CEAB3E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0E062BC52553A6EB00CEAB3E /* Alamofire */; };
 		0E062BCC2553A70200CEAB3E /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 0E062BCB2553A70200CEAB3E /* SwiftyJSON */; };
 		0E062BD12553A90F00CEAB3E /* MessageMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BD02553A90F00CEAB3E /* MessageMock.swift */; };
-		0E062BDE2553E34D00CEAB3E /* BejiMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BDD2553E34D00CEAB3E /* BejiMock.swift */; };
+		0E062BDE2553E34D00CEAB3E /* Vegitable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BDD2553E34D00CEAB3E /* Vegitable.swift */; };
 		0E062BE42554147600CEAB3E /* NetWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BE32554147600CEAB3E /* NetWork.swift */; };
 		0E062BEE2554150A00CEAB3E /* APIType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BED2554150A00CEAB3E /* APIType.swift */; };
 		0E062BF32554151D00CEAB3E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E062BF22554151D00CEAB3E /* Model.swift */; };
@@ -64,6 +64,8 @@
 		0ED2FC702583AC0E0070B165 /* ChatImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED2FC6F2583AC0E0070B165 /* ChatImageData.swift */; };
 		0ED2FC7E2583AFB60070B165 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED2FC7D2583AFB60070B165 /* ChatModel.swift */; };
 		0ED2FCF925874A470070B165 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED2FCF825874A470070B165 /* Log.swift */; };
+		0EDDBB19258D6EEB00AF7389 /* BaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDDBB18258D6EEB00AF7389 /* BaseAPI.swift */; };
+		0EDDBB22258D6F1600AF7389 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDDBB21258D6F1600AF7389 /* APIClient.swift */; };
 		0EFA9C4325551448004267E9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0EFA9C4225551448004267E9 /* GoogleService-Info.plist */; };
 		0EFA9D2225583CF3004267E9 /* ChatVC + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFA9D2125583CF3004267E9 /* ChatVC + Extension.swift */; };
 		A939A9762694533366656215 /* Pods_bejiApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6F8B16243AB1ABAE072403C /* Pods_bejiApp.framework */; };
@@ -107,7 +109,7 @@
 		0E062BB42553004C00CEAB3E /* PlantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantViewController.swift; sourceTree = "<group>"; };
 		0E062BB925535F5600CEAB3E /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		0E062BD02553A90F00CEAB3E /* MessageMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageMock.swift; sourceTree = "<group>"; };
-		0E062BDD2553E34D00CEAB3E /* BejiMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BejiMock.swift; sourceTree = "<group>"; };
+		0E062BDD2553E34D00CEAB3E /* Vegitable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vegitable.swift; sourceTree = "<group>"; };
 		0E062BE32554147600CEAB3E /* NetWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWork.swift; sourceTree = "<group>"; };
 		0E062BED2554150A00CEAB3E /* APIType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIType.swift; sourceTree = "<group>"; };
 		0E062BF22554151D00CEAB3E /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -146,6 +148,8 @@
 		0ED2FC6F2583AC0E0070B165 /* ChatImageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatImageData.swift; sourceTree = "<group>"; };
 		0ED2FC7D2583AFB60070B165 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		0ED2FCF825874A470070B165 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		0EDDBB18258D6EEB00AF7389 /* BaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPI.swift; sourceTree = "<group>"; };
+		0EDDBB21258D6F1600AF7389 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		0EFA9C4225551448004267E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0EFA9D2125583CF3004267E9 /* ChatVC + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatVC + Extension.swift"; sourceTree = "<group>"; };
 		2B895CC088FE5F7B07BCF724 /* Pods-bejiApp-bejiAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bejiApp-bejiAppUITests.release.xcconfig"; path = "Target Support Files/Pods-bejiApp-bejiAppUITests/Pods-bejiApp-bejiAppUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -282,7 +286,7 @@
 		0E062B962552F9E000CEAB3E /* Infra */ = {
 			isa = PBXGroup;
 			children = (
-				0ED2FC662583AB740070B165 /* Chat */,
+				0EDDBB26258D6F8400AF7389 /* Service */,
 				0E062BE32554147600CEAB3E /* NetWork.swift */,
 				0E062BED2554150A00CEAB3E /* APIType.swift */,
 				0E062BF72554163400CEAB3E /* Firebase.swift */,
@@ -293,11 +297,10 @@
 		0E062BA32552FB9100CEAB3E /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				0EDDBB1D258D6F0600AF7389 /* API */,
 				0EB2524E257A5E9B00057E6D /* Extension */,
-				0ED2FC652580A7CC0070B165 /* New Group */,
 				0E4FB3F0256F760100D73A64 /* Modal */,
 				0E062BA42552FBA500CEAB3E /* Extension.swift */,
-				0E062BDD2553E34D00CEAB3E /* BejiMock.swift */,
 				0ED2FCF825874A470070B165 /* Log.swift */,
 			);
 			path = Util;
@@ -410,13 +413,6 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		0ED2FC652580A7CC0070B165 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "New Group";
-			sourceTree = "<group>";
-		};
 		0ED2FC662583AB740070B165 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
@@ -425,6 +421,32 @@
 				0E26CF56255BF3BF00716E27 /* Chat.swift */,
 			);
 			path = Chat;
+			sourceTree = "<group>";
+		};
+		0EDDBB1D258D6F0600AF7389 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				0EDDBB21258D6F1600AF7389 /* APIClient.swift */,
+				0EDDBB18258D6EEB00AF7389 /* BaseAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		0EDDBB26258D6F8400AF7389 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				0EDDBB28258D6FB500AF7389 /* Vegitable */,
+				0ED2FC662583AB740070B165 /* Chat */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		0EDDBB28258D6FB500AF7389 /* Vegitable */ = {
+			isa = PBXGroup;
+			children = (
+				0E062BDD2553E34D00CEAB3E /* Vegitable.swift */,
+			);
+			path = Vegitable;
 			sourceTree = "<group>";
 		};
 		3495EE6B414689D513FF12C4 /* Pods */ = {
@@ -748,6 +770,7 @@
 				0E4FB404256F76BA00D73A64 /* OverCurrentTransitioningInteractor.swift in Sources */,
 				0ED2FC2B257E4D2C0070B165 /* PlantViewModel.swift in Sources */,
 				0E062BF82554163400CEAB3E /* Firebase.swift in Sources */,
+				0EDDBB22258D6F1600AF7389 /* APIClient.swift in Sources */,
 				0E4FB47C2572300E00D73A64 /* IotData.swift in Sources */,
 				0E1D1EFA257E273400C0CBA7 /* SelectModel.swift in Sources */,
 				0E4FB3F2256F761A00D73A64 /* ModalPresentationController.swift in Sources */,
@@ -755,7 +778,7 @@
 				0EB252302579127800057E6D /* R.generated.swift in Sources */,
 				0E062BE42554147600CEAB3E /* NetWork.swift in Sources */,
 				0E062BF32554151D00CEAB3E /* Model.swift in Sources */,
-				0E062BDE2553E34D00CEAB3E /* BejiMock.swift in Sources */,
+				0E062BDE2553E34D00CEAB3E /* Vegitable.swift in Sources */,
 				0E062BA52552FBA500CEAB3E /* Extension.swift in Sources */,
 				0ED2FC17257E319B0070B165 /* PurchaceViewController.swift in Sources */,
 				0EB2525A257AFF7900057E6D /* PurchaceModel.swift in Sources */,
@@ -766,6 +789,7 @@
 				0ED2FC7E2583AFB60070B165 /* ChatModel.swift in Sources */,
 				0E062BBA25535F5600CEAB3E /* ChatViewController.swift in Sources */,
 				0E4FB3F7256F763D00D73A64 /* DismissAnimator.swift in Sources */,
+				0EDDBB19258D6EEB00AF7389 /* BaseAPI.swift in Sources */,
 				0EFA9D2225583CF3004267E9 /* ChatVC + Extension.swift in Sources */,
 				0E1D1EF4257E164800C0CBA7 /* String.swift in Sources */,
 				0E062BB52553004C00CEAB3E /* PlantViewController.swift in Sources */,

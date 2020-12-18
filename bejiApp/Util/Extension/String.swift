@@ -15,7 +15,7 @@ extension String {
         guard let string = UserDefaults.standard.string(forKey: key) else { return  "value is nill"}
         return string
     }
-    func getUserDefaultsPlant() -> BejiMock {
+    func getUserDefaultsPlant() -> Vegitable {
         switch self {
             case "strawberry" : return .ichigo
             case "potato" : return .jyagaimo

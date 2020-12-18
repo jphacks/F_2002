@@ -19,7 +19,7 @@ final class PlantViewController: UIViewController {
     private let iotButton: UIButton = .init()
     private let baseView: UIView = .init()
     private let statusBadSignal: UIImageView = .init()
-    private var type : BejiMock?
+    private var type : Vegitable?
     private let disposeBag = DisposeBag()
     
     var viewData: CommonData = {
@@ -50,13 +50,6 @@ final class PlantViewController: UIViewController {
     func setRx(){
         viewModel.outputs.loadIotData.subscribe(onNext: { [weak self] data in
             guard self != nil else { return }
-            if data.humidity.status == "ok" &&
-               data.illuminance.status == "ok" &&
-               data.solidMoisture.status == "ok"
-            { print("ok") } else {
-                print("bad")
-                //画像
-            }
         }).disposed(by: disposeBag)
         
         viewModel.outputs.loadChatData.subscribe(onNext: { [weak self] data in

@@ -24,6 +24,7 @@ import RxSwift
     let viewModel = ChatViewModel()
     lazy var chatModel: Chat = .init(type: mockViewData.type)
     let clearButton: UIButton = .init()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setRx()
@@ -84,14 +85,6 @@ import RxSwift
         
         
     }
-//    private func loadMessage() {
-//        DispatchQueue.main.async {
-//            self.messageList = self.getMessages()
-//            self.messagesCollectionView.reloadData()
-//            self.messagesCollectionView.scrollToBottom()
-//        }
-//    }
-    
     func makeCameraButton(named: String) -> InputBarButtonItem {
         return InputBarButtonItem()
               .configure {

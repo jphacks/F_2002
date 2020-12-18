@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 
 protocol SelectViewModelInputs {
-    var onTapSelectButton: PublishRelay<BejiMock> { get }
+    var onTapSelectButton: PublishRelay<Vegitable> { get }
 }
 
 protocol SelectViewModelOutputs {
@@ -27,7 +27,7 @@ final class SelectViewModel: SelectViewModelType, SelectViewModelInputs, SelectV
     var inputs: SelectViewModelInputs { return self}
     var outputs: SelectViewModelOutputs { return self}
     
-    var onTapSelectButton: PublishRelay<BejiMock> = .init()
+    var onTapSelectButton: PublishRelay<Vegitable> = .init()
     var data: PublishRelay<CommonData> = .init()
     let disposebag: DisposeBag = .init()
     let model = SelectModel()
@@ -39,7 +39,7 @@ final class SelectViewModel: SelectViewModelType, SelectViewModelInputs, SelectV
             self.registerPlants(type: type)
         }).disposed(by: disposebag)
     }
-    func registerPlants(type: BejiMock){
+    func registerPlants(type: Vegitable){
         model.postUserDefaults(type: type )
     }
 }

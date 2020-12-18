@@ -67,7 +67,7 @@ class ChatModel: ChatModelProtocol {
         }
         
     }
-    func postImageReply(type: BejiMock) -> Observable<ChatData> {
+    func postImageReply(type: Vegitable) -> Observable<ChatData> {
         return Observable.create { observer in
             let chat = Chat(type: type)
             let data = ChatData(title: "plants", message: chat.imageMessage)

@@ -48,7 +48,7 @@ struct IotData {
     let pressure: Status
     let solidMoisture: Status
     let temperture: Status
-    let beji: BejiMock?
+    let beji: Vegitable?
     
     struct Status {
         let status: String

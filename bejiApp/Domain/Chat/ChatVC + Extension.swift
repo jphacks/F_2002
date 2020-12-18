@@ -47,9 +47,8 @@ extension ChatViewController {
         messagesCollectionView.messageCellDelegate = self
         messageInputBar.delegate = self
         messageInputBar.sendButton.tintColor = UIColor.lightGray
-
         messageInputBar.addSubviews(clearButton).activateAutoLayout()
-        clearButton.backgroundColor = .red
+        messageInputBar.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             clearButton.heightAnchor.constraint(equalTo: messageInputBar.inputTextView.heightAnchor),
             clearButton.widthAnchor.constraint(equalTo: messageInputBar.inputTextView.widthAnchor),
