@@ -30,7 +30,7 @@ class PlantViewModel: PlantViewModelInputs, PlantViewModelOutputs, PlantViewMode
     
     var loadChatData: Observable<ChatData>
     
-    var loadIotData: Observable<IotData>
+    
     
     var iotData: PublishRelay<IotData> = .init()
     var inputs: PlantViewModelInputs { return self}

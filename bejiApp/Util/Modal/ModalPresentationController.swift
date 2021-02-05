@@ -10,7 +10,6 @@ import UIKit
 
 final class ModalPresentationController: UIPresentationController {
     private let overlayView = UIView()
-
     override func presentationTransitionWillBegin() {
         super.presentationTransitionWillBegin()
 
@@ -50,3 +49,5 @@ final class ModalPresentationController: UIPresentationController {
         presentedView!.frame = frameOfPresentedViewInContainerView
     }
 }
+
+

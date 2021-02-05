@@ -65,12 +65,11 @@
 		0ED2FC7E2583AFB60070B165 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED2FC7D2583AFB60070B165 /* ChatModel.swift */; };
 		0ED2FCF925874A470070B165 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED2FCF825874A470070B165 /* Log.swift */; };
 		0EDDBB19258D6EEB00AF7389 /* BaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDDBB18258D6EEB00AF7389 /* BaseAPI.swift */; };
-		0EDDBB22258D6F1600AF7389 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDDBB21258D6F1600AF7389 /* APIClient.swift */; };
-		0EFA9C4325551448004267E9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0EFA9C4225551448004267E9 /* GoogleService-Info.plist */; };
 		0EFA9D2225583CF3004267E9 /* ChatVC + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFA9D2125583CF3004267E9 /* ChatVC + Extension.swift */; };
 		A939A9762694533366656215 /* Pods_bejiApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6F8B16243AB1ABAE072403C /* Pods_bejiApp.framework */; };
 		D31B8F4338DF5B50022DE539 /* Pods_bejiAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34740079FD73BFA30ED0ADCC /* Pods_bejiAppTests.framework */; };
 		E6630C09E2CB4ED425680877 /* Pods_bejiApp_bejiAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83F8D617A80468DD6226C350 /* Pods_bejiApp_bejiAppUITests.framework */; };
+		ECFC55A125CBC46800AFDF48 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ECFC55A025CBC46800AFDF48 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,7 +149,6 @@
 		0ED2FCF825874A470070B165 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		0EDDBB18258D6EEB00AF7389 /* BaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPI.swift; sourceTree = "<group>"; };
 		0EDDBB21258D6F1600AF7389 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
-		0EFA9C4225551448004267E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0EFA9D2125583CF3004267E9 /* ChatVC + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatVC + Extension.swift"; sourceTree = "<group>"; };
 		2B895CC088FE5F7B07BCF724 /* Pods-bejiApp-bejiAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bejiApp-bejiAppUITests.release.xcconfig"; path = "Target Support Files/Pods-bejiApp-bejiAppUITests/Pods-bejiApp-bejiAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		2F495B7FEABFBC20A044BF5C /* Pods-bejiApp-bejiAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bejiApp-bejiAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-bejiApp-bejiAppUITests/Pods-bejiApp-bejiAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -158,6 +156,7 @@
 		4418F6334E8AD43C056CF59B /* Pods-bejiAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bejiAppTests.release.xcconfig"; path = "Target Support Files/Pods-bejiAppTests/Pods-bejiAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		83F8D617A80468DD6226C350 /* Pods_bejiApp_bejiAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bejiApp_bejiAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6F8B16243AB1ABAE072403C /* Pods_bejiApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bejiApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECFC55A025CBC46800AFDF48 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		ED0782FBD129EA75D7E0EA44 /* Pods-bejiApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bejiApp.debug.xcconfig"; path = "Target Support Files/Pods-bejiApp/Pods-bejiApp.debug.xcconfig"; sourceTree = "<group>"; };
 		F3E8C503D543A45C90B5E4F8 /* Pods-bejiAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bejiAppTests.debug.xcconfig"; path = "Target Support Files/Pods-bejiAppTests/Pods-bejiAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -229,9 +228,9 @@
 				0E062B952552F9C600CEAB3E /* Entity */,
 				0E062B942552F9B500CEAB3E /* Domain */,
 				0E062B5E2552EF6800CEAB3E /* AppDelegate.swift */,
+				ECFC55A025CBC46800AFDF48 /* GoogleService-Info.plist */,
 				0E062B602552EF6800CEAB3E /* SceneDelegate.swift */,
 				0E062B672552EF6900CEAB3E /* Assets.xcassets */,
-				0EFA9C4225551448004267E9 /* GoogleService-Info.plist */,
 				0E062B692552EF6900CEAB3E /* LaunchScreen.storyboard */,
 				0E062BB32552FF9400CEAB3E /* StoryBoard */,
 				0E062B6C2552EF6900CEAB3E /* Info.plist */,
@@ -599,10 +598,10 @@
 			files = (
 				0EB251712578B0D500057E6D /* .swiftlint.yml in Resources */,
 				0E062B6B2552EF6900CEAB3E /* LaunchScreen.storyboard in Resources */,
-				0EFA9C4325551448004267E9 /* GoogleService-Info.plist in Resources */,
 				0E062B682552EF6900CEAB3E /* Assets.xcassets in Resources */,
 				0E062B662552EF6800CEAB3E /* Main.storyboard in Resources */,
 				0E7AD053256F4C3000647E03 /* SemiModalViewController.storyboard in Resources */,
+				ECFC55A125CBC46800AFDF48 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -770,7 +769,6 @@
 				0E4FB404256F76BA00D73A64 /* OverCurrentTransitioningInteractor.swift in Sources */,
 				0ED2FC2B257E4D2C0070B165 /* PlantViewModel.swift in Sources */,
 				0E062BF82554163400CEAB3E /* Firebase.swift in Sources */,
-				0EDDBB22258D6F1600AF7389 /* APIClient.swift in Sources */,
 				0E4FB47C2572300E00D73A64 /* IotData.swift in Sources */,
 				0E1D1EFA257E273400C0CBA7 /* SelectModel.swift in Sources */,
 				0E4FB3F2256F761A00D73A64 /* ModalPresentationController.swift in Sources */,

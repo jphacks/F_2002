@@ -48,9 +48,9 @@ final class PlantViewController: UIViewController {
     }
     
     func setRx(){
-        viewModel.outputs.loadIotData.subscribe(onNext: { [weak self] data in
-            guard self != nil else { return }
-        }).disposed(by: disposeBag)
+//        viewModel.outputs.loadIotData.subscribe(onNext: { [weak self] data in
+//            guard self != nil else { return }
+//        }).disposed(by: disposeBag)
         
         viewModel.outputs.loadChatData.subscribe(onNext: { [weak self] data in
             guard let self = self else { return }

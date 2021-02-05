@@ -49,7 +49,7 @@ extension StartViewController {
             logo.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             logo.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
         ])
-        logo.image = R.image.logo()!
+//        logo.image = R.image.logo()!
         NSLayoutConstraint.activate([
             startButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             startButton.widthAnchor.constraint(equalToConstant: 183),

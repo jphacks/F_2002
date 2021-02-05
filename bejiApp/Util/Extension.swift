@@ -32,6 +32,7 @@ public extension CALayer {
         }
     }
 }
+
 public func randomString(length: Int) -> String {
   let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
   return String((0..<length).map{ _ in letters.randomElement()! })
@@ -118,6 +119,7 @@ extension UIApplication {
 }
 extension UIImage {
     func resize(size: CGSize) -> UIImage? {
+        //比率が1/1だからそりゃ変わらないわ
         let widthRatio = size.width / size.width
         let heightRatio = size.height / size.height
         let ratio = widthRatio < heightRatio ? widthRatio : heightRatio
