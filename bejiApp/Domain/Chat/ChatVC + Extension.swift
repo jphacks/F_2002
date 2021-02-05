@@ -32,7 +32,7 @@ extension ChatViewController: MessagesDisplayDelegate {
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
         if message.sender.displayName == "自分" {}
         if message.sender.displayName == mockViewData.type.name {
-            let avatar = Avatar(image: mockViewData.type.getIcon, initials: "な")
+            let avatar = Avatar(image: mockViewData.type.getIcon, initials: "hoge")
             avatarView.set(avatar: avatar)
         }
     }

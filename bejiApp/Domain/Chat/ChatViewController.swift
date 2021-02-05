@@ -62,6 +62,7 @@ import RxSwift
             guard let self = self else { fatalError() }
             if data.count == 1 {
             } else {
+                print(data)
                 data.forEach {
                     if $0.title == "me"{
                         self.loadUserMessage(message: $0.message)
@@ -147,10 +148,10 @@ extension ChatViewController {
 
 extension ChatViewController: MessagesDataSource {
     func currentSender() -> SenderType {
-        return ChatUser(senderId: "", displayName: "自分")
+        return ChatUser(senderId: "123", displayName: "自分")
     }
     func otherSender() -> SenderType {
-        return ChatUser(senderId: "", displayName: chatModel.type.name)
+        return ChatUser(senderId: "456", displayName: chatModel.type.name)
     }
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
         return messageList.count
