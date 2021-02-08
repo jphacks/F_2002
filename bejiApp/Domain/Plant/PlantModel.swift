@@ -11,17 +11,29 @@ import Firebase
 import RxSwift
 
 protocol PlantModelProtocol {
-    func getIotData(data: CommonData) -> Observable<Bool>
     func getChatLastData(data: CommonData) -> Observable<ChatData>
+    func getIotData(data: CommonData) -> Observable<IotData>
+    func isGood(data: CommonData) -> Observable<Bool>
 }
 
 class PlantModel: PlantModelProtocol {
-    func getIotData(data: CommonData) -> Observable<Bool> {
+    func isGood(data: CommonData) -> Observable<Bool> {
         return Observable.create { [self] observer in
             firebaseManager.getIotData(viewdata: data) {
                 iot in
-                var isGood: Bool = self.validateIotData(data: iot)
-                observer.onNext(isGood)
+                
+                observer.onNext(validateIotData(data: iot))
+                observer.onCompleted()
+            }
+            return Disposables.create()
+        }
+    }
+   
+    func getIotData(data: CommonData) -> Observable<IotData> {
+        return Observable.create { [self] observer in
+            firebaseManager.getIotData(viewdata: data) {
+                iot in
+                observer.onNext(iot)
                 observer.onCompleted()
             }
             return Disposables.create()

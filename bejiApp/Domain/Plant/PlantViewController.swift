@@ -24,7 +24,7 @@ final class PlantViewController: UIViewController {
     
     var viewData: CommonData = {
         var data = CommonData()
-        guard let value: String = UserDefaults.standard.string(forKey: "bejiType") else { fatalError()}
+        guard let value: String = UserDefaults.standard.string(forKey: "bejiType") else { fatalError() }
         guard let id: String = UserDefaults.standard.string(forKey: "uid") else { fatalError()}
         guard let token: String = UserDefaults.standard.string(forKey: "token") else { fatalError()}
         data.type = value.getUserDefaultsPlant()
