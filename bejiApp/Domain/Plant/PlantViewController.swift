@@ -85,8 +85,10 @@ extension PlantViewController {
         self.navigationItem.titleView = UIImageView(image: viewData.type.nameImage)
         self.view.addSubviews(baseView).activateAutoLayout()
         baseView.addSubviews(commentView, chatButton, iotButton, dayLabel, statusBadSignal, commentLabel).activateAutoLayout()
+        let statusBar = UIApplication.shared.statusBarFrame.size.height
+        let navigationHeight = self.navigationController?.navigationBar.frame.size.height
         NSLayoutConstraint.activate([
-            baseView.topAnchor.constraint(equalTo: self.view.topAnchor,constant: 88),
+            baseView.topAnchor.constraint(equalTo: self.view.topAnchor,constant: statusBar + navigationHeight!),
             baseView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             baseView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             baseView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
@@ -113,8 +115,8 @@ extension PlantViewController {
         commentLabel.layer.cornerRadius = 10
         
         NSLayoutConstraint.activate([
-            dayLabel.leadingAnchor.constraint(equalTo: baseView.leadingAnchor, constant: 44),
-            dayLabel.topAnchor.constraint(equalTo: baseView.topAnchor, constant: 111),
+            dayLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 44),
+            dayLabel.bottomAnchor.constraint(equalTo: self.commentView.topAnchor, constant: -20),
             dayLabel.widthAnchor.constraint(equalToConstant: 120),
             dayLabel.heightAnchor.constraint(equalToConstant: 30)
         ])

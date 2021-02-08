@@ -37,6 +37,10 @@ final class StartViewController: UIViewController {
 
 extension StartViewController {
     private func setUp() {
+        let statusBar = UIApplication.shared.statusBarFrame.size.height
+        print(statusBar)
+        let navigationHeight = self.navigationController?.navigationBar.frame.size.height
+        print(navigationHeight!)
         self.view.addSubviews(logo, startButton).activateAutoLayout()
 //        NSLayoutConstraint.activate([
 //            baseView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 88),
