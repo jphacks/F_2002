@@ -42,7 +42,7 @@ class FirebaseAction: NSObject {
     //汚すぎるので後でちゃんと書く
     func getIotData(viewdata: CommonData,completion: @escaping(IotData) -> (Void)){
         guard let uid = viewdata.uid else { fatalError() }
-        print("uid\(uid)")
+       
         databaseRef.child("device_data").child("4fafc201-1fb5-459e-8fcc-c5c9c331914b").observeSingleEvent(of: .value, with: { (snapshot) in
             let dateFormatter = DateFormatter()
             let dt = Date()
@@ -86,7 +86,7 @@ class FirebaseAction: NSObject {
                                          temperture: temperaturedata,
                                          beji: viewdata.type
             )
-            print("firebasecheck\(iotData)")
+            
             completion(iotData)
             
         }) { (error) in
@@ -106,7 +106,7 @@ class FirebaseAction: NSObject {
             let message = value?["message"] as? String ?? ""
             let name = value?["name"] as? String ?? ""
             chatData.append(.init(title: message, message: name))
-            Log.printLog(type: "getChatData", logData: chatData)
+            
             completion(chatData)
         }) { (error) in
             print(error.localizedDescription)

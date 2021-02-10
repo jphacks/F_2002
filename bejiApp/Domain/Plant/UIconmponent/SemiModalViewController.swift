@@ -136,9 +136,6 @@ public class SemiModalViewController: UIViewController, OverCurrentTransitionabl
         timelabel.text = data.created
         commentLabel.text = data.beji?.iotGoodStatus
         commentLabel.textColor = .black
-        print(data.humidity.status)
-        print(data.solidMoisture.status)
-        print(data.illuminance.status)
         //Todo: アイコン変更
         if data.humidity.status == "ng"{
             humidityLabel.setImage(image: R.image.icon.bad()!)

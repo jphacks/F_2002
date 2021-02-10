@@ -20,8 +20,15 @@ protocol ChatModelProtocol {
 class ChatModel: ChatModelProtocol {
     private var auth: Auth?
     private let firebaseManager: FirebaseAction = .init()
-    let mockViewData: CommonData = .init(token: nil, type: .jyagaimo, uid: "028FGl4ElrbVR252OwzjEXTxpwJ2", cultivationId: nil)
+    var mockViewData: CommonData = .init(token: nil, type: .jyagaimo, uid: "028FGl4ElrbVR252OwzjEXTxpwJ2", cultivationId: nil)
+    var type: Vegitable?
+    
     init() {
+        //初期化するタイミングで
+        guard let value: String = UserDefaults.standard.string(forKey: "bejiType") else { fatalError()}
+        type = value.getUserDefaultsPlant()
+        mockViewData.type = type!
+        
         auth = Auth.auth()
         firebaseManager.databaseRef = Database.database().reference()
     }

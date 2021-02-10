@@ -52,53 +52,7 @@ class StartModel: StartModelProtocol {
             print("response: \(response)")
             print("data: \(data)")
 //            print("user: \(String(describing: user))")
+            print("登録")
         }
     }
-    
-//    func purchacePlants(data: CommonData) {
-//        guard let token = data.token else {
-//            fatalError("notToken")
-//        }
-//        let parameters: [String: Any]? = [
-//            "plant_id": 1,
-//            "nick_name": "じゃがーくん2世"
-//        ]
-//        let header: HTTPHeaders? = ["Authentication": token]
-//        print("tes確認\(token)")
-//        let url = "https://d3or1724225rbx.cloudfront.net/user/cultivations/3"
-//        AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers:
-//                    header ).responseJSON { response  in
-//                        switch response.result {
-//                            case .success(let res):
-//                                print("testjson\(res)")
-//                            case .failure(let error):
-//                                print(error)
-//                        }
-//                    }
-//    }
-//    private func purchacePlant(data: CommonData){
-//        guard let token = data.token else {
-//            fatalError()
-//        }
-//        let parameters: [String : Any]? = [
-//            "plant_id": 1,
-//            "nick_name": "じゃがーくん2世"
-//        ]
-//        let header: HTTPHeaders? = ["Authorization": token]
-//        let url = "https://d3or1724225rbx.cloudfront.net/user/cultivations"
-//        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers:
-//                    header ).responseJSON { response  in
-//                        switch response.result {
-//                            case .success(let res):
-//                                print("json\(res)")
-//
-//                            case .failure(let error): print(error)
-//                        }
-//                        print("json\(response)")
-//                        guard let data = response.data else { return }
-//                        print(data)
-//                        let user = try? JSONDecoder().decode(CultivationIdModel.self, from: data)
-//                        print(user)
-//                    }
-//    }
 }

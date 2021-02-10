@@ -18,6 +18,7 @@ import RxSwift
 
  class ChatViewController: MessagesViewController, MessageCellDelegate, MessagesLayoutDelegate, UINavigationControllerDelegate {
     private var messageList: [ChatMessageType] = []
+    var type : Vegitable?
     var mockViewData: CommonData = .init(token: nil, type: .ichigo, uid: "2EXSKlJkJWSqzoCh7oi3WpKukHF3", cultivationId: nil)
     private let baseView: UIView = .init()
     private let disposebag = DisposeBag()
@@ -27,6 +28,9 @@ import RxSwift
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        guard let value: String = UserDefaults.standard.string(forKey: "bejiType") else { fatalError()}
+        type = value.getUserDefaultsPlant()
+        mockViewData.type = type!
         setRx()
         setUp()
     }
