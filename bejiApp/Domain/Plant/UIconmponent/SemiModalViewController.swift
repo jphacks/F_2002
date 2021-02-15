@@ -133,7 +133,13 @@ public class SemiModalViewController: UIViewController, OverCurrentTransitionabl
         return vc
     }
     func updateStatus(data: IotData){
-        timelabel.text = data.created
+        // 現在日時を取得
+        let now = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "ydMMMHms", options: 0, locale: Locale(identifier: "ja_JP"))
+        print(dateFormatter.string(from: now)) // 2018年10月28日 18:17:38
+
+        timelabel.text = dateFormatter.string(from: now)
         commentLabel.text = data.beji?.iotGoodStatus
         commentLabel.textColor = .black
         //Todo: アイコン変更

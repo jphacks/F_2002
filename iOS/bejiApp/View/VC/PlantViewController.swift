@@ -88,6 +88,7 @@ extension PlantViewController {
         dayLabel.backgroundColor = .clear
         dayLabel.text = "栽培1日目"
         dayLabel.font = .boldSystemFont(ofSize: 20)
+        dayLabel.textColor = .blue
         
         NSLayoutConstraint.activate([
             chatButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 265),
